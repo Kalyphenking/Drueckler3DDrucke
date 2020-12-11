@@ -1,0 +1,12 @@
+/*hier bitte Styles für Button, Links, Schriften, etc. rein*/
+/*nur klasse, also .<className>*/
+/*jedes hthml element kann somit Teil der kKlasse sein und die Eigenschaften zugewiesen bekommen*/
+
+/*für form*/
+.btn {
+    border-radius: 5px;
+}
+/*für besondere Merkmale*/
+.btn-abort {
+    color: red;
+}
