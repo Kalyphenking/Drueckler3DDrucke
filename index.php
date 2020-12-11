@@ -1,11 +1,21 @@
+<?php
+    require_once './core/config.php';
+?>
+
 <!DOCTYPE html>
 
-<html lang="de">
-<header>
+<html lang="de" xml:lang="de">
+<head>
+    <title>Drückler 3D Drucke</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/default.css'?>">
+    <script src="<?=ROOTPATH.'js/default.js'?>"></script>
 
-</header>
+</head>
 
 <body>
-
+    <?php
+        include(ROOTPATH.'site.php');
+    ?>
 </body>
 </html>
