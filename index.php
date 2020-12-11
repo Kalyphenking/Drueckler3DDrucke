@@ -15,7 +15,7 @@
 
 <body>
     <?php
-        include(ROOTPATH.'site.php');
+        include(VIEWPATH.'main.php');
     ?>
 </body>
 </html>
