@@ -15,7 +15,7 @@
 
 <body>
     <?php
-        include(VIEWPATH.'main.php');
+        include(VIEWPATH . 'mainPage.php');
     ?>
 </body>
 </html>
