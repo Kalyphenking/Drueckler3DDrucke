@@ -1,0 +1,31 @@
+Dynamic Table:
+
+<?php
+
+$numberOfRows = $_SESSION['filamentCount']; //'orderCount'/'carCount'
+cellID: filamentColor
+cellID: filamentType
+?>
+
+<table id="myTable">
+<?php
+	for ($index = 0; $index <= $numberOfRows; $index++) {
+	   echo(
+	   
+    	<tr>
+      		<td><p id=\"filamentColor$index\"></p></td>
+      		<td><p id=\"filamentType$index\"></p></td>
+      		<td><p id=\"pricePerGramm$index\"></p></td>
+    	</tr>
+	   
+	   );
+	}
+?>
+</table>
+
+<script>login()</script>
+
+
+Damit wird eine leere Tabelle ohne inhalt erstellt, aber mit der richtigen anzahl an Zeilen
+Mit jeder Zeile, bekommt die id den Index der zeile zugeordnet, sodass diese über JS zugeordnet und beschrieben werden können
+Der Backslash for den Anführungseichen ist notwendig um diese in der Ausgabe als solche darzustellen.

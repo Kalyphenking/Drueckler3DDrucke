@@ -1,0 +1,24 @@
+PageSwitch
+
+$currentPage = isset($_GET['currentPage']) ? $_GET['cureentPage'] : '';
+
+
+switch($currentPage) 
+{
+	case 'mainPage':
+		include (VIEWPATH.'mainPage.php');
+	break;
+	case 'shoppingCart':
+		include (VIEWPATH.'shoppingCart.php');
+	break;
+	case 'userMenu':
+		include (VIEWPATH.'userMenu.php');
+	break;
+	default:
+		echo 'Error 404';
+	break;
+}
+
+
+Video 7 Login Session vom 16. November
+Ab Minute 4
