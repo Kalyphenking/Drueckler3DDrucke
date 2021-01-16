@@ -1,5 +1,18 @@
 <?php
     require_once 'config'.DIRECTORY_SEPARATOR.'paths.php';
+
+    foreach(glob('core/*.php') as $coreClass)
+    {
+        require_once $coreClass;
+    }
+
+    foreach(glob('model/*.php') as $modelClass)
+    {
+        require_once $modelClass;
+    }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +28,7 @@
 
 <body>
     <?php
-        include(VIEWSPATH . 'mainPage.php');
+        include(VIEWSPATH . 'administration' . DIRECTORY_SEPARATOR . 'mainPage.php');
     ?>
 </body>
 </html>
