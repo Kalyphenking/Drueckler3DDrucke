@@ -1,5 +1,5 @@
 <?php
-    require_once './core/config.php';
+    require_once 'config'.DIRECTORY_SEPARATOR.'paths.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 
 <body>
     <?php
-        include(VIEWPATH . 'mainPage.php');
+        include(VIEWSPATH . 'mainPage.php');
     ?>
 </body>
 </html>
