@@ -13,6 +13,6 @@ class PaymentData extends Model
 
 		'iban' => ['type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 22],
 		'bill' => ['type' => BaseModel::TYPE_BIT],
-		'creditCard_id' => ['type' => BaseModel::TYPE_INT]
+		'CreditCard_id' => ['type' => BaseModel::TYPE_INT]
 	];
 }

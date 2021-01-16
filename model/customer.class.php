@@ -13,6 +13,6 @@ class Customer extends Model
 
 		'paymentID' => ['type' => BaseModel::TYPE_INT],
 		'guest' => ['type' => BaseModel::TYPE_BIT],
-		'contactID' => ['type' => BaseModel::TYPE_INT]
+		'ContactData_id' => ['type' => BaseModel::TYPE_INT]
 	];
 }

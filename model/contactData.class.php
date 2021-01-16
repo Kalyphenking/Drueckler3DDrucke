@@ -16,6 +16,6 @@ class ContactData extends Model
 		'phoneNumber' => ['type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 50],
 		'emailAddress' => ['type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 50],
 		'username' => ['type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 50],
-		'passwort' => ['type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 50]
+		'password' => ['type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 50]
 	];
 }
