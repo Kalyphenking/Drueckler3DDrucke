@@ -40,6 +40,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="<?=ROOTPATH.'css/default.css'?>">
+
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/menuStyles.css'?>">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/Styles.css'?>">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/topBottom.css'?>">
+
     <script src="<?=ROOTPATH.'js/default.js'?>"></script>
 
 </head>
