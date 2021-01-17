@@ -22,6 +22,23 @@
         $actionName = $_GET['a'];
     }
 
+    if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
+    {
+
+	    require_once CONTROLLERSPATH.$controllerName.'Controller.php';
+
+
+
+	    $controllerClass = '\\DDDDD\\controller\\' . ucfirst($controllerName).'Controller';
+
+
+        $controller = new $controllerClass($controllerName, $actionName);
+
+
+    } else {
+
+	    die('404 Controller you call does not exists');
+    }
 
 
 
@@ -55,19 +72,22 @@
 <!---->
 <!--    </div>-->
 
-    <nav class="menu">
-        <a href="/" class="menu-button">
-            <img src="<?=IMAGESPATH.'Logo.png'?>">
-        </a>
+<nav class="menu">
+    <a href="/" class="menu-button">
+        <img src="<?=IMAGESPATH.'Logo.png'?>">
+    </a>
 
-        <div class="items">
-            <a  href="index.php?" class="item">Home</a>
-            <a  href="index.php?c=pages&a=shop" class="item">Shop</a>
-            <a  href="index.php?c=pages&a=kontakt" class="item">Kontakt</a>
-            <a  href="index.php?c=pages&a=customer" class="item">Benutzer</a>
-            <a  href="index.php?c=pages&a=impressum" class="item">Impressum</a>
-        </div>
-        <a class="item login">Login / Registrierung</a>
-    </nav>
+    <div class="items">
+        <a  href="index.php?" class="item">Home</a>
+        <a  href="index.php?c=order&a=shop" class="item">Shop</a>
+        <a  href="index.php?c=main&a=kontakt" class="item">Kontakt</a>
+        <a  href="index.php?c=user&a=customer" class="item">Benutzer</a>
+        <a  href="index.php?c=main&a=impressum" class="item">Impressum</a>
+    </div>
+    <a class="index.php?c=main&a=login">Login / Registrierung</a>
+</nav>
+    <?php
+        $controller->render();
+    ?>
 </body>
 </html>
