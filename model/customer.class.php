@@ -7,12 +7,12 @@ class Customer extends Model
 	const TABLENAME = '`Customer`';
 
 	protected $shema = [
-		'id' => ['type' => BaseModel::TYPE_INTEGER],
-		'createdAt' => ['type' => BaseModel::TYPE_STRING],
-		'updatedAt' => ['type' => BaseModel::TYPE_STRING],
+		'id' => ['type' => Model::TYPE_INT],
+		'createdAt' => ['type' => Model::TYPE_STRING],
+		'updatedAt' => ['type' => Model::TYPE_STRING],
 
-		'paymentID' => ['type' => BaseModel::TYPE_INT],
-		'guest' => ['type' => BaseModel::TYPE_BIT],
-		'ContactData_id' => ['type' => BaseModel::TYPE_INT]
+		'paymentID' => ['type' => Model::TYPE_INT],
+		'guest' => ['type' => Model::TYPE_BIT],
+		'ContactData_id' => ['type' => Model::TYPE_INT]
 	];
 }

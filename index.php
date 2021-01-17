@@ -1,5 +1,10 @@
 <?php
-    require_once 'config'.DIRECTORY_SEPARATOR.'paths.php';
+//    require_once 'config'.DIRECTORY_SEPARATOR.'paths.php';
+
+    foreach(glob('config/*.php') as $configClass)
+    {
+        require_once $configClass;
+    }
 
     foreach(glob('core/*.php') as $coreClass)
     {
@@ -10,6 +15,8 @@
     {
         require_once $modelClass;
     }
+
+    session_start();
 
     if(isset($_GET['c']))
     {
@@ -26,6 +33,7 @@
 	    $actionName = 'main';
     }
 
+
 //    echo CONTROLLERSPATH.$controllerName.'Controller.php <br>';
 
     if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
@@ -36,15 +44,21 @@
 
 	    $controllerClass = '\\DDDDD\\controller\\' . ucfirst($controllerName).'Controller';
 
-
-
         $controller = new $controllerClass($controllerName, $actionName);
+
+//	    $actionMethod = 'action'.ucfirst($actionName);
+	    if(method_exists($controller, $actionName))
+	    {
+		    $controller->{$actionName}();
+	    }
 
 
     } else {
 
 	    die('404 Controller you call does not exists');
     }
+
+    $error = Array();
 
 ?>
 
@@ -85,7 +99,10 @@
         <a  href="index.php?c=user&a=usermenu" class="item">Benutzer</a>
         <a  href="index.php?c=main&a=impressum" class="item">Impressum</a>
     </div>
-    <a href="index.php?c=main&a=login" class="item login">Login / Registrierung</a>
+    <a href="index.php?c=main&a=login" class="item login">Login</a>
+
+    <a> / </a>
+    <a href="index.php?c=main&a=register" class="item register">Registrierung</a>
 </nav>
     <?php
         $controller->render();

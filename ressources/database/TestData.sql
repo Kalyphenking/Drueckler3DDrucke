@@ -6,7 +6,7 @@ USE Drueckler3DDrucke;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Address` (`id`, `createAt`, `updatedAt`, `street`, `number`, `postalCode`, `city`, `country`) VALUES 
+INSERT INTO `Address` (`id`, `createdAt`, `updatedAt`, `street`, `number`, `postalCode`, `city`, `country`) VALUES 
 (NULL, current_timestamp(), NULL, 'Hans Loch Straße', '2', '99099', 'Erfurt', 'Deutschland'),
 (NULL, current_timestamp(), NULL, 'Magdeburger Alle', '7', '99086', 'Erfurt', 'Deutschland'),
 (NULL, current_timestamp(), NULL, 'Buddestraße', '18', '99099', 'Erfurt', 'Deutschland'),
@@ -29,7 +29,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `ContactData` (`id`, `createAt`, `updatedAt`, `addressID`, `firstName`, `lastName`, `phoneNumber`, `emailAddress`, `username`, `password`) VALUES 
+INSERT INTO `ContactData` (`id`, `createdAt`, `updatedAt`, `addressID`, `firstName`, `lastName`, `phoneNumber`, `emailAddress`, `username`, `password`) VALUES 
 (NULL, current_timestamp(), NULL, '1', 'Peter', 'Hase', '03615557738', 'peterhase@lol.com', 'ich', 'passwort'),
 (NULL, current_timestamp(), NULL, '2', 'Rainer', 'Zufall', NULL, 'rainerzufall@gmail.com', 'habe', 'passwort'),
 (NULL, current_timestamp(), NULL, '3', 'Tom', 'Hanks', '18949948198', 'tomtom@web.com', 'keine', 'password'),
@@ -55,7 +55,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `CreditCard` (`id`, `createAt`, `updatedAt`, `number`, `type`, `owner`, `expiryDate`, `securityCode`) VALUES 
+INSERT INTO `CreditCard` (`id`, `createdAt`, `updatedAt`, `number`, `type`, `owner`, `expiryDate`, `securityCode`) VALUES 
 (NULL, current_timestamp(), NULL, '123443215678', 'MasterCard', 'Peters Frau', '2022-04-06', '349'),
 (NULL, current_timestamp(), NULL, '478498494949', 'VisaCard', 'Hans Zimmer', '2023-07-04', '545'),
 (NULL, current_timestamp(), NULL, '516894166496', 'FakeCard', 'Ronalda Schmidt', '2020-02-08', '992'),
@@ -69,7 +69,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `PaymentData` (`id`, `createAt`, `updatedAt`, `iban`, `bill`, `CreditCard_id`) VALUES 
+INSERT INTO `PaymentData` (`id`, `createdAt`, `updatedAt`, `iban`, `bill`, `CreditCard_id`) VALUES 
 (NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, b'0', '1'), 
 (NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, b'1', NULL),
 (NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, b'0', '2'),
@@ -88,7 +88,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Customer` (`id`, `createAt`, `updatedAt`, `paymentID`, `guest`, `ContactData_id`) VALUES 
+INSERT INTO `Customer` (`id`, `createdAt`, `updatedAt`, `paymentID`, `guest`, `ContactData_id`) VALUES 
 (NULL, current_timestamp(), NULL, '1', b'0', '1'),
 (NULL, current_timestamp(), NULL, '2', b'0', '2'),
 (NULL, current_timestamp(), NULL, '10', b'0', '3'),
@@ -107,7 +107,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Employee` (`id`, `createAt`, `updatedAt`, `admin`, `ContactData_id`) VALUES 
+INSERT INTO `Employee` (`id`, `createdAt`, `updatedAt`, `admin`, `ContactData_id`) VALUES 
 (NULL, current_timestamp(), NULL, b'1', '11'),
 (NULL, current_timestamp(), NULL, b'0', '12'),
 (NULL, current_timestamp(), NULL, b'0', '13'),
@@ -122,7 +122,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Filaments` (`id`, `createAt`, `updatedAt`, `fileName`, `color`, `type`, `producer`) VALUES
+INSERT INTO `Filaments` (`id`, `createdAt`, `updatedAt`, `fileName`, `color`, `type`, `producer`) VALUES
 (NULL, '2021-01-11 13:09:54', NULL, 'sunlu_pla_plus_red.txt', 'red', 'PLA', 'Sunlu'),
 (NULL, '2021-01-11 13:10:41', NULL, 'sunlu_pla_plus_green.txt', 'green', 'PLA', 'Sunlu'),
 (NULL, '2021-01-11 13:10:41', NULL, 'sunlu_pla_plus_blue.txt', 'blue', 'PLA', 'Sunlu'),
@@ -138,7 +138,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Orders` (`id`, `createAt`, `updatedAt`, `Customer_id`, `price`, `payed`, `Employee_id`) VALUES 
+INSERT INTO `Orders` (`id`, `createdAt`, `updatedAt`, `Customer_id`, `price`, `payed`, `Employee_id`) VALUES 
 (NULL, current_timestamp(), NULL, '1', '24.95', b'1', '1'),
 (NULL, current_timestamp(), NULL, '2', '36.74', b'0', '2'),
 (NULL, current_timestamp(), NULL, '2', '18.64', b'0', '1'),
@@ -158,7 +158,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `PrintSettings` (`id`, `createAt`, `updatedAt`, `resolution`, `infill`) VALUES 
+INSERT INTO `PrintSettings` (`id`, `createdAt`, `updatedAt`, `resolution`, `infill`) VALUES 
 (NULL, current_timestamp(), NULL, '0.12', '0.80'),
 (NULL, current_timestamp(), NULL, '0.2', '1.00'),
 (NULL, current_timestamp(), NULL, '0.12', '0.70'),
@@ -179,7 +179,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Models` (`id`, `createAt`, `updatedAt`, `fileName`) VALUES 
+INSERT INTO `Models` (`id`, `createdAt`, `updatedAt`, `fileName`) VALUES 
 (NULL, current_timestamp(), NULL, 'Blume.stl'),
 (NULL, current_timestamp(), NULL, 'Hund.stl'),
 (NULL, current_timestamp(), NULL, 'Stock.stl'),
@@ -199,10 +199,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `PrintConfig` (`id`, `createAt`, `updatedAt`, `Filaments_id`, `Models_id`, `PrintSettings_id`, `Orders_id`, `amount`) VALUES 
+INSERT INTO `PrintConfig` (`id`, `createdAt`, `updatedAt`, `Filaments_id`, `Models_id`, `PrintSettings_id`, `Orders_id`, `amount`) VALUES 
 (NULL, current_timestamp(), NULL, '6', '1', '4', '4', '3');
 
-INSERT INTO `PrintConfig` (`id`, `createAt`, `updatedAt`, `Filaments_id`, `Models_id`, `PrintSettings_id`, `Orders_id`, `amount`) VALUES 
+INSERT INTO `PrintConfig` (`id`, `createdAt`, `updatedAt`, `Filaments_id`, `Models_id`, `PrintSettings_id`, `Orders_id`, `amount`) VALUES 
 (NULL, current_timestamp(), NULL, '1', '1', '1', '1', '1'),
 (NULL, current_timestamp(), NULL, '6', '1', '1', '1', '1'),
 (NULL, current_timestamp(), NULL, '2', '2', '2', '2', '1'),
@@ -227,7 +227,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Pricing` (`id`, `createAt`, `updatedAt`, `shiping`, `workPerHour`, `energyPerHour`, `taxes`, `country`, `grammsPerHour`) 
+INSERT INTO `Pricing` (`id`, `createdAt`, `updatedAt`, `shiping`, `workPerHour`, `energyPerHour`, `taxes`, `country`, `grammsPerMinute`) 
 VALUES (NULL, current_timestamp(), NULL, '4.95', '3.215', '0.157', '0.19', 'Deutschland', '20.26');
 
 COMMIT;

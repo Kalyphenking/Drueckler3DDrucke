@@ -27,6 +27,7 @@ class Model
 
 	public function __get($key) {
 
+
 //		echo json_encode($this->shema);
 
 		if(array_key_exists($key, $this->data)) {
@@ -52,26 +53,47 @@ class Model
 		}
 	}
 
-	protected function insert(&$errors) {
+	public function insert(&$errors) {
 		$db = $GLOBALS['db'];
 
+//		echo 'INSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERT';
+//		echo '<br>';
+//		echo '<br>';
+//		echo json_encode($this->data);
+//		echo '<br>';
+//		echo '<br>';
+//		echo json_encode($this->shema);
+//		echo '<br>';
+//		echo '<br>';
+
+
+
 		try {
-			$sql = 'insert into ' . self::tablename() . '(';
-			$valueString = ' values (';
+			$sql = 'INSERT INTO ' . self::tablename() . '(';
+			$valueString = ' VALUES (';
+
+
 
 			foreach ($this->shema as $key => $shemaOptions) {
-				$sql .= '`' . $key . '`,';
+				$sql .= '`' . $key . '`, ';
+
+				echo $sql . '<br>';
+//				echo '<br><br></br>läuft<br><br>';
 
 				if($this->data[$key] === null) {
 					$valueString .= 'null, ';
 				} else {
 					$valueString .= $db->quote($this->data[$key]) . ',';
 				}
-			}
 
-			$sql = trim($sql, ',');
+			}
+			echo $sql . '1 <br>';
+			$sql = trim($sql, ', ');
+			echo $sql . '2 <br>';
 			$valueString = trim($valueString, ',');
 			$sql .= ')' . $valueString . ')';
+
+			echo $sql . ' <br>';
 
 			$statement = $db->prepare($sql);
 			$statement->execute();
@@ -84,7 +106,7 @@ class Model
 		return false;
 	}
 
-	protected function update(&$errors) {
+	public function update(&$errors) {
 		$db = $GLOBALS['db'];
 
 		try {
@@ -175,38 +197,17 @@ class Model
 		return null;
 	}
 
-	public static function load() {
-		$db = $GLOBALS['db'];
-		$result = null;
 
-		try {
-			$sql = 'select * from ' . self::tablename();
-//
-//			if (!empty($where)) {
-//				$sql .= ' where ' . $where . ';';
-//				echo $sql;
-//			}
 
-//			echo $sql;
-
-			$result = $db->query($sql)->fetchAll();
-		}
-		catch (\PDOException $e) {
-			die('Select statement failed: ' . $e->getMessage());
-		}
-
-		return $result;
-	}
-
-	public static function find($where = '') {
+	public static function find($key = '', $value = '') {
 		$db = $GLOBALS['db'];
 		$result = null;
 
 		try {
 			$sql = 'select * from ' . self::tablename();
 
-			if (!empty($where)) {
-				$sql .= ' where ' . $where . ';';
+			if (!empty($value) && !empty($key)) {
+				$sql .= ' where ' . '`'.$key.'`' . ' = ' . '\''.$value.'\'' . ';';
 				echo $sql;
 			}
 

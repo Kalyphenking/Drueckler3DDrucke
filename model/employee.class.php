@@ -7,11 +7,11 @@ class Employee extends Model
 	const TABLENAME = '`Employee`';
 
 	protected $shema = [
-		'id' => ['type' => BaseModel::TYPE_INTEGER],
-		'createdAt' => ['type' => BaseModel::TYPE_STRING],
-		'updatedAt' => ['type' => BaseModel::TYPE_STRING],
+		'id' => ['type' => Model::TYPE_INT],
+		'createdAt' => ['type' => Model::TYPE_STRING],
+		'updatedAt' => ['type' => Model::TYPE_STRING],
 
-		'admin' => ['type' => BaseModel::TYPE_BIT],
-		'ContactData_id' => ['type' => BaseModel::TYPE_INT]
+		'admin' => ['type' => Model::TYPE_BIT],
+		'ContactData_id' => ['type' => Model::TYPE_INT]
 	];
 }

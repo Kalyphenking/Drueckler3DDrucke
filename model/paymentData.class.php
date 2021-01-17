@@ -7,12 +7,12 @@ class PaymentData extends Model
 	const TABLENAME = '`PaymentData`';
 
 	protected $shema = [
-		'id' => ['type' => BaseModel::TYPE_INTEGER],
-		'createdAt' => ['type' => BaseModel::TYPE_STRING],
-		'updatedAt' => ['type' => BaseModel::TYPE_STRING],
+		'id' => ['type' => Model::TYPE_INT],
+		'createdAt' => ['type' => Model::TYPE_STRING],
+		'updatedAt' => ['type' => Model::TYPE_STRING],
 
-		'iban' => ['type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 22],
-		'bill' => ['type' => BaseModel::TYPE_BIT],
-		'CreditCard_id' => ['type' => BaseModel::TYPE_INT]
+		'iban' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 22],
+		'bill' => ['type' => Model::TYPE_BIT],
+		'CreditCard_id' => ['type' => Model::TYPE_INT]
 	];
 }
