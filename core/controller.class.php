@@ -18,7 +18,7 @@ class Controller
 
 		$view = VIEWSPATH . $this->controller . DIRECTORY_SEPARATOR . $this->action . '.php';
 
-		echo $view;
+//		echo $view;
 
 		include $view;
 	}

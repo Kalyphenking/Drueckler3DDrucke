@@ -26,7 +26,7 @@
 	    $actionName = 'main';
     }
 
-    echo CONTROLLERSPATH.$controllerName.'Controller.php <br>';
+//    echo CONTROLLERSPATH.$controllerName.'Controller.php <br>';
 
     if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
     {
