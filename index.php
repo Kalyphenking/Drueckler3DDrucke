@@ -14,22 +14,28 @@
     if(isset($_GET['c']))
     {
         $controllerName = $_GET['c'];
+    } else {
+	    $controllerName = 'main';
     }
 
     // check an action is given
     if(isset($_GET['a']))
     {
         $actionName = $_GET['a'];
+    } else {
+	    $actionName = 'main';
     }
+
+    echo CONTROLLERSPATH.$controllerName.'Controller.php <br>';
 
     if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
     {
 
+
 	    require_once CONTROLLERSPATH.$controllerName.'Controller.php';
 
-
-
 	    $controllerClass = '\\DDDDD\\controller\\' . ucfirst($controllerName).'Controller';
+
 
 
         $controller = new $controllerClass($controllerName, $actionName);
@@ -39,11 +45,6 @@
 
 	    die('404 Controller you call does not exists');
     }
-
-
-
-
-
 
 ?>
 
@@ -78,13 +79,13 @@
     </a>
 
     <div class="items">
-        <a  href="index.php?" class="item">Home</a>
-        <a  href="index.php?c=order&a=shop" class="item">Shop</a>
+        <a  href="index.php" class="item">Home</a>
+        <a  href="index.php?c=order&a=modelConfiguration" class="item">Shop</a>
         <a  href="index.php?c=main&a=kontakt" class="item">Kontakt</a>
-        <a  href="index.php?c=user&a=customer" class="item">Benutzer</a>
+        <a  href="index.php?c=user&a=usermenu" class="item">Benutzer</a>
         <a  href="index.php?c=main&a=impressum" class="item">Impressum</a>
     </div>
-    <a class="index.php?c=main&a=login">Login / Registrierung</a>
+    <a href="index.php?c=main&a=login" class="item login">Login / Registrierung</a>
 </nav>
     <?php
         $controller->render();

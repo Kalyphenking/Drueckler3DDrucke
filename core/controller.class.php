@@ -2,19 +2,23 @@
 
 namespace DDDDD\core;
 
-class controller
+class Controller
 {
-	protected $controller  = 'main';
-	protected $action 	   = 'main';
+	protected $controller  = NULL;
+	protected $action 	   = NULL;
 
-	function __constructor($controller, $action) {
+
+	function __construct($controller, $action) {
 		$this->action = $action;
 		$this->controller = $controller;
+
 	}
 
 	function render() {
 
-		$view = VIEWSPATH . DIRECTORY_SEPARATOR . $this->controller . DIRECTORY_SEPARATOR . $this->action . '.php';
+		$view = VIEWSPATH . $this->controller . DIRECTORY_SEPARATOR . $this->action . '.php';
+
+		echo $view;
 
 		include $view;
 	}
