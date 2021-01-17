@@ -11,7 +11,7 @@
     height: 360px;
 
     background-color: #333333;
-    background-image: url(Pics/Placeholders/InBuild.PNG);
+    background-image: url(../ressources/images/Placeholders/InBuild.PNG);
     background-size: cover;
     background-repeat: no-repeat;
 }
