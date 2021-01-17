@@ -45,8 +45,23 @@
 </head>
 
 <body>
-    <?php
-        include(VIEWSPATH . 'administration' . DIRECTORY_SEPARATOR . 'mainPage.php');
-    ?>
+    <div class = "Top">
+        <div><img src = "" alt = "3D Drückler Text"></div>
+    </div>
+
+    <nav class="menu">
+        <a href="/" class="menu-button">
+            <img src="Pics/Logo.png">
+        </a>
+
+        <div class="items">
+            <a  href="mainPage.html" class="item">Home</a>
+            <a  href="shop.html" class="item">Shop</a>
+            <a  href="/" class="item">Kontakt</a>
+            <a  href="/" class="item">Benutzer</a>
+            <a  href="/" class="item">Impressum</a>
+        </div>
+        <a class="item login">Login / Registrierung</a>
+    </nav>
 </body>
 </html>
