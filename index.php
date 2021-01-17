@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="<?=ROOTPATH.'css/default.css'?>">
 
     <link rel="stylesheet" href="<?=ROOTPATH.'css/menuStyles.css'?>">
-    <link rel="stylesheet" href="<?=ROOTPATH.'css/Styles.css'?>">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/miscStyles.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/topBottom.css'?>">
 
     <script src="<?=ROOTPATH.'js/default.js'?>"></script>
@@ -50,10 +50,10 @@
 </head>
 
 <body>
-    <div class = "Top">
-        <div><img src = "" alt = "3D Drückler Text"></div>
-
-    </div>
+<!--    <div class = "Top">-->
+<!--        <div><img src = "" alt = "3D Drückler Text"></div>-->
+<!---->
+<!--    </div>-->
 
     <nav class="menu">
         <a href="/" class="menu-button">
