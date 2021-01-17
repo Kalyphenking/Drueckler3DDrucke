@@ -61,11 +61,11 @@
         </a>
 
         <div class="items">
-            <a  href="mainPage.html" class="item">Home</a>
-            <a  href="shop.html" class="item">Shop</a>
-            <a  href="/" class="item">Kontakt</a>
-            <a  href="/" class="item">Benutzer</a>
-            <a  href="/" class="item">Impressum</a>
+            <a  href="index.php?" class="item">Home</a>
+            <a  href="index.php?c=pages&a=shop" class="item">Shop</a>
+            <a  href="index.php?c=pages&a=kontakt" class="item">Kontakt</a>
+            <a  href="index.php?c=pages&a=customer" class="item">Benutzer</a>
+            <a  href="index.php?c=pages&a=impressum" class="item">Impressum</a>
         </div>
         <a class="item login">Login / Registrierung</a>
     </nav>
