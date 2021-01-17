@@ -52,11 +52,12 @@
 <body>
     <div class = "Top">
         <div><img src = "" alt = "3D Drückler Text"></div>
+
     </div>
 
     <nav class="menu">
         <a href="/" class="menu-button">
-            <img src="Pics/Logo.png">
+            <img src="<?=IMAGESPATH.'Logo.png'?>">
         </a>
 
         <div class="items">
