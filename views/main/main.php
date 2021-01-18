@@ -1,3 +1,3 @@
 <!-- hier kommt die Hauptseite rein -->
 
-<h1>Hallo</h1>
+<h1>Main</h1>

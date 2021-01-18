@@ -1,3 +1,3 @@
 <?php
 
-echo 'Tschö';
+echo 'Login';
