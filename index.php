@@ -38,8 +38,6 @@
 
     if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
     {
-
-
 	    require_once CONTROLLERSPATH.$controllerName.'Controller.php';
 
 	    $controllerClass = '\\DDDDD\\controller\\' . ucfirst($controllerName).'Controller';
@@ -82,29 +80,16 @@
 </head>
 
 <body>
-<!--    <div class = "Top">-->
-<!--        <div><img src = "" alt = "3D Drückler Text"></div>-->
-<!---->
-<!--    </div>-->
 
-<nav class="menu">
-    <a href="/" class="menu-button">
-        <img src="<?=IMAGESPATH.'Logo.png'?>">
-    </a>
-
-    <div class="items">
-        <a  href="index.php" class="item">Home</a>
-        <a  href="index.php?c=order&a=modelConfiguration" class="item">Shop</a>
-        <a  href="index.php?c=main&a=kontakt" class="item">Kontakt</a>
-        <a  href="index.php?c=user&a=usermenu" class="item">Benutzer</a>
-        <a  href="index.php?c=main&a=impressum" class="item">Impressum</a>
-    </div>
-    <a href="index.php?c=main&a=login" class="item login">Login</a>
-
-    <a> / </a>
-    <a href="index.php?c=main&a=register" class="item register">Registrierung</a>
-</nav>
     <?php
+        if (!($controllerName == 'main' && ($actionName == 'register' || $actionName == 'login'))) {
+            echo $controllerName;
+            echo '<br>';
+            echo $actionName;
+	        echo '<br>';
+            include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
+        }
+
         $controller->render();
     ?>
 </body>

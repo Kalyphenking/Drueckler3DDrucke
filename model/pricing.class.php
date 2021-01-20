@@ -4,7 +4,7 @@
 namespace DDDDD\model;
 
 
-class Pricing
+class Pricing extends Model
 {
 
 }

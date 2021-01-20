@@ -10,11 +10,11 @@ class MainController extends Controller
 
 	function login() {
 
-		echo '<br><br> login <br><br>';
+//		echo '<br><br> login <br><br>';
 
 		if (isset($_POST['submit'])) {
 
-			echo '<br> submit <br>';
+//			echo '<br> submit <br>';
 
 			if(!empty($_POST['username'])
 				&& !empty($_POST['password']))
@@ -44,11 +44,11 @@ class MainController extends Controller
 
 	function register() {
 
-		echo '<br><br> register <br><br>';
+//		echo '<br><br> register <br><br>';
 
 		if (isset($_POST['submit'])) {
 
-			echo '<br> submit <br>';
+//			echo '<br> submit <br>';
 
 			if(!empty($_POST['firstName'])
 				&& !empty($_POST['lastName'])

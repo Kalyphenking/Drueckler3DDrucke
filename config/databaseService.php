@@ -3,7 +3,7 @@
 
 //namespace ProjektPHP\config;
 
-echo 'database';
+//echo 'database';
 
 $dbName = 'Drueckler3DDrucke';
 

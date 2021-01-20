@@ -122,13 +122,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Filaments` (`id`, `createdAt`, `updatedAt`, `fileName`, `color`, `type`, `producer`) VALUES
-(NULL, '2021-01-11 13:09:54', NULL, 'sunlu_pla_plus_red.txt', 'red', 'PLA', 'Sunlu'),
-(NULL, '2021-01-11 13:10:41', NULL, 'sunlu_pla_plus_green.txt', 'green', 'PLA', 'Sunlu'),
-(NULL, '2021-01-11 13:10:41', NULL, 'sunlu_pla_plus_blue.txt', 'blue', 'PLA', 'Sunlu'),
-(NULL, '2021-01-11 13:12:47', NULL, 'sunlu_abs_plus_white.txt', 'white', 'ABS', 'Sunlu'),
-(NULL, '2021-01-11 13:12:47', NULL, 'sunlu_pla_plus_orange.txt', 'orange', 'PLA', 'Sunlu'),
-(NULL, '2021-01-11 13:12:47', NULL, 'sunlu_abs_plus_black.txt', 'black', 'ABS', 'Sunlu');
+INSERT INTO `Filaments` (`id`, `createdAt`, `updatedAt`, `color`, `type`, `producer`, `pricePerGramm`) VALUES
+(NULL, '2021-01-11 13:09:54', NULL, 'sunlu_pla_plus_red.txt', 'red', 'PLA', 'Sunlu', '0,028'),
+(NULL, '2021-01-11 13:10:41', NULL, 'sunlu_pla_plus_green.txt', 'green', 'PLA', 'Sunlu', '0,028'),
+(NULL, '2021-01-11 13:10:41', NULL, 'sunlu_pla_plus_blue.txt', 'blue', 'PLA', 'Sunlu', '0,028'),
+(NULL, '2021-01-11 13:12:47', NULL, 'sunlu_abs_plus_white.txt', 'white', 'ABS', 'Sunlu', '0,033'),
+(NULL, '2021-01-11 13:12:47', NULL, 'sunlu_pla_plus_orange.txt', 'orange', 'PLA', 'Sunlu', '0,028'),
+(NULL, '2021-01-11 13:12:47', NULL, 'sunlu_abs_plus_black.txt', 'black', 'ABS', 'Sunlu', '0,033');
 
 COMMIT;
 

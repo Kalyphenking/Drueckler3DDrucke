@@ -4,7 +4,7 @@
 namespace DDDDD\model;
 
 
-class PrintConfig
+class PrintConfig extends Model
 {
 
 }

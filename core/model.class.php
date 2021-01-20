@@ -5,7 +5,7 @@ namespace DDDDD\model;
 class Model
 {
 	const TYPE_INT = 'int';
-	const TYPE_FLOAT = 'float';
+//	const TYPE_FLOAT = 'float';
 	const TYPE_STRING = 'string';
 	const TYPE_BIT = 'bit';
 	const TYPE_DECIMAL  = 'dec';
