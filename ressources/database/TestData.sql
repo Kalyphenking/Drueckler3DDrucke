@@ -70,16 +70,16 @@ COMMIT;
 START TRANSACTION;
 
 INSERT INTO `PaymentData` (`id`, `createdAt`, `updatedAt`, `iban`, `bill`, `CreditCard_id`) VALUES 
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, b'0', '1'), 
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, b'1', NULL),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, b'0', '2'),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, b'1', NULL),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, 'DE1234567891', b'0', NULL),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, 'DE8981984981', b'0', NULL),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, b'0', '3'),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, b'0', '4'),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, 'DE8949344881', b'0', NULL),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, b'0', '5');
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '0', '1'), 
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '1', NULL),
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '0', '2'),
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '1', NULL),
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, 'DE1234567891', '0', NULL),
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, 'DE8981984981', '0', NULL),
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '0', '3'),
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '0', '4'),
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, 'DE8949344881', '0', NULL),
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '0', '5');
 
 COMMIT;
 
@@ -89,16 +89,16 @@ COMMIT;
 START TRANSACTION;
 
 INSERT INTO `Customer` (`id`, `createdAt`, `updatedAt`, `paymentID`, `guest`, `ContactData_id`) VALUES 
-(NULL, current_timestamp(), NULL, '1', b'0', '1'),
-(NULL, current_timestamp(), NULL, '2', b'0', '2'),
-(NULL, current_timestamp(), NULL, '10', b'0', '3'),
-(NULL, current_timestamp(), NULL, '4', b'0', '4'),
-(NULL, current_timestamp(), NULL, '3', b'0', '5'),
-(NULL, current_timestamp(), NULL, '5', b'0', '6'),
-(NULL, current_timestamp(), NULL, '6', b'0', '7'),
-(NULL, current_timestamp(), NULL, '7', b'0', '8'),
-(NULL, current_timestamp(), NULL, '8', b'0', '9'),
-(NULL, current_timestamp(), NULL, '9', b'0', '10');
+(NULL, current_timestamp(), NULL, '1', '0', '1'),
+(NULL, current_timestamp(), NULL, '2', '0', '2'),
+(NULL, current_timestamp(), NULL, '10', '0', '3'),
+(NULL, current_timestamp(), NULL, '4', '0', '4'),
+(NULL, current_timestamp(), NULL, '3', '0', '5'),
+(NULL, current_timestamp(), NULL, '5', '0', '6'),
+(NULL, current_timestamp(), NULL, '6', '0', '7'),
+(NULL, current_timestamp(), NULL, '7', '0', '8'),
+(NULL, current_timestamp(), NULL, '8', '0', '9'),
+(NULL, current_timestamp(), NULL, '9', '0', '10');
 
 COMMIT;
 
@@ -108,11 +108,11 @@ COMMIT;
 START TRANSACTION;
 
 INSERT INTO `Employee` (`id`, `createdAt`, `updatedAt`, `admin`, `ContactData_id`) VALUES 
-(NULL, current_timestamp(), NULL, b'1', '11'),
-(NULL, current_timestamp(), NULL, b'0', '12'),
-(NULL, current_timestamp(), NULL, b'0', '13'),
-(NULL, current_timestamp(), NULL, b'1', '14'),
-(NULL, current_timestamp(), NULL, b'0', '15');
+(NULL, current_timestamp(), NULL, '1', '11'),
+(NULL, current_timestamp(), NULL, '0', '12'),
+(NULL, current_timestamp(), NULL, '0', '13'),
+(NULL, current_timestamp(), NULL, '1', '14'),
+(NULL, current_timestamp(), NULL, '0', '15');
 
 COMMIT;
 
@@ -123,12 +123,12 @@ COMMIT;
 START TRANSACTION;
 
 INSERT INTO `Filaments` (`id`, `createdAt`, `updatedAt`, `color`, `type`, `producer`, `pricePerGramm`) VALUES
-(NULL, '2021-01-11 13:09:54', NULL, 'sunlu_pla_plus_red.txt', 'red', 'PLA', 'Sunlu', '0,028'),
-(NULL, '2021-01-11 13:10:41', NULL, 'sunlu_pla_plus_green.txt', 'green', 'PLA', 'Sunlu', '0,028'),
-(NULL, '2021-01-11 13:10:41', NULL, 'sunlu_pla_plus_blue.txt', 'blue', 'PLA', 'Sunlu', '0,028'),
-(NULL, '2021-01-11 13:12:47', NULL, 'sunlu_abs_plus_white.txt', 'white', 'ABS', 'Sunlu', '0,033'),
-(NULL, '2021-01-11 13:12:47', NULL, 'sunlu_pla_plus_orange.txt', 'orange', 'PLA', 'Sunlu', '0,028'),
-(NULL, '2021-01-11 13:12:47', NULL, 'sunlu_abs_plus_black.txt', 'black', 'ABS', 'Sunlu', '0,033');
+(NULL, '2021-01-11 13:09:54', NULL, 'red', 'PLA', 'Sunlu', '0,028'),
+(NULL, '2021-01-11 13:10:41', NULL, 'green', 'PLA', 'Sunlu', '0,028'),
+(NULL, '2021-01-11 13:10:41', NULL, 'blue', 'PLA', 'Sunlu', '0,028'),
+(NULL, '2021-01-11 13:12:47', NULL, 'white', 'ABS', 'Sunlu', '0,033'),
+(NULL, '2021-01-11 13:12:47', NULL, 'orange', 'PLA', 'Sunlu', '0,028'),
+(NULL, '2021-01-11 13:12:47', NULL, 'black', 'ABS', 'Sunlu', '0,033');
 
 COMMIT;
 
@@ -138,17 +138,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Orders` (`id`, `createdAt`, `updatedAt`, `Customer_id`, `price`, `payed`, `Employee_id`) VALUES 
-(NULL, current_timestamp(), NULL, '1', '24.95', b'1', '1'),
-(NULL, current_timestamp(), NULL, '2', '36.74', b'0', '2'),
-(NULL, current_timestamp(), NULL, '2', '18.64', b'0', '1'),
-(NULL, current_timestamp(), NULL, '3', '14.77', b'0', NULL),
-(NULL, current_timestamp(), NULL, '4', '52.12', b'0', NULL),
-(NULL, current_timestamp(), NULL, '6', '63.27', b'0', NULL),
-(NULL, current_timestamp(), NULL, '9', '27.41', b'0', NULL),
-(NULL, current_timestamp(), NULL, '9', '29.34', b'0', NULL),
-(NULL, current_timestamp(), NULL, '10', '27.41', b'0', NULL),
-(NULL, current_timestamp(), NULL, '5', '29.34', b'0', NULL);
+INSERT INTO `Orders` (`id`, `createdAt`, `updatedAt`, `Customer_id`, `price`, `payed`, `Employee_id`, `processed`) VALUES 
+(NULL, current_timestamp(), NULL, '1', '24.95', '1', '1', '0'),
+(NULL, current_timestamp(), NULL, '2', '36.74', '0', '2', '0'),
+(NULL, current_timestamp(), NULL, '2', '18.64', '0', '1', '0'),
+(NULL, current_timestamp(), NULL, '3', '14.77', '0', NULL, '0'),
+(NULL, current_timestamp(), NULL, '4', '52.12', '0', NULL, '0'),
+(NULL, current_timestamp(), NULL, '6', '63.27', '0', NULL, '0'),
+(NULL, current_timestamp(), NULL, '9', '27.41', '0', NULL, '0'),
+(NULL, current_timestamp(), NULL, '9', '29.34', '0', NULL, '0'),
+(NULL, current_timestamp(), NULL, '10', '27.41', '0', NULL, '0'),
+(NULL, current_timestamp(), NULL, '5', '29.34', '0', NULL, '0');
 
 COMMIT;
 
@@ -158,18 +158,18 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `PrintSettings` (`id`, `createdAt`, `updatedAt`, `resolution`, `infill`) VALUES 
-(NULL, current_timestamp(), NULL, '0.12', '0.80'),
-(NULL, current_timestamp(), NULL, '0.2', '1.00'),
-(NULL, current_timestamp(), NULL, '0.12', '0.70'),
-(NULL, current_timestamp(), NULL, '0.16', '0.80'),
-(NULL, current_timestamp(), NULL, '0.04', '1.00'),
-(NULL, current_timestamp(), NULL, '0.04', '0.90'),
-(NULL, current_timestamp(), NULL, '0.16', '0.80'),
-(NULL, current_timestamp(), NULL, '0.08', '0.90'),
-(NULL, current_timestamp(), NULL, '0.16', '0.70'),
-(NULL, current_timestamp(), NULL, '0.24', '0.50'),
-(NULL, current_timestamp(), NULL, '0.12', '0.70');
+INSERT INTO `PrintSettings` (`id`, `createdAt`, `updatedAt`, `resolution`, `infill`, `description`) VALUES 
+(NULL, current_timestamp(), NULL, '0.12', '0.80', 'presetName'),
+(NULL, current_timestamp(), NULL, '0.2', '1.00', 'presetName'),
+(NULL, current_timestamp(), NULL, '0.12', '0.70', 'presetName'),
+(NULL, current_timestamp(), NULL, '0.16', '0.80', 'presetName'),
+(NULL, current_timestamp(), NULL, '0.04', '1.00', 'presetName'),
+(NULL, current_timestamp(), NULL, '0.04', '0.90', NULL),
+(NULL, current_timestamp(), NULL, '0.16', '0.80', NULL),
+(NULL, current_timestamp(), NULL, '0.08', '0.90', NULL),
+(NULL, current_timestamp(), NULL, '0.16', '0.70', NULL),
+(NULL, current_timestamp(), NULL, '0.24', '0.50', NULL),
+(NULL, current_timestamp(), NULL, '0.12', '0.70', NULL);
 
 COMMIT;
 
@@ -199,25 +199,23 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `PrintConfig` (`id`, `createdAt`, `updatedAt`, `Filaments_id`, `Models_id`, `PrintSettings_id`, `Orders_id`, `amount`) VALUES 
-(NULL, current_timestamp(), NULL, '6', '1', '4', '4', '3');
 
-INSERT INTO `PrintConfig` (`id`, `createdAt`, `updatedAt`, `Filaments_id`, `Models_id`, `PrintSettings_id`, `Orders_id`, `amount`) VALUES 
-(NULL, current_timestamp(), NULL, '1', '1', '1', '1', '1'),
-(NULL, current_timestamp(), NULL, '6', '1', '1', '1', '1'),
-(NULL, current_timestamp(), NULL, '2', '2', '2', '2', '1'),
-(NULL, current_timestamp(), NULL, '1', '3', '3', '3', '1'),
-(NULL, current_timestamp(), NULL, '4', '3', '3', '3', '1'),
-(NULL, current_timestamp(), NULL, '6', '3', '4', '3', '1'),
-(NULL, current_timestamp(), NULL, '3', '4', '5', '4', '1'),
-(NULL, current_timestamp(), NULL, '1', '5', '6', '5', '1'),
-(NULL, current_timestamp(), NULL, '4', '6', '7', '6', '1'),
-(NULL, current_timestamp(), NULL, '6', '7', '8', '7', '4'),
-(NULL, current_timestamp(), NULL, '4', '7', '8', '7', '4'),
-(NULL, current_timestamp(), NULL, '4', '8', '9', '8', '1'),
-(NULL, current_timestamp(), NULL, '2', '9', '10', '9', '2'),
-(NULL, current_timestamp(), NULL, '5', '10', '11', '10', '1'),
-(NULL, current_timestamp(), NULL, '6', '10', '11', '10', '1');
+INSERT INTO `PrintConfig` (`id`, `createdAt`, `updatedAt`, `Filaments_id`, `Models_id`, `PrintSettings_id`, `Orders_id`, `amount`, `printTime`) VALUES 
+(NULL, current_timestamp(), NULL, '1', '1', '1', '1', '1', '24'),
+(NULL, current_timestamp(), NULL, '6', '1', '1', '1', '1', '12'),
+(NULL, current_timestamp(), NULL, '2', '2', '2', '2', '1', '48'),
+(NULL, current_timestamp(), NULL, '1', '3', '3', '3', '1', '72'),
+(NULL, current_timestamp(), NULL, '4', '3', '3', '3', '1', '10'),
+(NULL, current_timestamp(), NULL, '6', '3', '4', '3', '1', '3'),
+(NULL, current_timestamp(), NULL, '3', '4', '5', '4', '1', '21'),
+(NULL, current_timestamp(), NULL, '1', '5', '6', '5', '1', '14'),
+(NULL, current_timestamp(), NULL, '4', '6', '7', '6', '1', '51'),
+(NULL, current_timestamp(), NULL, '6', '7', '8', '7', '4', '5'),
+(NULL, current_timestamp(), NULL, '4', '7', '8', '7', '4', '9'),
+(NULL, current_timestamp(), NULL, '4', '8', '9', '8', '1', '0'),
+(NULL, current_timestamp(), NULL, '2', '9', '10', '9', '2', '2'),
+(NULL, current_timestamp(), NULL, '5', '10', '11', '10', '1', '2'),
+(NULL, current_timestamp(), NULL, '6', '10', '11', '10', '1', '4');
 
 COMMIT;
 
@@ -231,6 +229,14 @@ INSERT INTO `Pricing` (`id`, `createdAt`, `updatedAt`, `shiping`, `workPerHour`,
 VALUES (NULL, current_timestamp(), NULL, '4.95', '3.215', '0.157', '0.19', 'Deutschland', '20.26');
 
 COMMIT;
+
+--
+-- START TRANSACTION;
+--
+-- INSERT INTO `Presets` (`id`, `createdAt`, `updatedAt`, `description`, `PrintSettings_id`, `Filaments_id`)
+-- VALUES (NULL, current_timestamp(), NULL, '0', '0', '0');
+--
+-- COMMIT;
 
 
 

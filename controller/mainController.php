@@ -11,8 +11,6 @@ class MainController extends Controller
 
 	public function login() {
 
-		echo '<br><br> login <br><br>';
-
 		if (isset($_POST['submit'])) {
 
 //			echo '<br> submit <br>';

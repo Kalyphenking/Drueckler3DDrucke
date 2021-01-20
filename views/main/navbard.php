@@ -10,8 +10,11 @@
         <a  href="index.php?c=user&a=usermenu" class="item">Benutzer</a>
         <a  href="index.php?c=main&a=impressum" class="item">Impressum</a>
     </div>
-    <a href="index.php?c=main&a=login" class="item login">Login</a>
+    <a href="index.php?c=main&a=testLoginForm" class="item login">Login</a>
+    <a> / </a>
+    <a href="index.php?c=main&a=logout" class="item login">Logout</a>
+<!--    <a href="index.php?c=main&a=login" class="item login">Login</a>-->
 
     <a> / </a>
-    <a href="index.php?c=main&a=register" class="item register">Registrierung</a>
+    <a href="index.php?c=main&a=register" class="item register"><?php echo (isset($_SESSION['username']) ? $_SESSION['username'] : 'Register') ?></a>
 </nav>

@@ -13,7 +13,8 @@ class Orders extends Model
 
 		'Customer_id' => ['type' => Model::TYPE_INT],
 		'price' => ['type' => Model::TYPE_DECIMAL],
-		'payed' => ['type' => Model::TYPE_BIT],
-		'Employee_id' => ['type' => Model::TYPE_INT]
+		'payed' => ['type' => Model::TYPE_TINYINT],
+		'Employee_id' => ['type' => Model::TYPE_INT],
+		'processed' => ['type' => Model::TYPE_TINYINT]
 	];
 }

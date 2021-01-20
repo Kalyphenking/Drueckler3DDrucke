@@ -19,18 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Spaß Updata">
-      <change afterPath="$PROJECT_DIR$/views/main/contact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/main/logout.php" afterDir="false" />
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="logout hinzugefügt">
+      <change afterPath="$PROJECT_DIR$/views/order/presets.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/mainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/mainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/orderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/orderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/model.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/customer.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/customer.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/employee.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/employee.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/orders.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/orders.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/paymentData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/paymentData.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/printSettings.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/printSettings.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/database/TestData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/TestData.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/main/navbard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/navbard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/websiteInformation.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/sessionKeys.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/order/configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/configuration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/testLoginForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/testLoginForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/order/configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/configurator.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +76,7 @@
       <workItem from="1610889408238" duration="1097000" />
       <workItem from="1610890777099" duration="2015000" />
       <workItem from="1610903316495" duration="97000" />
-      <workItem from="1610975624491" duration="22991000" />
+      <workItem from="1610975624491" duration="25720000" />
     </task>
     <task id="LOCAL-00001" summary="Bilder">
       <created>1610889492139</created>
@@ -142,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611171691688</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="logout hinzugefügt">
+      <created>1611175285828</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1611175285828</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +185,8 @@
     <MESSAGE value="Controller und Klassen ausgebaut" />
     <MESSAGE value="Weiterleitung bei Login getestet" />
     <MESSAGE value="Spaß Updata" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spaß Updata" />
+    <MESSAGE value="logout hinzugefügt" />
+    <option name="LAST_COMMIT_MESSAGE" value="logout hinzugefügt" />
   </component>
   <component name="WindowStateProjectService">
     <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611165489245">
@@ -183,15 +197,15 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="539" y="269" key="NewPhpClassDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610982905019" />
-    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1611172823976">
+    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1611175917968">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611172823976" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1611171693473">
+    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611175917968" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1611175287354">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610983097072" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611171693473" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611175287354" />
     <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610978312193">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>

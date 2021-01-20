@@ -11,7 +11,7 @@ class Employee extends Model
 		'createdAt' => ['type' => Model::TYPE_STRING],
 		'updatedAt' => ['type' => Model::TYPE_STRING],
 
-		'admin' => ['type' => Model::TYPE_BIT],
+		'admin' => ['type' => Model::TYPE_TINYINT],
 		'ContactData_id' => ['type' => Model::TYPE_INT]
 	];
 }

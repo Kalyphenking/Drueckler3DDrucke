@@ -11,11 +11,11 @@ class Controller
 
 	function __construct($controller, $action) {
 
-		echo 'controller: ' . $controller;
-		echo '<br>';
-		echo 'action: ' . $action;
-		echo '<br>';
-		echo '<br>';
+//		echo 'controller: ' . $controller;
+//		echo '<br>';
+//		echo 'action: ' . $action;
+//		echo '<br>';
+//		echo '<br>';
 
 		if (isset($_SESSION['currentController']))
 		{
@@ -46,9 +46,12 @@ class Controller
 
 	}
 
+	function loggedIn() {
+		return (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true);
+	}
+
 	function render() {
 
-		echo 'render <br>';
 
 		if (isset($_POST['testing'])) {
 

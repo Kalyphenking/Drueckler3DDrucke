@@ -12,7 +12,7 @@ class PaymentData extends Model
 		'updatedAt' => ['type' => Model::TYPE_STRING],
 
 		'iban' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 22],
-		'bill' => ['type' => Model::TYPE_BIT],
+		'bill' => ['type' => Model::TYPE_TINYINT],
 		'CreditCard_id' => ['type' => Model::TYPE_INT]
 	];
 }

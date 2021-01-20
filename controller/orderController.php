@@ -4,7 +4,7 @@ namespace DDDDD\controller;
 
 use DDDDD\core\Controller;
 use DDDDD\model\Filaments;
-
+use DDDDD\model\PrintSettings;
 
 
 class OrderController extends Controller
@@ -33,6 +33,29 @@ class OrderController extends Controller
 
 	public function calcPrice() {
 
+	}
+
+	public function presets() {
+		$this->loadPresets();
+
+
+
+		echo 'preset: <br>' . json_encode($_SESSION['presets']) . '<br><br>';
+
+
+	}
+
+	function loadPresets() {
+		$data = PrintSettings::find();
+		$presets = [];
+
+		foreach($data as $key => $preset) {
+			if (!empty($preset['description'])) {
+				$presets[] = $preset;
+			}
+		}
+
+		$_SESSION['presets'] = $presets;
 	}
 
 	public function loadPricing() {
