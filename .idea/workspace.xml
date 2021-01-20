@@ -19,11 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Controller und Klassen ausgebaut">
-      <change afterPath="$PROJECT_DIR$/views/main/testLoginForm.php" afterDir="false" />
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Weiterleitung bei Login getestet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/mainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/model.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +64,7 @@
       <workItem from="1610889408238" duration="1097000" />
       <workItem from="1610890777099" duration="2015000" />
       <workItem from="1610903316495" duration="97000" />
-      <workItem from="1610975624491" duration="15614000" />
+      <workItem from="1610975624491" duration="19573000" />
     </task>
     <task id="LOCAL-00001" summary="Bilder">
       <created>1610889492139</created>
@@ -121,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611149885220</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Weiterleitung bei Login getestet">
+      <created>1611163630590</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1611163630590</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,9 +157,14 @@
     <MESSAGE value="Database update &amp; login + register" />
     <MESSAGE value="Update" />
     <MESSAGE value="Controller und Klassen ausgebaut" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controller und Klassen ausgebaut" />
+    <MESSAGE value="Weiterleitung bei Login getestet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Weiterleitung bei Login getestet" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611165489245">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611165489245" />
     <state x="539" y="269" key="NewPhpClassDialog" timestamp="1610982905019">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -160,11 +173,11 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611150036629" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1611149887104">
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1611163632291">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610983097072" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611149887104" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611163632291" />
     <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610978312193">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>

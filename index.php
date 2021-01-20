@@ -34,6 +34,11 @@
     }
 
 
+//    echo 'controllerName ' . $controllerName;
+//    echo '<br>';
+//    echo 'actionName ' . $actionName;
+//    echo '<br>';
+
 //    echo CONTROLLERSPATH.$controllerName.'Controller.php <br>';
 
     if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
@@ -49,7 +54,6 @@
 	    {
 		    $controller->{$actionName}();
 	    }
-
 
     } else {
 
@@ -83,10 +87,10 @@
 
     <?php
         if (!($controllerName == 'main' && ($actionName == 'register' || $actionName == 'login'))) {
-            echo $controllerName;
-            echo '<br>';
-            echo $actionName;
-	        echo '<br>';
+//            echo $controllerName;
+//            echo '<br>';
+//            echo $actionName;
+//	        echo '<br>';
             include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
         }
 

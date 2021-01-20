@@ -54,20 +54,6 @@ class Model
 	}
 
 	public function insert(&$errors) {
-		$db = $GLOBALS['db'];
-
-//		echo 'INSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERTINSERT';
-//		echo '<br>';
-//		echo '<br>';
-//		echo json_encode($this->data);
-//		echo '<br>';
-//		echo '<br>';
-//		echo json_encode($this->shema);
-//		echo '<br>';
-//		echo '<br>';
-
-
-
 		try {
 			$sql = 'INSERT INTO ' . self::tablename() . '(';
 			$valueString = ' VALUES (';
@@ -199,17 +185,27 @@ class Model
 
 
 
-	public static function find($key = '', $value = '') {
+	public static function find($keys = [], $values = []) {
 		$db = $GLOBALS['db'];
 		$result = null;
 
 		try {
 			$sql = 'select * from ' . self::tablename();
 
-			if (!empty($value) && !empty($key)) {
-				$sql .= ' where ' . '`'.$key.'`' . ' = ' . '\''.$value.'\'' . ';';
-				echo $sql;
+			if (!empty($values) && !empty($keys)) {
+//				$sql .= ' where ' . '`'.$keys.'`' . ' = ' . '\''.$values.'\'' . ';';
+				$sql .= ' where ';
+				for ($index = 0; $index < count($keys); $index ++) {
+					echo $index;
+					echo '<br>';
+					$sql .= '`'.$keys[$index].'`' . ' = ' . '\''.$values[$index].'\'' . 'or';
+				}
+				$sql = trim($sql, 'or');
+				$sql .= ';';
 			}
+
+//			echo $sql;
+//			echo '<br>';
 
 			$result = $db->query($sql)->fetchAll();
 		}
