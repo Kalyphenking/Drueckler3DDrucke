@@ -8,9 +8,11 @@ use DDDDD\model\ContactData;
 class MainController extends Controller
 {
 
-	function login() {
 
-//		echo '<br><br> login <br><br>';
+
+	public function login() {
+
+		echo '<br><br> login <br><br>';
 
 		if (isset($_POST['submit'])) {
 
@@ -30,7 +32,21 @@ class MainController extends Controller
 
 				if (password_verify($password, $data[0]["password"])) {
 					echo 'TRUE';
+					echo '<br>';
 					$_SESSION['loggedIn'] = true;
+
+					$previousController = isset($_SESSION['previousController']) ? $_SESSION['previousController'] : 'main';
+					$previousAction = isset($_SESSION['previousAction']) ? $_SESSION['previousAction'] : 'main';
+
+					echo 'prevController: ' . $previousController;
+					echo '<br>';
+					echo 'prevAction: ' . $previousAction;
+					echo '<br>';
+
+					$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
+
+					header("Location: $link ");
+
 				} else {
 					echo 'FALSE';
 				}
@@ -40,9 +56,12 @@ class MainController extends Controller
 		}
 	}
 
+	public function testLoginForm() {
+		$this->login();
+	}
 
 
-	function register() {
+	public function register() {
 
 //		echo '<br><br> register <br><br>';
 
@@ -91,6 +110,8 @@ class MainController extends Controller
 					echo 'schon voll';
 					// TODO: error, username already exists
 				}
+			} else {
+
 			}
 		}
 	}
