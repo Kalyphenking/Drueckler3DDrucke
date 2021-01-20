@@ -196,8 +196,8 @@ class Model
 //				$sql .= ' where ' . '`'.$keys.'`' . ' = ' . '\''.$values.'\'' . ';';
 				$sql .= ' where ';
 				for ($index = 0; $index < count($keys); $index ++) {
-					echo $index;
-					echo '<br>';
+//					echo $index;
+//					echo '<br>';
 					$sql .= '`'.$keys[$index].'`' . ' = ' . '\''.$values[$index].'\'' . 'or';
 				}
 				$sql = trim($sql, 'or');

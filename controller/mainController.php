@@ -38,9 +38,11 @@ class MainController extends Controller
 					$previousController = isset($_SESSION['previousController']) && $_SESSION['previousController'] != $this->controller ? $_SESSION['previousController'] : 'main';
 					$previousAction = isset($_SESSION['previousAction']) && $_SESSION['previousAction'] != $this->action ? $_SESSION['previousAction'] : 'main';
 
+					$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
 
-					if (!isset($_POST['testing'])) {
-						$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
+					echo $link . '<br>';
+					if (!isset($_POST['testing']) || $_POST['testing'] == 'true') {
+
 
 						header("Location: $link ");
 					}
@@ -123,7 +125,7 @@ class MainController extends Controller
 
 //					header("Location: $link ");
 
-					if (!isset($_POST['testing'])) {
+					if (!isset($_POST['testing']) || $_POST['testing'] == 'true') {
 						$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
 
 						header("Location: $link ");

@@ -2,6 +2,7 @@
 
 namespace DDDDD\core;
 
+
 class Controller
 {
 	protected $controller  = NULL;
@@ -10,18 +11,15 @@ class Controller
 
 	function __construct($controller, $action) {
 
-//		if (isset($_SESSION['currentController']) && ($_SESSION['currentController'] != $controller)) {
-//			echo 'not the same <br>';
-//			$this->clear();
-//		} else (isset($_SESSION['currentController']) && ($_SESSION['currentController'] == $controller)) {
-//			$_SESSION['previousController'] = $controller;
-//			$_SESSION['previousAction'] = $action;
-//		}
-
+		echo 'controller: ' . $controller;
+		echo '<br>';
+		echo 'action: ' . $action;
+		echo '<br>';
+		echo '<br>';
 
 		if (isset($_SESSION['currentController']))
 		{
-			if($_SESSION['currentController'] != $controller)
+			if($_SESSION['currentController'] != $controller || $_SESSION['currentAction'] != $action)
 			{
 				$_SESSION['previousController'] = $_SESSION['currentController'];
 				$_SESSION['currentController'] = $controller;
@@ -30,6 +28,9 @@ class Controller
 			}
 		}
 		$_SESSION['currentController'] = $controller;
+		$this->controller = $controller;
+
+
 
 		if (isset($_SESSION['currentAction']))
 		{
@@ -40,43 +41,63 @@ class Controller
 			}
 		}
 		$_SESSION['currentAction'] = $action;
-
-
-
-
-
-		$pc = isset($_SESSION['previousController']) ? $_SESSION['previousController'] : 'main';
-		$pa = isset($_SESSION['previousAction']) ? $_SESSION['previousAction'] : 'main';
-
-//		echo 'prevController: ' . $pc;
-//		echo '<br>';
-//		echo 'prevAction: ' . $pa;
-//		echo '<br>';
-
 		$this->action = $action;
-		$this->controller = $controller;
+
 
 	}
 
 	function render() {
 
-//		$un = isset($_SESSION['username']) ? $_SESSION['username'] : 'noUserName';
-//
-//		echo $un;
-//		echo '<br>';
+		echo 'render <br>';
+
+		if (isset($_POST['testing'])) {
+
+            $loggedIn = isset($_SESSION['loggedIn']) ? $_SESSION['loggedIn'] : false;
+            $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+
+
+            echo 'controllerName: ' . $this->controller;
+            echo '<br>';
+            echo 'actionName: ' . $this->action;
+            echo '<br>';
+			echo '<br>';
+			echo 'currentController: ' . $_SESSION['currentController'];
+            echo '<br>';
+			echo 'currentAction: ' . $_SESSION['currentAction'];
+			echo '<br>';
+			echo '<br>';
+			echo 'previousController: ' . $_SESSION['previousController'];
+			echo '<br>';
+			echo 'previousAction: ' . $_SESSION['previousAction'];
+			echo '<br>';
+			echo '<br>';
+            echo 'loggedIn: ' . $loggedIn;
+            echo '<br>';
+            echo 'username: ' . $username;
+            echo '<br>';
+            echo '<br>';
+        }
 
 		$view = VIEWSPATH . $this->controller . DIRECTORY_SEPARATOR . $this->action . '.php';
 
+		if (file_exists($view)) {
+			include $view;
+		} else {
+			die('404 action you call does not exists');
+		}
+
+
+
 //		echo $view;
 
-		include $view;
+
 	}
 
 	// delete session variables used in previous controller
 
 	function clear() {
 
-		echo 'clear <br>';
+//		echo 'clear <br>';
 
 		if (isset($_SESSION['filaments'])) {
 			unset ($_SESSION['filaments']);

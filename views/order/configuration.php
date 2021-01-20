@@ -8,4 +8,4 @@
 $filaments = isset($_SESSION['filaments']) ? $_SESSION['filaments'] : [];
 
 
-echo json_encode($filaments);
+//echo json_encode($filaments);

@@ -15,7 +15,7 @@ class OrderController extends Controller
 
 
 		if (!isset($_SESSION['filaments']) || empty($_SESSION['filaments'])) {
-			echo 'request <br>';
+//			echo 'request <br>';
 			$this->loadFilaments();
 		}
 

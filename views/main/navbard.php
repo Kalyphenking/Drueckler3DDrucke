@@ -5,8 +5,8 @@
 
     <div class="items">
         <a  href="index.php" class="item">Home</a>
-        <a  href="index.php?c=order&a=modelConfiguration" class="item">Shop</a>
-        <a  href="index.php?c=main&a=kontakt" class="item">Kontakt</a>
+        <a  href="index.php?c=order&a=configuration" class="item">Konfigurator</a>
+        <a  href="index.php?c=main&a=contact" class="item">Kontakt</a>
         <a  href="index.php?c=user&a=usermenu" class="item">Benutzer</a>
         <a  href="index.php?c=main&a=impressum" class="item">Impressum</a>
     </div>
