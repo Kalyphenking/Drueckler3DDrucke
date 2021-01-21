@@ -10,33 +10,50 @@ use DDDDD\model\PrintSettings;
 class OrderController extends Controller
 {
 
-	public function configuration() {
+	protected $filaments = NULL;
 
+	public function configurator() {
 
-
-		if (!isset($_SESSION['filaments']) || empty($_SESSION['filaments'])) {
+		if (!isset($GLOBALS['filaments']) || empty($GLOBALS['filaments']) || empty($this->filaments)) {
 //			echo 'request <br>';
 			$this->loadFilaments();
 		}
 
 
-		if (isset($_POST['submit'])) {
 
+		if (isset($_POST['submit'])) {
+			$this->calculateModel();
 		}
 	}
 
-	public function loadFilaments() {
-		$filaments = Filaments::find();
+	protected function calculateModel() {
+		$infill = isset($_POST['infill']) ? $_POST['infill'] : 0.7;
+		$resolution = isset($_POST['resolution']) ? $_POST['resolution'] : 0.2;
+		$filament = isset($_POST['filament']) ? $this->filaments[$_POST['filament']] : $this->filaments[0];
 
-		$_SESSION['filaments'] = $filaments;
+//		echo 'infill: ' . $infill;
+//		echo '<br>';
+//		echo 'resolution: ' . $resolution;
+//		echo '<br>';
+//		echo 'filament: ' . json_encode($filament);
+//		echo '<br>';
+
+
+
 	}
 
-	public function calcPrice() {
+	protected function loadFilaments() {
+		$this->filaments = Filaments::find();
 
+		$GLOBALS['filaments'] = $this->filaments;
 	}
+
+
+
 
 	public function presets() {
 		$this->loadPresets();
+
 
 
 
@@ -45,7 +62,7 @@ class OrderController extends Controller
 
 	}
 
-	function loadPresets() {
+	protected function loadPresets() {
 		$data = PrintSettings::find();
 		$presets = [];
 
@@ -58,16 +75,9 @@ class OrderController extends Controller
 		$_SESSION['presets'] = $presets;
 	}
 
-	public function loadPricing() {
+	protected function loadPricing() {
 		return 'KLAPPT';
 	}
-
-	public function unsetSession() {
-		if (isset($_SESSION['filaments'])) {
-			unset ($_SESSION['filaments']);
-		}
-	}
-
 
 
 }

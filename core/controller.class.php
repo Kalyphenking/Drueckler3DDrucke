@@ -19,11 +19,10 @@ class Controller
 
 		if (isset($_SESSION['currentController']))
 		{
-			if($_SESSION['currentController'] != $controller || $_SESSION['currentAction'] != $action)
+			if ($_SESSION['currentController'] != $controller)
 			{
 				$_SESSION['previousController'] = $_SESSION['currentController'];
 				$_SESSION['currentController'] = $controller;
-//				echo 'not the same <br>';
 				$this->clear();
 			}
 		}
@@ -36,6 +35,8 @@ class Controller
 		{
 			if($_SESSION['currentAction'] != $action)
 			{
+				$_SESSION['previousController'] = $_SESSION['currentController'];
+				$_SESSION['currentController'] = $controller;
 				$_SESSION['previousAction'] = $_SESSION['currentAction'];
 				$_SESSION['currentAction'] = $action;
 			}
