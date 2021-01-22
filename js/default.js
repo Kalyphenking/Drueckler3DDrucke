@@ -29,3 +29,17 @@ function addToCart() {
     console.log('addToCart()')
 
 }
+
+function hide() {
+    var message = document.getElementById("javasriptMissingMessage")
+
+    if (message) {
+        message.style.display = "none"
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+
+}, false);
+
+

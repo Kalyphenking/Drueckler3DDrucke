@@ -41,26 +41,7 @@
 
 //    echo CONTROLLERSPATH.$controllerName.'Controller.php <br>';
 
-    if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
-    {
-	    require_once CONTROLLERSPATH.$controllerName.'Controller.php';
 
-	    $controllerClass = '\\DDDDD\\controller\\' . ucfirst($controllerName).'Controller';
-
-        $controller = new $controllerClass($controllerName, $actionName);
-
-//	    $actionMethod = 'action'.ucfirst($actionName);
-	    if(method_exists($controller, $actionName))
-	    {
-		    $controller->{$actionName}();
-	    }
-
-    } else {
-
-	    die('404 Controller you call does not exists');
-    }
-
-    $error = Array();
 
 ?>
 
@@ -80,8 +61,35 @@
     <link rel="stylesheet" href="<?=ROOTPATH.'css/topBottom.css'?>">
 
     <script src="<?=ROOTPATH.'js/default.js'?>"></script>
+    <script src="<?=ROOTPATH.'js/file.js'?>"></script>
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 
 </head>
+
+<?php
+    if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
+    {
+        require_once CONTROLLERSPATH.$controllerName.'Controller.php';
+
+        $controllerClass = '\\DDDDD\\controller\\' . ucfirst($controllerName).'Controller';
+
+        $controller = new $controllerClass($controllerName, $actionName);
+
+    //	    $actionMethod = 'action'.ucfirst($actionName);
+        if(method_exists($controller, $actionName))
+        {
+            $controller->{$actionName}();
+        }
+
+    } else {
+
+        die('404 Controller you call does not exists');
+    }
+
+    $error = Array();
+?>
 
 <body>
 

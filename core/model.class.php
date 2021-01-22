@@ -58,7 +58,7 @@ class Model
 			$sql = 'INSERT INTO ' . self::tablename() . '(';
 			$valueString = ' VALUES (';
 
-
+			$db = $GLOBALS['db'];
 
 			foreach ($this->shema as $key => $shemaOptions) {
 				$sql .= '`' . $key . '`, ';

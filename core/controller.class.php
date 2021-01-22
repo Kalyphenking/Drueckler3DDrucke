@@ -17,6 +17,20 @@ class Controller
 //		echo '<br>';
 //		echo '<br>';
 
+		if (isset($_SESSION['currentAction']))
+		{
+			if($_SESSION['currentAction'] != $action)
+			{
+				$_SESSION['previousController'] = $_SESSION['currentController'];
+				$_SESSION['currentController'] = $controller;
+
+				$_SESSION['previousAction'] = $_SESSION['currentAction'];
+				$_SESSION['currentAction'] = $action;
+			}
+		}
+		$_SESSION['currentAction'] = $action;
+		$this->action = $action;
+
 		if (isset($_SESSION['currentController']))
 		{
 			if ($_SESSION['currentController'] != $controller)
@@ -31,18 +45,7 @@ class Controller
 
 
 
-		if (isset($_SESSION['currentAction']))
-		{
-			if($_SESSION['currentAction'] != $action)
-			{
-				$_SESSION['previousController'] = $_SESSION['currentController'];
-				$_SESSION['currentController'] = $controller;
-				$_SESSION['previousAction'] = $_SESSION['currentAction'];
-				$_SESSION['currentAction'] = $action;
-			}
-		}
-		$_SESSION['currentAction'] = $action;
-		$this->action = $action;
+
 
 
 	}
