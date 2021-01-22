@@ -1,0 +1,27 @@
+.InputBox {
+    color:rgb(255, 233, 35);
+    background-color: rgba(200,200,200, 0.3);
+
+    font-size: 20;
+
+    width: 25%;
+    margin: 8% auto;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.InputLine {
+    flex: 1;
+    size: auto;
+}
+
+.InputLine Input{
+    background-color: #fff7db;
+    color:rgb(0,0,0);
+
+    border-color: rgb(121, 79, 3);
+    border-block-end-color: rgb(200, 170, 35);
+    border-block-start-color: rgb(20,20,0);
+}
