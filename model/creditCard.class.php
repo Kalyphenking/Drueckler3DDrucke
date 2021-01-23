@@ -15,6 +15,7 @@ class CreditCard extends Model
 		'type' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50],
 		'owner' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50],
 		'expiryDate' => ['type' => Model::TYPE_STRING],
-		'securityCode' => ['type' => Model::TYPE_STRING, 'min' => 3, 'max' => 3]
+		'securityCode' => ['type' => Model::TYPE_STRING, 'min' => 3, 'max' => 3],
+		'numberShort' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 12]
 	];
 }

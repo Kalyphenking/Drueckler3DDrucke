@@ -8,6 +8,33 @@ use DDDDD\model\ContactData;
 class MainController extends Controller
 {
 
+	public function logout() {
+		unset($_SESSION['loggedIn']);
+		unset($_SESSION['username']);
+
+		echo'<h1>logout</h1>';
+
+		$previousController = isset($_SESSION['previousController']) && $_SESSION['previousController'] != $this->controller ? $_SESSION['previousController'] : 'main';
+		$previousAction = isset($_SESSION['previousAction']) && $_SESSION['previousAction'] != $this->action ? $_SESSION['previousAction'] : 'main';
+
+
+		if (isset($_POST['testing']) && $_POST['testing'] == 'destroy') {
+			session_destroy();
+		}
+
+		if (!isset($_POST['testing']) || $_POST['testing'] == 'true') {
+//
+			if ($previousController == 'user') {
+				$link = 'index.php?c=main&a=main';
+			} else {
+				$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
+			}
+
+
+
+			header("Location: $link ");
+		}
+	}
 
 	public function login() {
 
@@ -87,6 +114,7 @@ class MainController extends Controller
 				$username = $_POST['username'];
 				$password = password_hash($_POST['password'],PASSWORD_BCRYPT, $options);
 
+
 				$keys = ['phoneNumber', 'emailAddress', 'username'];
 				$values = [$phoneNumber, $emailAddress, $username];
 
@@ -94,7 +122,7 @@ class MainController extends Controller
 				$data = ContactData::find($keys, $values);
 
 				if (empty($data)) {
-					$user = new ContactData([
+					$contactData = new ContactData([
 						'firstName'=>$firstName,
 						'lastName'=>$lastName,
 						'emailAddress'=>$emailAddress,
@@ -102,17 +130,17 @@ class MainController extends Controller
 						'password'=>$password]);
 
 					if (!empty($phoneNumber)) {
-						$user->{'phoneNumber'} = $phoneNumber;
+						$contactData->{'phoneNumber'} = $phoneNumber;
 					}
 
 //					echo json_encode($user->{'emailAddress'});
 //					echo '<br>';
 
 
-					$user->insert($error);
+					$contactData->insert($error);
 
 					$_SESSION['loggedIn'] = true;
-					$_SESSION['username'] = $user->{'username'};
+					$_SESSION['username'] = $contactData->{'username'};
 
 
 					$previousController = isset($_SESSION['previousController']) ? $_SESSION['previousController'] : 'main';

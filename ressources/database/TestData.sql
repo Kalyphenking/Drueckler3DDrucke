@@ -30,16 +30,16 @@ COMMIT;
 START TRANSACTION;
 
 INSERT INTO `ContactData` (`id`, `createdAt`, `updatedAt`, `Address_id`, `firstName`, `lastName`, `phoneNumber`, `emailAddress`, `username`, `password`) VALUES 
-(NULL, current_timestamp(), NULL, '1', 'Peter', 'Hase', '03615557738', 'peterhase@lol.com', 'ich', 'passwort'),
-(NULL, current_timestamp(), NULL, '2', 'Rainer', 'Zufall', NULL, 'rainerzufall@gmail.com', 'habe', 'passwort'),
-(NULL, current_timestamp(), NULL, '3', 'Tom', 'Hanks', '18949948198', 'tomtom@web.com', 'keine', 'password'),
-(NULL, current_timestamp(), NULL, '5', 'Ronald', 'McDonald', '8948468949', 'notburgerking@t-online.de', 'ideen', 'passwort'),
-(NULL, current_timestamp(), NULL, '7', 'Hans', 'Zimmer', NULL, 'räumdeinzimmerauf@keyweb.de', 'mehr', 'passwoerter'),
-(NULL, current_timestamp(), NULL, '9', 'Kevina', 'Lleinzuhaus', '84984118991', 'kevinsmom@de.com', 'für', '19841169'),
-(NULL, current_timestamp(), NULL, '10', 'Oliver Mathias', 'Jensen', '228884984/9', 'joollinololli@lol.eu', 'test', 'passwort'),
-(NULL, current_timestamp(), NULL, '11', 'Ronalda', 'Schmidt', '419890070', 'schmidtschmitt@gmail.com', 'einträge', 'passwort'),
-(NULL, current_timestamp(), NULL, '12', 'Petra', 'Krause', NULL, 'halskrause@lol.com', 'butterkuchen', 'passwort'),
-(NULL, current_timestamp(), NULL, '13', 'Ariell', 'Diemeerjungfrau', '48915484815156', 'Diemeerjungfrau@gmail.com', 'liebe', 'passwort'),
+(NULL, current_timestamp(), NULL, '1', 'Peter', 'Hase', '03615557738', 'peterhase@lol.com', 'ich', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '2', 'Rainer', 'Zufall', NULL, 'rainerzufall@gmail.com', 'habe', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '3', 'Tom', 'Hanks', '18949948198', 'tomtom@web.com', 'keine', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '5', 'Ronald', 'McDonald', '8948468949', 'notburgerking@t-online.de', 'ideen', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '7', 'Hans', 'Zimmer', NULL, 'räumdeinzimmerauf@keyweb.de', 'mehr', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '9', 'Kevina', 'Lleinzuhaus', '84984118991', 'kevinsmom@de.com', 'für', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '10', 'Oliver Mathias', 'Jensen', '228884984/9', 'joollinololli@lol.eu', 'test', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '11', 'Ronalda', 'Schmidt', '419890070', 'schmidtschmitt@gmail.com', 'einträge', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '12', 'Petra', 'Krause', NULL, 'halskrause@lol.com', 'butterkuchen', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '13', 'Ariell', 'Diemeerjungfrau', '48915484815156', 'Diemeerjungfrau@gmail.com', 'liebe', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
 
 (NULL, current_timestamp(), NULL, NULL, 'Hans', 'Müller', NULL, 'haensel@web.de', 'hans123', '6658994'),
 (NULL, current_timestamp(), NULL, '6', 'Max', 'Mausoleum', '036151379521557738', 'max@lol.com', 'grüße', '8191964'),
@@ -55,12 +55,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `CreditCard` (`id`, `createdAt`, `updatedAt`, `number`, `type`, `owner`, `expiryDate`, `securityCode`) VALUES 
-(NULL, current_timestamp(), NULL, '123443215678', 'MasterCard', 'Peters Frau', '2022-04-06', '349'),
-(NULL, current_timestamp(), NULL, '478498494949', 'VisaCard', 'Hans Zimmer', '2023-07-04', '545'),
-(NULL, current_timestamp(), NULL, '516894166496', 'FakeCard', 'Ronalda Schmidt', '2020-02-08', '992'),
-(NULL, current_timestamp(), NULL, '118484849899', 'MasterCard', 'Olaf Krause', '2021-09-09', '911'),
-(NULL, current_timestamp(), NULL, '225814899299', 'MasterCard', 'Tom Hanks', '2025-01-12', '964');
+INSERT INTO `CreditCard` (`id`, `createdAt`, `updatedAt`, `number`, `type`, `owner`, `expiryDate`, `securityCode`, `numberShort`) VALUES 
+(NULL, current_timestamp(), NULL, '123443215678', 'MasterCard', 'Peters Frau', '2022-04-06', '349', '********5678'),
+(NULL, current_timestamp(), NULL, '478498494949', 'VisaCard', 'Hans Zimmer', '2023-07-04', '545', '********4949'),
+(NULL, current_timestamp(), NULL, '516894166496', 'FakeCard', 'Ronalda Schmidt', '2020-02-08', '992', '********6496'),
+(NULL, current_timestamp(), NULL, '118484849899', 'MasterCard', 'Olaf Krause', '2021-09-09', '911', '********9899'),
+(NULL, current_timestamp(), NULL, '225814899299', 'MasterCard', 'Tom Hanks', '2025-01-12', '964', '********9299');
 
 COMMIT;
 
@@ -69,17 +69,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `PaymentData` (`id`, `createdAt`, `updatedAt`, `iban`, `bill`, `CreditCard_id`) VALUES 
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '0', '1'), 
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '1', NULL),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '0', '2'),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '1', NULL),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, 'DE1234567891', '0', NULL),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, 'DE8981984981', '0', NULL),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '0', '3'),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '0', '4'),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, 'DE8949344881', '0', NULL),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL), (NULL, current_timestamp(), NULL, NULL, '0', '5');
+INSERT INTO `PaymentData` (`id`, `createdAt`, `updatedAt`, `iban`, `bill`, `CreditCard_id`, `ibanShort`) VALUES 
+(NULL, current_timestamp(), NULL, NULL, '0', '1', NULL), 
+(NULL, current_timestamp(), NULL, NULL, '1', NULL, NULL),
+(NULL, current_timestamp(), NULL, NULL, '0', '2', NULL),
+(NULL, current_timestamp(), NULL, NULL, '1', NULL, NULL),
+(NULL, current_timestamp(), NULL, 'DE12345678911684679215', '0', NULL, 'DE****************9215'),
+(NULL, current_timestamp(), NULL, 'DE89819849119449811981', '0', NULL, 'DE****************1981'),
+(NULL, current_timestamp(), NULL, NULL, '0', '3', NULL),
+(NULL, current_timestamp(), NULL, NULL, '0', '4', NULL),
+(NULL, current_timestamp(), NULL, 'DE89499846489949344881', '0', NULL, 'DE****************4881'),
+(NULL, current_timestamp(), NULL, NULL, '0', '5', NULL);
 
 COMMIT;
 

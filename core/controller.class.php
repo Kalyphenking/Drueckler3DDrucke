@@ -32,22 +32,13 @@ class Controller
 
 					$_SESSION['previousAction'] = $_SESSION['currentAction'];
 					$_SESSION['currentAction'] = $action;
+					$this->clear();
 				}
 
 			}
 		}
 		$_SESSION['currentAction'] = $action;
 		$this->action = $action;
-
-		if (isset($_SESSION['currentController']))
-		{
-			if ($_SESSION['currentController'] != $controller)
-			{
-				$_SESSION['previousController'] = $_SESSION['currentController'];
-				$_SESSION['currentController'] = $controller;
-				$this->clear();
-			}
-		}
 		$_SESSION['currentController'] = $controller;
 		$this->controller = $controller;
 
@@ -58,38 +49,46 @@ class Controller
 	}
 
 	function render() {
-		if (isset($_POST['testing'])) {
+//		if (isset($_POST['testing'])) {
 
             $loggedIn = isset($_SESSION['loggedIn']) ? $_SESSION['loggedIn'] : false;
             $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 
 
-            echo 'controllerName: ' . $this->controller;
-            echo '<br>';
-            echo 'actionName: ' . $this->action;
-            echo '<br>';
-			echo '<br>';
-			echo 'currentController: ' . $_SESSION['currentController'];
-            echo '<br>';
-			echo 'currentAction: ' . $_SESSION['currentAction'];
-			echo '<br>';
-			echo '<br>';
-			echo 'previousController: ' . $_SESSION['previousController'];
-			echo '<br>';
-			echo 'previousAction: ' . $_SESSION['previousAction'];
-			echo '<br>';
-			echo '<br>';
-            echo 'loggedIn: ' . $loggedIn;
-            echo '<br>';
-            echo 'username: ' . $username;
-            echo '<br>';
-            echo '<br>';
-        }
+//            echo 'controllerName: ' . $this->controller;
+//            echo '<br>';
+//            echo 'actionName: ' . $this->action;
+//            echo '<br>';
+//			echo '<br>';
+//			echo 'currentController: ' . $_SESSION['currentController'];
+//            echo '<br>';
+//			echo 'currentAction: ' . $_SESSION['currentAction'];
+//			echo '<br>';
+//			echo '<br>';
+//			echo 'previousController: ' . $_SESSION['previousController'];
+//			echo '<br>';
+//			echo 'previousAction: ' . $_SESSION['previousAction'];
+//			echo '<br>';
+//			echo '<br>';
+//            echo 'loggedIn: ' . $loggedIn;
+//            echo '<br>';
+//            echo 'username: ' . $username;
+//            echo '<br>';
+//            echo '<br>';
+//        }
 
 		$view = VIEWSPATH . $this->controller . DIRECTORY_SEPARATOR . $this->action . '.php';
 
 		if (file_exists($view)) {
+
+			include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
+
 			include $view;
+
+			if ($this->controller == 'user') {
+				include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
+			}
+
 		} else {
 			die('404 action you call does not exists');
 		}

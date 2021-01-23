@@ -3,8 +3,7 @@ $orders = isset($GLOBALS['orders']) ? $GLOBALS['orders'] : [];
 $suborders = isset($GLOBALS['suborders']) ? $GLOBALS['suborders'] : [];
 
 
-//echo json_encode($suborders) . '<br> <br>';
-//echo json_encode($orders) . '<br> <br>';
+include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
 ?>
 
 

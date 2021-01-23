@@ -12,31 +12,74 @@ class UserController extends Controller
 {
 
 	public function usermenu() {
-		$this->loadUserData();
+		$loadedData = $this->loadUserData('c');
+
+		$GLOBALS['contactData'] = $loadedData[0];
 	}
 
-	public function loadUserData() {
+	public function changePaymentData() {
+		$loadedData = $this->loadUserData('c');
 
+		$GLOBALS['contactData'] = $loadedData[0];
+	}
 
-
-
+	protected function loadUserData($idFrom) {
 		if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 			$username = $_SESSION['username'];
 
-			$userdata = ContactData::find(['username'], [$username]);
+//			$loadedData = ContactData::find(['username'], [$username]);
 
-			ContactData::constructFromUserData($userdata);
+			$loadedData = Customer::findCustomerData([
+				$idFrom.'.id',
 
+				'cd.firstName',
+				'cd.lastName',
+				'cd.phoneNumber',
+				'cd.emailAddress',
+				'cd.username',
+
+				'a.street',
+				'a.number',
+				'a.postalCode',
+				'a.city',
+				'a.country',
+
+				'pd.bill',
+				'pd.ibanShort',
+				'pd.CreditCard_id',
+
+				'cc.type',
+				'cc.owner',
+				'cc.expiryDate',
+				'cc.numberShort',
+				],
+
+				['username'],
+
+				[$username]);
+
+			return $loadedData;
 
 		}
+	}
 
+	protected function changeUserData() {
+		$username = $_SESSION['username'];
+		$contactData = new ContactData();
+		$loadedData = $contactData::find(['username'], [$username]);
+
+		foreach ($loadedData[0] as $key => $data) {
+//				echo $key . '<br>';
+//				echo $data . '<br>';
+//				echo '<br>';
+			$contactData->{$key} = $data;
+//			echo $key. ': ' . json_encode($contactData->{$key}) . '<br>';
+		}
 	}
 
 
 	public function orders()
 	{
-
-
 		$GLOBALS['orders'] = $this->loadOrders('o');
 		$GLOBALS['suborders'] = $this->loadOrders('pc');
 
@@ -44,7 +87,7 @@ class UserController extends Controller
 	}
 
 
-	public function loadOrders($idFrom)
+	protected function loadOrders($idFrom)
 	{
 		$username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 
@@ -68,7 +111,7 @@ class UserController extends Controller
 
 			['username'],
 
-			['habe']); // Hier $username einfügen
+			[$username]); // Hier $username einfügen
 
 
 		return $orders;

@@ -96,16 +96,6 @@
     <?php
 
 
-        if (!($controllerName == 'main' && ($actionName == 'register' || $actionName == 'login'))) {
-//            echo $controllerName;
-//            echo '<br>';
-//            echo $actionName;
-//	        echo '<br>';
-
-
-            include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
-        }
-
         $controller->render();
     ?>
 </body>

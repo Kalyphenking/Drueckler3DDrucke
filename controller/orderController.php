@@ -109,8 +109,8 @@ class OrderController extends Controller
 
 		$types = array_count_values($columns);
 
-		echo json_encode($types) . '<br>';
-		echo json_encode($columns) . '<br>';
+//		echo json_encode($types) . '<br>';
+//		echo json_encode($columns) . '<br>';
 
 		$GLOBALS['filamentTypes'] = $types;
 		$GLOBALS['filaments'] = $filaments;

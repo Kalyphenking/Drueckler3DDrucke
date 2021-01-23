@@ -1,5 +1,5 @@
 <nav class="menu">
-    <a href="/" class="menu-button">
+    <a href="index.php" class="menu-button">
         <img src="<?=IMAGESPATH.'Logo.png'?>">
     </a>
 
@@ -7,14 +7,14 @@
         <a  href="index.php" class="item">Home</a>
         <a  href="index.php?c=order&a=configurator" class="item">Konfigurator</a>
         <a  href="index.php?c=main&a=contact" class="item">Kontakt</a>
-        <a  href="index.php?c=user&a=usermenu" class="item">Benutzer</a>
+<!--        <a  href="index.php?c=user&a=usermenu" class="item">Benutzer</a>-->
         <a  href="index.php?c=main&a=impressum" class="item">Impressum</a>
     </div>
-    <a href="index.php?c=main&a=login" class="item login">Login</a>
-    <a> / </a>
-    <a href="index.php?c=main&a=logout" class="item login">Logout</a>
 <!--    <a href="index.php?c=main&a=login" class="item login">Login</a>-->
 
-    <a> / </a>
-    <a href="index.php?c=main&a=register" class="item register"><?php echo (isset($_SESSION['username']) ? $_SESSION['username'] : 'Register') ?></a>
+<!--    <a href="index.php?c=main&a=logout" class="item login">Logout</a>-->
+<!--    <a href="index.php?c=main&a=login" class="item login">Login</a>-->
+
+
+    <a href=<?php echo (isset($_SESSION['loggedIn']) ? 'index.php?c=user&a=usermenu' : 'index.php?c=main&a=login') ?> class="item register"><?php echo (isset($_SESSION['loggedIn']) ? 'Kundenkonto' : 'Login') ?></a>
 </nav>

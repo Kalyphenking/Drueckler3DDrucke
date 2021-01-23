@@ -14,7 +14,7 @@ class Model
 	protected $shema = [];
 	protected $data = [];
 
-	public function __construct($params) {
+	public function __construct($params = []) {
 		foreach ($this->shema as $key => $value) {
 //			echo ();
 			if(isset($params[$key])) {
@@ -45,20 +45,6 @@ class Model
 			return;
 		}
 		throw new \Exception('You can not write to property "' . $key . '"" for the class "' . get_called_class());
-	}
-
-	public function constructFromUserData($data) {
-
-		echo json_encode($data) . '<br><br>';
-
-		foreach ($this->shema as $key => $value) {
-			echo "$key <br>";
-			echo json_encode($value) . " <br>";
-			echo "<br>";
-		}
-
-
-
 	}
 
 	public function save(&$errors = null) {
