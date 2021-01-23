@@ -17,15 +17,23 @@ class Controller
 //		echo '<br>';
 //		echo '<br>';
 
+		if (!isset($_SESSION['uid'])) {
+			$uniqid = uniqid();
+			$_SESSION['uid'] = $uniqid;
+		}
+
 		if (isset($_SESSION['currentAction']))
 		{
 			if($_SESSION['currentAction'] != $action)
 			{
-				$_SESSION['previousController'] = $_SESSION['currentController'];
-				$_SESSION['currentController'] = $controller;
+				if ($_SESSION['currentAction'] != 'login' && $action != 'register') {
+					$_SESSION['previousController'] = $_SESSION['currentController'];
+					$_SESSION['currentController'] = $controller;
 
-				$_SESSION['previousAction'] = $_SESSION['currentAction'];
-				$_SESSION['currentAction'] = $action;
+					$_SESSION['previousAction'] = $_SESSION['currentAction'];
+					$_SESSION['currentAction'] = $action;
+				}
+
 			}
 		}
 		$_SESSION['currentAction'] = $action;
@@ -43,11 +51,6 @@ class Controller
 		$_SESSION['currentController'] = $controller;
 		$this->controller = $controller;
 
-
-
-
-
-
 	}
 
 	function loggedIn() {
@@ -55,8 +58,6 @@ class Controller
 	}
 
 	function render() {
-
-
 		if (isset($_POST['testing'])) {
 
             $loggedIn = isset($_SESSION['loggedIn']) ? $_SESSION['loggedIn'] : false;

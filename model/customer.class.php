@@ -11,8 +11,10 @@ class Customer extends Model
 		'createdAt' => ['type' => Model::TYPE_STRING],
 		'updatedAt' => ['type' => Model::TYPE_STRING],
 
-		'paymentID' => ['type' => Model::TYPE_INT],
+		'PaymentData_ID' => ['type' => Model::TYPE_INT],
 		'guest' => ['type' => Model::TYPE_TINYINT],
 		'ContactData_id' => ['type' => Model::TYPE_INT]
 	];
+
+
 }

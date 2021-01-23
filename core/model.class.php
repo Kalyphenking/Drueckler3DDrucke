@@ -25,6 +25,8 @@ class Model
 		}
 	}
 
+
+
 	public function __get($key) {
 
 
@@ -43,6 +45,20 @@ class Model
 			return;
 		}
 		throw new \Exception('You can not write to property "' . $key . '"" for the class "' . get_called_class());
+	}
+
+	public function constructFromUserData($data) {
+
+		echo json_encode($data) . '<br><br>';
+
+		foreach ($this->shema as $key => $value) {
+			echo "$key <br>";
+			echo json_encode($value) . " <br>";
+			echo "<br>";
+		}
+
+
+
 	}
 
 	public function save(&$errors = null) {
@@ -119,11 +135,14 @@ class Model
 		return false;
 	}
 
-	public function delete(&$error = null) {
+	public function delete(&$errors = null) {
 		$db = $GLOBALS['db'];
 
+//		echo '<br><br><br>' .json_encode($this->data['id']) . '<br><br><br>';
+
 		try {
-			$sql = 'delete from '  . self::tablename() . ' where id = ' .$this->id;
+			$sql = 'delete from '  . self::tablename() . ' where id = ' .$this->data['id'];
+
 			$db->exec($sql);
 			return true;
 
@@ -193,26 +212,54 @@ class Model
 			$sql = 'select * from ' . self::tablename();
 
 			if (!empty($values) && !empty($keys)) {
-//				$sql .= ' where ' . '`'.$keys.'`' . ' = ' . '\''.$values.'\'' . ';';
 				$sql .= ' where ';
+
+
 				for ($index = 0; $index < count($keys); $index ++) {
-//					echo $index;
-//					echo '<br>';
 					$sql .= '`'.$keys[$index].'`' . ' = ' . '\''.$values[$index].'\'' . 'or';
 				}
 				$sql = trim($sql, 'or');
 				$sql .= ';';
 			}
-
-//			echo $sql;
-//			echo '<br>';
-
+//			echo $sql . '<br><br>';
 			$result = $db->query($sql)->fetchAll();
 		}
 		catch (\PDOException $e) {
 			die('Select statement failed: ' . $e->getMessage());
 		}
-
 		return $result;
 	}
+
+	public static function findEmployee($attributs = [], $keys = [], $values = []) {
+		$address = Address::TABLENAME;
+		$contactData = ContactData::TABLENAME;
+		$creditCard = CreditCard::TABLENAME;
+		$customer = Customer::TABLENAME;
+		$employee = Employee::TABLENAME;
+		$filament = Filament::TABLENAME;
+		$orders = Orders::TABLENAME;
+		$paymentData = PaymentData::TABLENAME;
+//		$pricing = Pricing::TABLENAME;
+		$printConfig = PrintConfig::TABLENAME;
+		$printSettings = PrintSettings::TABLENAME;
+		$models = Dddmodel::TABLENAME;
+
+//		join $employee e on cd.id = e.ContactData_id
+//		join $employee emp on o.Employee_id = emp.id
+
+//		$sql = "select * from $address a
+//			join $contactData cd on a.id = cd.Address_id
+//			join $customer c on cd.id = c.ContactData_id
+//			join $paymentData pd on c.paymentData_ID = pd.id
+//			join $creditCard cc on pd.CreditCard_id = cc.id
+//			join $orders o on c.id = o.Customer_id
+//			join $printConfig pc on o.id = pc.Orders_id
+//			join $printSettings ps on pc.PrintSettings_id = ps.id
+//			join $models m on pc.Models_id = m.id
+//			join $filament f on pc.Filaments_id = f.id
+//			";
+	}
+
+
+
 }

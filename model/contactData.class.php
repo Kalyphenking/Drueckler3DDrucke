@@ -11,7 +11,7 @@ class ContactData extends Model
 		'createdAt' => ['type' => Model::TYPE_STRING],
 		'updatedAt' => ['type' => Model::TYPE_STRING],
 
-		'addressID' => ['type' => Model::TYPE_INT],
+		'Address_id' => ['type' => Model::TYPE_INT],
 		'firstName' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50],
 		'lastName' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50],
 		'phoneNumber' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50],

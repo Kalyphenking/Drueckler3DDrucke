@@ -71,9 +71,6 @@
 		<div class="input submit">
 			<input name="submit" type="submit" value="registrieren">
 		</div>
-		<div class="register-footer">
-			<a href="index.php?c=main&a=login">Konto erstellen</a>
-		</div>
 	</form>
 
 </div>

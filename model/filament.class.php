@@ -4,7 +4,7 @@
 namespace DDDDD\model;
 
 
-class Filaments extends Model
+class Filament extends Model
 {
 	const TABLENAME = '`Filaments`';
 

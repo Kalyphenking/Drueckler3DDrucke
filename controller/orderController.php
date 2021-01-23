@@ -3,7 +3,7 @@
 namespace DDDDD\controller;
 
 use DDDDD\core\Controller;
-use DDDDD\model\Filaments;
+use DDDDD\model\Filament;
 use DDDDD\model\PrintSettings;
 
 
@@ -21,7 +21,7 @@ class OrderController extends Controller
 
 				$file = $_FILES['fileToUpload'];
 
-				echo json_encode($file) . '<br>';
+//				echo json_encode($file) . '<br>';
 
 				if ($this->loggedIn())
 				{
@@ -29,15 +29,20 @@ class OrderController extends Controller
 						mkdir(UPLOADPATH.$_SESSION['username'], 0777);
 					}
 
-					$uploadDir = UPLOADPATH.$_SESSION['username'].DIRECTORY_SEPARATOR;
+					$uploadDir = UPLOADPATH.$_SESSION['username'].DIRECTORY_SEPARATOR.$_SESSION['username'].'_';
 				} else {
-					$uploadDir = UPLOADPATH.'temp';
+
+					if (!file_exists(UPLOADPATH.'temp')) {
+						mkdir(UPLOADPATH.'temp', 0777);
+					}
+					$uploadDir = UPLOADPATH.'temp'.DIRECTORY_SEPARATOR.$_SESSION['uid'].'_';
 				}
 
 				$uploadFile = $uploadDir . basename($_FILES['fileToUpload']['name']);
 
 				if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadFile)) {
 					echo 'Datei ist valide und wurde erfolgreich hochgeladen <br>';
+					$this->processModel();
 				} else {
 					echo 'Moglicherweise shit\n';
 				}
@@ -54,12 +59,13 @@ class OrderController extends Controller
 			$this->loadFilaments();
 		}
 
-//		echo json_encode($_POST);
+	}
 
+	function processModel() {
 
-		if (isset($_POST['submit'])) {
-			$this->calculateModel();
-		}
+		$output = shell_exec(SLICER);
+		echo "<pre>$output</pre>";
+
 	}
 
 //	protected function convert($file, $filePath) {
@@ -93,7 +99,7 @@ class OrderController extends Controller
 	}
 
 	protected function loadFilaments() {
-		$filaments = Filaments::find();
+		$filaments = Filament::find();
 
         $this->filaments = $filaments;
 
@@ -103,8 +109,8 @@ class OrderController extends Controller
 
 		$types = array_count_values($columns);
 
-//		echo json_encode($types) . '<br>';
-//		echo json_encode($columns) . '<br>';
+		echo json_encode($types) . '<br>';
+		echo json_encode($columns) . '<br>';
 
 		$GLOBALS['filamentTypes'] = $types;
 		$GLOBALS['filaments'] = $filaments;

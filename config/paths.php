@@ -7,3 +7,4 @@ define('CONTROLLERSPATH',  'controller'.DIRECTORY_SEPARATOR);
 define('MODELSPATH',  'models'.DIRECTORY_SEPARATOR);
 define('IMAGESPATH',  'ressources'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR);
 define('UPLOADPATH',  'Prusa_Slicer'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR);
+define('SLICER', 'Prusa_Slicer'.DIRECTORY_SEPARATOR.'buildScript');

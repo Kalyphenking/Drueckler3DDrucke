@@ -19,332 +19,39 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Configurator setup in progress">
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/MacOS/PrusaSlicer" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/PkgInfo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/PrusaSlicer.icns" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/fonts/NotoSans-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/fonts/NotoSansCJK-Regular.ttc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/fonts/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/PrusaSlicer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/PrusaSlicer_128px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/PrusaSlicer_192px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/PrusaSlicer_192px_grayscale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/PrusaSlicer_192px_transparent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/PrusaSlicer_32px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/add.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/add_copies.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/add_gcode.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/add_modifier.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/add_part.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/advanced_plus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/arrange.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/browse.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/bullet_black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/bullet_blue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/bullet_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/change_extruder.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/cog.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/cog_go.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/colorchange_add.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/colorchange_add_f.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/colorchange_add_m.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/colorchange_add_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/colorchange_add_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/colorchange_del.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/colorchange_del_f.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/colorchange_delete_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/colorchange_delete_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/cooling.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/copy.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/copy_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/cross.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/cross_focus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/cut.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/delete.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/delete_all.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/delete_all_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/dot.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/dot_white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/down_half_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/drop_to_bed.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/edit_gcode.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/edit_gcode_f.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/edit_layers_all.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/edit_layers_some.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/edit_uni.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/editor.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/editor_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/eject_sd.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/error_tick.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/error_tick_f.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/exclamation.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/export_config.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/export_config_bundle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/export_gcode.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/export_plater.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/export_to_sd.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/eye_closed.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/eye_open.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/flag_green.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/flag_red.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/funnel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/gcode.icns" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/hollow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/hollowing.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/import_config.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/import_config_bundle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/import_plater.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/infill.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/instance_add.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/instance_remove.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/layers.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/layers_white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/left_half_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/lock_closed.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/lock_closed_f.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/lock_closed_white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/lock_open.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/lock_open_f.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/lock_open_sys.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mark_X.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mark_Y.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mark_Z.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mirroring_off.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mirroring_on.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mirroring_transparent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mode_advanced.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mode_advanced_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mode_advanced_sq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mode_expert.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mode_expert_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mode_expert_sq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mode_simple.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mode_simple_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/mode_simple_sq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/move.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/note.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/number_of_copies.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/one_layer_lock_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/one_layer_lock_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/one_layer_unlock_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/one_layer_unlock_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/open.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/output+page_white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/pad.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/paste.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/paste_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/pause_add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/pause_print.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/pause_print_f.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/place.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/plater.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/preview.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/preview_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/printer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/printer_placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/printer_white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/question.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/re_slice.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/redo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/redo_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/redo_toolbar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/remove.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/remove_copies.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/remove_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/resin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/revert_all_.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/right_half_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/rotate.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/row.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/save.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/scale.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/set_separate_obj.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/shape_ungroup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/skirt+brim.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/sla_printer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/sla_supports.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/split_object_SMALL.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/split_objects.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/split_parts.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/split_parts_SMALL.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/spool.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/stl.icns" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/support.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/support_blocker.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/support_enforcer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/table.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/test.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/thumb_down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/thumb_up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/time.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/toolbar_background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/undo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/undo_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/undo_toolbar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/up_half_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/upload_queue.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/variable_layer_height_reset.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/variable_layer_height_tooltip.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/add_copies.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/add_modifier.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/add_part.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/advanced+wrench.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/advanced_plus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/cog.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/cooling.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/copy_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/delete.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/delete_all_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/edit_layers_all.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/edit_layers_some.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/editor_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/export_config.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/export_config_bundle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/export_gcode.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/export_plate.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/export_plater.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/export_to_sd.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/extruder+funnel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/flag_green.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/flag_red.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/funnel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/hollowing.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/import_config.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/import_config_bundle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/import_plate.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/import_plater.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/infill.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/layers.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/lock2_closed.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/lock_closed.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/lock_open_sys.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/machine+cog.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/mirroring_off.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/mirroring_on.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/note.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/notes.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/number_of_copies.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/open.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/output+page_white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/pad.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/paste_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/plater.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/preview_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/printer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/re_slice.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/redo_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/remove_copies.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/remove_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/resin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/save.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/set_separate_obj.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/skirt+brim.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/sla_printer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/split_object_SMALL.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/split_parts_SMALL.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/spool.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/support.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/support_blocker.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/support_enforcer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/test.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/time.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/undo_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/upload_queue.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/white/wrench.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/wrench.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/icons/wrench_white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/PrusaSlicer.pot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/cs/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/de/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/en/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/es/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/fr/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/it/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/ja/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/ko/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/list.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/nl/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/pl/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/pt_br/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/tr/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/uk/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/zh_cn/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/localization/zh_tw/PrusaSlicer.mo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/BIBO.idx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/BIBO.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/BIBO/BIBO2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/BIBO/BIBO2_bed.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/BIBO/BIBO2_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/Creality.idx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/Creality.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/Creality/ENDER3_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/Creality/ender3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/Creality/ender3_bed.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/LulzBot.idx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/LulzBot.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/LulzBot/MINI_AERO_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/LulzBot/TAZ6_AERO_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch.idx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/MINI_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/MK2.5MMU2_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/MK2.5SMMU2S_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/MK2.5S_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/MK2.5_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/MK2SMM_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/MK2S_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/MK3MMU2_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/MK3SMMU2S_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/MK3S_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/MK3_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/SL1_thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/mini.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/mini_bed.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/mk2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/mk2_bed.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/mk3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/mk3_bed.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/sl1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch/sl1_bed.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/shaders/gouraud.fs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/shaders/gouraud.vs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/shaders/printbed.fs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/shaders/printbed.vs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/shaders/variable_layer_height.fs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/shaders/variable_layer_height.vs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/Resources/udev/90-3dconnexion.rules" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/PrusaSlicer.app/Contents/_CodeSignature/CodeResources" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/buildScript" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/filaments/PLA.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/nozzles/0.40mm.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/output/PLA/0.40mm/OsterhaseV1.0.gcode" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/printers/Ender3Pro.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/runScript" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/scripts/postprocessingScript" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/settings/012mm100pct10dg.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/uploads/Osterhase_V1.0.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/uploads/TopfdeckelTeil.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/uploads/TopfdeckelTeil.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/uploads/marius/TopfdeckelTeil.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/uploads/mariusTopfdeckelTeil.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/file.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/fileExport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/order/configuratorTest.php" afterDir="false" />
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Jede Menge Stuff">
+      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/buildScript.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/output/PLA/0.40mm/600aa32ab55e5_170-210_PLA_Temp_Tower.gcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/output/PLA/0.40mm/600aa32ab55e5_LONG_SCREW_Ender_Z-Axis_Motor_Mount.gcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/output/PLA/0.40mm/Test Cube 1x1x1x mm.gcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/output/PLA/0.40mm/TopfdeckelTeil.gcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/runScript.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/uploads/temp/600aa32ab55e5_170-210_PLA_Temp_Tower.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/uploads/temp/600aa32ab55e5_LONG_SCREW_Ender_Z-Axis_Motor_Mount.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/uploads/temp/Test Cube 1x1x1x mm.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/uploads/temp/TopfdeckelTeil.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Prusa_Slicer/uploads/tempTopfdeckelTeil.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/dddmodel.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/user/cancellOrder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/user/details.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/user/successMessage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/paths.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/paths.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/mainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/mainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/orderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/orderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/model.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/default.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/default.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/navbard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/navbard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/contactData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/contactData.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/customer.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/customer.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/filaments.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/filament.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/orders.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/orders.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/paymentData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/paymentData.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/pricing.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/pricing.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/printConfig.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/printConfig.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/database/TestData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/TestData.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/main/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/order/configurator.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/configurator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/orders.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -391,7 +98,8 @@
       <workItem from="1610889408238" duration="1097000" />
       <workItem from="1610890777099" duration="2015000" />
       <workItem from="1610903316495" duration="97000" />
-      <workItem from="1610975624491" duration="49572000" />
+      <workItem from="1610975624491" duration="72766000" />
+      <workItem from="1611406525542" duration="4000" />
     </task>
     <task id="LOCAL-00001" summary="Bilder">
       <created>1610889492139</created>
@@ -484,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611228173713</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Jede Menge Stuff">
+      <created>1611309449522</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1611309449523</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,26 +232,28 @@
     <MESSAGE value="logout hinzugefügt" />
     <MESSAGE value="preset und orders abrufbar" />
     <MESSAGE value="Configurator setup in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Configurator setup in progress" />
+    <MESSAGE value="Jede Menge Stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jede Menge Stuff" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611165489245">
+    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611330646686">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611165489245" />
-    <state x="539" y="269" key="NewPhpClassDialog" timestamp="1610982905019">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611330646686" />
+    <state x="1104" y="369" key="NewPhpClassDialog" timestamp="1611330894053">
+      <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="539" y="269" key="NewPhpClassDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610982905019" />
-    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1611309264254">
+    <state x="1104" y="369" key="NewPhpClassDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611330894053" />
+    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1611354902300">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611309264254" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1611228175483">
+    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611354902300" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1611309453140">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610983097072" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611228175483" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611309453140" />
     <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610978312193">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>

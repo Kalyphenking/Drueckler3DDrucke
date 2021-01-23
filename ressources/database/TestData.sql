@@ -14,7 +14,7 @@ INSERT INTO `Address` (`id`, `createdAt`, `updatedAt`, `street`, `number`, `post
 (NULL, current_timestamp(), NULL, 'Schillerstraße', '31a', '99096', 'Erfurt', 'Deutschland'),
 (NULL, current_timestamp(), NULL, 'Eobanstraße', '9', '99084', 'Erfurt', 'Deutschland'),
 (NULL, current_timestamp(), NULL, 'Neuwerkstraße', '45-46', '99084', 'Erfurt', 'Deutschland'),
-(NULL, current_timestamp(), NULL, 'Mirfältkeinnameein Straße', '9e', '99099', 'Erfurt', 'Deutschland'),
+(NULL, current_timestamp(), NULL, 'Mirfälltkeinnameein Straße', '9e', '99099', 'Erfurt', 'Deutschland'),
 (NULL, current_timestamp(), NULL, 'Domstraße', '3', '99084', 'Erfurt', 'Deutschland'),
 (NULL, current_timestamp(), NULL, 'Käthe-Kollwitz-Straße', '11', '99096', 'Erfurt', 'Deutschland'),
 (NULL, current_timestamp(), NULL, 'Am Stadpark', '8', '99096', 'Erfurt', 'Deutschland'),
@@ -29,7 +29,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `ContactData` (`id`, `createdAt`, `updatedAt`, `addressID`, `firstName`, `lastName`, `phoneNumber`, `emailAddress`, `username`, `password`) VALUES 
+INSERT INTO `ContactData` (`id`, `createdAt`, `updatedAt`, `Address_id`, `firstName`, `lastName`, `phoneNumber`, `emailAddress`, `username`, `password`) VALUES 
 (NULL, current_timestamp(), NULL, '1', 'Peter', 'Hase', '03615557738', 'peterhase@lol.com', 'ich', 'passwort'),
 (NULL, current_timestamp(), NULL, '2', 'Rainer', 'Zufall', NULL, 'rainerzufall@gmail.com', 'habe', 'passwort'),
 (NULL, current_timestamp(), NULL, '3', 'Tom', 'Hanks', '18949948198', 'tomtom@web.com', 'keine', 'password'),
@@ -39,7 +39,7 @@ INSERT INTO `ContactData` (`id`, `createdAt`, `updatedAt`, `addressID`, `firstNa
 (NULL, current_timestamp(), NULL, '10', 'Oliver Mathias', 'Jensen', '228884984/9', 'joollinololli@lol.eu', 'test', 'passwort'),
 (NULL, current_timestamp(), NULL, '11', 'Ronalda', 'Schmidt', '419890070', 'schmidtschmitt@gmail.com', 'einträge', 'passwort'),
 (NULL, current_timestamp(), NULL, '12', 'Petra', 'Krause', NULL, 'halskrause@lol.com', 'butterkuchen', 'passwort'),
-(NULL, current_timestamp(), NULL, '13', 'Ariell', 'Diemeerjungfra', '48915484815156', 'Diemeerjungfra@gmail.com', 'liebe', 'passwort'),
+(NULL, current_timestamp(), NULL, '13', 'Ariell', 'Diemeerjungfrau', '48915484815156', 'Diemeerjungfrau@gmail.com', 'liebe', 'passwort'),
 
 (NULL, current_timestamp(), NULL, NULL, 'Hans', 'Müller', NULL, 'haensel@web.de', 'hans123', '6658994'),
 (NULL, current_timestamp(), NULL, '6', 'Max', 'Mausoleum', '036151379521557738', 'max@lol.com', 'grüße', '8191964'),
@@ -88,7 +88,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Customer` (`id`, `createdAt`, `updatedAt`, `paymentID`, `guest`, `ContactData_id`) VALUES 
+INSERT INTO `Customer` (`id`, `createdAt`, `updatedAt`, `PaymentData_ID`, `guest`, `ContactData_id`) VALUES 
 (NULL, current_timestamp(), NULL, '1', '0', '1'),
 (NULL, current_timestamp(), NULL, '2', '0', '2'),
 (NULL, current_timestamp(), NULL, '10', '0', '3'),
@@ -123,12 +123,12 @@ COMMIT;
 START TRANSACTION;
 
 INSERT INTO `Filaments` (`id`, `createdAt`, `updatedAt`, `color`, `type`, `producer`, `pricePerGramm`) VALUES
-(NULL, '2021-01-11 13:09:54', NULL, 'red', 'PLA', 'Sunlu', '0,028'),
-(NULL, '2021-01-11 13:10:41', NULL, 'green', 'PLA', 'Sunlu', '0,028'),
-(NULL, '2021-01-11 13:10:41', NULL, 'blue', 'PLA', 'Sunlu', '0,028'),
-(NULL, '2021-01-11 13:12:47', NULL, 'white', 'ABS', 'Sunlu', '0,033'),
-(NULL, '2021-01-11 13:12:47', NULL, 'orange', 'PLA', 'Sunlu', '0,028'),
-(NULL, '2021-01-11 13:12:47', NULL, 'black', 'ABS', 'Sunlu', '0,033');
+(NULL, '2021-01-11 13:09:54', NULL, 'red', 'PLA', 'Sunlu', '0.028'),
+(NULL, '2021-01-11 13:10:41', NULL, 'green', 'PLA', 'Sunlu', '0.028'),
+(NULL, '2021-01-11 13:10:41', NULL, 'blue', 'PLA', 'Sunlu', '0.028'),
+(NULL, '2021-01-11 13:12:47', NULL, 'white', 'ABS', 'Sunlu', '0.033'),
+(NULL, '2021-01-11 13:12:47', NULL, 'orange', 'PLA', 'Sunlu', '0.028'),
+(NULL, '2021-01-11 13:12:47', NULL, 'black', 'ABS', 'Sunlu', '0.033');
 
 COMMIT;
 
@@ -138,17 +138,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Orders` (`id`, `createdAt`, `updatedAt`, `Customer_id`, `price`, `payed`, `Employee_id`, `processed`) VALUES 
-(NULL, current_timestamp(), NULL, '1', '24.95', '1', '1', '0'),
-(NULL, current_timestamp(), NULL, '2', '36.74', '0', '2', '0'),
-(NULL, current_timestamp(), NULL, '2', '18.64', '0', '1', '0'),
-(NULL, current_timestamp(), NULL, '3', '14.77', '0', NULL, '0'),
-(NULL, current_timestamp(), NULL, '4', '52.12', '0', NULL, '0'),
-(NULL, current_timestamp(), NULL, '6', '63.27', '0', NULL, '0'),
-(NULL, current_timestamp(), NULL, '9', '27.41', '0', NULL, '0'),
-(NULL, current_timestamp(), NULL, '9', '29.34', '0', NULL, '0'),
-(NULL, current_timestamp(), NULL, '10', '27.41', '0', NULL, '0'),
-(NULL, current_timestamp(), NULL, '5', '29.34', '0', NULL, '0');
+INSERT INTO `Orders` (`id`, `createdAt`, `updatedAt`, `Customer_id`, `price`, `payed`, `Employee_id`) VALUES 
+(NULL, current_timestamp(), NULL, '1', '24.95', '1', '1'),
+(NULL, current_timestamp(), NULL, '2', '36.74', '0', '2'),
+(NULL, current_timestamp(), NULL, '2', '18.64', '0', '1'),
+(NULL, current_timestamp(), NULL, '3', '14.77', '0', NULL),
+(NULL, current_timestamp(), NULL, '4', '52.12', '0', NULL),
+(NULL, current_timestamp(), NULL, '6', '63.27', '0', NULL),
+(NULL, current_timestamp(), NULL, '9', '27.41', '0', NULL),
+(NULL, current_timestamp(), NULL, '9', '29.34', '0', NULL),
+(NULL, current_timestamp(), NULL, '10', '27.41', '0', NULL),
+(NULL, current_timestamp(), NULL, '5', '29.34', '0', NULL);
 
 COMMIT;
 
@@ -225,8 +225,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Pricing` (`id`, `createdAt`, `updatedAt`, `shiping`, `workPerHour`, `energyPerHour`, `taxes`, `country`, `grammsPerMinute`) 
-VALUES (NULL, current_timestamp(), NULL, '4.95', '3.215', '0.157', '0.19', 'Deutschland', '20.26');
+INSERT INTO `Pricing` (`id`, `createdAt`, `updatedAt`, `shiping`, `workPerHour`, `energyPerHour`, `taxes`, `country`, `grammsPerMinute`, `Currency`) 
+VALUES (NULL, current_timestamp(), NULL, '4.95', '3.215', '0.157', '0.19', 'Deutschland', '20.26', 'EUR');
 
 COMMIT;
 
