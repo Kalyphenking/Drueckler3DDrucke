@@ -179,17 +179,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Models` (`id`, `createdAt`, `updatedAt`, `fileName`) VALUES 
-(NULL, current_timestamp(), NULL, 'Blume.stl'),
-(NULL, current_timestamp(), NULL, 'Hund.stl'),
-(NULL, current_timestamp(), NULL, 'Stock.stl'),
-(NULL, current_timestamp(), NULL, 'DeckelGriff.stl'),
-(NULL, current_timestamp(), NULL, 'LaserSchwert.stl'),
-(NULL, current_timestamp(), NULL, 'Korkenzieher.stl'),
-(NULL, current_timestamp(), NULL, 'LegoFelge.stl'),
-(NULL, current_timestamp(), NULL, 'Türgriff.stl'),
-(NULL, current_timestamp(), NULL, 'MiniYoda.stl'),
-(NULL, current_timestamp(), NULL, 'Topf.stl');
+INSERT INTO `Models` (`id`, `createdAt`, `updatedAt`, `fileName`, `modelPrice`) VALUES 
+(NULL, current_timestamp(), NULL, 'Blume.stl', '9.05'),
+(NULL, current_timestamp(), NULL, 'Hund.stl', '42.12'),
+(NULL, current_timestamp(), NULL, 'Stock.stl', '5.90'),
+(NULL, current_timestamp(), NULL, 'DeckelGriff.stl', '15.34'),
+(NULL, current_timestamp(), NULL, 'LaserSchwert.stl', '129.38'),
+(NULL, current_timestamp(), NULL, 'Korkenzieher.stl', '7.26'),
+(NULL, current_timestamp(), NULL, 'LegoFelge.stl', '21.53'),
+(NULL, current_timestamp(), NULL, 'Türgriff.stl', '26.24'),
+(NULL, current_timestamp(), NULL, 'MiniYoda.stl', '11.44'),
+(NULL, current_timestamp(), NULL, 'Topf.stl', '49.30');
 
 COMMIT;
 
@@ -204,17 +204,17 @@ INSERT INTO `PrintConfig` (`id`, `createdAt`, `updatedAt`, `Filaments_id`, `Mode
 (NULL, current_timestamp(), NULL, '1', '1', '1', '1', '1', '24'),
 (NULL, current_timestamp(), NULL, '6', '1', '1', '1', '1', '12'),
 (NULL, current_timestamp(), NULL, '2', '2', '2', '2', '1', '48'),
-(NULL, current_timestamp(), NULL, '1', '3', '3', '3', '1', '72'),
-(NULL, current_timestamp(), NULL, '4', '3', '3', '3', '1', '10'),
+(NULL, current_timestamp(), NULL, '1', '7', '3', '3', '1', '72'),
+(NULL, current_timestamp(), NULL, '4', '10', '3', '3', '1', '10'),
 (NULL, current_timestamp(), NULL, '6', '3', '4', '3', '1', '3'),
 (NULL, current_timestamp(), NULL, '3', '4', '5', '4', '1', '21'),
 (NULL, current_timestamp(), NULL, '1', '5', '6', '5', '1', '14'),
 (NULL, current_timestamp(), NULL, '4', '6', '7', '6', '1', '51'),
-(NULL, current_timestamp(), NULL, '6', '7', '8', '7', '4', '5'),
+(NULL, current_timestamp(), NULL, '6', '3', '8', '7', '4', '5'),
 (NULL, current_timestamp(), NULL, '4', '7', '8', '7', '4', '9'),
 (NULL, current_timestamp(), NULL, '4', '8', '9', '8', '1', '0'),
 (NULL, current_timestamp(), NULL, '2', '9', '10', '9', '2', '2'),
-(NULL, current_timestamp(), NULL, '5', '10', '11', '10', '1', '2'),
+(NULL, current_timestamp(), NULL, '5', '3', '11', '10', '1', '2'),
 (NULL, current_timestamp(), NULL, '6', '10', '11', '10', '1', '4');
 
 COMMIT;

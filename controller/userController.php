@@ -51,7 +51,7 @@ class UserController extends Controller
 		$orders = Orders::findOrder([
 			$idFrom.'.id',
 			'o.createdAt',
-			'o.price',
+			'm.modelPrice',
 			'o.processed',
 			'm.fileName',
 			'o.payed'
@@ -68,7 +68,7 @@ class UserController extends Controller
 
 			['username'],
 
-			['habe']);
+			['habe']); // Hier $username einfügen
 
 
 		return $orders;

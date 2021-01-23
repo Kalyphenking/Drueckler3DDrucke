@@ -30,7 +30,7 @@ $suborders = isset($GLOBALS['suborders']) ? $GLOBALS['suborders'] : [];
 			$orderid = $order['id'];
 			$suborderId = $suborders[$key]['id'];
 			$date = date_format(date_create($order['createdAt']),"d. m. Y");
-			$price = $order['price'];
+			$price = $order['modelPrice'];
 			$processed = $order['processed'] ? 'Ja' : 'Nein';
 			$fileName = $order['fileName'];
 
