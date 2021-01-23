@@ -15,18 +15,20 @@ $phoneNumber = $contactData['phoneNumber'];
 <br>
 <br>
 
-<form action="index.php?c=user&a=usermenu">
-	Vorname:
-	<input type="text" name="firstName" value=<?=$firstName?> >
-	<br>
-	Nachname:
-	<input type="text" name="lastName" value=<?=$lastName?> >
-	<br>
-	Emailadresse:
-	<input type="text" name="emailAddress" value=<?=$emailAddress?> >
-	<br>
-	Telefonnummer:
-	<input type="text" name="phoneNumber" value=<?=$phoneNumber?> >
-	<br>
-	<input type="submit" name="submit" value="Speichern">
-</form>
+<div class="userMenuContent">
+	<form action="index.php?c=user&a=usermenu">
+		Vorname:
+		<input type="text" name="firstName" value=<?=$firstName?> >
+		<br>
+		Nachname:
+		<input type="text" name="lastName" value=<?=$lastName?> >
+		<br>
+		Emailadresse:
+		<input type="text" name="emailAddress" value=<?=$emailAddress?> >
+		<br>
+		Telefonnummer:
+		<input type="text" name="phoneNumber" value=<?=$phoneNumber?> >
+		<br>
+		<input type="submit" name="submit" value="Speichern">
+	</form>
+</div>

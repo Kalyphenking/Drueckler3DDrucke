@@ -4,7 +4,7 @@ $order = $GLOBALS['orderToCancell'];
 
 $orderid = $order['id'];
 $date = date_format(date_create($order['createdAt']),"d. m. Y");
-$price = $order['price'] . '€';
+$price = $order['modelPrice'] . '€';
 $processed = $order['processed'];
 $fileName = $order['fileName'];
 $payed = $order['payed'];
@@ -22,7 +22,7 @@ $previousController = isset($_SESSION['previousController']) ? $_SESSION['previo
 $previousAction = isset($_SESSION['previousAction']) ? $_SESSION['previousAction'] : 'main';
 
 
-
+echo "<div class=\"userMenuContent\">";
 
 if ($success) {
 	include_once(VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'successMessage.php');
@@ -30,13 +30,15 @@ if ($success) {
 } else {
 	echo "
 	
-	<a>Soll die Bestellung: \"$fileName\" wirklich storniert werden ?</a>
+	Soll die Bestellung: \"$fileName\" wirklich storniert werden ?
 	<form action = 'index.php?c=user&a=cancellOrder' method = 'POST'>
 		<input type='hidden' name='orderId' value=$orderid>
 		<input type='submit' name='submit' value='Nein'>
 		<input type='submit' name='submit' value='Ja'>
 	</form>
 ";
+
+echo "</div>";
 }
 
 

@@ -2,159 +2,128 @@
 $orders = isset($GLOBALS['orders']) ? $GLOBALS['orders'] : [];
 $suborders = isset($GLOBALS['suborders']) ? $GLOBALS['suborders'] : [];
 
-
 include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
+
+function headerRow() {
+	$output = "
+        <tr>
+            <th>OrderID</th>
+            <th>Datum</th>
+            <th>Dateiname</th>
+            <th>Preis</th>
+            <th>Bearbeitet</th>
+            <th colspan=\"2\">Options</th>
+
+        </tr>
+    ";
+
+	return $output;
+}
+
+function orderRow($orderid, $date) {
+	$output = "
+        <tr>
+            <td>$orderid</td>
+            <td>$date</td>
+            <td></td>
+            <td></td>
+            <td></td>						
+            <td></td>
+            <td></td>
+            
+        </tr>
+    ";
+
+	return $output;
+}
+
+function suborderRow($fileName, $price, $processed, $suborderId) {
+    $output = "
+         <tr>
+            <td></td>
+            <td></td>
+            <td>$fileName</td>
+            <td>$price €</td>
+            <td>$processed</td>
+            
+                <td>
+                    <form action = 'index.php?c=user&a=cancellOrder' method = 'POST'>
+                        <input type='hidden' name=\"orderId\" value=$suborderId>
+                        <input type='submit' name=\"submit\" value='stornieren'>
+                    </form>
+                </td>
+                <td>
+                    <form action = 'index.php?c=user&a=details' method = 'POST'>
+                        <input type='hidden' name=\"orderId\" value=$suborderId>
+                        <input type='submit' name=\"submit\" value='Details'>
+                    </form>
+                </td>
+        </tr>";
+
+    return $output;
+}
+
+function summRow($summe) {
+
+	$output = "
+        <tr id='summe'>
+            <td>Summe:</td>
+            <td></td>
+            <td></td>
+            <td>$summe €</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    ";
+
+	return $output;
+}
+
 ?>
 
+<div class="userMenuContent">
+    <table id="ordersTabe">
+		<?php
+            echo headerRow();
 
+            $previousId = 0;
+            $summe = 0.0;
 
-<table>
-	<tr>
-		<th>OrderID</th>
-		<th>Datum</th>
-		<th>Dateiname</th>
-		<th>Preis</th>
-		<th>Bearbeitet</th>
-		<th></th>
-		<th></th>
+            foreach ($orders as $key => $order)
+            {
 
-	</tr>
-	<?php
-		$previousId = 0;
-		$summe = 0.0;
+                $orderid = $order['id'];
+                $suborderId = $suborders[$key]['id'];
+                $date = date_format(date_create($order['createdAt']),"d. m. Y");
+                $price = $order['modelPrice'];
+                $processed = $order['processed'] ? 'Ja' : 'Nein';
+                $fileName = $order['fileName'];
 
-		foreach ($orders as $key => $order)
-		{
+                if ($orderid == $previousId) {
 
-			$orderid = $order['id'];
-			$suborderId = $suborders[$key]['id'];
-			$date = date_format(date_create($order['createdAt']),"d. m. Y");
-			$price = $order['modelPrice'];
-			$processed = $order['processed'] ? 'Ja' : 'Nein';
-			$fileName = $order['fileName'];
+                    echo suborderRow($fileName, $price, $processed, $suborderId);
 
-			if ($orderid == $previousId) {
-				echo '<tr>';
+                } else {
 
-					echo"<th></th>";
-					echo"<th></th>";
-					echo"<th>$fileName</th>";
-					echo"<th>$price €</th>";
-					echo"<th>$processed</th>";
-					echo"
-					<th>
-						<form action = 'index.php?c=user&a=cancellOrder' method = 'POST'>
-							<input type='hidden' name=\"orderId\" value=$suborderId>
-							<input type='submit' name=\"submit\" value='stornieren'>
-						</form>
-					</th>
-					
-					<th>
-						<form action = 'index.php?c=user&a=details' method = 'POST'>
-							<input type='hidden' name=\"orderId\" value=$suborderId>
-							<input type='submit' name=\"submit\" value='Details'>
-						</form>
-					</th>
-					";
-					echo"<th></th>";
+                    if ($summe > 0.0) {
+                        echo summRow($summe);
 
-				echo'</tr>';
-			} else {
+                    }
+                    $summe = 0.0;
 
-				if ($summe > 0.0) {
-					echo"
-					<tr>
-						<th>Summe:</th>
-						<th></th>
-						<th></th>
-						<th>$summe €</th>
-						<th></th>
-						<th></th>
-						<th></th>
-					</tr>
-					";
-					echo"
-					<tr>
-						<th>-------------------</th>
-						<th>-------------------</th>
-						<th>-------------------</th>
-						<th>-------------------</th>
-						<th>-------------------</th>
-						<th>-------------------</th>
-						<th>-------------------</th>
-					</tr>
-					";
-				}
-				$summe = 0.0;
+                    echo orderRow($orderid, $date);
 
-				echo"
-					<tr>
-						<th>$orderid</th>
-						<th>$date</th>
-						<th></th>
-						<th></th>
-						<th></th>						
-						<th></th>
-						<th></th>
-						
-					</tr>
-				";
-				echo '<tr>';
+                    echo suborderRow($fileName, $price, $processed, $suborderId);
 
-					echo"<th></th>";
-					echo"<th></th>";
-					echo"<th>$fileName</th>";
-					echo"<th>$price €</th>";
-					echo"<th>$processed</th>";
-					echo"
-					<th>
-						<form action = 'index.php?c=user&a=cancellOrder' method = 'POST'>
-							<input type='hidden' name=\"orderId\" value=$suborderId>
-							<input type='submit' name=\"submit\" value='stornieren'>
-						</form>
-					</th>
-					<th>
-						<form action = 'index.php?c=user&a=details' method = 'POST'>
-							<input type='hidden' name=\"orderId\" value=$suborderId>
-							<input type='submit' name=\"submit\" value='Details'>
-						</form>
-					</th>
-					";
-					echo"<th></th>";
+                }
+                $summe = $summe + $price;
 
-				echo'</tr>';
-			}
-			$summe = $summe + $price;
+                $previousId = $orderid;
+            }
+            echo summRow($summe);
 
-			$previousId = $orderid;
+		?>
 
-
-
-
-
-
-		}
-			echo"
-				<tr>
-					<th>Summe:</th>
-					<th></th>
-					<th></th>
-					<th>$summe €</th>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-				";
-			echo"
-				<tr>
-					<th>-------------------</th>
-					<th>-------------------</th>
-					<th>-------------------</th>
-					<th>-------------------</th>
-					<th>-------------------</th>
-					<th>-------------------</th>
-					<th>-------------------</th>
-				</tr>
-				";
-	?>
-</table>
+    </table>
+</div>

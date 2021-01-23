@@ -81,6 +81,8 @@ class Controller
 
 		if (file_exists($view)) {
 
+			echo "<div class=\"grid-container\">";
+
 			include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
 
 			include $view;
@@ -88,6 +90,9 @@ class Controller
 			if ($this->controller == 'user') {
 				include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
 			}
+
+
+			echo "</div>";
 
 		} else {
 			die('404 action you call does not exists');

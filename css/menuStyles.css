@@ -1,4 +1,4 @@
-.menu {
+.navBar {
     height: 80px;
     width: 100%;
     padding: 0 15px;
@@ -13,23 +13,23 @@
     font-size: 40px;
 }
 
-.menu .menu-button {
+.navBar .menu-button {
     background-color: #333333;
     width: 110px;
     height: 60px;
     margin-right: 10px;
 }
 
-.menu .menu-button img {
+.navBar .menu-button img {
     width: 100%;
     height: 100%;
 }
 
-.menu .items {
+.navBar .items {
     flex: 1;
 }
 
-.menu .item {
+.navBar .item {
     margin: 0 10px;
     font-weight: 800;
 }
