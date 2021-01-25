@@ -2,14 +2,22 @@
     color:rgb(255, 233, 35);
     background-color: rgba(200,200,200, 0.3);
 
-    font-size: 20;
+    font-size: 20px;
+    padding: 10px 40px;
 
-    width: 25%;
-    margin: 8% auto;
+    width: 300px;
+    margin: 10% auto;
 
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    align-self: center;
+}
+
+.InputBox p{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .InputLine {
@@ -17,11 +25,11 @@
     size: auto;
 }
 
-.InputLine Input{
+.InputLine Input {
     background-color: #fff7db;
     color:rgb(0,0,0);
 
-    border-color: rgb(121, 79, 3);
-    border-block-end-color: rgb(200, 170, 35);
-    border-block-start-color: rgb(20,20,0);
+    border-color: rgb(230, 153, 11);
+    border-block-end-color: rgb(182, 152, 17);
+    border-block-start-color: rgb(70, 57, 0);
 }
