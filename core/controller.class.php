@@ -81,18 +81,23 @@ class Controller
 
 		if (file_exists($view)) {
 
-			echo "<div class=\"grid-container\">";
+			if ($this->action != 'login' && $this->action != 'register') {
+				echo "<div class=\"grid-container\">";
 
-			include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
+				include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
 
-			include $view;
+				include $view;
 
-			if ($this->controller == 'user') {
-				include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
+				if ($this->controller == 'user') {
+					include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
+				}
+
+				echo "</div>";
+			} else {
+				include $view;
 			}
 
 
-			echo "</div>";
 
 		} else {
 			die('404 action you call does not exists');
