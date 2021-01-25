@@ -26,7 +26,6 @@ class Model
 	}
 
 
-
 	public function __get($key) {
 
 

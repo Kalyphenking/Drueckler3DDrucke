@@ -14,6 +14,8 @@ if (!empty($bill)) {
 	$paymentMethode = 'Bankeinzug';
 } else if (!empty($creditCard)) {
 	$paymentMethode = 'Kreditkarte';
+} else {
+    $paymentMethode = 'Mo PaymentMethod set';
 }
 
 echo '<br>' . $paymentMethode . '<br>';
