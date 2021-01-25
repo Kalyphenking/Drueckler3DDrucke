@@ -19,6 +19,7 @@
                        required value=<?php echo (isset($_POST['password']) ? $_POST['password'] : ''); //default Values?> >
             </div>
 
+            <br>
 
             <div class = "InputLine">
                 <input id="firstName"
@@ -33,7 +34,7 @@
                        placeholder="Last name"
                        required value=<?php echo (isset($_POST['lastName']) ? $_POST['lastName'] : NULL); //default Values?> >
 
-                <br>
+                <br><br>
 
                 <input id="emailAddress"
                        name="emailAddress"
@@ -47,9 +48,9 @@
                        placeholder="Mobile number"
                        value=<?php echo (isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : ''); //default Values?> >
             </div>
+        <br>
 
-        <input type = "checkbox" required> AGB
-
-        <input name="submit" type="submit" value="registrieren">
+        <input type = "checkbox" required> AGB <br><br>
+        <input name="submit" type="submit" value="Registrieren">
     </form>
 </div>
