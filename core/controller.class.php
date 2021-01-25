@@ -94,6 +94,7 @@ class Controller
 
 				echo "</div>";
 			} else {
+				include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
 				include $view;
 			}
 

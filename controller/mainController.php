@@ -90,7 +90,7 @@ class MainController extends Controller
 
 	public function register() {
 
-//		echo '<br><br> register <br><br>';
+		echo '<br><br> register <br><br>';
 
 		if (isset($_POST['submit'])) {
 
@@ -122,6 +122,8 @@ class MainController extends Controller
 				$data = ContactData::find($keys, $values);
 
 				if (empty($data)) {
+					echo 'LÄUFT <br>';
+
 					$contactData = new ContactData([
 						'firstName'=>$firstName,
 						'lastName'=>$lastName,
@@ -159,6 +161,7 @@ class MainController extends Controller
 
 
 				} else {
+					echo 'LÄUFT NICHT <br>';
 					echo json_encode($data);
 					echo '<br>';
 					// TODO: error, username already exists

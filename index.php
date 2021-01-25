@@ -32,17 +32,6 @@
     } else {
 	    $actionName = 'main';
     }
-
-
-//    echo 'controllerName ' . $controllerName;
-//    echo '<br>';
-//    echo 'actionName ' . $actionName;
-//    echo '<br>';
-
-//    echo CONTROLLERSPATH.$controllerName.'Controller.php <br>';
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -96,8 +85,6 @@
 <body>
 
     <?php
-
-
         $controller->render();
     ?>
 </body>

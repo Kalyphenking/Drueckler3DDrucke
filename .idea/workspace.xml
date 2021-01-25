@@ -19,9 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Büsschen css dies das">
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Controller geändert">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_01_2021_14_29_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_01_2021_14_29__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/mainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/mainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +76,9 @@
       <workItem from="1610903316495" duration="97000" />
       <workItem from="1610975624491" duration="72766000" />
       <workItem from="1611406525542" duration="4000" />
-      <workItem from="1611406556286" duration="17358000" />
+      <workItem from="1611406556286" duration="18902000" />
+      <workItem from="1611602090812" duration="974000" />
+      <workItem from="1611608571322" duration="1286000" />
     </task>
     <task id="LOCAL-00001" summary="Bilder">
       <created>1610889492139</created>
@@ -212,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611432374288</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Controller geändert">
+      <created>1611588930995</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1611588930995</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +262,8 @@
     <MESSAGE value="Configurator setup in progress" />
     <MESSAGE value="Jede Menge Stuff" />
     <MESSAGE value="Büsschen css dies das" />
-    <option name="LAST_COMMIT_MESSAGE" value="Büsschen css dies das" />
+    <MESSAGE value="Controller geändert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Controller geändert" />
   </component>
   <component name="WindowStateProjectService">
     <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611330646686">
@@ -263,15 +279,15 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611415206868" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1611432375741">
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1611588933072">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610983097072" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611432375741" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610978312193">
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611588933072" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611608169960">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1610978312193" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611608169960" />
     <state x="1232" y="0" width="1490" height="1421" key="dock-window-1" timestamp="1611150522361">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
