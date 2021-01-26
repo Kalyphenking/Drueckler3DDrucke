@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="<?=ROOTPATH.'css/menuStyles.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/miscStyles.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/topBottom.css'?>">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/LogReg.css'?>">
 
 
 
