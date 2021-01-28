@@ -68,12 +68,27 @@
 
         $controllerClass = '\\DDDDD\\controller\\' . ucfirst($controllerName).'Controller';
 
-        $controller = new $controllerClass($controllerName, $actionName);
+	    $directorySeperatorPosition = strpos($actionName, DIRECTORY_SEPARATOR);
 
-    //	    $actionMethod = 'action'.ucfirst($actionName);
-        if(method_exists($controller, $actionName))
+	    if ($directorySeperatorPosition > 0) {
+		    $mainActionName = substr($actionName, 0, $directorySeperatorPosition);
+		    $subActionName = substr($actionName, $directorySeperatorPosition + 1);
+	    } else {
+		    $mainActionName = $actionName;
+		    $subActionName = '';
+	    }
+
+        $controller = new $controllerClass($controllerName, $mainActionName);
+
+
+
+
+
+
+
+        if(method_exists($controller, $mainActionName))
         {
-            $controller->{$actionName}();
+            $controller->{$mainActionName}($subActionName);
         }
 
     } else {

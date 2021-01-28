@@ -1,6 +1,6 @@
 <?php
 
-$contactData = $GLOBALS['contactData'];
+$contactData = $_SESSION['customerData'];
 
 //include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
 
@@ -9,6 +9,12 @@ $lastName = $contactData['lastName'];
 $emailAddress = $contactData['emailAddress'];
 $phoneNumber = $contactData['phoneNumber'];
 
+$street = $contactData['street'];
+$number = $contactData['number'];
+$postalCode = $contactData['postalCode'];
+$city = $contactData['city'];
+$country = $contactData['country'];
+
 //echo "contactData: <br>" .  json_encode($contactData);
 
 ?>
@@ -16,7 +22,7 @@ $phoneNumber = $contactData['phoneNumber'];
 <br>
 
 <div class="userMenuContent">
-	<form action="index.php?c=user&a=usermenu">
+	<form action="index.php?c=user&a=usermenu" method = 'POST'>
 		Vorname:
 		<input type="text" name="firstName" value=<?=$firstName?> >
 		<br>
@@ -31,4 +37,23 @@ $phoneNumber = $contactData['phoneNumber'];
 		<br>
 		<input type="submit" name="submit" value="Speichern">
 	</form>
+
+    <form action="index.php?c=user&a=usermenu" method = 'POST'>
+        Straße:
+        <input type="text" name="street" value=<?=$street?> >
+        <br>
+        Hausnummer:
+        <input type="text" name="number" value=<?=$number?> >
+        <br>
+        Postleitzahl:
+        <input type="text" name="postalCode" value=<?=$postalCode?> >
+        <br>
+        Stadt:
+        <input type="text" name="city" value=<?=$city?> >
+        <br>
+        Land:
+        <input type="text" name="country" value=<?=$country?> >
+        <br>
+        <input type="submit" name="submit" value="Speichern">
+    </form>
 </div>

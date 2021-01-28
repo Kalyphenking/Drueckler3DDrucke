@@ -1,11 +1,13 @@
-
-
+<?php
+    $contactData = $_SESSION['customerData'];
+    $customerId = $contactData['cid'];
+?>
 
 <div class="userMenuBar">
-    <p class="">KundenNummer:</p>
+    <p class="">KundenNummer: <?=$customerId?></p>
     <br>
-    <p class="">Standardadresse:</p>
-    <br>
+<!--    <p class="">Standardadresse:</p>-->
+<!--    <br>-->
     <a href="index.php?c=user&a=userMenu" class="">Persönliche Daten</a>
     <br>
     <br>

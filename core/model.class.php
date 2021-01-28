@@ -96,17 +96,22 @@ class Model
 	public function update(&$errors) {
 		$db = $GLOBALS['db'];
 
+
+
 		try {
-			$sql = 'update ' . self::tablename() . ' set';
+			$sql = 'update ' . self::tablename() . ' set ';
 
 			foreach ($this->shema as $key => $shemaOptions) {
 				if ($this->data[$key] !== null) {
 					$sql .= $key . ' = ' . $db->quote($this->data[$key]) . ',';
 				}
 			}
+			echo '<br>';
 
 			$sql = trim($sql, ',');
 			$sql .= ' where id = ' . $this->data['id'];
+
+
 
 			$statement = $db->prepare($sql);
 			$statement->execute();
@@ -215,34 +220,100 @@ class Model
 		return $result;
 	}
 
-	public static function findEmployee($attributs = [], $keys = [], $values = []) {
+	public static function findOnJoin($dataType = "", $attributs = [], $keys = [], $values = [])
+	{
+		$db = $GLOBALS['db'];
+		$result = null;
+		$select = '';
+
 		$address = Address::TABLENAME;
 		$contactData = ContactData::TABLENAME;
-		$creditCard = CreditCard::TABLENAME;
 		$customer = Customer::TABLENAME;
-		$employee = Employee::TABLENAME;
 		$filament = Filament::TABLENAME;
 		$orders = Orders::TABLENAME;
 		$paymentData = PaymentData::TABLENAME;
-//		$pricing = Pricing::TABLENAME;
+		$creditCard = CreditCard::TABLENAME;
+		$paypal = Paypal::TABLENAME;
+		$directDebit = DirectDebit::TABLENAME;
+		$bill = Bill::TABLENAME;
 		$printConfig = PrintConfig::TABLENAME;
 		$printSettings = PrintSettings::TABLENAME;
 		$models = Dddmodel::TABLENAME;
 
-//		join $employee e on cd.id = e.ContactData_id
-//		join $employee emp on o.Employee_id = emp.id
+		if (!empty($attributs)) {
+			foreach ($attributs as $attribut) {
+				$select .= ' '.$attribut.',';
+			}
 
-//		$sql = "select * from $address a
-//			join $contactData cd on a.id = cd.Address_id
-//			join $customer c on cd.id = c.ContactData_id
-//			join $paymentData pd on c.paymentData_ID = pd.id
-//			join $creditCard cc on pd.CreditCard_id = cc.id
-//			join $orders o on c.id = o.Customer_id
-//			join $printConfig pc on o.id = pc.Orders_id
-//			join $printSettings ps on pc.PrintSettings_id = ps.id
-//			join $models m on pc.Models_id = m.id
-//			join $filament f on pc.Filaments_id = f.id
-//			";
+			$select = trim($select, ',');
+		} else {
+			$select = '*';
+		}
+
+//		echo $select;
+
+		$sql = "select $select from $customer c 
+				left join $contactData cd on c.ContactData_id = cd.id ";
+
+		switch ($dataType) {
+			case 'contactData': {
+				$sql .= "left join $address a on cd.Address_id = a.id
+						left join $paymentData pd on c.paymentData_ID = pd.id";
+			} break;
+			case 'paymentData': {
+				$sql .= "left join $paymentData pd on c.paymentData_ID = pd.id
+						left join $creditCard cc on pd.CreditCard_id = cc.id
+						left join $paypal pp on pd.Paypal_id = pp.id
+						left join $directDebit dd on pd.DirectDebit_id = dd.id
+						left join $bill bl on pd.Bill_id = bl.id
+						left join $address ba on bl.Address_id = ba.id";
+			} break;
+			case 'orders'; {
+				$sql .= "left join $orders o on c.id = o.Customer_id
+						left join $printConfig pc on o.id = pc.Orders_id
+						left join $printSettings ps on pc.PrintSettings_id = ps.id
+						left join $models m on pc.Models_id = m.id
+						left join $filament f on pc.Filaments_id = f.id";
+			}
+		}
+
+//		$sql .= " left join $contactData cd on c.ContactData_id = cd.id
+//				left join $address a on cd.Address_id = a.id
+//
+//				left join $paymentData pd on c.paymentData_ID = pd.id
+//				left join $creditCard cc on pd.CreditCard_id = cc.id
+//				left join $paypal pp on pd.Paypal_id = pp.id
+//				left join $directDebit dd on pd.DirectDebit_id = dd.id
+//				left join $bill bl on pd.Bill_id = bl.id
+//				left join $address ba on bl.Address_id = ba.id
+//
+//				left join $orders o on c.id = o.Customer_id
+//				left join $printConfig pc on o.id = pc.Orders_id
+//				left join $printSettings ps on pc.PrintSettings_id = ps.id
+//				left join $models m on pc.Models_id = m.id
+//				left join $filament f on pc.Filaments_id = f.id";
+
+		try {
+
+			if (!empty($keys) && !empty($values)) {
+
+				$sql .= ' where ';
+				for ($index = 0; $index < count($keys); $index ++) {
+					$sql .= '`'.$keys[$index].'`' . ' = ' . '\''.$values[$index].'\'' . 'or';
+				}
+				$sql = trim($sql, 'or');
+				$sql .= ';';
+
+			}
+
+//			echo "SQL: <br><br> $sql <br><br>";
+
+			$result = $db->query($sql)->fetchAll();
+		}
+		catch (\PDOException $e) {
+			die('Select statement failed: ' . $e->getMessage());
+		}
+		return $result;
 	}
 
 

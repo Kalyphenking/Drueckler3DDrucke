@@ -19,15 +19,31 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Register repariert">
-      <change afterPath="$PROJECT_DIR$/views/main/error.php" afterDir="false" />
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Jetzt kann man sich ordentlich registrieren, aber die daten bank müsst ihr neu importieren xD">
+      <change afterPath="$PROJECT_DIR$/model/bill.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/directDebit.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/paypal.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/user/changePaymentData/setBill.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/user/changePaymentData/setCreditCard.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/user/changePaymentData/setDirectDebit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/user/changePaymentData/setPayPal.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/mainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/mainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/orderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/orderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/model.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/default.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/contactData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/contactData.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/customer.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/customer.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/paymentData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/paymentData.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/database/TestData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/TestData.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/changePaymentData.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changePaymentData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/changeUserPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changeUserPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/userMenuBar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/userMenuBar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/usermenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/usermenu.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +79,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/user" />
+      <recent name="$PROJECT_DIR$/views" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -78,7 +100,7 @@
       <workItem from="1611406525542" duration="4000" />
       <workItem from="1611406556286" duration="18902000" />
       <workItem from="1611602090812" duration="974000" />
-      <workItem from="1611608571322" duration="2846000" />
+      <workItem from="1611608571322" duration="26527000" />
     </task>
     <task id="LOCAL-00001" summary="Bilder">
       <created>1610889492139</created>
@@ -234,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611609934357</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Jetzt kann man sich ordentlich registrieren, aber die daten bank müsst ihr neu importieren xD">
+      <created>1611614306846</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1611614306846</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,31 +300,32 @@
     <MESSAGE value="Büsschen css dies das" />
     <MESSAGE value="Controller geändert" />
     <MESSAGE value="Register repariert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register repariert" />
+    <MESSAGE value="Jetzt kann man sich ordentlich registrieren, aber die daten bank müsst ihr neu importieren xD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jetzt kann man sich ordentlich registrieren, aber die daten bank müsst ihr neu importieren xD" />
   </component>
   <component name="WindowStateProjectService">
     <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611330646686">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611330646686" />
-    <state x="1104" y="369" key="NewPhpClassDialog" timestamp="1611330894053">
+    <state x="1104" y="369" key="NewPhpClassDialog" timestamp="1611762105199">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="539" y="269" key="NewPhpClassDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610982905019" />
-    <state x="1104" y="369" key="NewPhpClassDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611330894053" />
-    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1611610284133">
+    <state x="1104" y="369" key="NewPhpClassDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611762105199" />
+    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1611764785334">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611610284133" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1611609936082">
+    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611764785334" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1611614369174">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610983097072" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611609936082" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611608169960">
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611614369174" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611753978525">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611608169960" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611753978525" />
     <state x="1232" y="0" width="1490" height="1421" key="dock-window-1" timestamp="1611150522361">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>

@@ -12,7 +12,7 @@ class OrderController extends Controller
 
 	protected $filaments = NULL;
 
-	public function configurator() {
+	public function configurator($subAction) {
 
 
 		if (isset($_FILES['fileToUpload']) && !empty($_FILES['fileToUpload']))
@@ -61,7 +61,7 @@ class OrderController extends Controller
 
 	}
 
-	function processModel() {
+	function processModel($subAction) {
 
 		$output = shell_exec(SLICER);
 		echo "<pre>$output</pre>";

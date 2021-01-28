@@ -1,6 +1,6 @@
 <?php
 $orders = isset($GLOBALS['orders']) ? $GLOBALS['orders'] : [];
-$suborders = isset($GLOBALS['suborders']) ? $GLOBALS['suborders'] : [];
+$suborders = isset($GLOBALS['orders']) ? $GLOBALS['orders'] : [];
 
 include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
 
@@ -11,7 +11,7 @@ function headerRow() {
             <th>Datum</th>
             <th>Dateiname</th>
             <th>Preis</th>
-            <th>Bearbeitet</th>
+            <th>Auftrag Verarbeitet</th>
             <th colspan=\"2\">Options</th>
 
         </tr>
@@ -93,8 +93,8 @@ function summRow($summe) {
             foreach ($orders as $key => $order)
             {
 
-                $orderid = $order['id'];
-                $suborderId = $suborders[$key]['id'];
+                $orderid = $order['oid'];
+                $suborderId = $order['pcid'];
                 $date = date_format(date_create($order['createdAt']),"d. m. Y");
                 $price = $order['modelPrice'];
                 $processed = $order['processed'] ? 'Ja' : 'Nein';

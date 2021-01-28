@@ -8,7 +8,7 @@ use DDDDD\model\ContactData;
 class MainController extends Controller
 {
 
-	public function logout() {
+	public function logout($subAction) {
 		unset($_SESSION['loggedIn']);
 		unset($_SESSION['username']);
 
@@ -36,7 +36,7 @@ class MainController extends Controller
 		}
 	}
 
-	public function login() {
+	public function login($subAction) {
 
 		if (isset($_POST['submit'])) {
 
@@ -83,12 +83,12 @@ class MainController extends Controller
 		}
 	}
 
-	public function testLoginForm() {
+	public function testLoginForm($subAction) {
 		$this->login();
 	}
 
 
-	public function register() {
+	public function register($subAction) {
 
 //		echo '<br><br> register <br><br>';
 
@@ -103,15 +103,17 @@ class MainController extends Controller
 				&& !empty($_POST['password']))
 			{
 
-				$options = [
-					'cost' => 12,
-				];
+
 
 				$firstName = $_POST['firstName'];
 				$lastName = $_POST['lastName'];
 				$phoneNumber = isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : NULL;
 				$emailAddress = $_POST['emailAddress'];
 				$username = $_POST['username'];
+
+				$options = [
+					'cost' => 12,
+				];
 				$password = password_hash($_POST['password'],PASSWORD_BCRYPT, $options);
 
 

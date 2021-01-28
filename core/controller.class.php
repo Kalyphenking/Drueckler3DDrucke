@@ -38,14 +38,31 @@ class Controller
 			}
 		}
 		$_SESSION['currentAction'] = $action;
-		$this->action = $action;
 		$_SESSION['currentController'] = $controller;
-		$this->controller = $controller;
+
+
+		// prevent not loggedIn user to access page part "user"
+		if ($controller == 'user') {
+			if ($this->loggedIn()) {
+				$this->action = $action;
+				$this->controller = $controller;
+			} else {
+				$this->action = 'main';
+				$this->controller = 'main';
+			}
+		} else {
+			$this->action = $action;
+			$this->controller = $controller;
+		}
+
+
+
+
 
 	}
 
 	function loggedIn() {
-		return (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true);
+		return (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true && isset($_SESSION['username']));
 	}
 
 	function render() {
@@ -79,6 +96,8 @@ class Controller
 
 		$view = VIEWSPATH . $this->controller . DIRECTORY_SEPARATOR . $this->action . '.php';
 
+//		echo "view: $view <br>";
+
 		if (file_exists($view)) {
 
 			if ($this->action != 'login' && $this->action != 'register') {
@@ -97,9 +116,6 @@ class Controller
 				include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
 				include $view;
 			}
-
-
-
 		} else {
 			die('404 action you call does not exists');
 		}
