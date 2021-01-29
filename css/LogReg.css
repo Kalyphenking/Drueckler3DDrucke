@@ -13,6 +13,7 @@
     flex-direction: column;
 
     align-self: center;
+    text-align: center;
 }
 
 .InputBox p{
