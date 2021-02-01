@@ -4,7 +4,7 @@
 namespace DDDDD\model;
 
 
-class DirectDebit
+class DirectDebit extends Model
 {
 	const TABLENAME = '`DirectDebit`';
 

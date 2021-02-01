@@ -96,8 +96,6 @@ class Model
 	public function update(&$errors) {
 		$db = $GLOBALS['db'];
 
-
-
 		try {
 			$sql = 'update ' . self::tablename() . ' set ';
 
@@ -111,6 +109,8 @@ class Model
 			$sql = trim($sql, ',');
 			$sql .= ' where id = ' . $this->data['id'];
 
+
+			echo "sql: $sql <br><br>";
 
 
 			$statement = $db->prepare($sql);
@@ -195,6 +195,7 @@ class Model
 
 
 	public static function find($keys = [], $values = []) {
+
 		$db = $GLOBALS['db'];
 		$result = null;
 
@@ -211,7 +212,7 @@ class Model
 				$sql = trim($sql, 'or');
 				$sql .= ';';
 			}
-//			echo $sql . '<br><br>';
+			echo $sql . '<br><br>';
 			$result = $db->query($sql)->fetchAll();
 		}
 		catch (\PDOException $e) {

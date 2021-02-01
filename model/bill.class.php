@@ -4,7 +4,7 @@
 namespace DDDDD\model;
 
 
-class Bill
+class Bill extends Model
 {
 	const TABLENAME = '`Bill`';
 

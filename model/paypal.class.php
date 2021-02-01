@@ -4,7 +4,7 @@
 namespace DDDDD\model;
 
 
-class Paypal
+class Paypal extends Model
 {
 	const TABLENAME = '`Paypal`';
 
@@ -14,6 +14,6 @@ class Paypal
 		'updatedAt' => ['type' => Model::TYPE_STRING],
 
 		'emailAddress' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 22],
-		'password' => ['type' => Model::TYPE_INT]
+		'password' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 70]
 	];
 }

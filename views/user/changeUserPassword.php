@@ -12,7 +12,7 @@
 		<br>
 		Passwort wiederholen:
 		<input type="password" name="newPasswortVerified" required>
-
+        <br>
 		<input type="submit" name="submit" value="Speichern">
 	</form>
 </div>

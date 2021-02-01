@@ -8,11 +8,15 @@ use DDDDD\model\ContactData;
 use DDDDD\model\Customer;
 use DDDDD\model\Orders;
 use DDDDD\model\PaymentData;
+use DDDDD\model\Paypal;
 use DDDDD\model\PrintConfig;
 
 
 class UserController extends Controller
 {
+
+	protected $errors = NULL;
+
 	public function usermenu($subAction) {
 		$loadedData = $this->loadContactData();
 
@@ -20,8 +24,6 @@ class UserController extends Controller
 		$_SESSION['customerData'] = $loadedData[0];
 		$preferedPaymentMethod = $loadedData[0]['preferedPaymentMethod'];
 //		$_SESSION['customerID'] = $loadedData[0]['cid'];
-
-
 
 		switch ($preferedPaymentMethod) {
 			case 'dd':
@@ -55,10 +57,64 @@ class UserController extends Controller
 			$action = $_SESSION['preferedPaymentMethod'];
 		}
 
+
+
 		if (method_exists($this, $action)) {
-//			echo "subaction: $action <br> username: $username";
+
 			$this->{$action}($username);
+
+
+
+			if (isset($_POST['submit'])) {
+				if (!empty($_POST['preferedPaymentMethod'])) {
+
+					$loadedPaymentData = isset($GLOBALS['paymentData']) ? $GLOBALS['paymentData'] : [];
+
+					echo json_encode($loadedPaymentData) . '<br><br>';
+
+					switch ($action) {
+						case 'setDirectDebit':
+							$preferedPaymentMethod = 'dd';
+							break;
+						case 'setCreditCard':
+							$preferedPaymentMethod = 'cc';
+							break;
+						case 'setBill':
+							$preferedPaymentMethod = 'bl';
+							break;
+						case 'setPayPal':
+							$preferedPaymentMethod = 'pp';
+							break;
+					}
+
+
+
+
+					echo $preferedPaymentMethod . '<br><br>';
+
+
+					$paymentData = new PaymentData(['preferedPaymentMethod'=>$preferedPaymentMethod,
+													'id'=>$loadedPaymentData['pdid']]);
+
+
+					$loadedData = $paymentData->find(['preferedPaymentMethod'],
+													 [$loadedPaymentData['preferedPaymentMethod']]);
+
+
+					if(empty($loadedData)) {
+						$paymentData->insert($this->errors);
+					} else {
+						$paymentData->update($this->errors);
+					}
+
+				} else {
+					//TODO errorHandling
+				}
+			}
 		}
+
+
+
 
 	}
 
@@ -66,33 +122,101 @@ class UserController extends Controller
 		$GLOBALS['selectedPaymentMethod'] = 'setDirectDebit';
 		$loadedData = $this->loadDirectDebitData($username);
 		$GLOBALS['paymentData'] = $loadedData[0];
+
+		if (isset($_POST['submit'])) {
+			if(!empty($_POST['iban'])
+				&& !empty($_POST['owner'])
+				&& !empty($_POST['mandate']))
+			{
+
+			} else {
+				//TODO errorHandling
+			}
+		}
 	}
 	protected function setCreditCard($username) {
 		$GLOBALS['selectedPaymentMethod'] = 'setCreditCard';
 		$loadedData = $this->loadCreditCardData($username);
 		$GLOBALS['paymentData'] = $loadedData[0];
+
+		if (isset($_POST['submit'])) {
+			if(!empty($_POST['type'])
+				&& !empty($_POST['mandate'])
+				&& !empty($_POST['owner'])
+				&& !empty($_POST['expiryDate']))
+			{
+
+			} else {
+				//TODO errorHandling
+			}
+		}
 	}
 	protected function setBill($username) {
 		$GLOBALS['selectedPaymentMethod'] = 'setBill';
 		$loadedData = $this->loadBillData($username);
 		$GLOBALS['paymentData'] = $loadedData[0];
+
+		if (isset($_POST['submit'])) {
+			if(!empty($_POST['street'])
+				&& !empty($_POST['number'])
+				&& !empty($_POST['postalCode'])
+				&& !empty($_POST['city'])
+				&& !empty($_POST['country']))
+			{
+
+			} else {
+				//TODO errorHandling
+			}
+		}
 	}
 	protected function setPayPal($username) {
 		$GLOBALS['selectedPaymentMethod'] = 'setPayPal';
 		$loadedData = $this->loadPayPalData($username);
 		$GLOBALS['paymentData'] = $loadedData[0];
+
+		if (isset($_POST['submit'])) {
+			if(!empty($_POST['emailAddress'])
+				&& !empty($_POST['password']))
+			{
+				$emailAddress = $_POST['emailAddress'];
+				$previousEmailAddress = $loadedData[0]['emailAddress'];
+				$payPalId = $loadedData[0]['ppid'];
+
+				$options = [
+					'cost' => 12,
+				];
+				$password = password_hash($_POST['password'],PASSWORD_BCRYPT, $options);
+
+				$paypalData = new Paypal(['emailAddress'=>$emailAddress, 'password'=>$password, 'id'=>$payPalId]);
+
+				$loadedData = $paypalData->find(['emailAddress'], [$previousEmailAddress]);
+
+				if (empty($loadedData)) {
+
+					$paypalData->insert($this->errors);
+				} else {
+					$paypalData->update($this->errors);
+				}
+
+				echo json_encode($this->errors) . '<br><br>';
+
+			} else {
+				//TODO errorHandling
+			}
+		}
 	}
 
 	protected function loadDirectDebitData($username) {
-		$username = $_SESSION['username'];
 
 		$loadedData = PaymentData::findOnJoin(
 			'paymentData',
 			['pd.preferedPaymentMethod',
+			'pd.id as pdid',
 
 			'dd.ibanShort',
 			'dd.owner',
-			'dd.mandate'
+			'dd.mandate',
+			'dd.id as ddid'
 
 		], ['username'], [$username]);
 
@@ -104,11 +228,13 @@ class UserController extends Controller
 		$loadedData = PaymentData::findOnJoin(
 			'paymentData',
 			['pd.preferedPaymentMethod',
+			'pd.id as pdid',
 
 			'cc.type',
 			'cc.owner',
 			'cc.expiryDate',
-			'cc.numberShort'
+			'cc.numberShort',
+			'cc.id as ccid'
 
 		], ['username'], [$username]);
 
@@ -120,12 +246,14 @@ class UserController extends Controller
 		$loadedData = PaymentData::findOnJoin(
 			'paymentData',
 			['pd.preferedPaymentMethod',
+			'pd.id as pdid',
 
 			'ba.street',
 			'ba.number',
 			'ba.postalCode',
 			'ba.city',
-			'ba.country'
+			'ba.country',
+			'ba.id as baid'
 
 		], ['username'], [$username]);
 
@@ -133,13 +261,14 @@ class UserController extends Controller
 	}
 
 	protected function loadPayPalData($username) {
-		$username = $_SESSION['username'];
 
 		$loadedData = PaymentData::findOnJoin(
 			'paymentData',
 			['pd.preferedPaymentMethod',
+				'pd.id as pdid',
 
-			'pp.emailAddress'
+				'pp.emailAddress',
+				'pp.id as ppid'
 
 		], ['username'], [$username]);
 
@@ -168,7 +297,8 @@ class UserController extends Controller
 			'a.city',
 			'a.country',
 
-			'pd.preferedPaymentMethod'
+			'pd.preferedPaymentMethod',
+			'pd.id as pdid'
 			],
 
 			['username'],
@@ -191,7 +321,6 @@ class UserController extends Controller
 
 	public function changeUserPassword($subAction) {
 
-		$errors = NULL;
 
 		if (isset($_POST['submit'])) {
 			$newPassword = isset($_POST['newPasswort']) ? $_POST['newPasswort'] : '';
@@ -216,7 +345,7 @@ class UserController extends Controller
 					$contactData->{'id'} = $customerData['cdid'];
 					$contactData->{'password'} = $password;
 
-					$contactData->update($errors);
+					$contactData->update($this->errors);
 
 					unset($contactData);
 
