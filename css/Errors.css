@@ -1,0 +1,12 @@
+.ErrorPage {
+    font-size: 25px;
+    text-align: center;
+
+    color: rgb(200,150,0);
+    background-color: rgba(200,0,0,0.5);
+
+    display: flex;
+    width: fit-content;
+
+    padding: 20px;
+}
