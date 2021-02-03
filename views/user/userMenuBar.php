@@ -1,10 +1,12 @@
 <?php
-    $contactData = $_SESSION['customerData'];
+    $contactData = $GLOBALS['customerData'];
     $customerId = $contactData['cid'];
+    $preferedPaymentMethode = $contactData['preferedPaymentMethod'];
 ?>
 
 <div class="userMenuBar">
-    <p class="">KundenNummer: <?=$customerId?></p>
+    <p class="">Kunden Nummer: <?=$customerId?></p>
+    <p class="">Bevorzugte Zahlungsmethode: <?=$preferedPaymentMethode?></p>
     <br>
 <!--    <p class="">Standardadresse:</p>-->
 <!--    <br>-->

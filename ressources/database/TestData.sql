@@ -61,8 +61,8 @@ COMMIT;
 START TRANSACTION;
 
 INSERT INTO `CreditCard` (`id`, `createdAt`, `updatedAt`, `number`, `type`, `owner`, `expiryDate`, `securityCode`, `numberShort`) VALUES 
-(NULL, current_timestamp(), NULL, '123443215678', 'MasterCard', 'Peters Frau', '2022-04-06', '349', '********5678'),
-(NULL, current_timestamp(), NULL, '478498494949', 'VisaCard', 'Hans Zimmer', '2023-07-04', '545', '********4949');
+(NULL, current_timestamp(), NULL, '1234432156781234', 'MasterCard', 'Peters Frau', '06/04', '349', '********5678'),
+(NULL, current_timestamp(), NULL, '4784984949123649', 'VisaCard', 'Hans Zimmer', '03/20', '545', '********4949');
 
 COMMIT;
 
@@ -101,7 +101,7 @@ INSERT INTO `DirectDebit`(`id`, `createdAt`, `updatedAt`, `iban`, `ibanShort`, `
 
 (NULL, current_timestamp(), NULL, 'DE13798246729217619572', 'DE****************9572', 'Pipi Langsstrumpf', '0'),
 (NULL, current_timestamp(), NULL, 'DE13497568246925497261', 'DE****************7261', 'Rainer Zufall', '1'),
-(NULL, current_timestamp(), NULL, 'DE13792794+35279526454', 'DE****************6454', 'Auto Brum Brumm GmbH', '1');
+(NULL, current_timestamp(), NULL, 'DE13792794235279526454', 'DE****************6454', 'Auto Brum Brumm GmbH', '1');
 
 COMMIT;
 

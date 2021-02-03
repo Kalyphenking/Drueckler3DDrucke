@@ -103,8 +103,6 @@ class MainController extends Controller
 				&& !empty($_POST['password']))
 			{
 
-
-
 				$firstName = $_POST['firstName'];
 				$lastName = $_POST['lastName'];
 				$phoneNumber = isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : NULL;
@@ -121,7 +119,8 @@ class MainController extends Controller
 				$values = [$phoneNumber, $emailAddress, $username];
 
 
-				$data = ContactData::find($keys, $values);
+				$data = ContactData::find($keys, $values, 'or');
+
 
 				if (empty($data)) {
 //					echo 'LÄUFT <br>';
@@ -137,11 +136,8 @@ class MainController extends Controller
 						$contactData->{'phoneNumber'} = $phoneNumber;
 					}
 
-//					echo json_encode($user->{'emailAddress'});
-//					echo '<br>';
 
-
-					$contactData->insert($error);
+					$contactData->insert($error, ['INSERT INTO Customer (guest, ContactData_id)	VALUES (0, LAST_INSERT_ID());']);
 
 					$_SESSION['loggedIn'] = true;
 					$_SESSION['username'] = $contactData->{'username'};
@@ -149,6 +145,8 @@ class MainController extends Controller
 
 					$previousController = isset($_SESSION['previousController']) ? $_SESSION['previousController'] : 'main';
 					$previousAction = isset($_SESSION['previousAction']) ? $_SESSION['previousAction'] : 'main';
+
+//					echo "errors: <br>" . json_encode($error) . "<br>";
 
 
 //					$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;

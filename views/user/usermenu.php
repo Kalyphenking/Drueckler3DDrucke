@@ -1,6 +1,6 @@
 <?php
 
-$contactData = $_SESSION['customerData'];
+$contactData = $GLOBALS['customerData'];
 
 //include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
 

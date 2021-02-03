@@ -54,33 +54,45 @@ class Model
 		}
 	}
 
-	public function insert(&$errors) {
+	public function insert(&$errors, $extraSql = []) {
 		try {
-			$sql = 'INSERT INTO ' . self::tablename() . '(';
+			$sql = 'BEGIN; INSERT INTO ' . self::tablename() . '(';
 			$valueString = ' VALUES (';
 
 			$db = $GLOBALS['db'];
 
 			foreach ($this->shema as $key => $shemaOptions) {
-				$sql .= '`' . $key . '`, ';
+				$sql .= '`' . $key . '`,';
 
-				echo $sql . '<br>';
+//				echo $sql . '<br>';
 //				echo '<br><br></br>läuft<br><br>';
 
 				if($this->data[$key] === null) {
-					$valueString .= 'null, ';
+					$valueString .= 'null,';
 				} else {
 					$valueString .= $db->quote($this->data[$key]) . ',';
 				}
 
 			}
-			echo $sql . '1 <br>';
-			$sql = trim($sql, ', ');
-			echo $sql . '2 <br>';
+			$sql = trim($sql, ',');
 			$valueString = trim($valueString, ',');
-			$sql .= ')' . $valueString . ')';
+			$sql .= ')' . $valueString . ');';
 
-			echo $sql . ' <br>';
+			if (!empty($extraSql)) {
+
+				foreach ($extraSql as $extra) {
+					$sql .= $extra;
+				}
+			}
+
+
+
+//			$sql .= 'INSERT INTO Customer (guest, ContactData_id)
+//					VALUES (0, LAST_INSERT_ID());';
+
+			$sql .= 'COMMIT;';
+
+//			echo "<br><br> $sql <br><br>";
 
 			$statement = $db->prepare($sql);
 			$statement->execute();
@@ -104,13 +116,13 @@ class Model
 					$sql .= $key . ' = ' . $db->quote($this->data[$key]) . ',';
 				}
 			}
-			echo '<br>';
+//			echo '<br>';
 
 			$sql = trim($sql, ',');
 			$sql .= ' where id = ' . $this->data['id'];
 
 
-			echo "sql: $sql <br><br>";
+//			echo "sql: <br> $sql <br><br>";
 
 
 			$statement = $db->prepare($sql);
@@ -147,32 +159,33 @@ class Model
 		$type = $shemaOptions['type'];
 		$errors = [];
 
+
 		switch ($type) {
-			case BaseModel::TYPE_INT:
+			case Model::TYPE_INT:
 				break;
-			case BaseModel::TYPE_FLOAT:
+			case Model::TYPE_DECIMAL:
 				break;
-			case BaseModel::TYPE_STRING: {
+			case Model::TYPE_STRING: {
 				if(isset($shemaOptions['min']) && mb_strlen($value) < $shemaOptions['min']) {
 					$errors[] = $attribute . ': String needs min. ' . $shemaOptions['min'] . ' characters!';
 				}
-
-				if(isset($shemaOptions['max']) && mb_strlen($value) < $shemaOptions['max']) {
+				if(isset($shemaOptions['max']) && mb_strlen($value) > $shemaOptions['max']) {
 					$errors[] = $attribute . ': String can have max. ' . $shemaOptions['max'] . ' characters!';
 				}
 			}
 				break;
 		}
-		return coun($errors) > 0 ? $errors : true;
+		return count($errors) > 0 ? $errors : true;
 	}
 
-	public function validate(&$errors = nul) {
+	public function validate(&$errors) {
 		foreach ($this->shema as $key => $shemaOptions) {
 			if(isset($this->data[$key]) && is_array($shemaOptions)) {
 				$valueErrors = $this->validateValue($key, $this->data[$key], $shemaOptions);
 
 				if($valueErrors !== true) {
-					array_push($errors, ...$valueErrors);
+//					array_push($errors, $valueErrors);
+					$errors[] = $valueErrors;
 				}
 			}
 		}
@@ -194,7 +207,7 @@ class Model
 
 
 
-	public static function find($keys = [], $values = []) {
+	public static function find($keys = [], $values = [], $method = 'and') {
 
 		$db = $GLOBALS['db'];
 		$result = null;
@@ -207,12 +220,12 @@ class Model
 
 
 				for ($index = 0; $index < count($keys); $index ++) {
-					$sql .= '`'.$keys[$index].'`' . ' = ' . '\''.$values[$index].'\'' . 'or';
+					$sql .= '`'.$keys[$index].'`' . ' = ' . '\''.$values[$index].'\'' . $method;
 				}
-				$sql = trim($sql, 'or');
+				$sql = trim($sql, $method);
 				$sql .= ';';
 			}
-			echo $sql . '<br><br>';
+//			echo $sql . '<br><br>';
 			$result = $db->query($sql)->fetchAll();
 		}
 		catch (\PDOException $e) {
@@ -254,7 +267,7 @@ class Model
 //		echo $select;
 
 		$sql = "select $select from $customer c 
-				left join $contactData cd on c.ContactData_id = cd.id ";
+				right join $contactData cd on c.ContactData_id = cd.id ";
 
 		switch ($dataType) {
 			case 'contactData': {

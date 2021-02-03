@@ -19,18 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Changepaymentdata erweitert, subaction sind nun möglich">
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="SetPayPal fertig">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/mainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/mainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/model.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/bill.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/bill.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/directDebit.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/directDebit.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/paypal.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/paypal.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/miscStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/miscStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/contactData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/contactData.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/database/TestData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/TestData.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/user/changePaymentData/setBill.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changePaymentData/setBill.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/user/changePaymentData/setCreditCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changePaymentData/setCreditCard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/user/changePaymentData/setDirectDebit.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changePaymentData/setDirectDebit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/changePaymentData/setPayPal.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changePaymentData/setPayPal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/changeUserPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changeUserPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/userMenuBar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/userMenuBar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/usermenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/usermenu.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +90,7 @@
       <workItem from="1611406556286" duration="18902000" />
       <workItem from="1611602090812" duration="974000" />
       <workItem from="1611608571322" duration="32796000" />
-      <workItem from="1612197033804" duration="67000" />
+      <workItem from="1612197033804" duration="23136000" />
     </task>
     <task id="LOCAL-00001" summary="Bilder">
       <created>1610889492139</created>
@@ -258,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611842523117</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="SetPayPal fertig">
+      <created>1612197135961</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1612197135961</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +306,8 @@
     <MESSAGE value="Register repariert" />
     <MESSAGE value="Jetzt kann man sich ordentlich registrieren, aber die daten bank müsst ihr neu importieren xD" />
     <MESSAGE value="Changepaymentdata erweitert, subaction sind nun möglich" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changepaymentdata erweitert, subaction sind nun möglich" />
+    <MESSAGE value="SetPayPal fertig" />
+    <option name="LAST_COMMIT_MESSAGE" value="SetPayPal fertig" />
   </component>
   <component name="WindowStateProjectService">
     <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611330646686">
@@ -313,22 +323,22 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611764785334" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1611842525006">
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1612197137608">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610983097072" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1611842525006" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612197088448">
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1612197137608" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612289216577">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1612197088448" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1612289216577" />
     <state x="1232" y="0" width="1490" height="1421" key="dock-window-1" timestamp="1611150522361">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1232" y="0" width="1490" height="1421" key="dock-window-1/0.0.3440.1440@0.0.3440.1440" timestamp="1611150522361" />
-    <state x="1385" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1611861463742">
+    <state x="1385" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1612291172008">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1385" y="331" width="670" height="676" key="search.everywhere.popup/0.0.3440.1440@0.0.3440.1440" timestamp="1611861463742" />
+    <state x="1385" y="331" width="670" height="676" key="search.everywhere.popup/0.0.3440.1440@0.0.3440.1440" timestamp="1612291172008" />
   </component>
 </project>
