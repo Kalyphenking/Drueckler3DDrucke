@@ -6,6 +6,11 @@
         require_once $configClass;
     }
 
+    foreach(glob(FUNCTIONSPATH.'*.php') as $function)
+    {
+        require_once $function;
+    }
+
     foreach(glob('core/*.php') as $coreClass)
     {
         require_once $coreClass;
@@ -64,6 +69,7 @@
 <?php
     if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
     {
+
         require_once CONTROLLERSPATH.$controllerName.'Controller.php';
 
         $controllerClass = '\\DDDDD\\controller\\' . ucfirst($controllerName).'Controller';
@@ -79,12 +85,6 @@
 	    }
 
         $controller = new $controllerClass($controllerName, $mainActionName);
-
-
-
-
-
-
 
         if(method_exists($controller, $mainActionName))
         {

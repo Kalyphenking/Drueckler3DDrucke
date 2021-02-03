@@ -10,6 +10,10 @@
 
 	if (!empty($paymentData)) {
 		$emailAddress = $paymentData['emailAddress'];
+
+		echo "<p>PayPal: $emailAddress</p>
+        ";
+
 	} else {
 		$emailAddress = '';
 	}
@@ -20,15 +24,15 @@
     <form action=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setPayPal"?> method = 'POST'>
         Emailadresse:
         <br>
-            <input type="email" name="emailAddress" required value = <?=$emailAddress?>>
+            <input type="email" name="emailAddress">
         <br>
         Passwort:
         <br>
-            <input type="password" name="password" required>
+            <input type="password" name="password" >
         <br>
         PayPal AGB:
         <br>
-            <input type="checkbox" name="mandate" required>
+            <input type="checkbox" name="mandate" >
         <br>
         Als bevorzugte Zahlungsmethode festlegen? :
         <br>

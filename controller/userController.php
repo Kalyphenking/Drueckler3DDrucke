@@ -2,6 +2,7 @@
 
 namespace DDDDD\controller;
 
+use DDDDD\controller\functions\PaymentFunction;
 use DDDDD\core\Controller;
 
 use DDDDD\model\Address;
@@ -21,7 +22,8 @@ class UserController extends Controller
 
 	protected $errors = [];
 	protected $customerData = NULL;
-	protected $preferedPaymentMethod = NULL;
+//	protected $preferedPaymentMethod = NULL;
+	protected $username = NULL;
 
 	public function usermenu($subAction) {
 		$this->loadContactData();
@@ -36,402 +38,55 @@ class UserController extends Controller
 		}
 	}
 
+
 	public function changePaymentData($subAction) {
-		$username = $_SESSION['username'];
-		$action = '';
+		$this->loadContactData();
+		$action = 'setDirectDebit';
+
 
 		if (!empty($subAction)) {
 			$action = $subAction;
-		} else if(isset($_SESSION['preferedPaymentMethod'])) {
-			$action = $_SESSION['preferedPaymentMethod'];
+			$GLOBALS['selectedPaymentMethod'] = $subAction;
 		}
 
-//		$this->customerData = $this->loadContactData()[0];
-		$this->loadContactData();
-//		echo "<br><br><br>" . json_encode($this->contactData) . "<br><br><br>";
 
-		if (method_exists($this, $action)) {
+		$paymentFunction = new PaymentFunction($action);
+//		$GLOBALS['selectedPaymentMethod'] = $action;
 
-
+		if (method_exists($paymentFunction, $action)) {
 
 			if (isset($_POST['submit'])) {
-				if (!empty($_POST['preferedPaymentMethod'])) {
+
+
+				if (isset($_POST['preferedPaymentMethod'])) {
+
 					switch ($action) {
 						case 'setDirectDebit':
-							$this->preferedPaymentMethod = 'dd';
+							$preferedPaymentMethod = 'dd';
 							break;
 						case 'setCreditCard':
-							$this->preferedPaymentMethod = 'cc';
+							$preferedPaymentMethod = 'cc';
 							break;
 						case 'setBill':
-							$this->preferedPaymentMethod = 'bl';
+							$preferedPaymentMethod = 'bl';
 							break;
 						case 'setPayPal':
-							$this->preferedPaymentMethod = 'pp';
+							$preferedPaymentMethod = 'pp';
 							break;
 					}
-				} else {
-					$this->preferedPaymentMethod = $this->customerData['preferedPaymentMethod'];
+
+					$paymentData = new PaymentData(['id'=>$this->customerData['pdid'], 'preferedPaymentMethod'=>$preferedPaymentMethod]);
+
+					$paymentData->update($this->errors);
 				}
 
-				//TODO errorHandling
-			}
-
-			$this->{$action}($username);
-		}
-
-	}
-
-	protected function setDirectDebit($username) {
-		$GLOBALS['selectedPaymentMethod'] = 'setDirectDebit';
-
-		$directDebitId = $this->customerData['ddid'];
-		$customerId = $this->customerData['cid'];
-		$paymentDataId = $this->customerData['pdid'];
-
-		if (isset($_POST['submit'])) {
-			if(!empty($_POST['iban'])
-				&& !empty($_POST['owner'])
-				&& !empty($_POST['mandate']))
-			{
-
-				$iban = $_POST['iban'];
-				$ibanShort = substr($_POST['iban'], 0, 2) . '****************' . substr($_POST['iban'], 18, 4);
-				$owner = $_POST['owner'];
-				$mandate = $_POST['mandate'] == 'on' ? '1' : '0';
-
-
-
-				$directDebitData = new DirectDebit(['id'=>$directDebitId,
-													'iban'=>$iban,
-													'ibanShort'=>$ibanShort,
-													'owner'=>$owner,
-													'mandate'=>$mandate]);
-
-				$directDebitData->validate($this->errors);
-
-				$loadedData = $directDebitData->find(['id'], [$directDebitId]);
-
-
-
-				if (empty($loadedData)) {
-
-					$db = $GLOBALS['db'];
-					if (empty($paymentDataId)) {
-
-						echo "<h1>pd Leer</h1>";
-
-						$directDebitData->insert($this->errors,
-							['INSERT INTO PaymentData (DirectDebit_id, preferedPaymentMethod)	
-								VALUES (LAST_INSERT_ID(),'.$db->quote($this->preferedPaymentMethod).');',
-
-								'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
-					} else {
-						$directDebitData->insert($this->errors,
-							['UPDATE PaymentData set DirectDebit_id = LAST_INSERT_ID(), preferedPaymentMethod = '.$db->quote($this->preferedPaymentMethod).' where id = ' . $customerId . ' ;']);
-					}
-
-
-				} else {
-					$directDebitData->update($this->errors);
-				}
-
-//				echo 'Error: ' . json_encode($this->errors) . '<br><br>';
-
-			} else {
-				//TODO errorHandling
 			}
 		}
-		$loadedData = $this->loadDirectDebitData($username);
-		$GLOBALS['paymentData'] = $loadedData[0];
-	}
-	protected function setCreditCard($username) {
-		$GLOBALS['selectedPaymentMethod'] = 'setCreditCard';
-
-		$creditCardId = $this->customerData['ccid'];
-		$customerId = $this->customerData['cid'];
-		$paymentDataId = $this->customerData['pdid'];
-
-
-
-		if (isset($_POST['submit'])) {
-
-			if(!empty($_POST['number'])
-				&& !empty($_POST['type'])
-				&& !empty($_POST['owner'])
-				&& !empty($_POST['expiryDateMonth'])
-				&& !empty($_POST['expiryDateYear'])
-				&& !empty($_POST['securityCode']))
-			{
-
-
-				$number = $_POST['number'];
-				$type = $_POST['type'];
-				$owner = $_POST['owner'];
-				$expiryDate = $_POST['expiryDateMonth'] . '/' . $_POST['expiryDateYear'];
-				$securityCode = $_POST['securityCode'];
-
-
-				$creditCardData = new CreditCard(['id'=>$creditCardId,
-												  'number'=>$number,
-												  'type'=>$type,
-												  'owner'=>$owner,
-												  'expiryDate'=>$expiryDate,
-												  'securityCode'=>$securityCode]);
-
-				$loadedData = $creditCardData->find(['id'], [$creditCardId]);
-
-				if (empty($loadedData)) {
-
-					$db = $GLOBALS['db'];
-					if (empty($paymentDataId)) {
-
-						echo "<h1>pd Leer</h1>";
-
-						$creditCardData->insert($this->errors,
-							['INSERT INTO PaymentData (CreditCard_id, preferedPaymentMethod)	
-								VALUES (LAST_INSERT_ID(),'.$db->quote($this->preferedPaymentMethod).');',
-
-								'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
-					} else {
-						$creditCardData->insert($this->errors,
-							['UPDATE PaymentData set CreditCard_id = LAST_INSERT_ID(), preferedPaymentMethod = '.$db->quote($this->preferedPaymentMethod).' where id = ' . $customerId . ' ;']);
-					}
-				} else {
-					$creditCardData->update($this->errors);
-				}
-
-//				echo 'Error: ' . json_encode($this->errors) . '<br><br>';
-
-			} else {
-				//TODO errorHandling
-			}
-		}
-		$loadedData = $this->loadCreditCardData($username);
-		$GLOBALS['paymentData'] = $loadedData[0];
-	}
-	protected function setBill($username) {
-		$GLOBALS['selectedPaymentMethod'] = 'setBill';
-
-		$loadedData = $this->loadBillData($username);
-		$GLOBALS['paymentData'] = $loadedData[0];
-
-		echo json_encode($loadedData);
-
-		$billId = $this->customerData['blid'];
-
-		$billAddressId = $loadedData[0]['baid'];
-
-		$customerId = $this->customerData['cid'];
-		$paymentDataId = $this->customerData['pdid'];
-		$addressId = $this->customerData['aid'];
-
-
-
-		if (isset($_POST['submit'])) {
-
-			if(isset($_POST['sameAsShipping']) && !empty($_POST['sameAsShipping']))
-			{
-
-				if (!empty($addressId)) {
-
-					$street = $this->customerData['street'];
-					$number = $this->customerData['number'];
-					$postalCode = $this->customerData['postalCode'];
-					$city = $this->customerData['city'];
-					$country = $this->customerData['country'];
-
-					echo "country: $country <br>";
-				} else {
-					//TODO errorHandling
-					echo 'error, keine Lieferadresse bekannt';
-					return;
-				}
-
-			} else if(!empty($_POST['street'])
-					&& !empty($_POST['number'])
-					&& !empty($_POST['postalCode'])
-					&& !empty($_POST['city'])
-					&& !empty($_POST['country']))
-			{
-
-				$street = $_POST['street'];
-				$number = $_POST['number'];
-				$postalCode = $_POST['postalCode'];
-				$city = $_POST['city'];
-				$country = $_POST['country'];
-
-			} else {
-				//TODO errorHandling
-				echo 'error, alle alle';
-				return;
-			}
-
-			$billAddressData = new Address(['id'=>$billAddressId,
-				'street'=>$street,
-				'number'=>$number,
-				'postalCode'=>$postalCode,
-				'city'=>$city,
-				'country'=>$country]);
-
-			$loadedData = $billAddressData->find(['id'], [$billId]);
-
-			if (empty($loadedData)) {
-				$db = $GLOBALS['db'];
-				if (empty($paymentDataId)) {
-
-					$billAddressData->insert($this->errors,
-						['INSERT INTO PaymentData (Bill_id, preferedPaymentMethod)	
-								VALUES (LAST_INSERT_ID(),'.$db->quote($this->preferedPaymentMethod).');',
-
-							'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
-				} else {
-					$billAddressData->insert($this->errors,
-						['INSERT INTO Bill (Address_id) VALUES (LAST_INSERT_ID());',
-							'UPDATE PaymentData set Bill_id = LAST_INSERT_ID(), preferedPaymentMethod = '.$db->quote($this->preferedPaymentMethod).' where id = ' . $customerId . ' ;']);
-				}
-			} else {
-				$billAddressData->update($this->errors);
-			}
-
-//				echo 'Error: ' . json_encode($this->errors) . '<br><br>';
-
-			$GLOBALS['paymentData']['street'] = $street;
-			$GLOBALS['paymentData']['number'] = $number;
-			$GLOBALS['paymentData']['postalCode'] = $postalCode;
-			$GLOBALS['paymentData']['city'] = $city;
-			$GLOBALS['paymentData']['country'] = $country;
-
-		}
-
-	}
-	protected function setPayPal($username) {
-		$GLOBALS['selectedPaymentMethod'] = 'setPayPal';
-
-		$payPalId = $this->customerData['ppid'];
-		$customerId = $this->customerData['cid'];
-		$paymentDataId = $this->customerData['pdid'];
-
-		if (isset($_POST['submit'])) {
-			if(!empty($_POST['emailAddress'])
-				&& !empty($_POST['password']))
-			{
-				$emailAddress = $_POST['emailAddress'];
-
-				$options = [
-					'cost' => 12,
-				];
-				$password = password_hash($_POST['password'],PASSWORD_BCRYPT, $options);
-
-				$paypalData = new Paypal(['emailAddress'=>$emailAddress, 'password'=>$password, 'id'=>$payPalId]);
-
-				$loadedData = $paypalData->find(['id'], [$payPalId]);
-
-				if (empty($loadedData)) {
-					$db = $GLOBALS['db'];
-					if (empty($paymentDataId)) {
-
-						echo "<h1>pd Leer</h1>";
-
-						$paypalData->insert($this->errors,
-							['INSERT INTO PaymentData (Paypal_id, preferedPaymentMethod)	
-								VALUES (LAST_INSERT_ID(),'.$db->quote($this->preferedPaymentMethod).');',
-
-								'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
-					} else {
-						$paypalData->insert($this->errors,
-							['UPDATE PaymentData set Paypal_id = LAST_INSERT_ID(), preferedPaymentMethod = '
-							.$db->quote($this->preferedPaymentMethod).' where id = '
-							. $customerId .
-							' ;']);
-					}
-				} else {
-					$paypalData->update($this->errors);
-				}
-
-//				echo 'Error: ' . json_encode($this->errors) . '<br><br>';
-
-			} else {
-				//TODO errorHandling
-			}
-		}
-
-		$payPalData = $this->loadPayPalData($username)[0];
-		$GLOBALS['paymentData'] = $payPalData;
-	}
-
-	protected function loadDirectDebitData($username) {
-
-		$loadedData = PaymentData::findOnJoin(
-			'paymentData',
-			['pd.preferedPaymentMethod',
-			'pd.id as pdid',
-
-			'dd.ibanShort',
-			'dd.owner',
-			'dd.mandate',
-			'dd.id as ddid'
-
-		], ['username'], [$username]);
-
-		return $loadedData;
-	}
-
-	protected function loadCreditCardData($username) {
-
-		$loadedData = PaymentData::findOnJoin(
-			'paymentData',
-			['pd.preferedPaymentMethod',
-			'pd.id as pdid',
-
-			'cc.type',
-			'cc.owner',
-			'cc.expiryDate',
-			'cc.numberShort',
-			'cc.id as ccid'
-
-		], ['username'], [$username]);
-
-		return $loadedData;
-	}
-
-	protected function loadBillData($username) {
-
-		$loadedData = PaymentData::findOnJoin(
-			'paymentData',
-			['pd.preferedPaymentMethod',
-			'pd.id as pdid',
-
-			'ba.street',
-			'ba.number',
-			'ba.postalCode',
-			'ba.city',
-			'ba.country',
-			'ba.id as baid'
-
-		], ['username'], [$username]);
-
-		return $loadedData;
-	}
-
-	protected function loadPayPalData($username) {
-
-		$loadedData = PaymentData::findOnJoin(
-			'paymentData',
-			['pd.preferedPaymentMethod',
-				'pd.id as pdid',
-
-				'pp.emailAddress',
-				'pp.id as ppid'
-
-		], ['username'], [$username]);
-
-		return $loadedData;
 	}
 
 
 	protected function loadContactData() {
-		$username = $_SESSION['username'];
+		$this->username = $_SESSION['username'];
 
 		$loadedData = Customer::findOnJoin(
 			'contactData',
@@ -463,41 +118,40 @@ class UserController extends Controller
 
 			['username'],
 
-			[$username]);
+			[$this->username]);
 
-//		echo '<br>' . json_encode($loadedData) . '<br>';
 
 		$preferedPaymentMethod = $loadedData[0]['preferedPaymentMethod'];
-//		$_SESSION['customerID'] = $loadedData[0]['cid'];
 
 
 		switch ($preferedPaymentMethod) {
 			case 'dd':
-				$name = 'setDirectDebit';
-				$output = 'Lastschrift';
+				$actionName = 'setDirectDebit';
+				$displayedName = 'Lastschrift';
 				break;
 			case 'cc':
-				$name = 'setCreditCard';
-				$output = 'Lastschrift';
+				$actionName = 'setCreditCard';
+				$displayedName = 'Kreditkarte';
 				break;
 			case 'bl':
-				$name = 'setBill';
-				$output = 'Lastschrift';
+				$actionName = 'setBill';
+				$displayedName = 'Rechnung';
 				break;
 			case 'pp':
-				$name = 'setPayPal';
-				$output = 'Lastschrift';
+				$actionName = 'setPayPal';
+				$displayedName = 'PayPal';
 				break;
 			default:
-				$name = 'setDirectDebit';
-				$output = 'Nicht hinterlegt';
+				$actionName = 'setDirectDebit';
+				$displayedName = 'Nicht hinterlegt';
 				break;
 		}
 
-		$GLOBALS['customerData'] = $loadedData[0];
-		$GLOBALS['customerData']['preferedPaymentMethod'] = $output;
+		$GLOBALS['preferedPaymentMethod'] = $displayedName;
+		$GLOBALS['selectedPaymentMethod'] = $actionName;
 
-		$_SESSION['preferedPaymentMethod'] = $name;
+		$GLOBALS['customerData'] = $loadedData[0];
+
 
 		$this->customerData = $loadedData[0];
 		return $loadedData;
@@ -505,11 +159,6 @@ class UserController extends Controller
 	}
 
 	protected function changeUserData() {
-		$username = $_SESSION['username'];
-
-//		echo '<br>' . json_encode($this->customerData);
-
-
 		$contactDataId = $this->customerData['cdid'];
 		$firstName = !empty($_POST['firstName']) ? $_POST['firstName'] : $this->customerData['firstName'];
 		$lastName = !empty($_POST['lastName']) ? $_POST['lastName'] : $this->customerData['lastName'];
@@ -530,10 +179,7 @@ class UserController extends Controller
 	}
 
 	protected function changeAddressData() {
-		$username = $_SESSION['username'];
 		$contactDataId = $this->customerData['cdid'];
-//		echo '<br>' . json_encode($this->customerData);
-
 
 		$addressDataId = $this->customerData['aid'];
 		$street = !empty($_POST['street']) ? $_POST['street'] : $this->customerData['street'];
@@ -565,19 +211,27 @@ class UserController extends Controller
 	public function changeUserPassword($subAction) {
 		$this->loadContactData();
 
+
+
 		if (isset($_POST['submit'])) {
+
+
+
 			$newPassword = isset($_POST['newPasswort']) ? $_POST['newPasswort'] : '';
 			$newPasswortVerified = isset($_POST['newPasswortVerified']) ? $_POST['newPasswortVerified'] : '';
 
-			$customerData = $_SESSION['customerData'];
 
 			if ($newPassword === $newPasswortVerified) {
+
 				$contactData = new ContactData();
 				$currentPassword = $_POST['currentPassword'];
-				$passwordData = $contactData::find(['username'], [$customerData['username']]);
+				$passwordData = $contactData->find(['username'], [$this->customerData['username']]);
+
 
 
 				if (!empty($passwordData) && password_verify($currentPassword, $passwordData[0]["password"])) {
+
+
 					$options = [
 						'cost' => 12,
 					];
@@ -585,7 +239,7 @@ class UserController extends Controller
 
 
 
-					$contactData->{'id'} = $customerData['cdid'];
+					$contactData->{'id'} = $this->customerData['cdid'];
 					$contactData->{'password'} = $password;
 
 					$contactData->update($this->errors);
@@ -609,7 +263,6 @@ class UserController extends Controller
 
 	}
 
-
 	public function orders($subAction)
 	{
 		$this->loadContactData();
@@ -617,7 +270,6 @@ class UserController extends Controller
 
 //		echo 'orders: <br>' . json_encode($_SESSION['orders']) . '<br><br>';
 	}
-
 
 	protected function loadOrders()
 	{
@@ -700,8 +352,6 @@ class UserController extends Controller
 		$GLOBALS['detailedOrder'] = $this->getSelectedOrder();
 	}
 
-
-
 	protected function getSelectedOrder() {
 
 		$orders = $this->loadOrders('pc');
@@ -719,6 +369,5 @@ class UserController extends Controller
 
 		return $value;
 	}
-
 
 }

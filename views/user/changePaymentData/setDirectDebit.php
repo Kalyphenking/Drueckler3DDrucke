@@ -28,15 +28,15 @@
     <form action=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setDirectDebit"?> method = 'POST'>
         Iban:
         <br>
-            <input type="text" name="iban" required>
+            <input type="text" name="iban" >
         <br>
         Kontoinhaber:
         <br>
-            <input type="text" name="owner" required>
+            <input type="text" name="owner" >
         <br>
         Lastschriftmandat erteilen:
         <br>
-            <input type="checkbox" name="mandate" required>
+            <input type="checkbox" name="mandate" >
         <br>
         Als bevorzugte Zahlungsmethode festlegen? :
         <br>

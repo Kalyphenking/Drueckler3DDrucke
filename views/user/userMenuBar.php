@@ -1,7 +1,8 @@
 <?php
     $contactData = $GLOBALS['customerData'];
     $customerId = $contactData['cid'];
-    $preferedPaymentMethode = $contactData['preferedPaymentMethod'];
+
+    $preferedPaymentMethode = isset($GLOBALS['preferedPaymentMethod']) ? $GLOBALS['preferedPaymentMethod'] : 'Nicht hinterlegt';
 ?>
 
 <div class="userMenuBar">

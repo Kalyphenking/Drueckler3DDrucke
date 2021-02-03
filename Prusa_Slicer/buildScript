@@ -1,5 +1,6 @@
 #!/bin/zsh
 # Normal mode prints
+
 basePath="/Applications/XAMPP/xamppfiles/htdocs/Drueckler3DDrucke/Prusa_Slicer"
 DIR_BASENAME="$basePath/output"
 printerSettings="$basePath/printers/Ender3Pro.ini"

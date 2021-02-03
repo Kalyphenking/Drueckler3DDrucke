@@ -14,7 +14,6 @@ class OrderController extends Controller
 
 	public function configurator($subAction) {
 
-
 		if (isset($_FILES['fileToUpload']) && !empty($_FILES['fileToUpload']))
 		{
 			if(file_exists($_FILES['fileToUpload']['tmp_name']) && is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) {
@@ -41,7 +40,9 @@ class OrderController extends Controller
 				$uploadFile = $uploadDir . basename($_FILES['fileToUpload']['name']);
 
 				if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadFile)) {
-					echo 'Datei ist valide und wurde erfolgreich hochgeladen <br>';
+//					echo 'Datei ist valide und wurde erfolgreich hochgeladen <br>';
+
+					//TODO success message
 					$this->processModel();
 				} else {
 					echo 'Moglicherweise shit\n';
@@ -61,11 +62,38 @@ class OrderController extends Controller
 
 	}
 
-	function processModel($subAction) {
+	protected function processModel() {
 
-		$output = shell_exec(SLICER);
-		echo "<pre>$output</pre>";
+//		$output = shell_exec(SLICER);
+//		echo "<pre>$output</pre>";
 
+		$output = [];
+//		$retvar = 0;
+//
+//		echo exec('Prusa_Slicer'.DIRECTORY_SEPARATOR.'test.sh', $output, $retvar) . '<br><br>';
+
+//		echo shell_exec(SLICER) . '<br><br>';
+
+//		$this->execInBackground(SLICER);
+
+
+//		echo json_encode($output) . '<br>';
+//		$output = shell_exec('pwd');
+//		echo "<pre>$output</pre>";
+
+		exec("php ".VIEWSPATH."order".DIRECTORY_SEPARATOR."processModel.php"." > /dev/null &");
+
+//		echo SLICER;
+
+	}
+
+	protected function execInBackground($cmd) {
+		if (substr(php_uname(), 0, 7) == "Windows"){
+			pclose(popen("start /B ". $cmd, "r"));
+		}
+		else {
+			exec($cmd . " > /dev/null &");
+		}
 	}
 
 //	protected function convert($file, $filePath) {

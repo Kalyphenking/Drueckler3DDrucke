@@ -1,12 +1,3 @@
-<?php
-$preferedPaymentMethod = isset($_SESSION['preferedPaymentMethod']) ? $_SESSION['preferedPaymentMethod'] : 'setDirectDebit';
-
-//echo "preferedPaymentMethod: $preferedPaymentMethod <br>";
-
-//echo '<br>' . $paymentMethode . '<br>';
-
-?>
-
 
 
 <div class="userMenuContent">
@@ -16,9 +7,10 @@ $preferedPaymentMethod = isset($_SESSION['preferedPaymentMethod']) ? $_SESSION['
     <a href=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setPayPal"?>>PayPal</a>
 
 	<?php
-	$selectedView = isset($GLOBALS['selectedPaymentMethod']) ? $GLOBALS['selectedPaymentMethod'] : $preferedPaymentMethod;
+	$selectedView = isset($GLOBALS['selectedPaymentMethod']) ? $GLOBALS['selectedPaymentMethod'] : 'setDirectDebit';
 
 	$path = VIEWSPATH . 'user' . DIRECTORY_SEPARATOR . 'changePaymentData' . DIRECTORY_SEPARATOR . $selectedView . '.php';
+
 
 	include($path);
 	?>

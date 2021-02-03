@@ -25,33 +25,38 @@
 
     <form action=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setBill"?> method = 'POST'>
         Wie Lieferadresse?
-        <br>
         <input type="checkbox" name="sameAsShipping">
+        <br>
+        Als bevorzugte Zahlungsmethode festlegen?
+        <input type="checkbox" name="preferedPaymentMethod">
+        <br>
+        <br>
+        <input type="submit" name="submit" value="Speichern">
         <br>
         <br>
         Straße:
         <br>
-            <input type="text" name="street" value = <?=$street?>>
+            <input type="text" name="street"  value = <?=$street?>>
         <br>
         Hausnummer:
         <br>
-            <input type="text" name="number" value = <?=$number?>>
+            <input type="text" name="number"  value = <?=$number?>>
         <br>
         Postleitzahl:
         <br>
-            <input type="text" name="postalCode" value = <?=$postalCode?>>
+            <input type="text" name="postalCode"  value = <?=$postalCode?>>
         <br>
         Stadt:
         <br>
-            <input type="text" name="city" value = <?=$city?>>
+            <input type="text" name="city"  value = <?=$city?>>
         <br>
         Land:
         <br>
-            <input type="text" name="country" value = <?=$country?>>
+            <input type="text" name="country"  value = <?=$country?>>
         <br>
         Als bevorzugte Zahlungsmethode festlegen?
-        <br>
         <input type="checkbox" name="preferedPaymentMethod">
+        <br>
         <br>
             <input type="submit" name="submit" value="Speichern">
     </form>

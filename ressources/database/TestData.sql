@@ -61,8 +61,8 @@ COMMIT;
 START TRANSACTION;
 
 INSERT INTO `CreditCard` (`id`, `createdAt`, `updatedAt`, `number`, `type`, `owner`, `expiryDate`, `securityCode`, `numberShort`) VALUES 
-(NULL, current_timestamp(), NULL, '1234432156781234', 'MasterCard', 'Peters Frau', '06/04', '349', '********5678'),
-(NULL, current_timestamp(), NULL, '4784984949123649', 'VisaCard', 'Hans Zimmer', '03/20', '545', '********4949');
+(NULL, current_timestamp(), NULL, '1234432156781234', 'MasterCard', 'Peters Frau', '06/04', '349', '************5678'),
+(NULL, current_timestamp(), NULL, '4784984949123649', 'VisaCard', 'Hans Zimmer', '03/20', '545', '************4949');
 
 COMMIT;
 

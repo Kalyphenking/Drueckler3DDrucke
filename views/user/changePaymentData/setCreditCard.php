@@ -6,7 +6,7 @@
 
 	$paymentData = isset($GLOBALS['paymentData']) ? $GLOBALS['paymentData'] : [];
 
-	if (!empty($paymentData¢['ccid'])) {
+	if (!empty($paymentData['ccid'])) {
 		$type = $paymentData['type'];
 		$owner = $paymentData['owner'];
 		$expiryDate = $paymentData['expiryDate'];
@@ -35,25 +35,25 @@
     <form action=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setCreditCard"?> method = 'POST'>
         Kartentyp:
         <br>
-            <input type="text" name="type" required>
+            <input type="text" name="type" >
         <br>
         Kartennummer:
         <br>
-            <input type="text" name="number" required>
+            <input type="text" name="number" >
         <br>
         Name des Eigentümers:
         <br>
-            <input type="text" name="owner" required>
+            <input type="text" name="owner" >
         <br>
         Ablaufdatum:
         <br>
-            <input type="text" name="expiryDateMonth" required placeholder="12">
+            <input type="text" name="expiryDateMonth"  placeholder="12">
             /
-            <input type="text" name="expiryDateYear" required placeholder="21">
+            <input type="text" name="expiryDateYear"  placeholder="21">
         <br>
         Sicherheitscode:
         <br>
-        <input type="text" name="securityCode" required>
+        <input type="text" name="securityCode" >
         <br>
         Als bevorzugte Zahlungsmethode festlegen? :
         <br>
