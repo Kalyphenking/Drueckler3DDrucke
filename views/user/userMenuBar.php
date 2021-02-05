@@ -1,8 +1,8 @@
 <?php
-    $contactData = $GLOBALS['customerData'];
+    $contactData = $_SESSION['customerData'];
     $customerId = $contactData['cid'];
 
-    $preferedPaymentMethode = isset($GLOBALS['preferedPaymentMethod']) ? $GLOBALS['preferedPaymentMethod'] : 'Nicht hinterlegt';
+    $preferedPaymentMethode = isset($_SESSION['preferedPaymentMethod']) ? $GLOBALS['preferedPaymentMethod'] : 'Nicht hinterlegt';
 ?>
 
 <div class="userMenuBar">

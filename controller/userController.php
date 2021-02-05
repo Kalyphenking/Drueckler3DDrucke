@@ -26,7 +26,7 @@ class UserController extends Controller
 	protected $username = NULL;
 
 	public function usermenu($subAction) {
-		$this->loadContactData();
+		$this->loadUserData();
 
 		if (isset($_POST['submit']) && isset($_POST['firstName'])) {
 
@@ -40,7 +40,7 @@ class UserController extends Controller
 
 
 	public function changePaymentData($subAction) {
-		$this->loadContactData();
+		$this->loadUserData();
 		$action = 'setDirectDebit';
 
 
@@ -85,44 +85,48 @@ class UserController extends Controller
 	}
 
 
-	protected function loadContactData() {
+	protected function loadUserData() {
 		$this->username = $_SESSION['username'];
 
-		$loadedData = Customer::findOnJoin(
-			'contactData',
-			[
-			'c.id as cid',
+		if (!isset($_SESSION['customerData'])) {
+			$loadedData = Customer::findOnJoin(
+				'contactData',
+				[
+					'c.id as cid',
 
-			'cd.firstName',
-			'cd.lastName',
-			'cd.phoneNumber',
-			'cd.emailAddress',
-			'cd.username',
-			'cd.id as cdid',
+					'cd.firstName',
+					'cd.lastName',
+					'cd.phoneNumber',
+					'cd.emailAddress',
+					'cd.username',
+					'cd.id as cdid',
 
-			'a.id as aid',
-			'a.street',
-			'a.number',
-			'a.postalCode',
-			'a.city',
-			'a.country',
+					'a.id as aid',
+					'a.street',
+					'a.number',
+					'a.postalCode',
+					'a.city',
+					'a.country',
 
-			'pd.preferedPaymentMethod',
-			'pd.id as pdid',
-			'pd.CreditCard_id as ccid',
-			'pd.DirectDebit_id as ddid',
-			'pd.Bill_id as blid',
-			'pd.Paypal_id as ppid'
+					'pd.preferedPaymentMethod',
+					'pd.id as pdid',
+					'pd.CreditCard_id as ccid',
+					'pd.DirectDebit_id as ddid',
+					'pd.Bill_id as blid',
+					'pd.Paypal_id as ppid'
 
-			],
+				],
 
-			['username'],
+				['username'],
 
-			[$this->username]);
+				[$this->username]);
 
 
-		$preferedPaymentMethod = $loadedData[0]['preferedPaymentMethod'];
+//			echo json_encode($loadedData[0]) . '<br><br>';
+			$_SESSION['customerData'] = $loadedData[0];
+		}
 
+		$preferedPaymentMethod = $_SESSION['customerData']['preferedPaymentMethod'];
 
 		switch ($preferedPaymentMethod) {
 			case 'dd':
@@ -150,11 +154,13 @@ class UserController extends Controller
 		$GLOBALS['preferedPaymentMethod'] = $displayedName;
 		$GLOBALS['selectedPaymentMethod'] = $actionName;
 
-		$GLOBALS['customerData'] = $loadedData[0];
+//		$GLOBALS['customerData'] = $loadedData[0];
 
 
-		$this->customerData = $loadedData[0];
-		return $loadedData;
+
+
+		$this->customerData = $_SESSION['customerData'];
+		return;
 
 	}
 
@@ -171,10 +177,10 @@ class UserController extends Controller
 
 		$contactData->update($this->errors);
 
-		$GLOBALS['customerData']['firstName'] = $firstName;
-		$GLOBALS['customerData']['lastName'] = $lastName;
-		$GLOBALS['customerData']['emailAddress'] = $emailAddress;
-		$GLOBALS['customerData']['phoneNumber'] = $phoneNumber;
+		$_SESSION['customerData']['firstName'] = $firstName;
+		$_SESSION['customerData']['lastName'] = $lastName;
+		$_SESSION['customerData']['emailAddress'] = $emailAddress;
+		$_SESSION['customerData']['phoneNumber'] = $phoneNumber;
 
 	}
 
@@ -201,15 +207,15 @@ class UserController extends Controller
 
 		echo json_encode($this->errors);
 
-		$GLOBALS['customerData']['street'] = $street;
-		$GLOBALS['customerData']['number'] = $number;
-		$GLOBALS['customerData']['postalCode'] = $postalCode;
-		$GLOBALS['customerData']['city'] = $city;
-		$GLOBALS['customerData']['country'] = $country;
+		$_SESSION['customerData']['street'] = $street;
+		$_SESSION['customerData']['number'] = $number;
+		$_SESSION['customerData']['postalCode'] = $postalCode;
+		$_SESSION['customerData']['city'] = $city;
+		$_SESSION['customerData']['country'] = $country;
 	}
 
 	public function changeUserPassword($subAction) {
-		$this->loadContactData();
+		$this->loadUserData();
 
 
 
@@ -265,7 +271,7 @@ class UserController extends Controller
 
 	public function orders($subAction)
 	{
-		$this->loadContactData();
+		$this->loadUserData();
 		$GLOBALS['orders'] = $this->loadOrders();
 
 //		echo 'orders: <br>' . json_encode($_SESSION['orders']) . '<br><br>';

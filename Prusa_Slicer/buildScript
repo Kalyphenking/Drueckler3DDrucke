@@ -1,14 +1,24 @@
 #!/bin/zsh
 # Normal mode prints
 
-basePath="/Applications/XAMPP/xamppfiles/htdocs/Drueckler3DDrucke/Prusa_Slicer"
+basePath="Prusa_Slicer"
+# basePath="/Applications/XAMPP/xamppfiles/htdocs/Drueckler3DDrucke/Prusa_Slicer"
+
 DIR_BASENAME="$basePath/output"
 printerSettings="$basePath/printers/Ender3Pro.ini"
 printSettings="settings/012mm100pct10dg.ini"
 
+pwd
+pwd
+pwd
+pwd
+
 cd $basePath;
 
-find "./uploads/temp" -iname "*.stl" | while read MODEL
+
+
+
+find "uploads/temp" -iname "*.stl" | while read MODEL
 
 
 do 

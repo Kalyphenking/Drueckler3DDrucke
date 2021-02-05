@@ -16,7 +16,7 @@ class PaymentFunction
 
 	function __construct($function) {
 		$this->username = $_SESSION['username'];
-		$this->customerData = $GLOBALS['customerData'];
+		$this->customerData = $_SESSION['customerData'];
 
 		$this->{$function}();
 
@@ -24,6 +24,9 @@ class PaymentFunction
 
 	protected function setDirectDebit() {
 		$GLOBALS['selectedPaymentMethod'] = 'setDirectDebit';
+
+
+//		echo json_encode($this->customerData);
 
 		$directDebitId = $this->customerData['ddid'];
 		$customerId = $this->customerData['cid'];

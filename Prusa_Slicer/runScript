@@ -1,4 +1,6 @@
 #!/bin/zsh
 
-/Applications/XAMPP/xamppfiles/htdocs/Drueckler3DDrucke/Prusa_Slicer/PrusaSlicer.app/Contents/MacOS/PrusaSlicer $*
+# /Applications/XAMPP/xamppfiles/htdocs/Drueckler3DDrucke/Prusa_Slicer/PrusaSlicer.app/Contents/MacOS/PrusaSlicer $*
+Prusa_Slicer/PrusaSlicer.app/Contents/MacOS/PrusaSlicer $*
+# /Applications/XAMPP/xamppfiles/htdocs/Drueckler3DDrucke/Prusa_Slicer/PrusaSlicer.app/Contents/MacOS/PrusaSlicer $*
 
