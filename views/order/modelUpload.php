@@ -10,7 +10,7 @@
 			<input type="file" name="uploadFile" id="uploadFile" required>
 			<br>
 
-			<input type="submit" value="Upload php" name="submit">
+			<input type="submit" value="Upload php">
 
 		</form>
 	</div>

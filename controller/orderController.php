@@ -14,9 +14,6 @@ class OrderController extends Controller
 
 	public function configurator($subAction) {
 
-		$loadedFile = $_FILES['uploadFile'];
-
-
 		if (isset($_FILES['uploadFile']) && !empty($_FILES['uploadFile']))
 		{
 			if(file_exists($_FILES['uploadFile']['tmp_name']) && is_uploaded_file($_FILES['uploadFile']['tmp_name'])) {
@@ -72,9 +69,12 @@ class OrderController extends Controller
 			}
 		}
 
+		if (isset($_POST['submit'])) {
+
+		}
 
 
-		if (!isset($GLOBALS['filaments']) || empty($GLOBALS['filaments']) || empty($this->filaments)) {
+		if (!isset($_SESSION['filaments']) || empty($_SESSION['filaments']) || empty($this->filaments)) {
 //			echo 'request <br>';
 			$this->loadFilaments();
 		}
@@ -166,8 +166,8 @@ class OrderController extends Controller
 //		echo json_encode($types) . '<br>';
 //		echo json_encode($columns) . '<br>';
 
-		$GLOBALS['filamentTypes'] = $types;
-		$GLOBALS['filaments'] = $filaments;
+		$_SESSION['filamentTypes'] = $types;
+		$_SESSION['filaments'] = $filaments;
 	}
 
 	protected function sortArray($array, $arrayKey) {

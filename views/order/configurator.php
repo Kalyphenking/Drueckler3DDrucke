@@ -4,12 +4,15 @@
 //}
 
 //$filaments = isset($_SESSION['filaments']) ? $_SESSION['filaments'] : [];
-$filaments = $GLOBALS['filaments'];
-$filamentTypes = $GLOBALS['filamentTypes'];
+$filaments = $_SESSION['filaments'];
+//$filamentTypes = $_SESSION['filamentTypes'];
+
+$printTime = isset($_SESSION['printTime']) ? $_SESSION['printTime'] : 0;
+$printPrices = isset($_SESSION['printPrices']) ? $_SESSION['printPrices'] : [];
 
 $gltfFileName = isset($_SESSION['gltfFileName']) ? $_SESSION['gltfFileName'] : 'no';
 
-echo 'http://localhost/Drueckler3DDrucke'.DIRECTORY_SEPARATOR.UPLOADSPATH. 'glb'.DIRECTORY_SEPARATOR.$gltfFileName;
+//echo 'http://localhost/Drueckler3DDrucke'.DIRECTORY_SEPARATOR.UPLOADSPATH. 'glb'.DIRECTORY_SEPARATOR.$gltfFileName;
 
 ?>
 
@@ -76,6 +79,13 @@ echo 'http://localhost/Drueckler3DDrucke'.DIRECTORY_SEPARATOR.UPLOADSPATH. 'glb'
             </datalist>
             <br>
             <input type="submit">
+
+            <?php
+
+
+            ?>
+
+
         </form>
     </div>
 </div>

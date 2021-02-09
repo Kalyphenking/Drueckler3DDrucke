@@ -19,42 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Prusa_Slicer Entfernt">
-      <change afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/order.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/user.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/checkForJavaScript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/fileUpload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/errors.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/glbErrors.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/stlErrors.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/saveGLTFFile.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stl2gltf/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stl2gltf/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stl2gltf/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stl2gltf/a.out.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stl2gltf/a.out.wasm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stl2gltf/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stl2gltf/stl2gltf.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stl2gltf/stl2gltf.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stl2gltf/vertex.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/glb/6021449f3c57b_LONG_SCREW_Ender_Z-Axis_Motor_Mount.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/stl/6021449f3c57b_LONG_SCREW_Ender_Z-Axis_Motor_Mount.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/order/orderProgressBar.php" afterDir="false" />
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="3D Ansicht implementiert">
+      <change afterPath="$PROJECT_DIR$/uploads/temp/stl/6021449f3c57b_Cube100x100x100mm.stl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/paths.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/paths.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/orderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/orderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/fileExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/modelUpload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/navbard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/navbard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/stlErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/stlErrors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/temp/glb/6021449f3c57b_LONG_SCREW_Ender_Z-Axis_Motor_Mount.glb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/temp/stl/6021449f3c57b_LONG_SCREW_Ender_Z-Axis_Motor_Mount.stl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/views/order/configurator.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/configurator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/cancellOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/cancellOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/changePaymentData.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changePaymentData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/changeUserPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changeUserPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/orders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/usermenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/usermenu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/order/modelUpload.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/modelUpload.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +89,7 @@
       <workItem from="1611602090812" duration="974000" />
       <workItem from="1611608571322" duration="32796000" />
       <workItem from="1612197033804" duration="46599000" />
-      <workItem from="1612619565367" duration="28298000" />
+      <workItem from="1612619565367" duration="31605000" />
     </task>
     <task id="LOCAL-00001" summary="Bilder">
       <created>1610889492139</created>
@@ -321,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612622551475</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="3D Ansicht implementiert">
+      <created>1612860207750</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1612860207750</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +343,8 @@
     <MESSAGE value="SetPayPal fertig" />
     <MESSAGE value="Zahlungsmethoden könenn nun verändert werden" />
     <MESSAGE value="Prusa_Slicer Entfernt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prusa_Slicer Entfernt" />
+    <MESSAGE value="3D Ansicht implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="3D Ansicht implementiert" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1085" y="553" key="#SQL_Dialects" timestamp="1612363682860">
@@ -391,15 +372,15 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1229" y="356" key="SettingsEditor/0.0.3440.1440@0.0.3440.1440" timestamp="1612359714205" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1612622553504">
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1612860209671">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610983097072" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1612622553504" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612816335840">
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1612860209671" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612898012691">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1612816335840" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1612898012691" />
     <state x="1936" y="271" width="1081" height="1084" key="dock-window-1" timestamp="1612359910285">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
