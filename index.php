@@ -49,18 +49,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="<?=ROOTPATH.'css/default.css'?>">
-    <link rel="stylesheet" href="<?=ROOTPATH.'css/LogReg.css'?>">
 
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/main.css'?>">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/order.css'?>">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/user.css'?>">
+
+
+
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/LogReg.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/menuStyles.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/miscStyles.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/topBottom.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/LogReg.css'?>">
 
 
+    <!--requierd javascript-->
+    <script src="<?=JSPATH.'default.js'?>"></script>
+    <script src="<?=JSPATH.'fileUpload.js'?>"></script>
+    <script src="<?=JSPATH.'checkForJavaScript.js'?>"></script>
 
-    <script src="<?=ROOTPATH.'js/default.js'?>"></script>
-    <script src="<?=ROOTPATH.'js/file.js'?>"></script>
+    <!--STL to GLTF converter-->
 
+    <!--Color Picker-->
+    <script src="https://rawgit.com/Sphinxxxx/vanilla-picker/master/dist/vanilla-picker.min.js"></script>
+
+    <!--3D model viewer-->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 

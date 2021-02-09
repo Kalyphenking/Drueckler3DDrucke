@@ -1,6 +1,6 @@
 
 
-<div class="userMenuContent">
+<div class="userContent">
     <a href=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setDirectDebit"?>>Lastschrift</a>
     <a href=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setCreditCard"?>>Kreditkarte</a>
     <a href=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setBill"?>>Rechnung</a>

@@ -18,10 +18,7 @@ $country = $contactData['country'];
 //echo "contactData: <br>" .  json_encode($contactData);
 
 ?>
-<br>
-<br>
-
-<div class="userMenuContent">
+<div class="userContent">
 	<form action="index.php?c=user&a=usermenu" method = 'POST'>
 		Vorname:
 		<input type="text" name="firstName" value=<?=$firstName?> >

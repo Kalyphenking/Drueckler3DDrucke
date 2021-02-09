@@ -22,7 +22,7 @@ $previousController = isset($_SESSION['previousController']) ? $_SESSION['previo
 $previousAction = isset($_SESSION['previousAction']) ? $_SESSION['previousAction'] : 'main';
 
 
-echo "<div class=\"userMenuContent\">";
+echo "<div class=\"userContent\">";
 
 if ($success) {
 	include_once(VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'successMessage.php');

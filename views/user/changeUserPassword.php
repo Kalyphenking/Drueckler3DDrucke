@@ -2,7 +2,7 @@
 //include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
 ?>
 
-<div class="userMenuContent">
+<div class="userContent">
 	<form action="index.php?c=user&a=changeUserPassword" method = 'POST'>
 		Aktuelles Passwort:
 		<input type="password" name="currentPassword" required>

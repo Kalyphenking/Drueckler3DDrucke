@@ -1,0 +1,23 @@
+.navBar { grid-area: bar; }
+.orderProgressBar { grid-area: menu; }
+.orderContent { grid-area: main; }
+/*.item4 { grid-area: right; }*/
+/*.item5 { grid-area: footer; }*/
+
+.orderGrid-container {
+    display: grid;
+    grid-template-areas:
+    'bar'
+    'menu'
+    'main';
+    grid-gap: 10px;
+    background-color: #eac424;
+    padding: 10px;
+}
+
+.orderGrid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    /*text-align: center;*/
+    /*padding: 20px 0;*/
+    /*font-size: 30px;*/
+}

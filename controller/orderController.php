@@ -14,36 +14,55 @@ class OrderController extends Controller
 
 	public function configurator($subAction) {
 
-		if (isset($_FILES['fileToUpload']) && !empty($_FILES['fileToUpload']))
-		{
-			if(file_exists($_FILES['fileToUpload']['tmp_name']) && is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) {
+		$loadedFile = $_FILES['uploadFile'];
 
-				$file = $_FILES['fileToUpload'];
+
+		if (isset($_FILES['uploadFile']) && !empty($_FILES['uploadFile']))
+		{
+			if(file_exists($_FILES['uploadFile']['tmp_name']) && is_uploaded_file($_FILES['uploadFile']['tmp_name'])) {
+
+				$file = $_FILES['uploadFile'];
 
 //				echo json_encode($file) . '<br>';
 
 				if ($this->loggedIn())
 				{
-					if (!file_exists(UPLOADPATH.$_SESSION['username'])) {
-						mkdir(UPLOADPATH.$_SESSION['username'], 0777);
-					}
+					$uploadDir = UPLOADSPATH.$_SESSION['username'].DIRECTORY_SEPARATOR;
 
-					$uploadDir = UPLOADPATH.$_SESSION['username'].DIRECTORY_SEPARATOR.$_SESSION['username'].'_';
+//					$fileName = $_SESSION['username'].'_'.trim(basename($_FILES['uploadFile']['name']), ' ');
+					$fileName = $_SESSION['username'].'_'.str_replace(' ', '', basename($_FILES['uploadFile']['name']));
 				} else {
 
-					if (!file_exists(UPLOADPATH.'temp')) {
-						mkdir(UPLOADPATH.'temp', 0777);
-					}
-					$uploadDir = UPLOADPATH.'temp'.DIRECTORY_SEPARATOR.$_SESSION['uid'].'_';
+					$uploadDir = UPLOADSPATH.'temp'.DIRECTORY_SEPARATOR;
+
+//					$fileName = $_SESSION['uid'].'_'.trim(basename($_FILES['uploadFile']['name']), ' ');
+					$fileName = $_SESSION['uid'].'_'.str_replace(' ', '', basename($_FILES['uploadFile']['name']));
+
+
 				}
 
-				$uploadFile = $uploadDir . basename($_FILES['fileToUpload']['name']);
+				$this->checkDirectory($uploadDir);
 
-				if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadFile)) {
+				$stlDir = $uploadDir.'stl'.DIRECTORY_SEPARATOR;
+
+				$this->checkDirectory($stlDir);
+
+//				echo $stlDir . '<br><br>';
+
+				$uploadFile = $stlDir . $fileName;
+
+				if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $uploadFile)) {
 //					echo 'Datei ist valide und wurde erfolgreich hochgeladen <br>';
 
+//					echo "<script>saveGLB(\"$uploadFile\", \"$fileName\")</script>";
+
+					$glbFileName = trim($fileName, 'stl') . 'glb';
+
+					$_SESSION['gltfFileName'] = $glbFileName;
+					echo "<script>startConversion(\"$uploadFile\", \"$fileName\")</script>";
+
 					//TODO success message
-					$this->processModel();
+//					$this->processModel();
 				} else {
 					echo 'Moglicherweise shit\n';
 				}
@@ -60,6 +79,13 @@ class OrderController extends Controller
 			$this->loadFilaments();
 		}
 
+	}
+
+	protected function checkDirectory($directory) {
+		if (!file_exists($directory)) {
+			mkdir($directory, 0777);
+			chmod($directory, 0777);
+		}
 	}
 
 	protected function processModel() {

@@ -101,15 +101,31 @@ class Controller
 		if (file_exists($view)) {
 
 			if ($this->action != 'login' && $this->action != 'register') {
-				echo "<div class=\"grid-container\">";
 
 				include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
 
+				switch ($this->controller) {
+					case 'main':
+						echo "<div class=\"mainGrid-container\">";
+						break;
+					case 'order':
+						echo "<div class=\"orderGrid-container\">";
+						if ($this->action != 'modelUpload') {
+							include_once (VIEWSPATH.'order'.DIRECTORY_SEPARATOR.'orderProgressBar.php');
+						}
+						break;
+					case 'user':
+						echo "<div class=\"userGrid-container\">";
+						include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
+						break;
+				}
+
+
+
 				include $view;
 
-				if ($this->controller == 'user') {
-					include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
-				}
+				echo "<script>javaScriptEnabled()</script>";
+
 
 				echo "</div>";
 			} else {

@@ -82,7 +82,7 @@ function summRow($summe) {
 
 ?>
 
-<div class="userMenuContent">
+<div class="userContent">
     <table id="ordersTabe">
 		<?php
             echo headerRow();
