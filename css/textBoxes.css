@@ -28,6 +28,16 @@
     min-height: 150px;
 }
 
+.inv-TextBox {
+    margin: auto;
+    color: #fff7c2;
+    background-color: rgba(0,0,0,0);
+
+    text-align: center;
+
+    width: 45%;
+    min-height: 150px;
+}
 
 .page .page {
     background-color: rgba(0,0,0,0);

@@ -1,24 +1,14 @@
 html {
-    /*background-color: black;*/
+    background-color: black;
     color: black;
-    /*font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;*/
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 a {
-    color: rgb(189, 101, 1);
+    color: rgb(189, 136, 1);
     text-decoration: none;
 }
 
 a:hover {
     color: rgb(255, 241, 212);
-}
-
-
-.Page {
-    color: black;
-    background-color: #DDDDDD;
-    width: 800px;
-    margin: auto;
-    /*text-align: center;
-    text-shadow: darkorange;*/
 }

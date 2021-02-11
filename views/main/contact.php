@@ -4,7 +4,7 @@
     </div>
 
     <div class="page">
-        <div class="TextBox">
+        <div class="inv-TextBox">
             Wir sind erreichbar unter:<br>
             <br>
             E-Mail: info@DDDrueckler.com<br>
