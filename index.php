@@ -63,6 +63,10 @@
     <link rel="stylesheet" href="<?=ROOTPATH.'css/LogReg.css'?>">
 
 
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/textBoxes.css'?>">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/interactives.css'?>">
+
+
     <!--requierd javascript-->
     <script src="<?=JSPATH.'default.js'?>"></script>
     <script src="<?=JSPATH.'fileUpload.js'?>"></script>
