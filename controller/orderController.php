@@ -4,29 +4,44 @@ namespace DDDDD\controller;
 
 use DDDDD\core\Controller;
 use DDDDD\model\Filament;
+use DDDDD\model\Pricing;
 use DDDDD\model\PrintSettings;
 
 
 class OrderController extends Controller
 {
 
-	protected $filaments = NULL;
+	protected $filaments = null;
 
 	public function configurator($subAction) {
 
+		if (!isset($_POST['submitCalculation']) && !isset($_POST['submitContinue']) && !isset($_POST['submitUpload'])) {
+			echo "<h1>DELETE</h1>";
+			$_SESSION['printTime'] = null;
+			$_SESSION['printPrices'] = null;
+			$_SESSION['infill'] = null;
+			$_SESSION['resolution'] = null;
+			$_SESSION['filamentColor'] = null;
+			$_SESSION['filamentColorCode'] = null;
+			$_SESSION['modelName'] = null;
+		}
+
 		if (isset($_FILES['uploadFile']) && !empty($_FILES['uploadFile']))
 		{
-			echo 'fileExits <br>';
+
+//			echo 'fileExits <br>';
 
 			if(file_exists($_FILES['uploadFile']['tmp_name']) && is_uploaded_file($_FILES['uploadFile']['tmp_name'])) {
 
 				$modelName = basename($_FILES['uploadFile']['name']);
-				$modelName = substr($modelName, 0, strlen($modelName) - 4) . '-00';
 				$modelName = str_replace(' ', '', $modelName);
+				$modelName = substr($modelName, 0, strlen($modelName) - 4);
+				$_SESSION['modelName'] = $modelName;
+				$modelName .= '-00';
 
 //				echo "modelName: ".substr($modelName, 0, strlen($modelName) - 4)."<br>";
 
-				echo "modelName: $modelName<br>";
+//				echo "modelName: $modelName<br>";
 
 				if ($this->loggedIn())
 				{
@@ -40,6 +55,9 @@ class OrderController extends Controller
 					$fileName = $modelName . '.stl';
 				}
 
+
+
+
 				$_SESSION['userDirectory'] = $uploadsDir;
 				$stlDir = $uploadsDir.'stl'.DIRECTORY_SEPARATOR;
 				$glbDir = $uploadsDir.'glb'.DIRECTORY_SEPARATOR;
@@ -51,7 +69,7 @@ class OrderController extends Controller
 
 				$stlFile = $stlDir . $fileName;
 
-//				echo "stlDir: $stlDir<br>";
+//				echo "modelName: $modelName<br>";
 //				echo "uploadsDir: $uploadsDir<br>";
 //				echo "fileName: $fileName<br>";
 
@@ -60,7 +78,7 @@ class OrderController extends Controller
 //					$glbFileName = trim($fileName, 'stl') . 'glb';
 //
 //					$_SESSION['glbFileName'] = DIRECTORY_SEPARATOR.$uploadsDir.'glb'.DIRECTORY_SEPARATOR.$glbFileName;
-					$_SESSION['modelName'] = $modelName;
+
 
 					echo "<script>startConversion(\"$uploadsDir\", \"$modelName\", \"150,150,150,1\")</script>";
 
@@ -74,32 +92,28 @@ class OrderController extends Controller
 				echo '<br>';
 			}
 		} else {
-//
-////			uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-73.glb
-//
-////			if (isset($_SESSION['userDirectory'])) {
-////				echo "da1 <br>";
-////			}
-////			if (isset($_POST['submit'])) {
-////				echo "da2 <br>";
-////			}
-//
-//			if (isset($_SESSION['userDirectory']) && isset($_POST['submit'])) {
-//				$directory = $_SESSION['userDirectory'].'glb';
-//
-//				$files = scandir($directory, SCANDIR_SORT_DESCENDING);
-//				$newest_file = $files[0];
-//
+
+
+			if ((isset($_SESSION['userDirectory']) && isset($_POST['submitCalculation']) || isset($_POST['submitContinue']))) {
+				$directory = $_SESSION['userDirectory'].'glb';
+
+				$files = scandir($directory, SCANDIR_SORT_DESCENDING);
+				$newest_file = $files[0];
+
 //				echo json_encode($directory . DIRECTORY_SEPARATOR . $newest_file);
-//
-//				$file = $directory . DIRECTORY_SEPARATOR . $newest_file;
-//
-//				echo "<script>displayModel(\"$file\")</script>";
-//			};
+
+				$file = $directory . DIRECTORY_SEPARATOR . $newest_file;
+
+				echo "<script>displayModel(\"$file\")</script>";
+			};
 		}
 
-		if (isset($_POST['submit'])) {
+		if (isset($_POST['submitCalculation'])) {
 			$this->processModel();
+		}
+
+		if (isset($_POST['submitContinue'])) {
+			$this->saveConfiguration();
 		}
 
 
@@ -118,66 +132,114 @@ class OrderController extends Controller
 	}
 
 	protected function processModel() {
+
+
+//		if (!empty($_POST['infill'])) {
+//			echo "infill <br>";
+//		}
+//		if (!empty($_POST['resolution'])) {
+//			echo "resolution <br>";
+//		}
+//		if (!empty($_POST['filament'])) {
+//			echo "filament <br>";
+//		}
+
 		if (!empty($_POST['infill'])
 			&& !empty($_POST['resolution'])
 			&& !empty($_POST['filament'])) {
 
-			echo $_POST['infill'] . '<br>';
-			echo $_POST['resolution'] . '<br>';
-			echo $_POST['filament'] . '<br>';
 
 			$infill = $_POST['infill'];
 			$resolution = $_POST['resolution'];
-			$filament = $_POST['filament'];
+			$filamentColor = $_POST['filament'];
 
+//			echo "resolution $resolution<br>";
 
 			$userDirectory = $_SESSION['userDirectory'];
 			$modelName = $_SESSION['modelName'];
-			$file = $userDirectory.'stl'.DIRECTORY_SEPARATOR.$modelName.'.stl';
+			$file = $userDirectory.'stl'.DIRECTORY_SEPARATOR.$modelName.'-00.stl';
 
 			$fileSize = filesize($file);
 
-			$printPrice = $fileSize / 100000 + 5;
-
-			echo "fileSize: $fileSize <br>";
 
 
-			$printTime = (($fileSize / 60 / 60 / 60 / 24 + 0.1) * (2 / $resolution)) + ($infill / 100);
+			$baseTime = 0.25;
+			$size = $fileSize / 300000;
 
-			$printTime = round($printTime, 2);
+			$printTime =($baseTime + $size + ($infill/50)) + (($size / ($resolution + 0.0)));
 
-			$_SESSION['printTime'] = $printTime;
-			$_SESSION['printPrices'] = $printPrice;
 
-			echo $userDirectory.'stl'.DIRECTORY_SEPARATOR.$modelName;
+			$_SESSION['printTime'] = round($printTime,2);
+
+
+			$pricing = Pricing::find()[0];
+
+//			echo json_encode($pricing) . '<br>';
+
+			$shippting = $pricing['shipping'];
+			$workPerHour = $pricing['workPerHour'];
+			$energyPerHour = $pricing['energyPerHour'];
+			$taxes = $pricing['taxes'];
+			$grammsPerHour = $pricing['grammsPerHour'];
+			$filaments = $_SESSION['filaments'];
+
+			foreach ($filaments as $filament) {
+				if ($filament['rgba'] == $filamentColor) {
+					$pricerPerGramm = $filament['pricePerGramm'];
+					$_SESSION['filamentId'] = $filament['id'];
+					$_SESSION['filamentColor'] = $filament['type'].': '.$filament['color'];
+					$_SESSION['filamentColorCode'] = $filament['rgba'];
+				}
+			}
+
+//			echo "shipping $shippting<br>";
+//			echo "workPerHour $workPerHour<br>";
+//			echo "energyPerHour $energyPerHour<br>";
+//			echo "taxes $taxes<br>";
+//			echo "grammsPerHour $grammsPerHour<br>";
+//			echo "pricePerGramm $pricerPerGramm<br>";
+
+
+
+
+			$materialPrice = $printTime * $pricerPerGramm * $grammsPerHour;
+			$workPrice = $printTime * $workPerHour;
+			$energyPrice = $printTime * $energyPerHour;
+
+			$taxesPrice = ($materialPrice + $workPrice + $energyPrice + $shippting) * $taxes;
+
+			$printPrice = $energyPerHour + $workPrice + $energyPrice + $shippting + $taxesPrice;
+//			echo "<br><br>";
+//			echo "materialPrice $materialPrice<br>";
+//			echo "shippting $shippting<br>";
+//			echo "workPrice $workPrice<br>";
+//			echo "energyPrice $energyPrice<br>";
+//			echo "taxesPrice $taxesPrice<br>";
+//			echo "printPrice $printPrice<br>";
+
+
+
+			$_SESSION['printPrices'][0] = round($printPrice, 2);
+			$_SESSION['printPrices'][1] = round($energyPerHour, 2);
+			$_SESSION['printPrices'][2] = round($workPrice, 2);
+			$_SESSION['printPrices'][3] = round($energyPrice, 2);
+			$_SESSION['printPrices'][4] = round($shippting, 2);
+			$_SESSION['printPrices'][5] = round($taxesPrice, 2);
+			$_SESSION['infill'] = $infill;
+			$_SESSION['resolution'] = $resolution;
+
+
+
+
 
 		}
 
 
 	}
 
-	protected function execInBackground($cmd) {
-		if (substr(php_uname(), 0, 7) == "Windows"){
-			pclose(popen("start /B ". $cmd, "r"));
-		}
-		else {
-			exec($cmd . " > /dev/null &");
-		}
-	}
+	protected function saveConfiguration() {
 
-//	protected function convert($file, $filePath) {
-//
-//		$postUrl = '"https://myminifactory.github.io/stl2gltf/"';
-//		$fieldName = '"fileuploadform"';
-//
-//		echo '<script>',
-//		"upload($postUrl, $fieldName, $filePath)",
-////		"test($postUrl, $fieldName, $filePath);",
-//		'</script>'
-//		;
-//
-//		echo 'uploaded <br>';
-//	}
+	}
 
 	protected function calculateModel() {
 		$infill = isset($_POST['infill']) ? $_POST['infill'] : 0.7;

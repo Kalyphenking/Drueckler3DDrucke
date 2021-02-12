@@ -13,6 +13,30 @@ if (isset($_FILES['file']) && !empty($_FILES['file']))
 		$txt = 'fileName: '.$fileName . "\n\n";
 		fwrite($myfile, $txt);
 
+
+		$glbDirectory = substr($fileName, 0, strpos($fileName, 'glb')+3);
+
+		$txt = 'glbDirectory: '.$glbDirectory . "\n\n";
+		fwrite($myfile, $txt);
+
+		$files = scandir('..'.DIRECTORY_SEPARATOR.$glbDirectory, SCANDIR_SORT_NONE);
+//		$newest_file = $files[0];
+
+		foreach ($files as $file) {
+			$extensiont = substr($file, strlen($file) - 3, 3);
+
+			$deleteName = trim($file, '"');
+
+			if ($extensiont == 'glb') {
+				$txt = '$deleteName: ' .$deleteName. "\n\n";
+				fwrite($myfile, $txt);
+				unlink('..'.DIRECTORY_SEPARATOR.$glbDirectory.DIRECTORY_SEPARATOR.$deleteName);
+			}
+
+
+		}
+
+
 		if (move_uploaded_file($_FILES['file']['tmp_name'], '..'.DIRECTORY_SEPARATOR.$fileName)) {
 			$txt = 'saved' . "\n\n";
 			fwrite($myfile, $txt);

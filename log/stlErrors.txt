@@ -1,4 +1,8 @@
-fileName: uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-23.glb
+fileName: uploads/temp/6025b4e724fc8/glb/Ender_Z-Axis_Motor_Mount-33.glb
+
+glbDirectory: uploads/temp/6025b4e724fc8/glb
+
+$deleteName: cableChain_40MountSide_v2-31.glb
 
 saved
 

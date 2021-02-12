@@ -7,18 +7,22 @@
 $filaments = $_SESSION['filaments'];
 //$filamentTypes = $_SESSION['filamentTypes'];
 
-$printTime = isset($_SESSION['printTime']) ? $_SESSION['printTime'] : 0;
-$printPrices = isset($_SESSION['printPrices']) ? $_SESSION['printPrices'] : [];
-
-echo "PrintTime: $printTime <br><br>";
-echo "PrintPrices: $printPrices <br><br>";
-
-//$glbFileName = isset($GLOBALS['glbFileName']) ? $GLOBALS['glbFileName'] : '/uploads/default/glb/6021449f3c57b_3DModelHochladen.glb';
+$printTime = isset($_SESSION['printTime']) ? $_SESSION['printTime'] : '';
+$printPrices = isset($_SESSION['printPrices']) ? $_SESSION['printPrices'] : [''];
 $modelName = isset($_SESSION['modelName']) ? $_SESSION['modelName'] : '';
 
-//echo isset($_SESSION['glbFileName']) ? $_SESSION['glbFileName'] : '';
+$infill = isset($_SESSION['infill']) ? $_SESSION['infill'] : '30';
+$selectedResolution = isset($_SESSION['resolution']) ? $_SESSION['resolution'] : null;
+$filamentColor = isset($_SESSION['filamentColor']) ? $_SESSION['filamentColor'] : null;
+$filamentColorCode = isset($_SESSION['filamentColorCode']) ? $_SESSION['filamentColorCode'] : null;
 
-//echo 'http://localhost/Drueckler3DDrucke'.DIRECTORY_SEPARATOR.UPLOADSPATH. 'glb'.DIRECTORY_SEPARATOR.$gltfFileName;
+
+echo "filamentColorCode: $filamentColorCode <br><br>";
+echo "selectedResolution: $selectedResolution <br><br>";
+echo "filamentColor: $filamentColor <br><br>";
+echo "PrintTime: $printTime <br><br>";
+echo "PrintPrices: $printPrices[0] <br><br>";
+
 
 ?>
 
@@ -43,7 +47,7 @@ $modelName = isset($_SESSION['modelName']) ? $_SESSION['modelName'] : '';
 
             <br>
 
-            <input class="phpBased" id="submitUpload" type="submit" value="Model hochladen">
+            <input class="phpBased" id="submitUpload" name="submitUpload" type="submit" value="Model hochladen">
 
         </form>
     </div>
@@ -57,10 +61,10 @@ $modelName = isset($_SESSION['modelName']) ? $_SESSION['modelName'] : '';
                    name="infill"
                    id="infill"
                    name="infill"
-                   min="1"
+                   min="30"
                    max="100"
                    placeholder="80"
-                   required value=<?php echo (isset($_POST['infill']) ? $_POST['infill'] : ''); //default Values?>
+                   required value=<?=$infill?>
             >
 
             <br>
@@ -73,7 +77,9 @@ $modelName = isset($_SESSION['modelName']) ? $_SESSION['modelName'] : '';
 <!--            >-->
             <select id="resolution" name="resolution">
 				<?php
-
+                if ($selectedResolution) {
+	                echo '<option value="'.$selectedResolution.'" selected hidden>'.number_format($selectedResolution, 2, '.', '').'</option>';
+                }
 				for ($index = 7; $index >= 1; $index --)
 				{
 					$resolution = ($index * 4) / 100;
@@ -98,6 +104,9 @@ $modelName = isset($_SESSION['modelName']) ? $_SESSION['modelName'] : '';
             <!-- name ist der key, aus dem php den Wert erhält -->
             <select id="filament" name="filament" onchange="changeColor()"> <!-- id muss selben key wie list oben drüber haben -->
 				<?php
+                if ($filamentColor && $filamentColorCode) {
+	                echo '<option value="'.$filamentColorCode.'"selected hidden>'.$filamentColor.'</option>';
+                }
 				foreach ($filaments as $filament)
 				{
 //					echo '<option value="' . $filament['type'] . ': ' . $filament['color'] . '">';
@@ -106,7 +115,8 @@ $modelName = isset($_SESSION['modelName']) ? $_SESSION['modelName'] : '';
 				?>
             </select>
             <br>
-            <input type="submit" name="submit" value="Model berechnen">
+            <input type="submit" name="submitCalculation" value="Model berechnen">
+            <input type="submit" name="submitContinue" value="Weiter">
 
             <?php
 

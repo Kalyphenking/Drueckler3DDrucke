@@ -266,8 +266,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `Pricing` (`id`, `createdAt`, `updatedAt`, `shiping`, `workPerHour`, `energyPerHour`, `taxes`, `country`, `grammsPerMinute`, `Currency`) 
-VALUES (NULL, current_timestamp(), NULL, '4.95', '3.215', '0.157', '0.19', 'Deutschland', '20.26', 'EUR');
+INSERT INTO `Pricing` (`id`, `createdAt`, `updatedAt`, `shipping`, `workPerHour`, `energyPerHour`, `taxes`, `country`, `grammsPerHour`, `Currency`) 
+VALUES (NULL, current_timestamp(), NULL, '4.95', '2.49', '0.157', '0.19', 'Deutschland', '20.26', 'EUR');
 
 COMMIT;
 
