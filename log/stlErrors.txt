@@ -1,8 +1,8 @@
-fileName: uploads/temp/6025b4e724fc8/glb/Ender_Z-Axis_Motor_Mount-33.glb
+fileName: uploads/temp/6025b4e724fc8/glb/Ender_Z-Axis_Motor_Mount-30.glb
 
 glbDirectory: uploads/temp/6025b4e724fc8/glb
 
-$deleteName: cableChain_40MountSide_v2-31.glb
+$deleteName: Ender_Z-Axis_Motor_Mount-35.glb
 
 saved
 

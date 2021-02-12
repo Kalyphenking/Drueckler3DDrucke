@@ -20,55 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="3D Model verarbeitung in arbeit">
-      <change afterPath="$PROJECT_DIR$/exampleModels/170-210_PLA_Temp_Tower.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exampleModels/Bracket.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exampleModels/cableChain_40MountSide_v2.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exampleModels/cableChain_40MountTop_v2.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/Ender_Z-Axis_Motor_Mount-33.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/stl/AngelCutter-V3-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/stl/Bracket-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/stl/Ender_Z-Axis_Motor_Mount.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/stl/cableChain_40MountTop_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/stl/d20_2.0.1-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/Ender_Z-Axis_Motor_Mount-35.glb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/orderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/orderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/miscStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/miscStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exampleModels/LED-Gehäuse 0.stl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log/stlErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/stlErrors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/pricing.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/pricing.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_7.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_7.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/database/TestData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/TestData.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/saveGLBFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/services/saveGLBFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/170-210_PLA_Temp_Tower-11.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/170-210_PLA_Temp_Tower-46.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/170-210_PLA_Temp_Tower-49.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/170-210_PLA_Temp_Tower-52.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/170-210_PLA_Temp_Tower-54.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/170-210_PLA_Temp_Tower-69.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/Ender_Z-Axis_Motor_Mount-81.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/Ender_Z-Axis_Motor_Mount-90.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/LED-Gehäuse01-13.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/LED-Gehäuse01-46.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/LED-Gehäuse01-73.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-23.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-27.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-28.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-35.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-49.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-51.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-57.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-63.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-72.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-75.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-78.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TopfdeckelTeil-27.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TopfdeckelTeil-49.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TopfdeckelTeil-51.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/TopfdeckelTeil-58.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/stl/LED-Gehäuse01-00.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/order/configurator.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/configurator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/temp/6025b4e724fc8/glb/Ender_Z-Axis_Motor_Mount-33.glb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +87,7 @@
       <workItem from="1611608571322" duration="32796000" />
       <workItem from="1612197033804" duration="46599000" />
       <workItem from="1612619565367" duration="56810000" />
-      <workItem from="1613072254782" duration="28473000" />
+      <workItem from="1613072254782" duration="28540000" />
     </task>
     <task id="LOCAL-00001" summary="Bilder">
       <created>1610889492139</created>
@@ -357,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613122869691</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="3D Model verarbeitung in arbeit">
+      <created>1613152334253</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1613152334253</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,20 +392,20 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1229" y="356" key="SettingsEditor/0.0.3440.1440@0.0.3440.1440" timestamp="1612359714205" />
-    <state x="1320" y="444" width="1716" height="1117" key="Vcs.Push.Dialog.v2" timestamp="1613122871338">
+    <state x="1320" y="444" width="1716" height="1117" key="Vcs.Push.Dialog.v2" timestamp="1613152335737">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610983097072" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613122871338" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613152335737" />
     <state x="426" y="249" width="1716" height="1117" key="Vcs.Push.Dialog.v2/0.25.3440.1342@0.25.3440.1342" timestamp="1612898069687" />
     <state x="1339" y="334" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1613147981007">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1339" y="334" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.3440.1440@0.0.3440.1440" timestamp="1613147981007" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613122831537">
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613152346889">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613122831537" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613152346889" />
     <state x="1936" y="271" width="1081" height="1084" key="dock-window-1" timestamp="1612359910285">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>

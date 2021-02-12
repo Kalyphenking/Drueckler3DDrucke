@@ -16,7 +16,6 @@ class OrderController extends Controller
 	public function configurator($subAction) {
 
 		if (!isset($_POST['submitCalculation']) && !isset($_POST['submitContinue']) && !isset($_POST['submitUpload'])) {
-			echo "<h1>DELETE</h1>";
 			$_SESSION['printTime'] = null;
 			$_SESSION['printPrices'] = null;
 			$_SESSION['infill'] = null;
