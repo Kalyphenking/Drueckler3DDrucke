@@ -16,6 +16,7 @@ class Filament extends Model
 		'color' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50],
 		'type' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50],
 		'producer' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50],
-		'pricePerGramm' => ['type' => Model::TYPE_DECIMAL]
+		'pricePerGramm' => ['type' => Model::TYPE_DECIMAL],
+		'rgba' => ['type' => Model::TYPE_STRING]
 	];
 }

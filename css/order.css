@@ -1,15 +1,16 @@
 .navBar { grid-area: bar; }
-.orderProgressBar { grid-area: menu; }
+.orderProgressBar { grid-area: progress; }
 .orderContent { grid-area: main; }
+.modelViewerDiv { grid-area: viewer;}
 /*.item4 { grid-area: right; }*/
 /*.item5 { grid-area: footer; }*/
 
 .orderGrid-container {
     display: grid;
     grid-template-areas:
-    'bar'
-    'menu'
-    'main';
+    'bar bar bar bar bar bar bar'
+    'progress progress progress progress progress progress progress'
+    'viewer main main main main main main';
     grid-gap: 10px;
     background-color: #eac424;
     padding: 10px;
@@ -21,3 +22,25 @@
     /*padding: 20px 0;*/
     /*font-size: 30px;*/
 }
+
+#modelViewerDiv{
+    max-width: 500px;
+}
+
+
+div.userInput {
+    width: 100%;
+    height: 100%;
+}
+
+#modelViewer {
+    width: 400px;
+    height: 300px;
+    /*width: 100%;*/
+    /*height: 100%;*/
+}
+
+input[type='file'] {
+    color: transparent;
+}
+
