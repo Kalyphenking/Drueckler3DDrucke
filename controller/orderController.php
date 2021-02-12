@@ -16,47 +16,53 @@ class OrderController extends Controller
 
 		if (isset($_FILES['uploadFile']) && !empty($_FILES['uploadFile']))
 		{
+			echo 'fileExits <br>';
+
 			if(file_exists($_FILES['uploadFile']['tmp_name']) && is_uploaded_file($_FILES['uploadFile']['tmp_name'])) {
 
-				$file = $_FILES['uploadFile'];
+				$modelName = basename($_FILES['uploadFile']['name']);
+				$modelName = substr($modelName, 0, strlen($modelName) - 4) . '-00';
+				$modelName = str_replace(' ', '', $modelName);
 
-//				echo json_encode($file) . '<br>';
+//				echo "modelName: ".substr($modelName, 0, strlen($modelName) - 4)."<br>";
+
+				echo "modelName: $modelName<br>";
 
 				if ($this->loggedIn())
 				{
-					$uploadDir = UPLOADSPATH.$_SESSION['username'].DIRECTORY_SEPARATOR;
-
-//					$fileName = $_SESSION['username'].'_'.trim(basename($_FILES['uploadFile']['name']), ' ');
-					$fileName = $_SESSION['username'].'_'.str_replace(' ', '', basename($_FILES['uploadFile']['name']));
+					$uploadsDir = UPLOADSPATH.$_SESSION['username'].DIRECTORY_SEPARATOR;
+					$fileName = $_SESSION['username'].'_'.$modelName.'.stl';
 				} else {
 
-					$uploadDir = UPLOADSPATH.'temp'.DIRECTORY_SEPARATOR;
-
-//					$fileName = $_SESSION['uid'].'_'.trim(basename($_FILES['uploadFile']['name']), ' ');
-					$fileName = $_SESSION['uid'].'_'.str_replace(' ', '', basename($_FILES['uploadFile']['name']));
-
-
+					$uploadsDir = UPLOADSPATH.'temp'.DIRECTORY_SEPARATOR;
+					$this->checkDirectory($uploadsDir);
+					$uploadsDir .= $_SESSION['uid'] . DIRECTORY_SEPARATOR;
+					$fileName = $modelName . '.stl';
 				}
 
-				$this->checkDirectory($uploadDir);
+				$_SESSION['userDirectory'] = $uploadsDir;
+				$stlDir = $uploadsDir.'stl'.DIRECTORY_SEPARATOR;
+				$glbDir = $uploadsDir.'glb'.DIRECTORY_SEPARATOR;
 
-				$stlDir = $uploadDir.'stl'.DIRECTORY_SEPARATOR;
-
+				$this->checkDirectory($uploadsDir);
 				$this->checkDirectory($stlDir);
+				$this->checkDirectory($glbDir);
 
-//				echo $stlDir . '<br><br>';
 
-				$uploadFile = $stlDir . $fileName;
+				$stlFile = $stlDir . $fileName;
 
-				if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $uploadFile)) {
-//					echo 'Datei ist valide und wurde erfolgreich hochgeladen <br>';
+//				echo "stlDir: $stlDir<br>";
+//				echo "uploadsDir: $uploadsDir<br>";
+//				echo "fileName: $fileName<br>";
 
-//					echo "<script>saveGLB(\"$uploadFile\", \"$fileName\")</script>";
+				if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $stlFile)) {
 
-					$glbFileName = trim($fileName, 'stl') . 'glb';
+//					$glbFileName = trim($fileName, 'stl') . 'glb';
+//
+//					$_SESSION['glbFileName'] = DIRECTORY_SEPARATOR.$uploadsDir.'glb'.DIRECTORY_SEPARATOR.$glbFileName;
+					$_SESSION['modelName'] = $modelName;
 
-					$_SESSION['gltfFileName'] = $glbFileName;
-					echo "<script>startConversion(\"$uploadFile\", \"$fileName\")</script>";
+					echo "<script>startConversion(\"$uploadsDir\", \"$modelName\", \"150,150,150,1\")</script>";
 
 					//TODO success message
 //					$this->processModel();
@@ -67,10 +73,33 @@ class OrderController extends Controller
 				echo 'no upload';
 				echo '<br>';
 			}
+		} else {
+//
+////			uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-73.glb
+//
+////			if (isset($_SESSION['userDirectory'])) {
+////				echo "da1 <br>";
+////			}
+////			if (isset($_POST['submit'])) {
+////				echo "da2 <br>";
+////			}
+//
+//			if (isset($_SESSION['userDirectory']) && isset($_POST['submit'])) {
+//				$directory = $_SESSION['userDirectory'].'glb';
+//
+//				$files = scandir($directory, SCANDIR_SORT_DESCENDING);
+//				$newest_file = $files[0];
+//
+//				echo json_encode($directory . DIRECTORY_SEPARATOR . $newest_file);
+//
+//				$file = $directory . DIRECTORY_SEPARATOR . $newest_file;
+//
+//				echo "<script>displayModel(\"$file\")</script>";
+//			};
 		}
 
 		if (isset($_POST['submit'])) {
-
+			$this->processModel();
 		}
 
 
@@ -89,27 +118,41 @@ class OrderController extends Controller
 	}
 
 	protected function processModel() {
+		if (!empty($_POST['infill'])
+			&& !empty($_POST['resolution'])
+			&& !empty($_POST['filament'])) {
 
-//		$output = shell_exec(SLICER);
-//		echo "<pre>$output</pre>";
+			echo $_POST['infill'] . '<br>';
+			echo $_POST['resolution'] . '<br>';
+			echo $_POST['filament'] . '<br>';
 
-		$output = [];
-//		$retvar = 0;
-//
-//		echo exec('Prusa_Slicer'.DIRECTORY_SEPARATOR.'test.sh', $output, $retvar) . '<br><br>';
-
-//		echo shell_exec(SLICER) . '<br><br>';
-
-//		$this->execInBackground(SLICER);
+			$infill = $_POST['infill'];
+			$resolution = $_POST['resolution'];
+			$filament = $_POST['filament'];
 
 
-//		echo json_encode($output) . '<br>';
-//		$output = shell_exec('pwd');
-//		echo "<pre>$output</pre>";
+			$userDirectory = $_SESSION['userDirectory'];
+			$modelName = $_SESSION['modelName'];
+			$file = $userDirectory.'stl'.DIRECTORY_SEPARATOR.$modelName.'.stl';
 
-		exec("php ".VIEWSPATH."order".DIRECTORY_SEPARATOR."processModel.php"." > /dev/null &");
+			$fileSize = filesize($file);
 
-//		echo SLICER;
+			$printPrice = $fileSize / 100000 + 5;
+
+			echo "fileSize: $fileSize <br>";
+
+
+			$printTime = (($fileSize / 60 / 60 / 60 / 24 + 0.1) * (2 / $resolution)) + ($infill / 100);
+
+			$printTime = round($printTime, 2);
+
+			$_SESSION['printTime'] = $printTime;
+			$_SESSION['printPrices'] = $printPrice;
+
+			echo $userDirectory.'stl'.DIRECTORY_SEPARATOR.$modelName;
+
+		}
+
 
 	}
 
@@ -153,6 +196,9 @@ class OrderController extends Controller
 	}
 
 	protected function loadFilaments() {
+
+
+
 		$filaments = Filament::find();
 
         $this->filaments = $filaments;
@@ -166,7 +212,7 @@ class OrderController extends Controller
 //		echo json_encode($types) . '<br>';
 //		echo json_encode($columns) . '<br>';
 
-		$_SESSION['filamentTypes'] = $types;
+//		$_SESSION['filamentTypes'] = $types;
 		$_SESSION['filaments'] = $filaments;
 	}
 

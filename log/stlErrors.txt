@@ -1,4 +1,6 @@
-{"name":"blob","type":"application\/sla","tmp_name":"\/Applications\/XAMPP\/xamppfiles\/temp\/phpKwnJUE","error":0,"size":78620}
+fileName: uploads/temp/6025b4e724fc8/glb/TestCubewithhole10x10x10mm-23.glb
 
+saved
 
+works
 

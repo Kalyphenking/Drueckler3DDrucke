@@ -9,6 +9,7 @@ function javaScriptEnabled() {
     if (phpBasedContent) {
         for (i = 0; i < phpBasedContent.length; i++) {
             phpBasedContent[i].style.display = "none"
+            // phpBasedContent[i].style.visibility = "hidden"
         }
     }
 
@@ -24,6 +25,5 @@ function javaScriptEnabled() {
 }
 
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     javaScriptEnabled()
-// }, false);
+
+

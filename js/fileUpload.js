@@ -3,7 +3,7 @@ imported.src = 'stl2gltf/a.out.js';
 document.head.appendChild(imported);
 
 let GLOBAL = {
-    color : [150, 150, 150, 1],
+    color : [150, 0, 0, 1],
     get color_str() {
         return `rgba(${this.color[0]},
             ${this.color[1]},
@@ -17,113 +17,153 @@ let GLOBAL = {
             this.color[3]
         ];
     },
-    stl_name: undefined
+    stl_name: undefined,
+    usersPath: undefined,
+    fileName: undefined
 };
 
-window.onload = function () {
-    const init_color_str = GLOBAL.color_str;
-    var picker_div = document.getElementById("picker");
+var storedFilePath = ""
+var storedFileName = ""
+var destinationFilePath = ""
 
-    if (picker_div) {
-        picker_div.style.backgroundColor = init_color_str;
-        picker_div.style.color = init_color_str;
-        var picker = new Picker(
-            {
-                parent: picker_div,
-                alpha: false,
-                color: init_color_str
-            }
-        );
-        picker_div.onclick = function() {
-            picker.show();
-        };
-        picker.onDone = function(color) {
-            GLOBAL.color = color.rgba;
-            picker_div.style.background = color.rgbaString;
-            picker_div.style.color = color.rgbaString;
-            download_glb();
-        };
+
+
+async function displayModel(filePath = "") {
+
+
+    var savedUserPath = filePath.slice(0, filePath.indexOf('glb/'))
+    var savedFileName = filePath.replace(savedUserPath+"glb/", "")
+
+    // alert("userPath: " + userPath + "\n name: " + name)
+
+    if (GLOBAL.fileName === undefined) {
+        GLOBAL.fileName = savedFileName
+    }
+    if (GLOBAL.usersPath === undefined) {
+        GLOBAL.usersPath = savedUserPath
+    }
+
+
+    const viewer = document.getElementById("modelViewer");
+
+    if (viewer) {
+        var delayInMilliseconds = 100;
+
+        setTimeout(function() {
+            viewer.src = filePath;
+        }, delayInMilliseconds);
+    } else {
+        const delayInMilliseconds2 = 500;
+        // alert("delay")
+        setTimeout(function() {
+            document.getElementById("modelViewer").src = filePath;
+        }, delayInMilliseconds2);
     }
 }
 
-// async function startConversion(path, fileName) {
-//     file = getSTL(path, fileName)
-//
-//     alert("file: " + file)
-//
-//     console.log(file.name)
-// }
+async function changeColor(filePath = "") {
+    var viewer = document.getElementById("modelViewer");
 
-async function startConversion(path, fileName) {
-    let file = await fetch(path)
+    if (filePath == "") {
+        filePath = viewer.src;
+    }
 
-    var blob = new Blob()
 
-    fetch(path).then(function(response) {
+
+    if (filePath != "uploads/default/glb/6021449f3c57b_3DModelHochladen.glb") {
+        var selection = document.getElementById("filament")
+        var rgba = selection.options[selection.selectedIndex].value;
+        var colorName = selection.options[selection.selectedIndex].text;
+
+        var newName = GLOBAL.fileName
+        newName = newName.slice(0, newName.length - 4);
+
+        var replaceString = "glb/"+newName+".glb";
+
+        var rootPath = GLOBAL.usersPath
+
+        startConversion(rootPath, newName, rgba)
+    } else {
+        alert("Bitte ein 3D-Modell hochladen")
+    }
+
+
+}
+
+async function startConversion(usersPath, fileName, rgba) {
+
+    fileName = fileName.slice(0,fileName.length-2) + "00";
+
+    // alert(usersPath + ' \n ' + fileName + ' \n ' + rgba)
+
+    GLOBAL.usersPath = usersPath;
+
+
+    var red = rgba.substr(0, rgba.indexOf(","));
+    var gba = rgba.substr(rgba.indexOf(",") + 1);
+    var green = gba.substr(0, gba.indexOf(","));
+    var ba = gba.substr(gba.indexOf(",") + 1);
+    var blue = ba.substr(0, ba.indexOf(","));
+    var alpha = ba.substr(ba.indexOf(",") + 1);
+
+    GLOBAL.color = [red, green, blue, alpha]
+
+
+
+    fetch(usersPath+"stl/"+fileName+".stl").then(function(response) {
+
         return response.blob();
     }).then(function(blob) {
+
+        // alert('file: ' + fileName + '.stl')
 
         blob.type = 'application/sla'
 
         blob.lastModifiedDate = new Date();
-        blob.name = fileName;
+        blob.name = fileName+".stl";
 
-        uploaded(blob)
+
+        prepareGLB(blob)
     });
 }
-//
-//
-// async function saveGLB(path, fileName) {
-//     let file = await fetch(path)
-//
-//     fetch(path).then(function(response) {
-//         return response.blob();
-//     }).then(function(blob) {
-//
-//         blob.type = 'application/sla'
-//         blob.name =
-//
-//         console.log(blob.type)
-//
-//         saveGLTFFile(blob, fileName)
-//     });
-//
-// }
+
+function prepareGLB(file) {
 
 
-
-function uploaded(file) {
     check_file(file, function(){check_file_success()});
-
-
-
     function check_file_success() {
 
-        // put_status("Converting by your browser");
-
-        var uploadform = document.getElementById("fileuploadform");
+        // var uploadform = document.getElementById("fileuploadform");
         var filename = file.name;
         var fr = new FileReader();
         fr.readAsDataURL(file);
 
+
         fr.onload = function (){
+
 
             console.log(filename);
 
             if (filename === GLOBAL.stl_name) { // user upload the same file as last one
                 console.log("same stl file");
-                download_glb();
+                processGLB(file.name);
                 return;
             } else if (GLOBAL.stl_name !== undefined) { // not same file rm old file
                 console.log("new filename ", filename, "unlink", GLOBAL.stl_name);
                 Module['FS_unlink'](GLOBAL.stl_name);
             }
 
+            // if (filename === GLOBAL.stl_name) { // user upload the same file as last one
+            //     console.log("same stl file");
+            //     Module['FS_unlink'](GLOBAL.stl_name);
+            // }
+
+
+
             var stl_name = filename;
 
             var data = atob(fr.result.split(",")[1]); // base64 to Uint8 for emscripten
             Module['FS_createDataFile'](".", stl_name, data, true, true);
-
             Module.ccall("make_bin", // c function name
                 undefined, // return
                 ["string"], // param
@@ -148,7 +188,9 @@ function uploaded(file) {
             GLOBAL.maxy = parseFloat(out_data[9]);
             GLOBAL.maxz = parseFloat(out_data[10]);
             GLOBAL.stl_name = stl_name;
-            download_glb(file.name);
+
+
+            processGLB(file.name);
         }
     }
 
@@ -244,7 +286,8 @@ function gltf_dict(
     } // end of dict
 }
 
-function download_glb(fileName) {
+function processGLB(fileName) {
+
 
     if (GLOBAL.stl_name === undefined) {
         // put_status("Please upload a file");
@@ -254,6 +297,7 @@ function download_glb(fileName) {
 
     const stl_name = GLOBAL.stl_name;
     const color = GLOBAL.color_0to1;
+
 
     const total_blength = GLOBAL.total_blength;
     const indices_blength = GLOBAL.indices_blength;
@@ -331,33 +375,11 @@ function download_glb(fileName) {
 
     let fileBlob = new Blob([glb, out_bin], {type: 'application/sla'});
 
-
-
-    // let url = window.URL.createObjectURL(fileBlob);
-    // var download_a = document.getElementById('download');
-    // download_a.href = url;
-    // const glb_name = stl_name.slice(0,stl_name.length-4) + ".glb";
-    // download_a.download = glb_name;
-
-    // localStorage.setItem(glb_name, fileBlob);
-
-    // alert(glb_name);
-
     fileName = fileName.slice(0,stl_name.length-4) + ".glb";
 
 
-    saveGLTFFile(fileBlob, fileName);
 
-    // sendToServer();
-
-    // var directoroads/"
-    //
-    // var pathname = window.location.pathname;
-    //
-    // alert(pathname);
-    //
-    // download(fileBlob, directory.concat(glb_name));
-
+    saveGLBFile(fileBlob, fileName);
 
     if (fileBlob.size < 3145728) {
         // put_status("Success, you are now share it on facebook!")
@@ -378,26 +400,42 @@ function check_file(file, success_cb) {
     success_cb();
 }
 
-// function put_status(text)
-// {
-//     document.getElementById("status").textContent = text;
-// }
-
-async function saveGLTFFile(file, fileName)
+async function saveGLBFile(file, fileName)
 {
-    // let user = { name:'john', age:34 };
     let formData = new FormData();
-    // let photo = inp.files[0];
+
+    newName = fileName.slice(0,fileName.length-6) + (Math.floor(Math.random() * 89) + 10) + ".glb"
+
+    GLOBAL.fileName = newName;
+
+    let usersPath = GLOBAL.usersPath
+
+    // alert("newName: " + newName + "\n oldName: " + fileName + "\n displayModel: " + usersPath+"glb/"+newName)
+
+
 
     formData.append("file", file);
-    formData.append("fileName", JSON.stringify(fileName));
+    formData.append("fileName", JSON.stringify(usersPath+"glb/"+newName));
 
-    // window.alert(formData);
+    // alert(fileName)
 
     try {
-        let r = await fetch('services/saveGLTFFile.php', {method: "POST", body: formData});
+        let r = await fetch('services/saveGLBFile.php', {method: "POST", body: formData});
         console.log('HTTP response code:',r.status);
+        displayModel(usersPath+"glb/"+newName)
     } catch(e) {
         console.log('Huston we have problem...:', e);
     }
 }
+
+function uploadModel() {
+    document.getElementById('submitUpload').click()
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('uploadFileButton').addEventListener('click', openDialog);
+
+    function openDialog() {
+        document.getElementById('uploadFile').click();
+    }
+}, false);

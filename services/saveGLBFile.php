@@ -10,17 +10,12 @@ if (isset($_FILES['file']) && !empty($_FILES['file']))
 
 		$fileName = trim($_POST['fileName'], '"');
 
-		$savePath = '..'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'glb'.DIRECTORY_SEPARATOR;
+		$txt = 'fileName: '.$fileName . "\n\n";
+		fwrite($myfile, $txt);
 
-		if (!file_exists($savePath)) {
-			mkdir($savePath, 0777);
-			chmod($savePath, 0777);
-		}
-
-		$uploadFile = $savePath . $fileName;
-
-		if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadFile)) {
-
+		if (move_uploaded_file($_FILES['file']['tmp_name'], '..'.DIRECTORY_SEPARATOR.$fileName)) {
+			$txt = 'saved' . "\n\n";
+			fwrite($myfile, $txt);
 		} else {
 			echo 'Moglicherweise shit\n';
 			$error .= 'Moglicherweise shit\n';
@@ -33,9 +28,7 @@ if (isset($_FILES['file']) && !empty($_FILES['file']))
 }
 
 
+$txt = 'works' . "\n\n";
+fwrite($myfile, $txt);
 
-$txt = json_encode($_FILES['file']) . "\n\n";
-fwrite($myfile, $txt);
-$txt = $error . "\n\n";
-fwrite($myfile, $txt);
 fclose($myfile);

@@ -100,7 +100,11 @@ class Controller
 
 		if (file_exists($view)) {
 
+			echo '<div id="höhe">';
+
 			if ($this->action != 'login' && $this->action != 'register') {
+
+
 
 				include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
 
@@ -121,7 +125,6 @@ class Controller
 				}
 
 
-
 				include $view;
 
 				echo "<script>javaScriptEnabled()</script>";
@@ -132,6 +135,8 @@ class Controller
 				include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
 				include $view;
 			}
+			echo '</div>';
+
 		} else {
 			die('404 action you call does not exists');
 		}
