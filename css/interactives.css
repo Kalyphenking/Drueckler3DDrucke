@@ -1,7 +1,14 @@
 .input {
-    border-radius: 5px;
-    border-color: rgb(200,200,200);
-    background-color: rgb(215,215,215);
-
     outline: none;
+}
+
+.input[type=username]{
+    border-radius: 7px;
+    background-color: rgb(220,220,220);
+    border:3px solid rgb(210,210,210);
+}
+
+.input[type=username]:focus {
+    border: 3px solid rgb(200,200,200);
+    border-radius: 7px;
 }
