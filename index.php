@@ -62,9 +62,8 @@
     <link rel="stylesheet" href="<?=ROOTPATH.'css/topBottom.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/LogReg.css'?>">
 
-
     <link rel="stylesheet" href="<?=ROOTPATH.'css/textBoxes.css'?>">
-    <link rel="stylesheet" href="<?=ROOTPATH.'css/interactives.css'?>">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/inputStyles.css'?>">
 
 
     <!--requierd javascript-->
