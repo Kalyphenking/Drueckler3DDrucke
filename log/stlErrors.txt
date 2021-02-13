@@ -1,28 +1,12 @@
-fileName: uploads/Kalyphenking/glb/170-210_PLA_Temp_Tower-51.glb
+fileName: uploads/habe/glb/cableChain_40MountSide_v2-62.glb
 
-glbDirectory: uploads/Kalyphenking/glb
+glbDirectory: uploads/habe/glb
 
-modelName: 170-210_PLA_Temp_Tower
-
-baseName: 
+modelName: cableChain_40MountSide_v2
 
 baseName: 
 
-baseName: 170-210_PLA_Temp_Tower
-
-deleteName: 170-210_PLA_Temp_Tower-81.glb
-
-baseName: cableChain_40MountSide_v2
-
-baseName: Bracket
-
-baseName: d20_2.0.1
-
-baseName: cableChain_40MountTop_v2
-
-baseName: Ender_Z-Axis_Motor_Mount
-
-baseName: TopfdeckelTeil
+baseName: 
 
 saved
 

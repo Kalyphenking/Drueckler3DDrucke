@@ -103,7 +103,7 @@ class OrderController extends Controller
 
 				$file = $directory . DIRECTORY_SEPARATOR . $newest_file;
 
-				$_SESSION['testDone'] = $file;
+				//$_SESSION['testDone'] = $file;
 				$_SESSION['glbFile'] = $file; // Fehler
 
 				echo "<script>displayModel(\"$file\")</script>";
