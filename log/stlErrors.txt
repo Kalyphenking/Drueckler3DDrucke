@@ -1,12 +1,14 @@
-fileName: uploads/habe/glb/cableChain_40MountSide_v2-62.glb
+fileName: uploads/habe/glb/cableChain_40MountTop_v2-75.glb
 
 glbDirectory: uploads/habe/glb
 
-modelName: cableChain_40MountSide_v2
+modelName: cableChain_40MountTop_v2
 
 baseName: 
 
 baseName: 
+
+baseName: cableChain_40MountSide_v2
 
 saved
 
