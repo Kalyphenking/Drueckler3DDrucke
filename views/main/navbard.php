@@ -7,6 +7,7 @@
         <a  href="index.php" class="item">Home</a>
         <a  href="index.php?c=order&a=configurator" class="item">Konfigurator</a>
         <a  href="index.php?c=main&a=contact" class="item">Kontakt</a>
+        <a  href="index.php?c=order&a=shoppingCart" class="item">Warenkorb</a>
 <!--        <a  href="index.php?c=user&a=usermenu" class="item">Benutzer</a>-->
 <!--        <a  href="index.php?c=main&a=impressum" class="item">Impressum</a>-->
     </div>

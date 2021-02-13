@@ -34,6 +34,14 @@
 
 </div>-->
 
+<?php
+    if (isset($_SESSION['makeOrder'])) {
+        $guest = '<a href="index.php?c=main&a=register">Als Gast fortfahren</a>';
+        $_SESSION['guest'] = true;
+    } else {
+	    $guest = '';
+    }
+?>
 
 <div class = "InputBox">
     <form action = 'index.php?c=main&a=login' method = 'POST'>
@@ -66,6 +74,8 @@
         <br>
 		<div class="login-footer">
 			<a href="index.php?c=main&a=register">Konto erstellen</a>
+
+            <?=$guest?>
 		</div>
     </form>
 </div>

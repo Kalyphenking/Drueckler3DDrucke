@@ -34,10 +34,15 @@ div.userInput {
 }
 
 #modelViewer {
-    width: 400px;
-    height: 300px;
+    width: 500px;
+    height: 350px;
     /*width: 100%;*/
     /*height: 100%;*/
+}
+
+.modelViewerShopppingCart {
+    width: 100px;
+    height: 75px;
 }
 
 input[type='file'] {

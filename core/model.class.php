@@ -205,8 +205,6 @@ class Model
 		return null;
 	}
 
-
-
 	public static function find($keys = [], $values = [], $method = 'and') {
 
 		$db = $GLOBALS['db'];

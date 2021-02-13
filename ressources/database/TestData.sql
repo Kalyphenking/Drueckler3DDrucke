@@ -164,9 +164,9 @@ COMMIT;
 START TRANSACTION;
 
 INSERT INTO `Filaments` (`id`, `createdAt`, `updatedAt`, `color`, `type`, `producer`, `pricePerGramm`, `rgba`) VALUES
-(NULL, '2021-01-11 13:09:54', NULL, 'red', 'PLA', 'Sunlu', '0.028', '150,0,0,1'),
-(NULL, '2021-01-11 13:10:41', NULL, 'green', 'PLA', 'Sunlu', '0.028', '0,150,0,1'),
-(NULL, '2021-01-11 13:10:41', NULL, 'blue', 'PLA', 'Sunlu', '0.028', '0,0,150,1'),
+(NULL, '2021-01-11 13:09:54', NULL, 'red', 'PLA', 'Sunlu', '0.028', '100,15,15,1'),
+(NULL, '2021-01-11 13:10:41', NULL, 'green', 'PLA', 'Sunlu', '0.028', '0,100,30,1'),
+(NULL, '2021-01-11 13:10:41', NULL, 'blue', 'PLA', 'Sunlu', '0.028', '0,30,100,1'),
 (NULL, '2021-01-11 13:12:47', NULL, 'white', 'ABS', 'Sunlu', '0.033', '150,150,150,1'),
 (NULL, '2021-01-11 13:12:47', NULL, 'orange', 'PLA', 'Sunlu', '0.028', '200,100,0,1'),
 (NULL, '2021-01-11 13:12:47', NULL, 'black', 'ABS', 'Sunlu', '0.033', '15,15,15,1');

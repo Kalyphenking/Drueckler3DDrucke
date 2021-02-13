@@ -42,7 +42,7 @@ echo "PrintPrices: $printPrices[0] <br><br>";
     <div id="fileUpload">
         <form action="index.php?c=order&a=configurator" method="POST" enctype="multipart/form-data">
 
-            <button class="javaScriptBased" id="uploadFileButton">Model auswählen</button>
+            <input type="button" class="javaScriptBased" id="uploadFileButton" value="Model auswählen"></input>
             <input class="phpBased" type="file" name="uploadFile" id="uploadFile" onchange="uploadModel()" value="Model auswählen" required>
 
             <br>

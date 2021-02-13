@@ -28,13 +28,12 @@ var destinationFilePath = ""
 
 
 
-async function displayModel(filePath = "") {
-
+async function displayModel(filePath = "", elementId = undefined) {
 
     var savedUserPath = filePath.slice(0, filePath.indexOf('glb/'))
     var savedFileName = filePath.replace(savedUserPath+"glb/", "")
 
-    // alert("userPath: " + userPath + "\n name: " + name)
+
 
     if (GLOBAL.fileName === undefined) {
         GLOBAL.fileName = savedFileName
@@ -43,8 +42,13 @@ async function displayModel(filePath = "") {
         GLOBAL.usersPath = savedUserPath
     }
 
+    if (elementId === undefined) {
+        elementId = "modelViewer";
+    }
 
-    const viewer = document.getElementById("modelViewer");
+    // alert('filePath: ' + filePath + "\nelementId: " + elementId)
+
+    const viewer = document.getElementById(elementId);
 
     if (viewer) {
         var delayInMilliseconds = 100;
@@ -56,7 +60,7 @@ async function displayModel(filePath = "") {
         const delayInMilliseconds2 = 500;
         // alert("delay")
         setTimeout(function() {
-            document.getElementById("modelViewer").src = filePath;
+            document.getElementById(elementId).src = filePath;
         }, delayInMilliseconds2);
     }
 }
@@ -434,6 +438,12 @@ function uploadModel() {
 
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('uploadFileButton').addEventListener('click', openDialog);
+
+    // var uploadButton =  document.getElementById('uploadFileButton')
+    //
+    // if (uploadButton) {
+    //     uploadButton.addEventListener('click', openDialog);
+    // }
 
     function openDialog() {
         document.getElementById('uploadFile').click();

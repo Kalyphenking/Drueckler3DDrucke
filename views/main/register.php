@@ -4,20 +4,59 @@
 
         <h3>Registrierung</h3>
 
-            <div class = "InputLine">
-                <input id="username"
-                       name="username"
-                       type="username"
-                       placeholder="Username"
-                       required value=<?php echo (isset($_POST['username']) ? $_POST['username'] : ''); //default Values?> >
-                <br>
+        <?php
 
-                <input id="password"
-                       name="password"
-                       type="password"
-                       placeholder="Password"
-                       required value=<?php echo (isset($_POST['password']) ? $_POST['password'] : ''); //default Values?> >
-            </div>
+
+            if (!isset($_SESSION['guest'])) {
+
+	            $userName = isset($_POST['username']) ? $_POST['username'] : '';
+	            $password = isset($_POST['password']) ? $_POST['password'] : '';
+
+	            echo '
+            
+                    <div class = "InputLine">
+                        <input id="username"
+                               name="username"
+                               type="username"
+                               placeholder="Username"
+                               required value="'.$userName.'">
+                        <br>
+        
+                        <input id="password"
+                               name="password"
+                               type="password"
+                               placeholder="Password"
+                               required value="'.$password.'">
+                    </div>
+                    
+                   ';
+            } else {
+
+	            $userName = isset($_SESSION['uid']) ? $_SESSION['uid'] : '';
+	            $password = isset($_SESSION['uid']) ? $_SESSION['uid'] : '';
+
+	            echo '
+            
+                    <div class = "InputLine">
+                        <input id="username"
+                               name="username"
+                               type="username"
+                               placeholder="Username"
+                               hidden
+                               required value="'.$userName.'">
+                        <br>
+        
+                        <input id="password"
+                               name="password"
+                               type="password"
+                               placeholder="Password"
+                               hidden
+                               required value="'.$password.'">
+                    </div>
+            
+                ';
+            }
+        ?>
 
             <br>
 

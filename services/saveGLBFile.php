@@ -22,13 +22,25 @@ if (isset($_FILES['file']) && !empty($_FILES['file']))
 		$files = scandir('..'.DIRECTORY_SEPARATOR.$glbDirectory, SCANDIR_SORT_NONE);
 //		$newest_file = $files[0];
 
+		$modelName = substr($fileName, strlen($glbDirectory) + 1);
+
+		$modelName = substr($modelName, 0, strlen($modelName) - 7);
+
+		$txt = 'modelName: ' .$modelName. "\n\n";
+		fwrite($myfile, $txt);
+
 		foreach ($files as $file) {
 			$extensiont = substr($file, strlen($file) - 3, 3);
+			$baseName = substr($file, 0, strlen($file)-7);
+
+			$txt = 'baseName: ' .$baseName. "\n\n";
+			fwrite($myfile, $txt);
 
 			$deleteName = trim($file, '"');
 
-			if ($extensiont == 'glb') {
-				$txt = '$deleteName: ' .$deleteName. "\n\n";
+
+			if (($extensiont == 'glb') && ($modelName === $baseName)) {
+				$txt = 'deleteName: ' .$deleteName. "\n\n";
 				fwrite($myfile, $txt);
 				unlink('..'.DIRECTORY_SEPARATOR.$glbDirectory.DIRECTORY_SEPARATOR.$deleteName);
 			}
