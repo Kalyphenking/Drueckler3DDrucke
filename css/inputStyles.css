@@ -4,7 +4,6 @@
     margin: 8px 0;
     box-sizing: border-box;
     border: 3px solid rgb(200,200,200);
-    -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
 
@@ -17,5 +16,12 @@
 }*/
 
 .input[type=username]:focus, .input[type=password]:focus {
+    border: 3px solid rgb(200,200,200);
+}
+
+/*======================================================================*/
+
+.input[type=button], .input[type=submit], .button{
+    border-radius: 10px;
     border: 3px solid rgb(200,200,200);
 }
