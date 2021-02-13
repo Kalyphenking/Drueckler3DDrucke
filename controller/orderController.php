@@ -103,6 +103,7 @@ class OrderController extends Controller
 
 				$file = $directory . DIRECTORY_SEPARATOR . $newest_file;
 
+				$_SESSION['testDone'] = $file;
 				$_SESSION['glbFile'] = $file; // Fehler
 
 				echo "<script>displayModel(\"$file\")</script>";
@@ -204,6 +205,11 @@ class OrderController extends Controller
 	}
 
 	public function shoppingCart() {
+
+		if (isset($_SESSION['testDone'])) {
+			echo $_SESSION['testDone'] . "<br>";
+			echo "DONE <br>";
+		}
 
 		if (isset($_POST['submitContinue'])) {
 			echo "<h3>submitContinue</h3><br><br>";
