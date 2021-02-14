@@ -2,7 +2,7 @@
 
 <h1>Main</h1>
 
-<div id="javasriptMissingMessage">
+<div class="phpBased">
     <script>hide()</script>
     <a>To imporve user experience, please enable Java Script</a>
 </div>

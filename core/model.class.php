@@ -2,10 +2,10 @@
 
 namespace DDDDD\model;
 
+//model parrent class
 class Model
 {
 	const TYPE_INT = 'int';
-//	const TYPE_FLOAT = 'float';
 	const TYPE_STRING = 'string';
 	const TYPE_TINYINT = 'tinyint';
 	const TYPE_DECIMAL  = 'dec';
@@ -24,7 +24,6 @@ class Model
 			}
 		}
 	}
-
 
 	public function __get($key) {
 
@@ -46,14 +45,7 @@ class Model
 		throw new \Exception('You can not write to property "' . $key . '"" for the class "' . get_called_class());
 	}
 
-	public function save(&$errors = null) {
-		if($this->id === null) {
-			$this->insert($errors);
-		} else {
-			$this->update($errors);
-		}
-	}
-
+	//inserts objectData in new database row
 	public function insert(&$errors, $extraSql = []) {
 		try {
 			$sql = 'BEGIN; INSERT INTO ' . self::tablename() . '(';
@@ -105,6 +97,7 @@ class Model
 		return false;
 	}
 
+	//updates objectData in existing databse row
 	public function update(&$errors) {
 		$db = $GLOBALS['db'];
 
@@ -137,6 +130,7 @@ class Model
 		return false;
 	}
 
+	//deletes database row
 	public function delete(&$errors = null) {
 		$db = $GLOBALS['db'];
 
@@ -155,6 +149,7 @@ class Model
 		return false;
 	}
 
+	//checks for correct input value
 	public function validateValue($attribute, &$value, &$shemaOptions) {
 		$type = $shemaOptions['type'];
 		$errors = [];
@@ -178,6 +173,7 @@ class Model
 		return count($errors) > 0 ? $errors : true;
 	}
 
+	//cheks objectdata
 	public function validate(&$errors) {
 		foreach ($this->shema as $key => $shemaOptions) {
 			if(isset($this->data[$key]) && is_array($shemaOptions)) {
@@ -197,6 +193,7 @@ class Model
 		}
 	}
 
+	//returns name of related database table
 	public static function tablename() {
 		$class = get_called_class();
 		if(defined($class . '::TABLENAME')) {
@@ -205,6 +202,7 @@ class Model
 		return null;
 	}
 
+	//searchs for data with specific attributes
 	public static function find($keys = [], $values = [], $method = 'and') {
 
 		$db = $GLOBALS['db'];
@@ -232,6 +230,7 @@ class Model
 		return $result;
 	}
 
+	//searchs for data with specific attributes on multiple tables
 	public static function findOnJoin($dataType = "", $attributs = [], $keys = [], $values = [])
 	{
 		$db = $GLOBALS['db'];
@@ -327,7 +326,6 @@ class Model
 		}
 		return $result;
 	}
-
 
 
 }

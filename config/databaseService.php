@@ -1,9 +1,7 @@
 <?php
 
 
-//namespace ProjektPHP\config;
-
-//echo 'database';
+// setup connection to database
 
 $dbName = 'Drueckler3DDrucke';
 

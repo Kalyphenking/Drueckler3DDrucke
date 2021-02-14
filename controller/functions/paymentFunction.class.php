@@ -8,25 +8,27 @@ use DDDDD\model\DirectDebit;
 use DDDDD\model\PaymentData;
 use DDDDD\model\Paypal;
 
+//class to access functions for paymentdata changes
+
 class PaymentFunction
 {
 
-	protected $username = NULL;
-	protected $customerData = NULL;
+	protected $username = null;
+	protected $customerData = null;
+	protected $errors = null;
+
+	//calls functions selected by url (a=orderController/setDirectDebit)
 
 	function __construct($function) {
 		$this->username = $_SESSION['username'];
 		$this->customerData = $_SESSION['customerData'];
 
 		$this->{$function}();
-
 	}
+
 
 	protected function setDirectDebit() {
 		$GLOBALS['selectedPaymentMethod'] = 'setDirectDebit';
-
-
-//		echo json_encode($this->customerData);
 
 		$directDebitId = $this->customerData['ddid'];
 		$customerId = $this->customerData['cid'];
@@ -44,7 +46,6 @@ class PaymentFunction
 				$mandate = $_POST['mandate'] == 'on' ? '1' : '0';
 
 
-
 				$directDebitData = new DirectDebit(['id'=>$directDebitId,
 					'iban'=>$iban,
 					'ibanShort'=>$ibanShort,
@@ -53,8 +54,9 @@ class PaymentFunction
 
 				$directDebitData->validate($this->errors);
 
-				$loadedData = $directDebitData->find(['id'], [$directDebitId]);
+				//TODO: errorHandling
 
+				$loadedData = $directDebitData->find(['id'], [$directDebitId]);
 
 
 				if (empty($loadedData)) {
@@ -62,7 +64,9 @@ class PaymentFunction
 					$db = $GLOBALS['db'];
 					if (empty($paymentDataId)) {
 
-						echo "<h1>pd Leer</h1>";
+						//inserts directDebitData in database and inserts newest DirectDebit_id into PaymentData
+						//updates Customer with newest PaymentData_id
+						//to reduce database request, this will processed in one request
 
 						$directDebitData->insert($this->errors,
 							['INSERT INTO PaymentData (DirectDebit_id)	
@@ -70,6 +74,9 @@ class PaymentFunction
 
 								'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
 					} else {
+
+						//inserts directDebitData in database and updates newest DirectDebit_id into PaymentData
+
 						$directDebitData->insert($this->errors,
 							['UPDATE PaymentData set DirectDebit_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
 					}
@@ -78,8 +85,6 @@ class PaymentFunction
 				} else {
 					$directDebitData->update($this->errors);
 				}
-
-//				echo 'Error: ' . json_encode($this->errors) . '<br><br>';
 
 			} else {
 				//TODO errorHandling
@@ -132,7 +137,9 @@ class PaymentFunction
 					$db = $GLOBALS['db'];
 					if (empty($paymentDataId)) {
 
-						echo "<h1>pd Leer</h1>";
+						//inserts creditCardData in database and inserts newest CreditCard_id into PaymentData
+						//updates Customer with newest PaymentData_id
+						//to reduce database request, this will processed in one request
 
 						$creditCardData->insert($this->errors,
 							['INSERT INTO PaymentData (CreditCard_id)	
@@ -140,14 +147,15 @@ class PaymentFunction
 
 								'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
 					} else {
+
+						//inserts creditCardData in database and updates newest creditCardData into PaymentData
+
 						$creditCardData->insert($this->errors,
 							['UPDATE PaymentData set CreditCard_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
 					}
 				} else {
 					$creditCardData->update($this->errors);
 				}
-
-//				echo 'Error: ' . json_encode($this->errors) . '<br><br>';
 
 			} else {
 				//TODO errorHandling
@@ -225,12 +233,19 @@ class PaymentFunction
 				$db = $GLOBALS['db'];
 				if (empty($paymentDataId)) {
 
+					//inserts billAddressData in database and inserts newest Bill_id into PaymentData
+					//updates Customer with newest PaymentData_id
+					//to reduce database request, this will processed in one request
+
 					$billAddressData->insert($this->errors,
 						['INSERT INTO PaymentData (Bill_id)	
 								VALUES (LAST_INSERT_ID());',
 
 							'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
 				} else {
+
+					//inserts billAddressData in database and updates newest Bill_id into PaymentData
+
 					$billAddressData->insert($this->errors,
 						['INSERT INTO Bill (Address_id) VALUES (LAST_INSERT_ID());',
 							'UPDATE PaymentData set Bill_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
@@ -238,8 +253,6 @@ class PaymentFunction
 			} else {
 				$billAddressData->update($this->errors);
 			}
-
-//				echo 'Error: ' . json_encode($this->errors) . '<br><br>';
 
 			$GLOBALS['paymentData']['street'] = $street;
 			$GLOBALS['paymentData']['number'] = $number;
@@ -277,7 +290,9 @@ class PaymentFunction
 					$db = $GLOBALS['db'];
 					if (empty($paymentDataId)) {
 
-						echo "<h1>pd Leer</h1>";
+						//inserts paypalData in database and inserts newest Paypal_id into PaymentData
+						//updates Customer with newest PaymentData_id
+						//to reduce database request, this will processed in one request
 
 						$paypalData->insert($this->errors,
 							['INSERT INTO PaymentData (Paypal_id)	
@@ -285,6 +300,9 @@ class PaymentFunction
 
 								'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
 					} else {
+
+						//inserts paypalData in database and updates newest Paypal_id into PaymentData
+
 						$paypalData->insert($this->errors,
 							['UPDATE PaymentData set Paypal_id = LAST_INSERT_ID() where id = '
 								. $customerId .
@@ -294,8 +312,6 @@ class PaymentFunction
 					$paypalData->update($this->errors);
 				}
 
-//				echo 'Error: ' . json_encode($this->errors) . '<br><br>';
-
 			} else {
 				//TODO errorHandling
 			}
@@ -304,6 +320,7 @@ class PaymentFunction
 		$payPalData = $this->loadPayPalData()[0];
 		$GLOBALS['paymentData'] = $payPalData;
 	}
+
 
 	protected function loadDirectDebitData() {
 

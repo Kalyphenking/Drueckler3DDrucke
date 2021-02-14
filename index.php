@@ -1,5 +1,6 @@
 <?php
-//    require_once 'config'.DIRECTORY_SEPARATOR.'paths.php';
+
+    //load requierd files
 
     foreach(glob('config/*.php') as $configClass)
     {
@@ -85,6 +86,7 @@
 <?php
     if(file_exists(CONTROLLERSPATH.$controllerName.'Controller.php'))
     {
+        //calls required controller class
 
         require_once CONTROLLERSPATH.$controllerName.'Controller.php';
 

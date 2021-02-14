@@ -2,7 +2,7 @@
 
 namespace DDDDD\core;
 
-
+//controller parent class
 class Controller
 {
 	protected $controller  = NULL;
@@ -148,12 +148,9 @@ class Controller
 
 	}
 
-	// delete session variables used in previous controller
 
+	//TODO: delete session variables used in previous controller
 	function clear() {
-
-//		echo 'clear <br>';
-
 		if (isset($_SESSION['filaments'])) {
 			unset ($_SESSION['filaments']);
 		}

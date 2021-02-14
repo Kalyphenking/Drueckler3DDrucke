@@ -26,8 +26,10 @@ var storedFilePath = ""
 var storedFileName = ""
 var destinationFilePath = ""
 
+//converts the input stl file to glb file
+//modified code from: https://github.com/MyMiniFactory/stl2gltf
 
-
+//updates model viewer to display new color
 async function displayModel(filePath = "", elementId = undefined) {
 
     var savedUserPath = filePath.slice(0, filePath.indexOf('glb/'))
@@ -65,14 +67,13 @@ async function displayModel(filePath = "", elementId = undefined) {
     }
 }
 
+//starts new conversion with selected color
 async function changeColor(filePath = "") {
     var viewer = document.getElementById("modelViewer");
 
     if (filePath == "") {
         filePath = viewer.src;
     }
-
-
 
     if (filePath != "uploads/default/glb/6021449f3c57b_3DModelHochladen.glb") {
         var selection = document.getElementById("filament")
@@ -132,8 +133,6 @@ async function startConversion(usersPath, fileName, rgba) {
 }
 
 function prepareGLB(file) {
-
-
     check_file(file, function(){check_file_success()});
     function check_file_success() {
 
@@ -142,9 +141,7 @@ function prepareGLB(file) {
         var fr = new FileReader();
         fr.readAsDataURL(file);
 
-
         fr.onload = function (){
-
 
             console.log(filename);
 
@@ -156,13 +153,6 @@ function prepareGLB(file) {
                 console.log("new filename ", filename, "unlink", GLOBAL.stl_name);
                 Module['FS_unlink'](GLOBAL.stl_name);
             }
-
-            // if (filename === GLOBAL.stl_name) { // user upload the same file as last one
-            //     console.log("same stl file");
-            //     Module['FS_unlink'](GLOBAL.stl_name);
-            // }
-
-
 
             var stl_name = filename;
 
@@ -193,15 +183,13 @@ function prepareGLB(file) {
             GLOBAL.maxz = parseFloat(out_data[10]);
             GLOBAL.stl_name = stl_name;
 
-
             processGLB(file.name);
         }
     }
 
 }
 
-
-
+//append data to glb
 function gltf_dict(
     total_blength, indices_blength, vertices_boffset, vertices_blength,
     number_indices, number_vertices, minx, miny, minz, maxx, maxy, maxz,
@@ -290,6 +278,7 @@ function gltf_dict(
     } // end of dict
 }
 
+//creates glb file
 function processGLB(fileName) {
 
 
@@ -392,6 +381,7 @@ function processGLB(fileName) {
     }
 }
 
+//cheks for valid filetype
 function check_file(file, success_cb) {
     const filename = file.name;
     const extension = filename.toLowerCase().slice(filename.lastIndexOf(".")+1, filename.length);
@@ -404,6 +394,7 @@ function check_file(file, success_cb) {
     success_cb();
 }
 
+//sends request to php script to save the glb file in directory
 async function saveGLBFile(file, fileName)
 {
     let formData = new FormData();
@@ -414,14 +405,8 @@ async function saveGLBFile(file, fileName)
 
     let usersPath = GLOBAL.usersPath
 
-    // alert("newName: " + newName + "\n oldName: " + fileName + "\n displayModel: " + usersPath+"glb/"+newName)
-
-
-
     formData.append("file", file);
     formData.append("fileName", JSON.stringify(usersPath+"glb/"+newName));
-
-    // alert(fileName)
 
     try {
         let r = await fetch('services/saveGLBFile.php', {method: "POST", body: formData});
@@ -432,18 +417,14 @@ async function saveGLBFile(file, fileName)
     }
 }
 
+//auto clicks submit
 function uploadModel() {
     document.getElementById('submitUpload').click()
 }
 
+//waits for userinput for file input
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('uploadFileButton').addEventListener('click', openDialog);
-
-    // var uploadButton =  document.getElementById('uploadFileButton')
-    //
-    // if (uploadButton) {
-    //     uploadButton.addEventListener('click', openDialog);
-    // }
 
     function openDialog() {
         document.getElementById('uploadFile').click();

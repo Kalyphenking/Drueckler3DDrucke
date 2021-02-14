@@ -1,5 +1,7 @@
 <?php
 
+// setup pahts to directories
+
 define('ROOTPATH', strlen(dirname($_SERVER['SCRIPT_NAME'])) > 1 ? dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR : DIRECTORY_SEPARATOR);
 define('JSPATH',  'js'.DIRECTORY_SEPARATOR);
 define('CSSPATH',  'css'.DIRECTORY_SEPARATOR);

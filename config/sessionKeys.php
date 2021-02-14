@@ -2,6 +2,8 @@
 
 namespace DDDDD\config;
 
+// setup keys (depraved)
+
 $keyLoggedIn = 'loggedIn';
 $kesUserName = 'username';
 $keyFilaments = 'filaments';

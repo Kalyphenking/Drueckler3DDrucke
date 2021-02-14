@@ -5,6 +5,8 @@ namespace DDDDD\controller;
 use DDDDD\core\Controller;
 use DDDDD\model\ContactData;
 
+//manages admin related functions
+
 class MainController extends Controller
 {
 
@@ -83,18 +85,9 @@ class MainController extends Controller
 		}
 	}
 
-	public function testLoginForm($subAction) {
-		$this->login();
-	}
-
-
 	public function register($subAction) {
 
-//		echo '<br><br> register <br><br>';
-
 		if (isset($_POST['submit'])) {
-
-//			echo '<br> submit <br>';
 
 			if(!empty($_POST['firstName'])
 				&& !empty($_POST['lastName'])
@@ -123,7 +116,6 @@ class MainController extends Controller
 
 
 				if (empty($data)) {
-//					echo 'LÄUFT <br>';
 
 					$contactData = new ContactData([
 						'firstName'=>$firstName,
@@ -136,6 +128,8 @@ class MainController extends Controller
 						$contactData->{'phoneNumber'} = $phoneNumber;
 					}
 
+					//inserts contactData in database and inserts newst ContactData_id in Customer
+					//to reduce database request, this will processed in one request
 
 					$contactData->insert($error, ['INSERT INTO Customer (guest, ContactData_id)	VALUES (0, LAST_INSERT_ID());']);
 
@@ -146,13 +140,6 @@ class MainController extends Controller
 					$previousController = isset($_SESSION['previousController']) ? $_SESSION['previousController'] : 'main';
 					$previousAction = isset($_SESSION['previousAction']) ? $_SESSION['previousAction'] : 'main';
 
-//					echo "errors: <br>" . json_encode($error) . "<br>";
-
-
-//					$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
-
-//					header("Location: $link ");
-
 					if (!isset($_POST['testing']) || $_POST['testing'] == 'true') {
 						$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
 
@@ -161,7 +148,6 @@ class MainController extends Controller
 
 
 				} else {
-//					echo 'LÄUFT NICHT <br>';
 					echo json_encode($data);
 					echo '<br>';
 					// TODO: error, username already exists

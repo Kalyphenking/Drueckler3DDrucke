@@ -1,8 +1,4 @@
-
-
-
-
-
+//checks if JavaScript is enabled and hides phpBased content and displays jsBased content
 function javaScriptEnabled() {
     var phpBasedContent = document.getElementsByClassName("phpBased")
 

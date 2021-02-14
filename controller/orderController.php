@@ -17,24 +17,24 @@ class OrderController extends Controller
 	protected $filaments = null;
 	protected $errors = [];
 
+	//manages 3D Model configurator
 	public function configurator($subAction) {
 
 		if (!isset($_POST['submitCalculation']) && !isset($_POST['submitContinue']) && !isset($_POST['submitUpload'])) {
-			$_SESSION['printTime'] = null;
-			$_SESSION['printPrices'] = null;
-			$_SESSION['infill'] = null;
-			$_SESSION['resolution'] = null;
-			$_SESSION['filamentColor'] = null;
-			$_SESSION['filamentColorCode'] = null;
-			$_SESSION['modelName'] = null;
-//			$_SESSION['shoppingCart'] = null;
+
+			// unsets all configuration related sessions
+			unset($_SESSION['printTime']);
+			unset($_SESSION['printPrices']);
+			unset($_SESSION['infill']);
+			unset($_SESSION['resolution']);
+			unset($_SESSION['filamentColor']);
+			unset($_SESSION['filamentColorCode']);
+			unset($_SESSION['modelName']);
+			//unset($_SESSION['shoppingCart']);
 		}
 
 		if (isset($_FILES['uploadFile']) && !empty($_FILES['uploadFile']))
 		{
-
-//			echo 'fileExits <br>';
-
 			if(file_exists($_FILES['uploadFile']['tmp_name']) && is_uploaded_file($_FILES['uploadFile']['tmp_name'])) {
 
 				$modelName = basename($_FILES['uploadFile']['name']);
@@ -43,44 +43,35 @@ class OrderController extends Controller
 				$_SESSION['modelName'] = $modelName;
 				$modelName .= '-00';
 
-//				echo "modelName: ".substr($modelName, 0, strlen($modelName) - 4)."<br>";
-
-//				echo "modelName: $modelName<br>";
+				//if the user is not loggedin, the model will stored in a directory with the current uid
 
 				if ($this->loggedIn())
 				{
 					$uploadsDir = UPLOADSPATH.$_SESSION['username'].DIRECTORY_SEPARATOR;
 				} else {
 					$uploadsDir = UPLOADSPATH.'temp'.DIRECTORY_SEPARATOR;
-					$this->checkDirectory($uploadsDir);
+					$this->makeDirectory($uploadsDir);
 					$uploadsDir .= $_SESSION['uid'] . DIRECTORY_SEPARATOR;
 				}
 
 				$fileName = $modelName . '.stl';
 
-
-
 				$_SESSION['userDirectory'] = $uploadsDir;
 				$stlDir = $uploadsDir.'stl'.DIRECTORY_SEPARATOR;
 				$glbDir = $uploadsDir.'glb'.DIRECTORY_SEPARATOR;
 
-				$this->checkDirectory($uploadsDir);
-				$this->checkDirectory($stlDir);
-				$this->checkDirectory($glbDir);
+				$this->makeDirectory($uploadsDir);
+				$this->makeDirectory($stlDir);
+				$this->makeDirectory($glbDir);
 
 
 				$stlFile = $stlDir . $fileName;
-
-//				echo "modelName: $modelName<br>";
-//				echo "uploadsDir: $uploadsDir<br>";
-//				echo "fileName: $fileName<br>";
 
 				if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $stlFile)) {
 
 //					$glbFileName = trim($fileName, 'stl') . 'glb';
 //
 //					$_SESSION['glbFileName'] = DIRECTORY_SEPARATOR.$uploadsDir.'glb'.DIRECTORY_SEPARATOR.$glbFileName;
-
 
 					echo "<script>startConversion(\"$uploadsDir\", \"$modelName\", \"150,150,150,1\")</script>";
 
@@ -90,28 +81,45 @@ class OrderController extends Controller
 					echo 'Moglicherweise shit\n';
 				}
 			} else {
+				//TODO: noUploadHandling
 				echo 'no upload';
 				echo '<br>';
 			}
 		} else {
 
+			//recalls newest model in directory to display in ModelViewer
+
 			if ((isset($_SESSION['userDirectory']) && isset($_POST['submitCalculation']) || isset($_POST['submitContinue']))) {
 				$directory = $_SESSION['userDirectory'].'glb';
 
 				$files = scandir($directory, SCANDIR_SORT_DESCENDING);
-				$newest_file = $files[0];
+
+				foreach ($files as $file) {
+					echo "file loop: $file <br>";
+					echo "file session: ".$_SESSION['modelName']." <br>";
+					$found = strpos($file, $_SESSION['modelName']);
+					if ($found !== false) {
+//						echo "file looop: $file <br>";
+						$newest_file = $file;
+					}
+				}
+
+
+//				$newest_file = $files[0];
 
 				$file = $directory . DIRECTORY_SEPARATOR . $newest_file;
 
 				//$_SESSION['testDone'] = $file;
 				$_SESSION['glbFile'] = $file; // Fehler
+//				echo "file: " . $_SESSION['modelName'] . "<br>";
+//				echo "file: $file";
 
 				echo "<script>displayModel(\"$file\")</script>";
 			};
 		}
 
 		if (isset($_POST['submitCalculation'])) {
-			$this->processModel();
+			$this->calculateModel();
 		}
 
 		if (isset($_POST['submitContinue'])) {
@@ -126,114 +134,109 @@ class OrderController extends Controller
 
 	}
 
-	protected function checkDirectory($directory) {
+	protected function makeDirectory($directory) {
 		if (!file_exists($directory)) {
 			mkdir($directory, 0777);
 			chmod($directory, 0777);
 		}
 	}
 
-	protected function processModel() {
+	protected function calculateModel() {
 
-		if (!empty($_POST['infill'])
-			&& !empty($_POST['resolution'])
-			&& !empty($_POST['filament'])) {
-
-
-			$infill = $_POST['infill'];
-			$resolution = $_POST['resolution'];
-			$filamentColor = $_POST['filament'];
-
-			$userDirectory = $_SESSION['userDirectory'];
-			$modelName = $_SESSION['modelName'];
-			$file = $userDirectory.'stl'.DIRECTORY_SEPARATOR.$modelName.'-00.stl';
-
-			$fileSize = filesize($file);
-
-			$baseTime = 0.25;
-			$size = $fileSize / 300000;
-
-			$printTime =($baseTime + $size + ($infill/50)) + (($size / ($resolution + 0.0)));
-
-			$_SESSION['printTime'] = round($printTime,2);
-
-			$pricing = Pricing::find()[0];
+		if ($_SESSION['modelName'] !== '3DModelHochladen') {
+			if (!empty($_POST['infill'])
+				&& !empty($_POST['resolution'])
+				&& !empty($_POST['filament'])) {
 
 
-			$shippting = $pricing['shipping'];
-			$workPerHour = $pricing['workPerHour'];
-			$energyPerHour = $pricing['energyPerHour'];
-			$taxes = $pricing['taxes'];
-			$grammsPerHour = $pricing['grammsPerHour'];
-			$filaments = $_SESSION['filaments'];
+				$infill = $_POST['infill'];
+				$resolution = $_POST['resolution'];
+				$filamentColor = $_POST['filament'];
 
-			foreach ($filaments as $filament) {
-				if ($filament['rgba'] == $filamentColor) {
-					$pricerPerGramm = $filament['pricePerGramm'];
-					$_SESSION['filamentId'] = $filament['id'];
-					$_SESSION['filamentColor'] = $filament['type'].': '.$filament['color'];
-					$_SESSION['filamentColorCode'] = $filament['rgba'];
+				$userDirectory = $_SESSION['userDirectory'];
+				$modelName = $_SESSION['modelName'];
+				$file = $userDirectory.'stl'.DIRECTORY_SEPARATOR.$modelName.'-00.stl';
+
+				$fileSize = filesize($file);
+
+				$baseTime = 0.25;
+				$size = $fileSize / 300000;
+
+				$printTime =($baseTime + $size + ($infill/50)) + (($size / ($resolution + 0.0)));
+
+				$_SESSION['printTime'] = round($printTime,2);
+
+				$pricing = Pricing::find()[0];
+
+
+				$shippting = $pricing['shipping'];
+				$workPerHour = $pricing['workPerHour'];
+				$energyPerHour = $pricing['energyPerHour'];
+				$taxes = $pricing['taxes'];
+				$grammsPerHour = $pricing['grammsPerHour'];
+				$filaments = $_SESSION['filaments'];
+
+				foreach ($filaments as $filament) {
+					if ($filament['rgba'] == $filamentColor) {
+						$pricerPerGramm = $filament['pricePerGramm'];
+						$_SESSION['filamentId'] = $filament['id'];
+						$_SESSION['filamentColor'] = $filament['type'].': '.$filament['color'];
+						$_SESSION['filamentColorCode'] = $filament['rgba'];
+					}
 				}
+				$materialPrice = $printTime * $pricerPerGramm * $grammsPerHour;
+				$workPrice = $printTime * $workPerHour;
+				$energyPrice = $printTime * $energyPerHour;
+
+				$taxesPrice = ($materialPrice + $workPrice + $energyPrice + $shippting) * $taxes;
+
+				$printPrice = $energyPerHour + $workPrice + $energyPrice + $shippting + $taxesPrice;
+
+				$_SESSION['printPrices'][0] = round($printPrice, 2);
+				$_SESSION['printPrices'][1] = round($energyPerHour, 2);
+				$_SESSION['printPrices'][2] = round($workPrice, 2);
+				$_SESSION['printPrices'][3] = round($energyPrice, 2);
+				$_SESSION['printPrices'][4] = round($shippting, 2);
+				$_SESSION['printPrices'][5] = round($taxesPrice, 2);
+				$_SESSION['infill'] = $infill;
+				$_SESSION['resolution'] = $resolution;
 			}
-			$materialPrice = $printTime * $pricerPerGramm * $grammsPerHour;
-			$workPrice = $printTime * $workPerHour;
-			$energyPrice = $printTime * $energyPerHour;
-
-			$taxesPrice = ($materialPrice + $workPrice + $energyPrice + $shippting) * $taxes;
-
-			$printPrice = $energyPerHour + $workPrice + $energyPrice + $shippting + $taxesPrice;
-
-			$_SESSION['printPrices'][0] = round($printPrice, 2);
-			$_SESSION['printPrices'][1] = round($energyPerHour, 2);
-			$_SESSION['printPrices'][2] = round($workPrice, 2);
-			$_SESSION['printPrices'][3] = round($energyPrice, 2);
-			$_SESSION['printPrices'][4] = round($shippting, 2);
-			$_SESSION['printPrices'][5] = round($taxesPrice, 2);
-			$_SESSION['infill'] = $infill;
-			$_SESSION['resolution'] = $resolution;
 		}
 	}
 
 	protected function saveConfiguration() {
 
-		$this->processModel();
-
+		$this->calculateModel();
+		$_SESSION['shoppingCart'] = [];
 		$link = 'index.php?c=order&a=shoppingCart';
 
 		header("Location: $link ");
 
 	}
 
+	//manages shoppinCart
 	public function shoppingCart() {
 
-		if (isset($_SESSION['testDone'])) {
-			echo $_SESSION['testDone'] . "<br>";
-			echo "DONE <br>";
-		}
+		if (isset($_SESSION['shoppingCart'])) {
+			$orderModelName = $_SESSION['modelName'];
+			$orderInfill = $_SESSION['infill'];
+			$orderResolution = $_SESSION['resolution'];
+			$filamentColor = $_SESSION['filamentColor'];
+			$orderPrintTime = $_SESSION['printTime'];
+			$orderPrice = $_SESSION['printPrices'][0];
+			$file = $_SESSION['glbFile'];
 
-		if (isset($_POST['submitContinue'])) {
-			echo "<h3>submitContinue</h3><br><br>";
-		}
+			$shoppingCartItem = [$orderModelName, $orderInfill, $orderResolution, $filamentColor, $orderPrintTime, $orderPrice, $file];
+			$shoppingCart = $_SESSION['shoppingCart'];
 
-		$orderModelName = $_SESSION['modelName'];
-		$orderInfill = $_SESSION['infill'];
-		$orderResolution = $_SESSION['resolution'];
-		$filamentColor = $_SESSION['filamentColor'];
-		$orderPrintTime = $_SESSION['printTime'];
-		$orderPrice = $_SESSION['printPrices'][0];
-		$file = $_SESSION['glbFile'];
+			echo json_encode($shoppingCartItem);
+			echo '<br><br>';
 
-		$shoppingCartItem = [$orderModelName, $orderInfill, $orderResolution, $filamentColor, $orderPrintTime, $orderPrice, $file];
-		$shoppingCart = $_SESSION['shoppingCart'];
+			echo $_SESSION['glbFile'];
 
-		echo json_encode($shoppingCartItem);
-		echo '<br><br>';
+			$inShoppingCart = false;
+			echo '<br><br>';
 
-		echo $_SESSION['glbFile'];
-
-		$inShoppingCart = false;
-		echo '<br><br>';
-		if ($shoppingCart) {
 			echo "shoppingCart";
 			echo '<br><br>';
 			foreach ($shoppingCart as $item) {
@@ -257,15 +260,32 @@ class OrderController extends Controller
 				$_SESSION['shoppingCart'][] = $shoppingCartItem;
 			}
 
-		} else {
-			echo "no shoppingCart";
-			$_SESSION['shoppingCart'][] = $shoppingCartItem;
+			if ($shoppingCart) {
+
+
+			} else {
+				echo "no shoppingCart";
+				$_SESSION['shoppingCart'][] = $shoppingCartItem;
+			}
+
 		}
+
+		if (isset($_SESSION['testDone'])) {
+			echo $_SESSION['testDone'] . "<br>";
+			echo "DONE <br>";
+		}
+
+		if (isset($_POST['submitContinue'])) {
+			echo "<h3>submitContinue</h3><br><br>";
+		}
+
+
 
 
 
 	}
 
+	//manages orders
 	public function makeOrder() {
 		if (!$this->loggedIn()) {
 			$_SESSION['makeOrder'] = true;
@@ -307,6 +327,7 @@ class OrderController extends Controller
 			}
 		}
 	}
+
 
 	protected function loadUserData() {
 		$username = $_SESSION['username'];
@@ -380,7 +401,6 @@ class OrderController extends Controller
 		return $loadedData[0];
 	}
 
-
 	protected function loadFilaments() {
 		$filaments = Filament::find();
 
@@ -395,16 +415,7 @@ class OrderController extends Controller
 		$_SESSION['filaments'] = $filaments;
 	}
 
-	protected function sortArray($array, $arrayKey) {
-		foreach ($array as $key => $row) {
-			$band[$key]    = $row['Band'];
-			$auflage[$key] = $row['Auflage'];
-		}
-	}
-
-
-
-
+	//manages presets
 	public function presets() {
 		$this->loadPresets();
 
@@ -413,6 +424,7 @@ class OrderController extends Controller
 
 	}
 
+	//loads and saves printSettings in sessin with filled preset attribute
 	protected function loadPresets() {
 		$data = PrintSettings::find();
 		$presets = [];
@@ -426,9 +438,6 @@ class OrderController extends Controller
 		$_SESSION['presets'] = $presets;
 	}
 
-	protected function loadPricing() {
-		return 'KLAPPT';
-	}
 
 
 }

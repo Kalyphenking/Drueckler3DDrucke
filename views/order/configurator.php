@@ -27,7 +27,7 @@ echo "PrintPrices: $printPrices[0] <br><br>";
 ?>
 
 <div class="modelViewerDiv">
-    <model-viewer id="modelViewer" loading="lazy" src="uploads/default/glb/6021449f3c57b_3DModelHochladen.glb"  alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>
+    <model-viewer id="modelViewer" loading="lazy" src="uploads/default/glb/3DModelHochladen.glb"  alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>
     <!--        <model-viewer src="http://localhost/Drueckler3DDrucke/uploads/temp/glb/6021449f3c57b_TopfdeckelTeil.glb" style="height: 500px; width: 50%" alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>-->
 
     <label class="phpBased">Für Modelvorschau JavaScript aktivieren</label>
