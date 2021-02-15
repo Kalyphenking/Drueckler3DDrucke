@@ -35,8 +35,6 @@ async function displayModel(filePath = "", elementId = undefined) {
     var savedUserPath = filePath.slice(0, filePath.indexOf('glb/'))
     var savedFileName = filePath.replace(savedUserPath+"glb/", "")
 
-
-
     if (GLOBAL.fileName === undefined) {
         GLOBAL.fileName = savedFileName
     }
@@ -424,7 +422,11 @@ function uploadModel() {
 
 //waits for userinput for file input
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('uploadFileButton').addEventListener('click', openDialog);
+    var uploadButton = document.getElementById('uploadFileButton')
+
+    if (uploadButton) {
+        uploadButton.addEventListener('click', openDialog);
+    }
 
     function openDialog() {
         document.getElementById('uploadFile').click();

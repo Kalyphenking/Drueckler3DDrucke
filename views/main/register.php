@@ -5,6 +5,12 @@
         <h3>Registrierung</h3>
 
         <?php
+            if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+                $label = 'Weiter';
+    //        $_SESSION['guest'] = true;
+            } else {
+                $label = 'Registrieren';
+            }
 
 
             if (!isset($_SESSION['guest'])) {
@@ -90,6 +96,6 @@
         <br>
 
         <input type = "checkbox" required> AGB <br><br>
-        <input name="submit" type="submit" value="Registrieren">
+        <input name="submit" type="submit" value="<?=$label?>">
     </form>
 </div>

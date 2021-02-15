@@ -35,9 +35,9 @@
 </div>-->
 
 <?php
-    if (isset($_SESSION['makeOrder'])) {
-        $guest = '<a href="index.php?c=main&a=register">Als Gast fortfahren</a>';
-        $_SESSION['guest'] = true;
+    if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+        $guest = '<a href="index.php?c=main&a=register'.DIRECTORY_SEPARATOR.'guest">Als Gast fortfahren</a>';
+//        $_SESSION['guest'] = true;
     } else {
 	    $guest = '';
     }

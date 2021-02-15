@@ -5,17 +5,20 @@ namespace DDDDD\core;
 //controller parent class
 class Controller
 {
-	protected $controller  = NULL;
-	protected $action 	   = NULL;
+	protected $controller  = null;
+	protected $action 	   = null;
+	protected $subAction   = null;
 
 
-	function __construct($controller, $action) {
+	function __construct($controller, $action, $subactoin = '') {
 
 //		echo 'controller: ' . $controller;
 //		echo '<br>';
 //		echo 'action: ' . $action;
 //		echo '<br>';
 //		echo '<br>';
+
+		$this->subAction = $subactoin;
 
 		if (!isset($_SESSION['uid'])) {
 			$uniqid = uniqid();
@@ -55,10 +58,16 @@ class Controller
 			$this->controller = $controller;
 		}
 
-
-
-
-
+//		echo 'previousController: ' . $_SESSION['previousController'];
+//		echo '<br>';
+//		echo 'currentController: ' . $_SESSION['currentController'];
+//		echo '<br>';
+//		echo '<br>';
+//		echo 'previousAction: ' . $_SESSION['previousAction'];
+//		echo '<br>';
+//		echo 'currentAction: ' . $_SESSION['currentAction'];
+//		echo '<br>';
+//		echo '<br>';
 	}
 
 	function loggedIn() {
@@ -104,31 +113,36 @@ class Controller
 
 			if ($this->action != 'login' && $this->action != 'register') {
 
-
-
 				include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
 
 				switch ($this->controller) {
 					case 'main':
 						echo "<div class=\"mainGrid-container\">";
+
 						break;
 					case 'order':
-						echo "<div class=\"orderGrid-container\">";
-						if ($this->action != 'modelUpload') {
-							include_once (VIEWSPATH.'order'.DIRECTORY_SEPARATOR.'orderProgressBar.php');
+
+						if ($this->action == 'shoppingCart') {
+							echo "<div class=\"shoppingCart-container\">";
+						} else if($this->action == 'checkout') {
+							echo "<div class=\"checkoutGrid-container\">";
+						} else {
+							echo "<div class=\"orderGrid-container\">";
 						}
+						include_once (VIEWSPATH.'order'.DIRECTORY_SEPARATOR.'orderProgressBar.php');
+
+
 						break;
 					case 'user':
 						echo "<div class=\"userGrid-container\">";
 						include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
+
 						break;
 				}
-
 
 				include $view;
 
 				echo "<script>javaScriptEnabled()</script>";
-
 
 				echo "</div>";
 			} else {

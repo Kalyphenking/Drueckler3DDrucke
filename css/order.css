@@ -1,14 +1,15 @@
-.navBar { grid-area: bar; }
+/*.navBar { grid-area: bar; }*/
 .orderProgressBar { grid-area: progress; }
 .orderContent { grid-area: main; }
 .modelViewerDiv { grid-area: viewer;}
+.shoppingCartFooter { grid-area: footer;}
+/*.userContent { grid-area: main; }*/
 /*.item4 { grid-area: right; }*/
 /*.item5 { grid-area: footer; }*/
 
 .orderGrid-container {
     display: grid;
     grid-template-areas:
-    'bar bar bar bar bar bar bar'
     'progress progress progress progress progress progress progress'
     'viewer main main main main main main';
     grid-gap: 10px;
@@ -16,7 +17,27 @@
     padding: 10px;
 }
 
-.orderGrid-container > div {
+.shoppingCart-container {
+    display: grid;
+    grid-template-areas:
+    'progress progress progress progress progress progress progress'
+    'main main main main main main main';
+    grid-gap: 10px;
+    background-color: #eac424;
+    padding: 10px;
+}
+
+.checkoutGrid-container {
+    display: grid;
+    grid-template-areas:
+    'progress progress progress progress progress progress progress'
+    'main main main main main main main';
+    grid-gap: 10px;
+    background-color: #eac424;
+    padding: 10px;
+}
+
+.shoppingCart-container > div, .checkoutGrid-container > div, .orderGrid-container > div {
     background-color: rgba(255, 255, 255, 0.8);
     /*text-align: center;*/
     /*padding: 20px 0;*/

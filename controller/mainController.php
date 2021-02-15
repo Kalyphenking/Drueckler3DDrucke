@@ -13,6 +13,7 @@ class MainController extends Controller
 	public function logout($subAction) {
 		unset($_SESSION['loggedIn']);
 		unset($_SESSION['username']);
+		session_destroy();
 
 		echo'<h1>logout</h1>';
 
@@ -87,6 +88,16 @@ class MainController extends Controller
 
 	public function register($subAction) {
 
+		if ($subAction === 'guest') {
+			$_SESSION['guest'] = true;
+		}
+
+		if (isset($_SESSION['guest'])) {
+			$guest = 1;
+		} else {
+			$guest = 0;
+		}
+
 		if (isset($_POST['submit'])) {
 
 			if(!empty($_POST['firstName'])
@@ -131,7 +142,7 @@ class MainController extends Controller
 					//inserts contactData in database and inserts newst ContactData_id in Customer
 					//to reduce database request, this will processed in one request
 
-					$contactData->insert($error, ['INSERT INTO Customer (guest, ContactData_id)	VALUES (0, LAST_INSERT_ID());']);
+					$contactData->insert($error, ['INSERT INTO Customer (guest, ContactData_id)	VALUES ('.$guest.', LAST_INSERT_ID());']);
 
 					$_SESSION['loggedIn'] = true;
 					$_SESSION['username'] = $contactData->{'username'};

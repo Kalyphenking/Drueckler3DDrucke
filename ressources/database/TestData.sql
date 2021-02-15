@@ -19,11 +19,7 @@ INSERT INTO `Address` (`id`, `createdAt`, `updatedAt`, `street`, `number`, `post
 (NULL, current_timestamp(), NULL, 'Käthe-Kollwitz-Straße', '11', '99096', 'Erfurt', 'Deutschland'),
 (NULL, current_timestamp(), NULL, 'Am Stadpark', '8', '99096', 'Erfurt', 'Deutschland'),
 (NULL, current_timestamp(), NULL, 'Gerarer Str.', '11', '99099', 'Erfurt', 'Deutschland'),
-(NULL, current_timestamp(), NULL, 'Wilhelm-Leibl-Straße Straße', '10', '99096', 'Erfurt', 'Deutschland'),
-
--- BillAddress
-(NULL, current_timestamp(), NULL, 'Tschaikowskistraße', '4', '99096', 'Erfurt', 'Deutschland'),
-(NULL, current_timestamp(), NULL, 'Friedrich Herbst Str.', '4a', '51097', 'Ferffurt', 'Deutschland');
+(NULL, current_timestamp(), NULL, 'Wilhelm-Leibl-Straße Straße', '10', '99096', 'Erfurt', 'Deutschland');
 
 COMMIT;
 
@@ -66,18 +62,6 @@ INSERT INTO `CreditCard` (`id`, `createdAt`, `updatedAt`, `number`, `type`, `own
 
 COMMIT;
 
--- -----------------------------------------------------
--- Data for table `Bill`.`module`
--- -----------------------------------------------------
-START TRANSACTION;
-
-INSERT INTO `Bill`(`id`, `createdAt`, `updatedAt`, `Address_id`) VALUES
-
-(NULL, current_timestamp(), NULL, '14'),
-(NULL, current_timestamp(), NULL, '8'), -- BillAddress = ShippingAddress
-(NULL, current_timestamp(), NULL, '15');
-
-COMMIT;
 
 -- -----------------------------------------------------
 -- Data for table `Paypal`.`module`
@@ -110,17 +94,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 
-INSERT INTO `PaymentData`(`id`, `createdAt`, `updatedAt`, `CreditCard_id`, `DirectDebit_id`, `Bill_id`, `Paypal_id`, `preferedPaymentMethod`) VALUES
-(NULL, current_timestamp(), NULL, '1', NULL, NULL, NULL, 'cc'), 
-(NULL, current_timestamp(), NULL, NULL, '1', NULL, '3', 'dd'),
-(NULL, current_timestamp(), NULL, NULL, NULL, '1', NULL, 'bl'),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL, '1', 'pp'),
-(NULL, current_timestamp(), NULL, NULL, '3', NULL, NULL, 'dd'),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL, '2', 'pp'),
-(NULL, current_timestamp(), NULL, NULL, NULL, '2', NULL, 'bl'),
-(NULL, current_timestamp(), NULL, '2', NULL, '3', NULL, 'bl'),
-(NULL, current_timestamp(), NULL, NULL, '2', NULL, NULL, 'dd'),
-(NULL, current_timestamp(), NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `PaymentData`(`id`, `createdAt`, `updatedAt`, `CreditCard_id`, `DirectDebit_id`, `Paypal_id`, `preferedPaymentMethod`) VALUES
+(NULL, current_timestamp(), NULL, '1', NULL, NULL, 'cc'), 
+(NULL, current_timestamp(), NULL, NULL, '1', '3', 'dd'),
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL, 'bl'),
+(NULL, current_timestamp(), NULL, NULL, NULL, '1', 'pp'),
+(NULL, current_timestamp(), NULL, NULL, '3', NULL, 'dd'),
+(NULL, current_timestamp(), NULL, NULL, NULL, '2', 'pp'),
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL, 'bl'),
+(NULL, current_timestamp(), NULL, '2', NULL, NULL, 'bl'),
+(NULL, current_timestamp(), NULL, NULL, '2', NULL, 'dd'),
+(NULL, current_timestamp(), NULL, NULL, NULL, NULL, NULL);
 
 COMMIT;
 

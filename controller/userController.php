@@ -2,11 +2,11 @@
 
 namespace DDDDD\controller;
 
+use DDDDD\controller\functions\ChangePaymentData;
 use DDDDD\controller\functions\PaymentFunction;
 use DDDDD\core\Controller;
 
 use DDDDD\model\Address;
-use DDDDD\model\Bill;
 use DDDDD\model\ContactData;
 use DDDDD\model\CreditCard;
 use DDDDD\model\Customer;
@@ -26,105 +26,78 @@ class UserController extends Controller
 	protected $username = NULL;
 
 	public function usermenu($subAction) {
+		echo "loaduserData <br>";
 		$this->loadUserData();
 
 		if (isset($_POST['submit']) && isset($_POST['firstName'])) {
 
 			$this->changeUserData();
 		}
-		if (isset($_POST['submit']) && isset($_POST['street'])) {
+		if (isset($_POST['submitAddress']) && isset($_POST['street'])) {
 
 			$this->changeAddressData();
 		}
 	}
 
-
 	public function changePaymentData($subAction) {
 		$this->loadUserData();
-		$action = 'setDirectDebit';
 
-
-		if (!empty($subAction)) {
-			$action = $subAction;
-			$GLOBALS['selectedPaymentMethod'] = $subAction;
+		if (isset($_POST['preferedPaymentMethod'])) {
+			$preferedPaymentMthod = $_POST['preferedPaymentMethod'];
+		} else {
+			$preferedPaymentMthod = '';
 		}
 
+		$paymentData = new ChangePaymentData();
+		$paymentData->changePaymentData($subAction, $preferedPaymentMthod);
 
-		$paymentFunction = new PaymentFunction($action);
-//		$GLOBALS['selectedPaymentMethod'] = $action;
-
-		if (method_exists($paymentFunction, $action)) {
-
-			if (isset($_POST['submit'])) {
-
-
-				if (isset($_POST['preferedPaymentMethod'])) {
-
-					switch ($action) {
-						case 'setDirectDebit':
-							$preferedPaymentMethod = 'dd';
-							break;
-						case 'setCreditCard':
-							$preferedPaymentMethod = 'cc';
-							break;
-						case 'setBill':
-							$preferedPaymentMethod = 'bl';
-							break;
-						case 'setPayPal':
-							$preferedPaymentMethod = 'pp';
-							break;
-					}
-
-					$paymentData = new PaymentData(['id'=>$this->customerData['pdid'], 'preferedPaymentMethod'=>$preferedPaymentMethod]);
-
-					$paymentData->update($this->errors);
-				}
-
-			}
-		}
 	}
 
+	public function addressInput() {
+		$this->loadUserData();
+	}
 
 	protected function loadUserData() {
 		$this->username = $_SESSION['username'];
 
-		if (!isset($_SESSION['customerData'])) {
-			$loadedData = Customer::findOnJoin(
-				'contactData',
-				[
-					'c.id as cid',
+//		if (!isset($_SESSION['customerData'])) {
 
-					'cd.firstName',
-					'cd.lastName',
-					'cd.phoneNumber',
-					'cd.emailAddress',
-					'cd.username',
-					'cd.id as cdid',
+//		}
 
-					'a.id as aid',
-					'a.street',
-					'a.number',
-					'a.postalCode',
-					'a.city',
-					'a.country',
+		$loadedData = Customer::findOnJoin(
+			'contactData',
+			[
+				'c.id as cid',
 
-					'pd.preferedPaymentMethod',
-					'pd.id as pdid',
-					'pd.CreditCard_id as ccid',
-					'pd.DirectDebit_id as ddid',
-					'pd.Bill_id as blid',
-					'pd.Paypal_id as ppid'
+				'cd.firstName',
+				'cd.lastName',
+				'cd.phoneNumber',
+				'cd.emailAddress',
+				'cd.username',
+				'cd.id as cdid',
 
-				],
+				'a.id as aid',
+				'a.street',
+				'a.number',
+				'a.postalCode',
+				'a.city',
+				'a.country',
 
-				['username'],
+				'pd.preferedPaymentMethod',
+				'pd.id as pdid',
+				'pd.CreditCard_id as ccid',
+				'pd.DirectDebit_id as ddid',
+				'pd.Paypal_id as ppid'
 
-				[$this->username]);
+			],
 
+			['username'],
 
-//			echo json_encode($loadedData[0]) . '<br><br>';
-			$_SESSION['customerData'] = $loadedData[0];
-		}
+			[$this->username]);
+
+//		echo json_encode($_SESSION['customerData']);
+
+		$_SESSION['customerData'] = $loadedData[0];
 
 		$preferedPaymentMethod = $_SESSION['customerData']['preferedPaymentMethod'];
 
@@ -136,10 +109,6 @@ class UserController extends Controller
 			case 'cc':
 				$actionName = 'setCreditCard';
 				$displayedName = 'Kreditkarte';
-				break;
-			case 'bl':
-				$actionName = 'setBill';
-				$displayedName = 'Rechnung';
 				break;
 			case 'pp':
 				$actionName = 'setPayPal';
@@ -155,9 +124,6 @@ class UserController extends Controller
 		$GLOBALS['selectedPaymentMethod'] = $actionName;
 
 //		$GLOBALS['customerData'] = $loadedData[0];
-
-
-
 
 		$this->customerData = $_SESSION['customerData'];
 		return;
@@ -185,6 +151,7 @@ class UserController extends Controller
 	}
 
 	protected function changeAddressData() {
+		$this->loadUserData();
 		$contactDataId = $this->customerData['cdid'];
 
 		$addressDataId = $this->customerData['aid'];
@@ -196,7 +163,6 @@ class UserController extends Controller
 
 		$addressData = new Address(['id'=>$addressDataId, 'street'=>$street, 'number'=>$number, 'postalCode'=>$postalCode, 'city'=>$city, 'country'=>$country]);
 
-
 		$loadedData = $addressData->find(['id'], [$addressDataId]);
 
 		if (empty($loadedData)) {
@@ -205,35 +171,33 @@ class UserController extends Controller
 			$addressData->update($this->errors);
 		}
 
-		echo json_encode($this->errors);
+//		echo json_encode($this->errors);
 
 		$_SESSION['customerData']['street'] = $street;
 		$_SESSION['customerData']['number'] = $number;
 		$_SESSION['customerData']['postalCode'] = $postalCode;
 		$_SESSION['customerData']['city'] = $city;
 		$_SESSION['customerData']['country'] = $country;
+
+		if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+			$link = 'index.php?c=order&a=checkout';
+			header("Location: $link ");
+		}
 	}
 
 	public function changeUserPassword($subAction) {
 		$this->loadUserData();
 
-
-
 		if (isset($_POST['submit'])) {
-
-
 
 			$newPassword = isset($_POST['newPasswort']) ? $_POST['newPasswort'] : '';
 			$newPasswortVerified = isset($_POST['newPasswortVerified']) ? $_POST['newPasswortVerified'] : '';
-
 
 			if ($newPassword === $newPasswortVerified) {
 
 				$contactData = new ContactData();
 				$currentPassword = $_POST['currentPassword'];
 				$passwordData = $contactData->find(['username'], [$this->customerData['username']]);
-
-
 
 				if (!empty($passwordData) && password_verify($currentPassword, $passwordData[0]["password"])) {
 

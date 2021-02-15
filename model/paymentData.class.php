@@ -13,7 +13,6 @@ class PaymentData extends Model
 
 		'CreditCard_id' => ['type' => Model::TYPE_INT],
 		'DirectDebit_id' => ['type' => Model::TYPE_INT],
-		'Bill_id' => ['type' => Model::TYPE_INT],
 		'Paypal_id' => ['type' => Model::TYPE_INT],
 		'preferedPaymentMethod' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 2],
 	];
@@ -31,7 +30,6 @@ class PaymentData extends Model
 		$creditCard = CreditCard::TABLENAME;
 		$paypal = Paypal::TABLENAME;
 		$directDebit = DirectDebit::TABLENAME;
-		$bill = Bill::TABLENAME;
 
 		try {
 
@@ -52,9 +50,7 @@ class PaymentData extends Model
 			left join $creditCard cc on pd.CreditCard_id = cc.id
 			
 			left join $paypal pp on pd.Paypal_id = pp.id
-			left join $directDebit dd on pd.DirectDebit_id = dd.id
-			left join $bill bl on pd.Bill_id = bl.id
-			left join $address ba on bl.Address_id = ba.id		
+			left join $directDebit dd on pd.DirectDebit_id = dd.id	
 			";
 
 

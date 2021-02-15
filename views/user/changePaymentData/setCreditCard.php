@@ -26,11 +26,9 @@
 		$numberShort = '';
 	}
 
+	$label = isset($_SESSION['makeOrder']) ? 'Weiter' : 'Speichern';
+
 	?>
-
-
-
-
 
     <form action=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setCreditCard"?> method = 'POST'>
         Kartentyp:
@@ -59,6 +57,6 @@
         <br>
         <input type="checkbox" name="preferedPaymentMethod">
         <br>
-            <input type="submit" name="submit" value="Speichern">
+            <input type="submit" name="submit" value="<?=$label?>">
     </form>
 </div>

@@ -83,8 +83,8 @@ class Model
 //					VALUES (0, LAST_INSERT_ID());';
 
 			$sql .= 'COMMIT;';
-
-//			echo "<br><br> $sql <br><br>";
+//
+			echo "SQL:<br> $sql <br><br>";
 
 			$statement = $db->prepare($sql);
 			$statement->execute();
@@ -246,7 +246,6 @@ class Model
 		$creditCard = CreditCard::TABLENAME;
 		$paypal = Paypal::TABLENAME;
 		$directDebit = DirectDebit::TABLENAME;
-		$bill = Bill::TABLENAME;
 		$printConfig = PrintConfig::TABLENAME;
 		$printSettings = PrintSettings::TABLENAME;
 		$models = Dddmodel::TABLENAME;
@@ -275,9 +274,7 @@ class Model
 				$sql .= "left join $paymentData pd on c.paymentData_ID = pd.id
 						left join $creditCard cc on pd.CreditCard_id = cc.id
 						left join $paypal pp on pd.Paypal_id = pp.id
-						left join $directDebit dd on pd.DirectDebit_id = dd.id
-						left join $bill bl on pd.Bill_id = bl.id
-						left join $address ba on bl.Address_id = ba.id";
+						left join $directDebit dd on pd.DirectDebit_id = dd.id";
 			} break;
 			case 'orders'; {
 				$sql .= "left join $orders o on c.id = o.Customer_id
@@ -295,8 +292,6 @@ class Model
 //				left join $creditCard cc on pd.CreditCard_id = cc.id
 //				left join $paypal pp on pd.Paypal_id = pp.id
 //				left join $directDebit dd on pd.DirectDebit_id = dd.id
-//				left join $bill bl on pd.Bill_id = bl.id
-//				left join $address ba on bl.Address_id = ba.id
 //
 //				left join $orders o on c.id = o.Customer_id
 //				left join $printConfig pc on o.id = pc.Orders_id
@@ -317,7 +312,7 @@ class Model
 
 			}
 
-//			echo "SQL: <br><br> $sql <br><br>";
+//			echo "SQL: <br> $sql <br><br>";
 
 			$result = $db->query($sql)->fetchAll();
 		}

@@ -86,6 +86,11 @@ class PaymentFunction
 					$directDebitData->update($this->errors);
 				}
 
+				if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+					$link = 'index.php?c=order&a=checkout';
+					header("Location: $link ");
+				}
+
 			} else {
 				//TODO errorHandling
 			}
@@ -157,111 +162,17 @@ class PaymentFunction
 					$creditCardData->update($this->errors);
 				}
 
+				if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+					$link = 'index.php?c=order&a=checkout';
+					header("Location: $link ");
+				}
+
 			} else {
 				//TODO errorHandling
 			}
 		}
 		$loadedData = $this->loadCreditCardData();
 		$GLOBALS['paymentData'] = $loadedData[0];
-	}
-
-	protected function setBill() {
-		$GLOBALS['selectedPaymentMethod'] = 'setBill';
-
-		$loadedData = $this->loadBillData();
-		$GLOBALS['paymentData'] = $loadedData[0];
-
-
-		$billId = $this->customerData['blid'];
-
-		$billAddressId = $loadedData[0]['baid'];
-
-		$customerId = $this->customerData['cid'];
-		$paymentDataId = $this->customerData['pdid'];
-		$addressId = $this->customerData['aid'];
-
-
-
-		if (isset($_POST['submit'])) {
-
-			if(isset($_POST['sameAsShipping']) && !empty($_POST['sameAsShipping']))
-			{
-
-				if (!empty($addressId)) {
-
-					$street = $this->customerData['street'];
-					$number = $this->customerData['number'];
-					$postalCode = $this->customerData['postalCode'];
-					$city = $this->customerData['city'];
-					$country = $this->customerData['country'];
-
-				} else {
-					//TODO errorHandling
-					echo 'error, keine Lieferadresse bekannt';
-					return;
-				}
-
-			} else if(!empty($_POST['street'])
-				&& !empty($_POST['number'])
-				&& !empty($_POST['postalCode'])
-				&& !empty($_POST['city'])
-				&& !empty($_POST['country']))
-			{
-
-				$street = $_POST['street'];
-				$number = $_POST['number'];
-				$postalCode = $_POST['postalCode'];
-				$city = $_POST['city'];
-				$country = $_POST['country'];
-
-			} else {
-				//TODO errorHandling
-				echo 'error, alle alle';
-				return;
-			}
-
-			$billAddressData = new Address(['id'=>$billAddressId,
-				'street'=>$street,
-				'number'=>$number,
-				'postalCode'=>$postalCode,
-				'city'=>$city,
-				'country'=>$country]);
-
-			$loadedData = $billAddressData->find(['id'], [$billId]);
-
-			if (empty($loadedData)) {
-				$db = $GLOBALS['db'];
-				if (empty($paymentDataId)) {
-
-					//inserts billAddressData in database and inserts newest Bill_id into PaymentData
-					//updates Customer with newest PaymentData_id
-					//to reduce database request, this will processed in one request
-
-					$billAddressData->insert($this->errors,
-						['INSERT INTO PaymentData (Bill_id)	
-								VALUES (LAST_INSERT_ID());',
-
-							'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
-				} else {
-
-					//inserts billAddressData in database and updates newest Bill_id into PaymentData
-
-					$billAddressData->insert($this->errors,
-						['INSERT INTO Bill (Address_id) VALUES (LAST_INSERT_ID());',
-							'UPDATE PaymentData set Bill_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
-				}
-			} else {
-				$billAddressData->update($this->errors);
-			}
-
-			$GLOBALS['paymentData']['street'] = $street;
-			$GLOBALS['paymentData']['number'] = $number;
-			$GLOBALS['paymentData']['postalCode'] = $postalCode;
-			$GLOBALS['paymentData']['city'] = $city;
-			$GLOBALS['paymentData']['country'] = $country;
-
-		}
-
 	}
 
 	protected function setPayPal() {
@@ -312,6 +223,11 @@ class PaymentFunction
 					$paypalData->update($this->errors);
 				}
 
+				if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+					$link = 'index.php?c=order&a=checkout';
+					header("Location: $link ");
+				}
+
 			} else {
 				//TODO errorHandling
 			}
@@ -351,25 +267,6 @@ class PaymentFunction
 				'cc.expiryDate',
 				'cc.numberShort',
 				'cc.id as ccid'
-
-			], ['username'], [$this->username]);
-
-		return $loadedData;
-	}
-
-	protected function loadBillData() {
-
-		$loadedData = PaymentData::findOnJoin(
-			'paymentData',
-			['pd.preferedPaymentMethod',
-				'pd.id as pdid',
-
-				'ba.street',
-				'ba.number',
-				'ba.postalCode',
-				'ba.city',
-				'ba.country',
-				'ba.id as baid'
 
 			], ['username'], [$this->username]);
 

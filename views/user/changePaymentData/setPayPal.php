@@ -18,6 +18,7 @@
 		$emailAddress = '';
 	}
 
+	$label = isset($_SESSION['makeOrder']) ? 'Weiter' : 'Speichern';
 
 	?>
 
@@ -38,6 +39,6 @@
         <br>
         <input type="checkbox" name="preferedPaymentMethod">
         <br>
-            <input type="submit" name="submit" value="Speichern">
+            <input type="submit" name="submit" value="<?=$label?>">
     </form>
 </div>

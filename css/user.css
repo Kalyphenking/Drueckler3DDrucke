@@ -1,5 +1,5 @@
 
-.navBar { grid-area: bar; }
+/*.navBar { grid-area: bar; }*/
 .userMenuBar { grid-area: menu; }
 .userContent { grid-area: main; }
 /*.item4 { grid-area: right; }*/
@@ -8,7 +8,6 @@
 .userGrid-container {
     display: grid;
     grid-template-areas:
-    'bar bar bar bar bar bar bar bar bar bar'
     'menu main main main main main main main main main'
     'menu main main main main main main main main main';
     grid-gap: 10px;

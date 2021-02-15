@@ -68,7 +68,7 @@
 
 
     <!--requierd javascript-->
-    <script src="<?=JSPATH.'default.js'?>"></script>
+<!--    <script src="--><?//=JSPATH.'default.js'?><!--"></script>-->
     <script src="<?=JSPATH.'fileUpload.js'?>"></script>
     <script src="<?=JSPATH.'checkForJavaScript.js'?>"></script>
 
@@ -94,7 +94,7 @@
 
 	    $directorySeperatorPosition = strpos($actionName, DIRECTORY_SEPARATOR);
 
-	    if ($directorySeperatorPosition > 0) {
+	    if ($directorySeperatorPosition !== false) {
 		    $mainActionName = substr($actionName, 0, $directorySeperatorPosition);
 		    $subActionName = substr($actionName, $directorySeperatorPosition + 1);
 	    } else {
@@ -102,7 +102,7 @@
 		    $subActionName = '';
 	    }
 
-        $controller = new $controllerClass($controllerName, $mainActionName);
+        $controller = new $controllerClass($controllerName, $mainActionName, $subActionName);
 
         if(method_exists($controller, $mainActionName))
         {
