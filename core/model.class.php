@@ -97,6 +97,21 @@ class Model
 		return false;
 	}
 
+	public function sendSql(&$errors, $sql) {
+		try {
+			$db = $GLOBALS['db'];
+
+			$statement = $db->prepare($sql);
+			$statement->execute();
+
+			return true;
+		} catch (\PDOException $e) {
+//			die('Error inserting customer: ' . $e->getMessage());
+			$errors[] = 'Error sending sql ';
+		}
+		return false;
+	}
+
 	//updates objectData in existing databse row
 	public function update(&$errors) {
 		$db = $GLOBALS['db'];
@@ -241,13 +256,13 @@ class Model
 		$contactData = ContactData::TABLENAME;
 		$customer = Customer::TABLENAME;
 		$filament = Filament::TABLENAME;
-		$orders = Orders::TABLENAME;
+		$orders = Order::TABLENAME;
 		$paymentData = PaymentData::TABLENAME;
 		$creditCard = CreditCard::TABLENAME;
 		$paypal = Paypal::TABLENAME;
 		$directDebit = DirectDebit::TABLENAME;
 		$printConfig = PrintConfig::TABLENAME;
-		$printSettings = PrintSettings::TABLENAME;
+		$printSettings = PrintSetting::TABLENAME;
 		$models = Dddmodel::TABLENAME;
 
 		if (!empty($attributs)) {

@@ -11,7 +11,7 @@ use DDDDD\model\ContactData;
 use DDDDD\model\CreditCard;
 use DDDDD\model\Customer;
 use DDDDD\model\DirectDebit;
-use DDDDD\model\Orders;
+use DDDDD\model\Order;
 use DDDDD\model\PaymentData;
 use DDDDD\model\Paypal;
 use DDDDD\model\PrintConfig;
@@ -26,7 +26,6 @@ class UserController extends Controller
 	protected $username = NULL;
 
 	public function usermenu($subAction) {
-		echo "loaduserData <br>";
 		$this->loadUserData();
 
 		if (isset($_POST['submit']) && isset($_POST['firstName'])) {
@@ -58,74 +57,74 @@ class UserController extends Controller
 	}
 
 	protected function loadUserData() {
-		$this->username = $_SESSION['username'];
 
-//		if (!isset($_SESSION['customerData'])) {
+		if ($this->loggedIn()) {
+			$this->username = $_SESSION['username'];
 
-//		}
+			$loadedData = Customer::findOnJoin(
+				'contactData',
+				[
+					'c.id as cid',
 
-		$loadedData = Customer::findOnJoin(
-			'contactData',
-			[
-				'c.id as cid',
+					'cd.firstName',
+					'cd.lastName',
+					'cd.phoneNumber',
+					'cd.emailAddress',
+					'cd.username',
+					'cd.id as cdid',
 
-				'cd.firstName',
-				'cd.lastName',
-				'cd.phoneNumber',
-				'cd.emailAddress',
-				'cd.username',
-				'cd.id as cdid',
+					'a.id as aid',
+					'a.street',
+					'a.number',
+					'a.postalCode',
+					'a.city',
+					'a.country',
 
-				'a.id as aid',
-				'a.street',
-				'a.number',
-				'a.postalCode',
-				'a.city',
-				'a.country',
+					'pd.preferedPaymentMethod',
+					'pd.id as pdid',
+					'pd.CreditCard_id as ccid',
+					'pd.DirectDebit_id as ddid',
+					'pd.Paypal_id as ppid'
 
-				'pd.preferedPaymentMethod',
-				'pd.id as pdid',
-				'pd.CreditCard_id as ccid',
-				'pd.DirectDebit_id as ddid',
-				'pd.Paypal_id as ppid'
+				],
 
-			],
+				['username'],
 
-			['username'],
-
-			[$this->username]);
+				[$this->username]);
 
 //		echo json_encode($_SESSION['customerData']);
 
-		$_SESSION['customerData'] = $loadedData[0];
+			$_SESSION['customerData'] = $loadedData[0];
 
-		$preferedPaymentMethod = $_SESSION['customerData']['preferedPaymentMethod'];
+			$preferedPaymentMethod = $_SESSION['customerData']['preferedPaymentMethod'];
 
-		switch ($preferedPaymentMethod) {
-			case 'dd':
-				$actionName = 'setDirectDebit';
-				$displayedName = 'Lastschrift';
-				break;
-			case 'cc':
-				$actionName = 'setCreditCard';
-				$displayedName = 'Kreditkarte';
-				break;
-			case 'pp':
-				$actionName = 'setPayPal';
-				$displayedName = 'PayPal';
-				break;
-			default:
-				$actionName = 'setDirectDebit';
-				$displayedName = 'Nicht hinterlegt';
-				break;
-		}
+			switch ($preferedPaymentMethod) {
+				case 'dd':
+					$actionName = 'setDirectDebit';
+					$displayedName = 'Lastschrift';
+					break;
+				case 'cc':
+					$actionName = 'setCreditCard';
+					$displayedName = 'Kreditkarte';
+					break;
+				case 'pp':
+					$actionName = 'setPayPal';
+					$displayedName = 'PayPal';
+					break;
+				default:
+					$actionName = 'setDirectDebit';
+					$displayedName = 'Nicht hinterlegt';
+					break;
+			}
 
-		$GLOBALS['preferedPaymentMethod'] = $displayedName;
-		$GLOBALS['selectedPaymentMethod'] = $actionName;
+			$GLOBALS['preferedPaymentMethod'] = $displayedName;
+			$GLOBALS['selectedPaymentMethod'] = $actionName;
 
 //		$GLOBALS['customerData'] = $loadedData[0];
 
-		$this->customerData = $_SESSION['customerData'];
+			$this->customerData = $_SESSION['customerData'];
+		}
+
 		return;
 
 	}
@@ -245,7 +244,7 @@ class UserController extends Controller
 	{
 		$username = $_SESSION['username'];
 
-		$orders = Orders::findOnJoin(
+		$orders = Order::findOnJoin(
 			'orders',
 			['o.id as oid',
 			'm.modelPrice',

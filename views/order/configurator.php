@@ -16,10 +16,12 @@ $selectedResolution = isset($_SESSION['resolution']) ? $_SESSION['resolution'] :
 $filamentColor = isset($_SESSION['filamentColor']) ? $_SESSION['filamentColor'] : null;
 $filamentColorCode = isset($_SESSION['filamentColorCode']) ? $_SESSION['filamentColorCode'] : null;
 
+$amount = isset($_POST['amount']) ? $_POST['amount'] : 1;
+
 
 echo "filamentColorCode: $filamentColorCode <br><br>";
 echo "selectedResolution: $selectedResolution <br><br>";
-echo "filamentColor: $filamentColor <br><br>";
+echo "Filament: $filamentColor <br><br>";
 echo "PrintTime: $printTime <br><br>";
 echo "PrintPrices: $printPrices[0] <br><br>";
 
@@ -60,7 +62,6 @@ echo "PrintPrices: $printPrices[0] <br><br>";
             <input type="number"
                    name="infill"
                    id="infill"
-                   name="infill"
                    min="30"
                    max="100"
                    placeholder="80"
@@ -96,12 +97,6 @@ echo "PrintPrices: $printPrices[0] <br><br>";
             <br>
 
             <label for="filaments">Filament:  </label>
-<!--            <input list="filament"-->
-<!--                   name="filament"-->
-<!--                   placeholder=--><?php //echo ($filaments[0]['type'] . ':' . $filaments[0]['color']); ?>
-<!--                   required value=--><?php //echo (isset($_POST['filament']) ? $_POST['filament'] : ''); ?>
-<!--            >-->
-            <!-- name ist der key, aus dem php den Wert erhält -->
             <select id="filament" name="filament" onchange="changeColor()"> <!-- id muss selben key wie list oben drüber haben -->
 				<?php
                 if ($filamentColor && $filamentColorCode) {
@@ -115,6 +110,17 @@ echo "PrintPrices: $printPrices[0] <br><br>";
 				?>
             </select>
             <br>
+            <label for="filaments">Menge:  </label>
+            <input type="number"
+                   name="amount"
+                   id="amount"
+                   min="1"
+                   max="1000"
+                   placeholder="1"
+                   required value=<?=$amount?>
+            >
+            <br>
+
             <input type="submit" name="submitCalculation" value="Model berechnen">
             <input type="submit" name="submitContinue" value="Weiter">
 

@@ -1,12 +1,12 @@
-fileName: uploads/temp/602af0777aa73/glb/cableChain_40MountSide_v2-70.glb
+fileName: uploads/temp/602c49a3d551e/glb/Bracket-56.glb
 
-modelName: cableChain_40MountSide_v2
+modelName: Bracket
 
-glbDirectory: uploads/temp/602af0777aa73/glb
+glbDirectory: uploads/temp/602c49a3d551e/glb
 
-baseName: 
+baseName: Ender_Z-Axis_Motor_Mount
 
-deleteName: ..
+deleteName: Ender_Z-Axis_Motor_Mount-18.glb
 
 saved
 

@@ -7,9 +7,10 @@ use DDDDD\core\Controller;
 use DDDDD\model\Customer;
 use DDDDD\model\Filament;
 use DDDDD\model\Model;
-use DDDDD\model\Orders;
+use DDDDD\model\Order;
 use DDDDD\model\Pricing;
-use DDDDD\model\PrintSettings;
+use DDDDD\model\PrintConfig;
+use DDDDD\model\PrintSetting;
 
 
 class OrderController extends Controller
@@ -28,7 +29,7 @@ class OrderController extends Controller
 			unset($_SESSION['printPrices']);
 			unset($_SESSION['infill']);
 			unset($_SESSION['resolution']);
-			unset($_SESSION['filamentColor']);
+			unset($_SESSION['filament']);
 			unset($_SESSION['filamentColorCode']);
 			unset($_SESSION['modelName']);
 //			unset($_SESSION['shoppingCart']);
@@ -90,12 +91,6 @@ class OrderController extends Controller
 
 				if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $stlFile)) {
 
-//					$glbFileName = trim($fileName, 'stl') . 'glb';
-////
-//					$_SESSION['glbFileName'] = DIRECTORY_SEPARATOR.$uploadsDir.'glb'.DIRECTORY_SEPARATOR.$glbFileName;
-//
-//					echo "glbFileName: $glbFileName <br>";
-
 					echo "<script>startConversion(\"$uploadsDir\", \"$modelName\", \"150,150,150,1\")</script>";
 
 					//TODO success message
@@ -121,26 +116,15 @@ class OrderController extends Controller
 
 			$fileName = 'uploads/default/glb/3DModelHochladen.glb';
 
-//			echo "file: $fileName <br>";
-
 			foreach ($files as $file) {
-//				echo "file loop: $file <br>";
-//				echo "file session: ".$_SESSION['modelName']." <br>";
 				$found = strpos($file, $_SESSION['modelName']);
 				if ($found !== false) {
 					$newest_file = $file;
-//					echo "found file: $file <br>";
 					$fileName = $directory . DIRECTORY_SEPARATOR . $newest_file;
 				}
 			}
 
-//			echo "file: $fileName <br>";
-
-
-			//$_SESSION['testDone'] = $file;
 			$_SESSION['glbFile'] = $fileName; // Fehler
-//				echo "file: " . $_SESSION['modelName'] . "<br>";
-//				echo "file: $file";
 
 			echo "<script>displayModel(\"$fileName\")</script>";
 		};
@@ -157,63 +141,90 @@ class OrderController extends Controller
 
 		if (!empty($_POST['infill'] && isset($_SESSION['modelName']))
 			&& !empty($_POST['resolution'])
-			&& !empty($_POST['filament'])) {
+			&& !empty($_POST['filament'])
+			&& !empty($_POST['amount'])) {
 
 
 			$infill = $_POST['infill'];
 			$resolution = $_POST['resolution'];
-			$filamentColor = $_POST['filament'];
+			$filamentColorCode = $_POST['filament'];
+			$amount = $_POST['amount'];
 
 			$userDirectory = $_SESSION['userDirectory'];
 			$modelName = $_SESSION['modelName'];
 
-			echo $modelName;
+//			echo $modelName;
 
 			$file = $userDirectory.'stl'.DIRECTORY_SEPARATOR.$modelName.'-00.stl';
 
 			$fileSize = filesize($file);
 
-			$baseTime = 0.25;
-			$size = $fileSize / 300000;
+			$baseTime = 10;
+			$size = $fileSize / 2500;
 
-			$printTime =($baseTime + $size + ($infill/50)) + (($size / ($resolution + 0.0)));
 
-			$_SESSION['printTime'] = round($printTime,2);
+//			echo "<br>Size: ".$size."<br>";
+
+			$faktor = 2.2;
+			$summand = 1.4;
+			$counter = 100;
+
+
+			$printTime = pow(($counter/($infill*$size)), ($resolution*$faktor-$summand)) + $baseTime;
+
+
+			$totalPrintTime = pow(($counter/($infill*$size)), ($resolution*$faktor-$summand)) * $amount + $baseTime;
+
+			$_SESSION['printTime'] = round($totalPrintTime,2);
 
 			$pricing = Pricing::find()[0];
 
 
 			$shippting = $pricing['shipping'];
-			$workPerHour = $pricing['workPerHour'];
+			$workPerGramm = $pricing['workPerGramm'];
 			$energyPerHour = $pricing['energyPerHour'];
 			$taxes = $pricing['taxes'];
 			$grammsPerHour = $pricing['grammsPerHour'];
 			$filaments = $_SESSION['filaments'];
 
+			//vergessen was das macht
 			foreach ($filaments as $filament) {
-				if ($filament['rgba'] == $filamentColor) {
+				if ($filament['rgba'] == $filamentColorCode) {
 					$pricerPerGramm = $filament['pricePerGramm'];
 					$_SESSION['filamentId'] = $filament['id'];
 					$_SESSION['filamentColor'] = $filament['type'].': '.$filament['color'];
 					$_SESSION['filamentColorCode'] = $filament['rgba'];
 				}
 			}
-			$materialPrice = $printTime * $pricerPerGramm * $grammsPerHour;
-			$workPrice = $printTime * $workPerHour;
+
+			$materialPrice = $printTime * $pricerPerGramm * ($grammsPerHour / ($resolution+1));
+			$workPrice = $workPerGramm * ($grammsPerHour / ($resolution+1));
 			$energyPrice = $printTime * $energyPerHour;
 
-			$taxesPrice = ($materialPrice + $workPrice + $energyPrice + $shippting) * $taxes;
+			$taxesPrice = ($materialPrice + $workPrice + $energyPrice) * $taxes;
 
-			$printPrice = $energyPerHour + $workPrice + $energyPrice + $shippting + $taxesPrice;
+			$toralPrintPrice = ($workPrice + $energyPrice + $shippting) * $amount + $taxesPrice;
+			$modelPrice = $workPrice + $energyPrice + $taxesPrice;
 
-			$_SESSION['printPrices'][0] = round($printPrice, 2);
+//			echo "<br>printTime: $printTime Minuten<br><br>";
+//			echo "amount: $amount <br>";
+//			echo "material: $materialPrice <br>";
+//			echo "work: $workPrice <br>";
+//			echo "energy: $energyPrice <br>";
+//			echo "taxes: $taxesPrice <br>";
+//			echo "grammsPerHour: $grammsPerHour <br>";
+
+			$_SESSION['printPrices'][0] = round($toralPrintPrice, 2);
 			$_SESSION['printPrices'][1] = round($energyPerHour, 2);
 			$_SESSION['printPrices'][2] = round($workPrice, 2);
 			$_SESSION['printPrices'][3] = round($energyPrice, 2);
 			$_SESSION['printPrices'][4] = round($shippting, 2);
 			$_SESSION['printPrices'][5] = round($taxesPrice, 2);
+			$_SESSION['printPrices'][6] = round($modelPrice, 2);
+			$_SESSION['filamentColorCode'] = $filamentColorCode;
 			$_SESSION['infill'] = $infill;
 			$_SESSION['resolution'] = $resolution;
+			$_SESSION['stlFileName'] = $file;
 		}
 	}
 
@@ -235,20 +246,15 @@ class OrderController extends Controller
 		$orderModelName = $_SESSION['modelName'];
 		$orderInfill = $_SESSION['infill'];
 		$orderResolution = $_SESSION['resolution'];
-		$filamentColor = $_SESSION['filamentColor'];
+		$filament = $_SESSION['filamentColor'];
 		$orderPrintTime = $_SESSION['printTime'];
-		$orderPrice = $_SESSION['printPrices'][0];
-		$file = $_SESSION['glbFile'];
+		$orderPrice = $_SESSION['printPrices'];
+		$glbFile = $_SESSION['glbFile'];
+		$stlFile = $_SESSION['stlFileName'];
+		$filamentColorCode = $_SESSION['filamentColorCode'];
+		$amount = isset($_POST['amount']) ? $_POST['amount'] : 1;
 
-//		echo "modelName: $orderModelName <br>";
-//		echo "infill: $orderInfill <br>";
-//		echo "resolution: $orderResolution <br>";
-//		echo "filamentColor: $filamentColor <br>";
-//		echo "printTime: $orderPrintTime <br>";
-//		echo "printPrices: $orderPrice <br>";
-//		echo "glbFile: $file <br>";
-
-		$shoppingCartItem = [$orderModelName, $orderInfill, $orderResolution, $filamentColor, $orderPrintTime, $orderPrice, $file];
+		$shoppingCartItem = [$orderModelName, $orderInfill, $orderResolution, $filament, $orderPrintTime, $orderPrice, $glbFile, $amount, $filamentColorCode, $stlFile];
 
 		//cheks wether shoppingCartItem is already in shoppingCart
 		if (isset($_SESSION['shoppingCart'])) {
@@ -297,6 +303,7 @@ class OrderController extends Controller
 	//manages shoppinCart
 	public function shoppingCart() {
 		if (isset($_POST['submit'])) {
+
 			$link = 'index.php?c=order&a=checkout';
 			header("Location: $link ");
 		}
@@ -306,9 +313,10 @@ class OrderController extends Controller
 		}
 	}
 
+
 	public function checkout($subaction) {
 
-		echo $subaction . '<br>';
+//		echo $subaction . '<br>';
 
 		if (!$this->loggedIn()) {
 			$_SESSION['makeOrder'] = true;
@@ -328,58 +336,129 @@ class OrderController extends Controller
 				$GLOBALS['currentView'] = 'paymentData';
 			}
 		}
+
+		if (isset($_POST['submitOrder'])) {
+			$this->makeOrder();
+//			$userData = $this->loadUserData();
+//			$orderData = $this->loadOrders();
+//			$this->loadFilaments();
+//			echo '<br>UserData<br>' . json_encode($userData) . '<br><br>';
+//			echo '<br>OrderData<br>' . json_encode($orderData) . '<br><br>';
+//			echo '<br>OrderData<br>' . json_encode($_SESSION['filaments']) . '<br><br>';
+		}
+
+		if (isset($_POST['editShoppingCart'])) {
+			$link = 'index.php?c=order&a=shoppingCart';
+
+			header("Location: $link ");
+		}
 	}
 
 	//manages orders
 	public function makeOrder() {
-		if (!$this->loggedIn()) {
-			$_SESSION['makeOrder'] = true;
-			$link = 'index.php?c=main&a=login';
+		$userData = $this->loadUserData();
 
-			header("Location: $link ");
-		} else {
-			if (isset($_POST['submit'])) {
-				$orderPrice = $_SESSION['printPrices'][0];
-				$orderInfill = $_SESSION['infill'];
-				$orderResolution = $_SESSION['resolution'];
-				$orderFilamentId = $_SESSION['filamentId'];
-				$orderPrintTime = round($_SESSION['printTime']);
-				$orderModelName = $_SESSION['modelName'];
+		$shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [];
 
-				$userData = $this->loadUserData();
+		if (!empty($shoppingCart)) {
 
-				$order = new Orders(['Customer_id'=>$userData['cid'],
-					'price'=>$orderPrice]);
+			$fullPrice = 0;
+			foreach ($shoppingCart as $item) {
+				$fullPrice += $item[5][0];
 
-				$printSettings = new PrintSettings(['resolution'=>$orderResolution, 'infill'=>$orderInfill]);
+//				if ($userData['username'] != $_SESSION['uid']) {
+//					echo $item[0];
+//					echo '<br>';
+//					echo $item[6];
+//					echo '<br>';
+//					$newDirectory = '..'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.$userData['username'].DIRECTORY_SEPARATOR.'stl'
+//
+//					move_uploaded_file($item[6], $item[0]);
+//				}
 
-				$models = new Model(['fileName'=>$orderModelName, 'modelPrice'=>$orderPrice]);
+			}
+			$order = new Order(['Customer_id' => $userData['cid'], 'price' => $fullPrice]);
+			$order->insert($this->errors);
 
+			$orderData = $this->loadOrders();
+			$lastOrderID = end($orderData)['oid'];
 
+			$this->loadFilaments();
 
-				$printSettings->insert($this->errors);
-				$models->insert($this->errors);
+			foreach ($shoppingCart as $item) {
 
-				$printSettingsId = $models->find(['resolution', 'infill'], [$orderResolution, $orderInfill])[0]['id'];
-				$modelId = $models->find(['fileName'], [$orderModelName])[0]['id'];
+				$filaments = $_SESSION['filaments'];
 
+				$filamentId = 0;
 
+				foreach ($filaments as $filament) {
 
-				$order->insert($this->errors, ['INSERT INTO PrintConfig (Orders_id, Filaments_id, Models_id, PrintSettings_id, printTime)	
-								VALUES (LAST_INSERT_ID(),'.$orderFilamentId.', '.$modelId.', '.$printSettingsId.', '.$orderPrintTime.')']);
+					if ($filament['rgba'] == $item[8]) {
+						$filamentId = $filament['id'];
+					}
+				}
+
+				$fileName = $item[0] . '.stl';
+
+				$sql = "BEGIN;
+				
+				INSERT INTO `PrintSettings` (`resolution`, `infill`) 
+				VALUES ('".$item[2]."', '".($item[1]/100)."');
+				SET @printSettingID = LAST_INSERT_ID();
+				
+				INSERT INTO `Models` (`fileName`, `modelPrice`) 
+				VALUES ('".$fileName."', '".$item[5][6]."');
+				SET @modelsID = LAST_INSERT_ID();
+				
+				INSERT INTO `PrintConfig` (`Filaments_id`, `Models_id`, `PrintSettings_id`, `Orders_id`, `amount`, `printTime`) 
+				VALUES ('".$filamentId."', @modelsID, @printSettingID, '".$lastOrderID."', '".$item[7]."', '".$item[4]."');
+				
+				COMMIT;
+				";
+
+				echo '<br>' . $sql . '<br>';
+
+				$order->sendSql($this->errors, $sql);
+
+//				$statement = $db->prepare($sql);
+//				$statement->execute();
+
+			}
+
+			if (empty($this->errors)) {
+				$link = 'index.php?c=order&a=orderSuccess';
+
+				header("Location: $link ");
+			}
+
+		}
+
+//		$order = new Order(['Customer_id'=>$userData['cid'],
+//			'price'=>$orderPrice]);
+//
+//		$printSettings = new PrintSetting(['resolution'=>$orderResolution, 'infill'=>$orderInfill]);
+//
+//		$models = new Model(['fileName'=>$orderModelName, 'modelPrice'=>$orderPrice]);
+//
+//
+//
+//		$printSettings->insert($this->errors);
+//		$models->insert($this->errors);
+//
+//		$printSettingsId = $models->find(['resolution', 'infill'], [$orderResolution, $orderInfill])[0]['id'];
+//		$modelId = $models->find(['fileName'], [$orderModelName])[0]['id'];
+//
+//
+//
+//		$order->insert($this->errors, ['INSERT INTO PrintConfig (Orders_id, Filaments_id, Models_id, PrintSettings_id, printTime)
+//								VALUES (LAST_INSERT_ID(),'.$orderFilamentId.', '.$modelId.', '.$printSettingsId.', '.$orderPrintTime.')']);
 
 //				echo json_encode($_SESSION['customerData']) . '<br>';
-			}
-		}
 	}
 
 	protected function loadUserData() {
 
 		$username = $_SESSION['username'];
-
-//		if (!isset($_SESSION['customerData']) || empty($_SESSION['customerData'])) {
-
-//		}
 
 		$loadedData = Customer::findOnJoin(
 			'contactData',
@@ -411,6 +490,7 @@ class OrderController extends Controller
 			['username'],
 
 			[$username]);
+
 		$_SESSION['customerData'] = $loadedData[0];
 
 		$preferedPaymentMethod = $_SESSION['customerData']['preferedPaymentMethod'];
@@ -437,7 +517,42 @@ class OrderController extends Controller
 		$GLOBALS['preferedPaymentMethod'] = $displayedName;
 		$GLOBALS['selectedPaymentMethod'] = $actionName;
 
-		return $_SESSION['customerData'];
+		return $loadedData[0];
+	}
+
+	protected function loadOrders()
+	{
+		$username = $_SESSION['username'];
+
+		$orders = Order::findOnJoin(
+			'orders',
+			['o.id as oid',
+				'm.modelPrice',
+				'm.fileName',
+
+				'o.createdAt',
+				'o.processed',
+				'o.payed',
+
+
+				'pc.id as pcid',
+				'pc.amount',
+				'pc.printTime',
+
+				'ps.infill',
+				'ps.description',
+
+				'f.color',
+				'f.type',
+				'o.cancelled'
+			],
+
+			['username'],
+
+			[$username]); // Hier $username einfügen
+
+
+		return $orders;
 	}
 
 	protected function loadFilaments() {
@@ -465,7 +580,7 @@ class OrderController extends Controller
 
 	//loads and saves printSettings in sessin with filled preset attribute
 	protected function loadPresets() {
-		$data = PrintSettings::find();
+		$data = PrintSetting::find();
 		$presets = [];
 
 		foreach($data as $key => $preset) {

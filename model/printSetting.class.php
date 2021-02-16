@@ -4,7 +4,7 @@
 namespace DDDDD\model;
 
 
-class PrintSettings extends Model
+class PrintSetting extends Model
 {
 	const TABLENAME = '`PrintSettings`';
 

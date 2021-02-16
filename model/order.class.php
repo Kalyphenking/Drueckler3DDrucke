@@ -2,7 +2,7 @@
 
 namespace DDDDD\model;
 
-class Orders extends Model
+class Order extends Model
 {
 	const TABLENAME = '`Orders`';
 
@@ -29,9 +29,9 @@ class Orders extends Model
 		$contactData = ContactData::TABLENAME;
 		$customer = Customer::TABLENAME;
 		$filament = Filament::TABLENAME;
-		$orders = Orders::TABLENAME;
+		$orders = Order::TABLENAME;
 		$printConfig = PrintConfig::TABLENAME;
-		$printSettings = PrintSettings::TABLENAME;
+		$printSettings = PrintSetting::TABLENAME;
 		$models = Dddmodel::TABLENAME;
 
 		try {

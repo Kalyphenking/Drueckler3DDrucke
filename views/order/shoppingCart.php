@@ -2,6 +2,8 @@
 
 $shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [];
 
+//$amount = isset($_POST['amount']) ? $_POST['amount'] : 1;
+
 //echo json_encode($shoppingCart)
 ?>
 
@@ -36,8 +38,19 @@ $shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [
                             echo '<td>'.$item[2].'</td>';
                             echo '<td>'.$item[3].'</td>';
                             echo '<td>'.$item[4].'</td>';
-                            echo '<td>'.$item[5].'</td>';
+                            echo '<td>'.$item[5][0].'</td>';
                             echo '<td>'.$item[6].'</td>';
+//	                        echo '<td>Anzahl:
+//
+//                                <input type="number"
+//                                       name="amount-'.$key.'"
+//                                       id="amount"
+//                                       min="1"
+//                                       max="1000"
+//                                       required value='.$amount.'
+//                                >
+//
+//                            </td>';
                             echo '<td>
                                 
                                      <input 
@@ -48,6 +61,8 @@ $shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [
                                 
                                 
                             </td>';
+
+
 
 
 

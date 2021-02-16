@@ -24,8 +24,6 @@ $filamentTypes = $GLOBALS['filamentTypes'];
 		<label for="browser">Choose your filament from the list: <br> </label>
 		<?php
 
-
-
 		foreach ($filamentTypes as $type => $count) {
 			echo"$type :";
 			echo"
@@ -40,7 +38,6 @@ $filamentTypes = $GLOBALS['filamentTypes'];
 
 				}
 			}
-
 
 			echo '
 					</datalist>

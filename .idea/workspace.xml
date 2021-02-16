@@ -19,127 +19,57 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Kommentare hinzugefügt">
-      <change afterPath="$PROJECT_DIR$/controller/functions/changePaymentData.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Kaly/glb/AngelCutter-V3-69.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Kaly/stl/AngelCutter-V3-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Kaly/stl/Drueckler3DDrucke-SQL5_4_1-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/170-210_PLA_Temp_Tower-77.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/AngelCutter-V3-36.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/Bracket-81.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/Ender_Z-Axis_Motor_Mount-39.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/cableChain_40MountSide_v2-21.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/cableChain_40MountTop_v2-78.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/d20_2.0.1-37.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/habe/glb/AngelCutter-V3-23.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/habe/glb/Ender_Z-Axis_Motor_Mount-65.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/habe/glb/TopfdeckelTeil-35.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/habe/glb/cableChain_40MountSide_v2-53.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/habe/stl/170-210_PLA_Temp_Tower-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/habe/stl/AngelCutter-V3-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/habe/stl/Bracket-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/habe/stl/Ender_Z-Axis_Motor_Mount-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/habe/stl/TopfdeckelTeil-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/habe/stl/d20_2.0.1-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7ac42d09c/glb/AngelCutter-V3-37.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7ac42d09c/glb/Bracket-62.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7ac42d09c/glb/TopfdeckelTeil-22.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7ac42d09c/glb/d20_2.0.1-36.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7ac42d09c/stl/AngelCutter-V3-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7ac42d09c/stl/Bracket-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7ac42d09c/stl/TopfdeckelTeil-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7ac42d09c/stl/d20_2.0.1-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7ce3bde7d/glb/TopfdeckelTeil-16.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7ce3bde7d/stl/TopfdeckelTeil-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7d617e87c/glb/cableChain_40MountTop_v2-54.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7d617e87c/stl/cableChain_40MountTop_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7dd7329c7/glb/cableChain_40MountSide_v2-13.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7dd7329c7/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7e303b709/glb/Ender_Z-Axis_Motor_Mount-97.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7e303b709/glb/cableChain_40MountSide_v2-72.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7e303b709/stl/Ender_Z-Axis_Motor_Mount-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a7e303b709/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a9ef4a1e04/glb/cableChain_40MountTop_v2-47.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a9ef4a1e04/stl/cableChain_40MountTop_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a9f3e6374b/glb/cableChain_40MountSide_v2-11.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a9f3e6374b/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a9fa4548fa/glb/d20_2.0.1-80.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602a9fa4548fa/stl/d20_2.0.1-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa009af666/glb/AngelCutter-V3-90.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa009af666/stl/AngelCutter-V3-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa109afa97/glb/cableChain_40MountSide_v2-87.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa109afa97/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa1448264e/glb/cableChain_40MountTop_v2-76.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa1448264e/stl/cableChain_40MountTop_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa17992b25/glb/cableChain_40MountSide_v2-82.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa17992b25/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa46a0169f/glb/cableChain_40MountSide_v2-37.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa46a0169f/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa81a719b0/glb/cableChain_40MountSide_v2-74.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aa81a719b0/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aaf16a41b3/glb/cableChain_40MountSide_v2-97.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602aaf16a41b3/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ab11a5a24c/glb/cableChain_40MountTop_v2-62.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ab11a5a24c/stl/TopfdeckelTeil-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ab11a5a24c/stl/cableChain_40MountTop_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ab17104e30/glb/LED-Gehäuse0-69.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ab17104e30/stl/LED-Gehäuse0-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ab28521bb1/glb/cableChain_40MountSide_v2-68.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ab28521bb1/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ac2cdc2dea/glb/Ender_Z-Axis_Motor_Mount-33.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ac2cdc2dea/stl/Ender_Z-Axis_Motor_Mount-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ad08264930/glb/cableChain_40MountSide_v2-51.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ad08264930/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602adc4820364/glb/cableChain_40MountSide_v2-13.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602adc4820364/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602add4695822/glb/TopfdeckelTeil-16.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602add4695822/stl/TopfdeckelTeil-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ae06e777f9/glb/Ender_Z-Axis_Motor_Mount-26.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ae06e777f9/stl/Ender_Z-Axis_Motor_Mount-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ae1ea0c170/glb/Ender_Z-Axis_Motor_Mount-96.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602ae1ea0c170/stl/Ender_Z-Axis_Motor_Mount-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602af0777aa73/glb/cableChain_40MountSide_v2-70.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/602af0777aa73/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/user/addressInput.php" afterDir="false" />
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Warenkorb update">
+      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/AngelCutter-V3-69.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/Bracket-71.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/TopfdeckelTeil-57.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602af7eb01a1d/glb/TopfdeckelTeil-19.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602af7eb01a1d/glb/cableChain_40MountTop_v2-27.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602af7eb01a1d/stl/TopfdeckelTeil-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602af7eb01a1d/stl/cableChain_40MountTop_v2-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602afa07af564/glb/Ender_Z-Axis_Motor_Mount-31.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602afa07af564/stl/Ender_Z-Axis_Motor_Mount-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c33adbb23c/glb/170-210_PLA_Temp_Tower-69.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c33adbb23c/glb/Bracket-23.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c33adbb23c/glb/cableChain_40MountSide_v2-23.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c33adbb23c/stl/170-210_PLA_Temp_Tower-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c33adbb23c/stl/Bracket-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c33adbb23c/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c3f3d12e44/glb/170-210_PLA_Temp_Tower-21.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c3f3d12e44/glb/AngelCutter-V3-33.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c3f3d12e44/glb/Bracket-48.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c3f3d12e44/glb/d20_2.0.1-90.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c3f3d12e44/stl/170-210_PLA_Temp_Tower-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c3f3d12e44/stl/AngelCutter-V3-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c3f3d12e44/stl/Bracket-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c3f3d12e44/stl/d20_2.0.1-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c49a3d551e/glb/Bracket-56.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c49a3d551e/glb/Ender_Z-Axis_Motor_Mount-18.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c49a3d551e/glb/TopfdeckelTeil-33.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c49a3d551e/glb/cableChain_40MountSide_v2-50.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c49a3d551e/stl/Bracket-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c49a3d551e/stl/Ender_Z-Axis_Motor_Mount-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c49a3d551e/stl/TopfdeckelTeil-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c49a3d551e/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/602c49a3d551e/stl/cableChain_40MountTop_v2-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/order/orderSuccess.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/functions/paymentFunction.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/functions/paymentFunction.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/mainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/mainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/orderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/orderController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/model.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/order.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/order.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/user.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/fileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/fileUpload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/stlErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/stlErrors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/bill.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/paymentData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/paymentData.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/orders.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/order.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/printSettings.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/printSetting.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_4_1.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_7.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/Drueckler3DDrucke-SQL5_7.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ressources/database/TestData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/database/TestData.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Kalyphenking/glb/170-210_PLA_Temp_Tower-51.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Kalyphenking/glb/Bracket-89.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Kalyphenking/glb/Ender_Z-Axis_Motor_Mount-56.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Kalyphenking/glb/TopfdeckelTeil-52.glb" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/TopfdeckelTeil-52.glb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Kalyphenking/glb/cableChain_40MountSide_v2-11.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Kalyphenking/glb/cableChain_40MountTop_v2-45.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Kalyphenking/glb/d20_2.0.1-71.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Kalyphenking/stl/Kalyphenking_cableChain_40MountTop_v2-00.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/habe/glb/cableChain_40MountSide_v2-85.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/habe/glb/cableChain_40MountTop_v2-15.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/habe/stl/cableChain_40MountTop_v2-00.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Kalyphenking/glb/AngelCutter-V3-36.glb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Kalyphenking/glb/Bracket-81.glb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Kalyphenking/glb/TopfdeckelTeil-52.glb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/views/order/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/checkout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/order/configurator.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/configurator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/order/configuratorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/configuratorTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/order/shoppingCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/shoppingCart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/changePaymentData.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changePaymentData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/changePaymentData/setBill.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/changePaymentData/setCreditCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changePaymentData/setCreditCard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/changePaymentData/setDirectDebit.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changePaymentData/setDirectDebit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/changePaymentData/setPayPal.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changePaymentData/setPayPal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/usermenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/usermenu.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +132,7 @@
       <workItem from="1611608571322" duration="32796000" />
       <workItem from="1612197033804" duration="46599000" />
       <workItem from="1612619565367" duration="56810000" />
-      <workItem from="1613072254782" duration="81446000" />
+      <workItem from="1613072254782" duration="100867000" />
     </task>
     <task id="LOCAL-00001" summary="Bilder">
       <created>1610889492139</created>
@@ -484,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613332780306</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Warenkorb update">
+      <created>1613428529473</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1613428529473</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +441,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="??" />
     <MESSAGE value="Test" />
     <MESSAGE value="Controller" />
     <MESSAGE value="Database update &amp; login + register" />
@@ -529,17 +465,18 @@
     <MESSAGE value="Update" />
     <MESSAGE value="Commentare hinzugefügt" />
     <MESSAGE value="Kommentare hinzugefügt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kommentare hinzugefügt" />
+    <MESSAGE value="Warenkorb update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Warenkorb update" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1085" y="553" key="#SQL_Dialects" timestamp="1612363682860">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1085" y="553" key="#SQL_Dialects/0.0.3440.1440@0.0.3440.1440" timestamp="1612363682860" />
-    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611330646686">
+    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1613503244720">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611330646686" />
+    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613503244720" />
     <state x="1458" y="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613417970951">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
@@ -549,29 +486,29 @@
     </state>
     <state x="539" y="269" key="NewPhpClassDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1613238135261" />
     <state x="1104" y="369" key="NewPhpClassDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613417606216" />
-    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1613414911934">
+    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1613515062436">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613414911934" />
+    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613515062436" />
     <state x="1229" y="356" key="SettingsEditor" timestamp="1612359714205">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1229" y="356" key="SettingsEditor/0.0.3440.1440@0.0.3440.1440" timestamp="1612359714205" />
-    <state x="1320" y="444" width="1716" height="1117" key="Vcs.Push.Dialog.v2" timestamp="1613332782114">
+    <state x="1320" y="444" width="1716" height="1117" key="Vcs.Push.Dialog.v2" timestamp="1613428531172">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1613237709679" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613332782114" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613428531172" />
     <state x="426" y="249" width="1716" height="1117" key="Vcs.Push.Dialog.v2/0.25.3440.1342@0.25.3440.1342" timestamp="1612898069687" />
     <state x="1339" y="334" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1613147981007">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1339" y="334" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.3440.1440@0.0.3440.1440" timestamp="1613147981007" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613335967001">
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613503906972">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="745" y="465" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1613310243833" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613335967001" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613503906972" />
     <state x="1936" y="271" width="1081" height="1084" key="dock-window-1" timestamp="1612359910285">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
