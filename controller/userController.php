@@ -242,37 +242,43 @@ class UserController extends Controller
 
 	protected function loadOrders()
 	{
-		$username = $_SESSION['username'];
+		if ($this->loggedIn()) {
+			$username = $_SESSION['username'];
 
-		$orders = Order::findOnJoin(
-			'orders',
-			['o.id as oid',
-			'm.modelPrice',
-			'm.fileName',
+			$orders = Order::findOnJoin(
+				'orders',
+				['o.id as oid',
+					'm.modelPrice',
+					'm.fileName',
 
-			'o.createdAt',
-			'o.processed',
-			'o.payed',
-
-
-			'pc.id as pcid',
-			'pc.amount',
-			'pc.printTime',
-
-			'ps.infill',
-			'ps.description',
-
-			'f.color',
-			'f.type',
-			'o.cancelled'
-			],
-
-			['username'],
-
-			[$username]); // Hier $username einfügen
+					'o.createdAt',
+					'o.processed',
+					'o.payed',
 
 
-		return $orders;
+					'pc.id as pcid',
+					'pc.amount',
+					'pc.printTime',
+
+					'ps.infill',
+					'ps.description',
+
+					'f.color',
+					'f.type',
+					'o.cancelled'
+				],
+
+				['username'],
+
+				[$username]); // Hier $username einfügen
+
+
+			return $orders;
+		} else {
+			return [];
+		}
+
+
 	}
 
 	public function cancellOrder($subAction)

@@ -43,11 +43,11 @@ INSERT INTO `ContactData` (`id`, `createdAt`, `updatedAt`, `Address_id`, `firstN
 (NULL, current_timestamp(), NULL, '13', 'Ariell', 'Diemeerjungfrau', '48915484815156', 'Diemeerjungfrau@gmail.com', 'liebe', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
 
 -- Employee
-(NULL, current_timestamp(), NULL, NULL, 'Hans', 'Müller', NULL, 'haensel@web.de', 'hans123', '6658994'),
-(NULL, current_timestamp(), NULL, '6', 'Max', 'Mausoleum', '036151379521557738', 'max@lol.com', 'grüße', '8191964'),
-(NULL, current_timestamp(), NULL, NULL, 'Annette', 'Schmitt', NULL, 'annette@print.com', 'der', '19849489'),
-(NULL, current_timestamp(), NULL, NULL, 'Potz', 'Blitz', '0049365485445', 'potzblitz@print.com', 'backend', '9849849649'),
-(NULL, current_timestamp(), NULL, '8', 'Andrew Lloyd', 'Webber', '313164975', 'starlightexpress@print.com', 'developer', '123455');
+(NULL, current_timestamp(), NULL, NULL, 'Hans', 'Müller', NULL, 'haensel@web.de', 'hans123', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '6', 'Max', 'Mausoleum', '036151379521557738', 'max@lol.com', 'grüße', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, NULL, 'Annette', 'Schmitt', NULL, 'annette@print.com', 'der', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, NULL, 'Potz', 'Blitz', '0049365485445', 'potzblitz@print.com', 'backend', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '8', 'Andrew Lloyd', 'Webber', '313164975', 'starlightexpress@print.com', 'admin', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q');
 
 COMMIT;
 

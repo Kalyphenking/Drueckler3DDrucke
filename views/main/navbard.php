@@ -16,6 +16,19 @@
 <!--    <a href="index.php?c=main&a=logout" class="item login">Logout</a>-->
 <!--    <a href="index.php?c=main&a=login" class="item login">Login</a>-->
 
+    <?php
+        if (isset($_SESSION['loggedIn']) && ($_SESSION['username'] == 'admin')) {
+            $link = 'index.php?c=main&a=admin';
+            $label = 'Admin';
+        } else if (isset($_SESSION['loggedIn'])) {
+	        $link = 'index.php?c=user&a=usermenu';
+	        $label = 'Kundenkonto';
+        } else {
+	        $link = 'index.php?c=main&a=login';
+	        $label = 'Login';
+        }
+    ?>
 
-    <a href=<?php echo (isset($_SESSION['loggedIn']) ? 'index.php?c=user&a=usermenu' : 'index.php?c=main&a=login') ?> class="item register"><?php echo (isset($_SESSION['loggedIn']) ? 'Kundenkonto' : 'Login') ?></a>
+
+    <a href=<?= $link ?> class="item register"><?= $label ?></a>
 </nav>

@@ -327,7 +327,7 @@ class Model
 
 			}
 
-//			echo "SQL: <br> $sql <br><br>";
+			echo "SQL: <br> $sql <br><br>";
 
 			$result = $db->query($sql)->fetchAll();
 		}

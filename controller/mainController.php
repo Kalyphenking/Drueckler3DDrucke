@@ -4,6 +4,7 @@ namespace DDDDD\controller;
 
 use DDDDD\core\Controller;
 use DDDDD\model\ContactData;
+use DDDDD\model\Order;
 
 //manages admin related functions
 
@@ -168,4 +169,61 @@ class MainController extends Controller
 			}
 		}
 	}
+
+	public function admin($subAction) {
+		$orders = $this->loadAllOrders();
+
+	}
+
+	protected function loadAllOrders() {
+		$data = Order::findOnJoin(
+			'orders',
+			['o.id as oid',
+				'm.modelPrice',
+				'm.fileName',
+
+				'o.createdAt',
+				'o.processed',
+				'o.payed',
+				'o.Employee_id',
+
+
+				'pc.id as pcid',
+				'pc.amount',
+				'pc.printTime',
+
+				'ps.infill',
+				'ps.description',
+
+				'f.color',
+				'f.type',
+				'o.cancelled'
+			]
+		);
+
+		$openOrders = [];
+		$ordersInProcess = [];
+		$doneOrders = [];
+
+		foreach ($data as $order) {
+			if (!empty($order['oid'])) {
+//
+//				echo json_encode($order['Employee_id']). '<br>';
+
+				if ($order['processed'] == true) {
+					$doneOrders[] = $order;
+				} else if (!empty($order['Employee_id'])) {
+					$ordersInProcess[] = $order;
+				} else {
+					$openOrders[] = $order;
+				}
+
+			}
+		}
+
+		$_SESSION['openOrders'] = $openOrders;
+		$_SESSION['ordersInProcess'] = $ordersInProcess;
+		$_SESSION['doneOrders'] = $doneOrders;
+	}
+
 }

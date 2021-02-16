@@ -117,7 +117,13 @@ class Controller
 
 				switch ($this->controller) {
 					case 'main':
-						echo "<div class=\"mainGrid-container\">";
+
+
+						if ($this->action == 'admin') {
+							echo "<div class=\"admin-container\">";
+						} else {
+							echo "<div class=\"mainGrid-container\">";
+						}
 
 						break;
 					case 'order':

@@ -1,7 +1,22 @@
 <?php
-$orders = isset($GLOBALS['orders']) ? $GLOBALS['orders'] : [];
+$openOrders = isset($_SESSION['openOrders']) ? $_SESSION['openOrders'] : [];
+$ordersInProcess = isset($_SESSION['ordersInProcess']) ? $_SESSION['ordersInProcess'] : [];
+$doneOrders = isset($_SESSION['doneOrders']) ? $_SESSION['doneOrders'] : [];
 
-include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
+echo '<br>openOrders: <br>'.json_encode($openOrders).'<br>';
+echo '<br>ordersInProcess: <br>'.json_encode($ordersInProcess).'<br>';
+echo '<br>doneOrders: <br>'.json_encode($doneOrders).'<br>';
+
+
+?>
+
+<div class="adminMenuBar">
+
+</div>
+
+
+<?php
+
 
 function headerRow() {
 	$output = "
@@ -37,7 +52,7 @@ function orderRow($orderid, $date) {
 }
 
 function suborderRow($fileName, $price, $processed, $suborderId) {
-    $output = "
+	$output = "
          <tr>
             <td></td>
             <td></td>
@@ -59,7 +74,7 @@ function suborderRow($fileName, $price, $processed, $suborderId) {
                 </td>
         </tr>";
 
-    return $output;
+	return $output;
 }
 
 function summRow($summe) {
@@ -81,48 +96,48 @@ function summRow($summe) {
 
 ?>
 
-<div class="userContent">
-    <table id="ordersTabe">
+<div class="adminContent">
+	<table id="ordersTabe">
 		<?php
-            echo headerRow();
+		echo headerRow();
 
-            $previousId = 0;
-            $summe = 0.0;
+		$previousId = 0;
+		$summe = 0.0;
 
-            foreach ($orders as $key => $order)
-            {
+		foreach ($openOrders as $key => $order)
+		{
 
-                $orderid = $order['oid'];
-                $suborderId = $order['pcid'];
-                $date = date_format(date_create($order['createdAt']),"d. m. Y");
-                $price = $order['modelPrice'];
-                $processed = $order['processed'] ? 'Ja' : 'Nein';
-                $fileName = $order['fileName'];
+			$orderid = $order['oid'];
+			$suborderId = $order['pcid'];
+			$date = date_format(date_create($order['createdAt']),"d. m. Y");
+			$price = $order['modelPrice'];
+			$processed = $order['processed'] ? 'Ja' : 'Nein';
+			$fileName = $order['fileName'];
 
-                if ($orderid == $previousId) {
+			if ($orderid == $previousId) {
 
-                    echo suborderRow($fileName, $price, $processed, $suborderId);
+				echo suborderRow($fileName, $price, $processed, $suborderId);
 
-                } else {
+			} else {
 
-                    if ($summe > 0.0) {
-                        echo summRow($summe);
+				if ($summe > 0.0) {
+					echo summRow($summe);
 
-                    }
-                    $summe = 0.0;
+				}
+				$summe = 0.0;
 
-                    echo orderRow($orderid, $date);
+				echo orderRow($orderid, $date);
 
-                    echo suborderRow($fileName, $price, $processed, $suborderId);
+				echo suborderRow($fileName, $price, $processed, $suborderId);
 
-                }
-                $summe = $summe + $price;
+			}
+			$summe = $summe + $price;
 
-                $previousId = $orderid;
-            }
-            echo summRow($summe);
+			$previousId = $orderid;
+		}
+		echo summRow($summe);
 
 		?>
 
-    </table>
+	</table>
 </div>
