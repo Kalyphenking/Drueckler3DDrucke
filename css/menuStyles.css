@@ -2,7 +2,7 @@
     height: 80px;
     width: 100%;
     padding: 0 15px;
-    background-image: url(../ressources/images/Banner.png);
+   background-image: url(../ressources/images/Banner.png);
     background-size: cover;
     color: rgb(189, 101, 1);
 
@@ -32,4 +32,22 @@
 .navBar .item {
     margin: 0 10px;
     font-weight: 800;
+}
+
+@media screen and (max-width: 600px)
+{
+    .navBar {
+        height: 20px;
+        width: 100%;
+        padding: 0 15px;
+      /*background-image: url(../ressources/images/Banner.png);*/
+        background-size: cover;
+        color: rgb(189, 101, 1);
+
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+
+        font-size: 20px;
+    }
 }

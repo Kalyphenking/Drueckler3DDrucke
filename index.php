@@ -59,9 +59,12 @@
 
     <link rel="stylesheet" href="<?=ROOTPATH.'css/LogReg.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/menuStyles.css'?>">
+
     <link rel="stylesheet" href="<?=ROOTPATH.'css/miscStyles.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/topBottom.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/LogReg.css'?>">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/configurator.css'?>">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/slide.css'?>">
 
     <link rel="stylesheet" href="<?=ROOTPATH.'css/textBoxes.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/inputStyles.css'?>">
@@ -123,4 +126,5 @@
         $controller->render();
     ?>
 </body>
+
 </html>

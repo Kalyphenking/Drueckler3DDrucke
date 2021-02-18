@@ -1,16 +1,16 @@
 <?php
-
+//C 2
 namespace DDDDD\controller;
 
 use DDDDD\core\Controller;
 use DDDDD\model\ContactData;
 use DDDDD\model\Order;
-
+//C 2.1
 //manages admin related functions
 
 class MainController extends Controller
 {
-
+//C 2.2
 	public function logout($subAction) {
 		unset($_SESSION['loggedIn']);
 		unset($_SESSION['username']);
@@ -39,7 +39,7 @@ class MainController extends Controller
 			header("Location: $link ");
 		}
 	}
-
+//C 2.3
 	public function login($subAction) {
 
 		if (isset($_POST['submit'])) {
@@ -86,7 +86,7 @@ class MainController extends Controller
 			}
 		}
 	}
-
+// C 2.4
 	public function register($subAction) {
 
 		if ($subAction === 'guest') {
@@ -119,7 +119,7 @@ class MainController extends Controller
 				];
 				$password = password_hash($_POST['password'],PASSWORD_BCRYPT, $options);
 
-
+// C2.5
 				$keys = ['phoneNumber', 'emailAddress', 'username'];
 				$values = [$phoneNumber, $emailAddress, $username];
 

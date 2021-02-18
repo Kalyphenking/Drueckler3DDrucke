@@ -1,5 +1,5 @@
 <?php
-
+//C 3
 namespace DDDDD\controller;
 
 use DDDDD\controller\functions\ChangePaymentData;
@@ -12,13 +12,13 @@ use DDDDD\model\Pricing;
 use DDDDD\model\PrintConfig;
 use DDDDD\model\PrintSetting;
 
-
+//C 3.1
 class OrderController extends Controller
 {
 
 	protected $filaments = null;
 	protected $errors = [];
-
+//C 3.2
 	//manages 3D Model configurator
 	public function configurator($subAction) {
 
@@ -129,14 +129,14 @@ class OrderController extends Controller
 			echo "<script>displayModel(\"$fileName\")</script>";
 		};
 	}
-
+//C 3.3
 	protected function makeDirectory($directory) {
 		if (!file_exists($directory)) {
 			mkdir($directory, 0777);
 			chmod($directory, 0777);
 		}
 	}
-
+//C 3.4
 	protected function calculateModel() {
 
 		if (!empty($_POST['infill'] && isset($_SESSION['modelName']))
@@ -287,7 +287,7 @@ class OrderController extends Controller
 //			echo json_encode($item) . '<br>';
 //		}
 
-
+//C 3.9
 	}
 
 	protected function removeFromShoppingCart() {
@@ -299,7 +299,7 @@ class OrderController extends Controller
 		}
 		$_SESSION['shoppingCart'] = $shoppingCart;
 	}
-
+//C 3.6
 	//manages shoppinCart
 	public function shoppingCart() {
 		if (isset($_POST['submit'])) {
@@ -312,7 +312,7 @@ class OrderController extends Controller
 			$this->removeFromShoppingCart();
 		}
 	}
-
+//C 3.7
 
 	public function checkout($subaction) {
 
@@ -353,7 +353,7 @@ class OrderController extends Controller
 			header("Location: $link ");
 		}
 	}
-
+//C 3.5
 	//manages orders
 	public function makeOrder() {
 		$userData = $this->loadUserData();
@@ -568,7 +568,7 @@ class OrderController extends Controller
 
 		$_SESSION['filaments'] = $filaments;
 	}
-
+//C 3.8
 	//manages presets
 	public function presets() {
 		$this->loadPresets();
@@ -577,7 +577,7 @@ class OrderController extends Controller
 
 
 	}
-
+//C 3.10
 	//loads and saves printSettings in sessin with filled preset attribute
 	protected function loadPresets() {
 		$data = PrintSetting::find();
@@ -591,7 +591,7 @@ class OrderController extends Controller
 
 		$_SESSION['presets'] = $presets;
 	}
-
+//C 3.11
 
 
 }
