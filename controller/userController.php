@@ -4,6 +4,7 @@ namespace DDDDD\controller;
 
 use DDDDD\controller\functions\ChangePaymentData;
 use DDDDD\controller\functions\PaymentFunction;
+use DDDDD\controller\functions\Table;
 use DDDDD\core\Controller;
 
 use DDDDD\model\Address;
@@ -20,13 +21,23 @@ use DDDDD\model\PrintConfig;
 class UserController extends Controller
 {
 
+
 	protected $errors = [];
 	protected $customerData = NULL;
 //	protected $preferedPaymentMethod = NULL;
 	protected $username = NULL;
 
+	public function __construct($controller, $action, $subAction = null)
+	{
+		parent::__construct($controller, $action, $subAction);
+		if (!isset($_SESSION['customerData'])) {
+			$this->loadCustomerData();
+		}
+
+	}
+
 	public function usermenu($subAction) {
-		$this->loadUserData();
+		$this->loadCustomerData();
 
 		if (isset($_POST['submit']) && isset($_POST['firstName'])) {
 
@@ -39,7 +50,7 @@ class UserController extends Controller
 	}
 
 	public function changePaymentData($subAction) {
-		$this->loadUserData();
+		$this->loadCustomerData();
 
 		if (isset($_POST['preferedPaymentMethod'])) {
 			$preferedPaymentMthod = $_POST['preferedPaymentMethod'];
@@ -53,10 +64,10 @@ class UserController extends Controller
 	}
 
 	public function addressInput() {
-		$this->loadUserData();
+		$this->loadCustomerData();
 	}
 
-	protected function loadUserData() {
+	protected function loadCustomerData() {
 
 		if ($this->loggedIn()) {
 			$this->username = $_SESSION['username'];
@@ -150,7 +161,7 @@ class UserController extends Controller
 	}
 
 	protected function changeAddressData() {
-		$this->loadUserData();
+		$this->loadCustomerData();
 		$contactDataId = $this->customerData['cdid'];
 
 		$addressDataId = $this->customerData['aid'];
@@ -185,7 +196,7 @@ class UserController extends Controller
 	}
 
 	public function changeUserPassword($subAction) {
-		$this->loadUserData();
+		$this->loadCustomerData();
 
 		if (isset($_POST['submit'])) {
 
@@ -234,10 +245,58 @@ class UserController extends Controller
 
 	public function orders($subAction)
 	{
-		$this->loadUserData();
+		if (isset($_POST['submitDelete'])) {
+//			echo "Delete ?";
+			$this->cancellOrder();
+		}
+
+		$this->loadTable();
+	}
+
+	protected function loadTable() {
+		$this->loadCustomerData();
 		$GLOBALS['orders'] = $this->loadOrders();
 
-//		echo 'orders: <br>' . json_encode($_SESSION['orders']) . '<br><br>';
+		$orders = $this->loadOrders();
+
+//		echo json_encode($orders) . '<br><br>';
+
+		$header = [
+			'oid' => 'Bestellnummer',
+			'createdAt' => 'Bestelldatum',
+			'fileName' => 'Dateiname',
+			'modelPrice' => 'Preis',
+			'processed' => 'Status'
+		];
+
+		$subHeader = [
+			'oid' => 'Bestellnummer',
+			'createdAt' => 'Bestelldatum',
+			'fileName' => '',
+			'modelPrice' => '',
+			'processed' => ''
+		];
+
+		$dataRow = [
+			'oid' => '',
+			'createdAt' => '',
+			'fileName' => 'Dateiname',
+			'modelPrice' => 'Preis',
+			'processed' => 'Status'
+
+		];
+
+		$footer = [
+			'Summe',
+			'',
+			'',
+			'sum',
+			''
+		];
+
+		$table = new Table($orders, $header, $subHeader, $dataRow, $footer);
+
+		$GLOBALS['ordersTable'] = $table->render();
 	}
 
 	protected function loadOrders()
@@ -247,7 +306,7 @@ class UserController extends Controller
 
 			$orders = Order::findOnJoin(
 				'orders',
-				['o.id as oid',
+				[   'o.id as oid',
 					'm.modelPrice',
 					'm.fileName',
 
@@ -281,7 +340,7 @@ class UserController extends Controller
 
 	}
 
-	public function cancellOrder($subAction)
+	public function cancellOrder()
 	{
 
 		$errors = NULL;
@@ -294,7 +353,7 @@ class UserController extends Controller
 
 //		echo json_encode($orderToCancell);
 
-		$id = isset($_POST['orderId']) ? $_POST['orderId'] : NULL;
+		$printConfigId = isset($_POST['printConfigId']) ? $_POST['printConfigId'] : NULL;
 
 //		echo "<br><br>id: $id <br><br>";
 
@@ -302,7 +361,7 @@ class UserController extends Controller
 
 
 			$printConfig = new PrintConfig([
-				'id'=>$id
+				'id'=>$printConfigId
 			]);
 
 			if ($printConfig->delete($errors)) {
@@ -329,18 +388,22 @@ class UserController extends Controller
 
 	protected function getSelectedOrder() {
 
-		$orders = $this->loadOrders('pc');
+		$orders = $this->loadOrders();
 		$value = [];
 
-		$id = isset($_POST['orderId']) ? $_POST['orderId'] : NULL;
+//		echo json_encode($orders);
+
+		$id = isset($_POST['orderId']) ? $_POST['orderId'] : null;
+
+//		echo json_encode($id);
+
+
 
 		foreach ($orders as $order) {
-			if ($order['id'] == $id) {
+			if ($order['oid'] == $id) {
 				$value = $order;
 			}
 		}
-
-//		echo json_encode($value);
 
 		return $value;
 	}

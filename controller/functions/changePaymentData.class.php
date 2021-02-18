@@ -10,7 +10,7 @@ class ChangePaymentData
 {
 
 	function __construct() {
-		$this->username = isset($_SESSION['username']) ? $_SESSION['username'] : $_SESSION['uid'];
+		$this->username = isset($_SESSION['customerName']) ? $_SESSION['customerName'] : $_SESSION['uid'];
 		$this->customerData = $_SESSION['customerData'];
 
 //		$this->{$function}();

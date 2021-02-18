@@ -6,7 +6,7 @@
 ?>
 
 <div class="userMenuBar">
-    <p class="">Kunden Nummer: <?=$customerId?></p>
+    <p class="">Kundennummer: <?=$customerId?></p>
     <p class="">Bevorzugte Zahlungsmethode: <?=$preferedPaymentMethode?></p>
     <br>
 <!--    <p class="">Standardadresse:</p>-->

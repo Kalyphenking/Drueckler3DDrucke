@@ -2,19 +2,25 @@
 
 $order = $GLOBALS['orderToCancell'];
 
-$orderid = $order['id'];
-$date = date_format(date_create($order['createdAt']),"d. m. Y");
-$price = $order['modelPrice'] . '€';
-$processed = $order['processed'];
-$fileName = $order['fileName'];
-$payed = $order['payed'];
-$amount = $order['amount'];
-$printTime = $order['printTime'];
-$infill = $order['infill'];
-$description = $order['description'];
-$color = $order['color'];
-$type = $order['type'];
-$cancelled = $order['cancelled'];
+//$orderid = $order['oid'];
+
+if (!empty($order)) {
+	$printConfigId = $order['pcid'];
+	$date = date_format(date_create($order['createdAt']),"d. m. Y");
+	$price = $order['modelPrice'] . '€';
+	$processed = $order['processed'];
+	$fileName = $order['fileName'];
+	$payed = $order['payed'];
+	$amount = $order['amount'];
+	$printTime = $order['printTime'];
+	$infill = $order['infill'];
+	$description = $order['description'];
+	$color = $order['color'];
+	$type = $order['type'];
+	$cancelled = $order['cancelled'];
+}
+
+
 
 $success = isset($GLOBALS['success']) ? $GLOBALS['success'] : true;
 
@@ -32,7 +38,7 @@ if ($success) {
 	
 	Soll die Bestellung: \"$fileName\" wirklich storniert werden ?
 	<form action = 'index.php?c=user&a=cancellOrder' method = 'POST'>
-		<input type='hidden' name='orderId' value=$orderid>
+		<input type='hidden' name='printConfigId' value=$printConfigId>
 		<input type='submit' name='submit' value='Nein'>
 		<input type='submit' name='submit' value='Ja'>
 	</form>

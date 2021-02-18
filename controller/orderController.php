@@ -203,18 +203,10 @@ class OrderController extends Controller
 
 			$taxesPrice = ($materialPrice + $workPrice + $energyPrice) * $taxes;
 
-			$toralPrintPrice = ($workPrice + $energyPrice + $shippting) * $amount + $taxesPrice;
+			$totalPrintPrice = ($workPrice + $energyPrice + $shippting) * $amount + $taxesPrice;
 			$modelPrice = $workPrice + $energyPrice + $taxesPrice;
 
-//			echo "<br>printTime: $printTime Minuten<br><br>";
-//			echo "amount: $amount <br>";
-//			echo "material: $materialPrice <br>";
-//			echo "work: $workPrice <br>";
-//			echo "energy: $energyPrice <br>";
-//			echo "taxes: $taxesPrice <br>";
-//			echo "grammsPerHour: $grammsPerHour <br>";
-
-			$_SESSION['printPrices'][0] = round($toralPrintPrice, 2);
+			$_SESSION['printPrices'][0] = round($totalPrintPrice, 2);
 			$_SESSION['printPrices'][1] = round($energyPerHour, 2);
 			$_SESSION['printPrices'][2] = round($workPrice, 2);
 			$_SESSION['printPrices'][3] = round($energyPrice, 2);

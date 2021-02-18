@@ -1,12 +1,12 @@
-fileName: uploads/temp/602c49a3d551e/glb/Bracket-56.glb
+fileName: uploads/Kalyphenking/glb/cableChain_40MountTop_v2-93.glb
 
-modelName: Bracket
+modelName: cableChain_40MountTop_v2
 
-glbDirectory: uploads/temp/602c49a3d551e/glb
+glbDirectory: uploads/Kalyphenking/glb
 
-baseName: Ender_Z-Axis_Motor_Mount
+baseName: TopfdeckelTeil
 
-deleteName: Ender_Z-Axis_Motor_Mount-18.glb
+deleteName: TopfdeckelTeil-57.glb
 
 saved
 
