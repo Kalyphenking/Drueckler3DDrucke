@@ -265,6 +265,8 @@ class Model
 		$printSettings = PrintSetting::TABLENAME;
 		$models = Dddmodel::TABLENAME;
 
+		$employee = Employee::TABLENAME;
+
 		if (!empty($attributs)) {
 			foreach ($attributs as $attribut) {
 				$select .= ' '.$attribut.',';
@@ -275,61 +277,105 @@ class Model
 			$select = '*';
 		}
 
-//		echo $select;
 
-		$sql = "select $select from $customer c 
-				right join $contactData cd on c.ContactData_id = cd.id ";
+		if (isset($_SESSION['employeeName'])) {
+			$sql = "select $select from $employee emp 
+					right join $contactData cd on emp.ContactData_id = cd.id
+			";
 
-		switch ($dataType) {
-			case 'contactData': {
-				$sql .= "left join $address a on cd.Address_id = a.id
-						left join $paymentData pd on c.paymentData_ID = pd.id";
-			} break;
-			case 'paymentData': {
-				$sql .= "left join $paymentData pd on c.paymentData_ID = pd.id
+			switch ($dataType) {
+				case 'contactData': {
+					$sql .= "left join $address a on cd.Address_id = a.id
+				";
+				} break;
+				case 'customerData': {
+					$sql = "select $select from $customer c 
+							right join $contactData cd on c.ContactData_id = cd.id 
+					";
+					$sql .= "left join $address a on cd.Address_id = a.id
+							left join $paymentData pd on c.paymentData_ID = pd.id
+					";
+				} break;
+				case 'paymentData': {
+					$sql .= "left join $paymentData pd on c.paymentData_ID = pd.id
 						left join $creditCard cc on pd.CreditCard_id = cc.id
 						left join $paypal pp on pd.Paypal_id = pp.id
-						left join $directDebit dd on pd.DirectDebit_id = dd.id";
-			} break;
-			case 'orders'; {
-				$sql .= "left join $orders o on c.id = o.Customer_id
+						left join $directDebit dd on pd.DirectDebit_id = dd.id
+					";
+				} break;
+				case 'orders'; {
+
+					if (isset($_SESSION['admin'])) {
+						$sql = "select $select from $customer c 
+								right join $contactData cd on c.ContactData_id = cd.id 
+						";
+
+						$sql .= "left join $orders o on c.id = o.Customer_id
+								left join $printConfig pc on o.id = pc.Orders_id
+								left join $printSettings ps on pc.PrintSettings_id = ps.id
+								left join $models m on pc.Models_id = m.id
+								left join $filament f on pc.Filaments_id = f.id
+						";
+					} else {
+						$sql .= "left join $orders o on emp.id = o.Employee_id
+								left join $printConfig pc on o.id = pc.Orders_id
+								left join $printSettings ps on pc.PrintSettings_id = ps.id
+								left join $models m on pc.Models_id = m.id
+								left join $filament f on pc.Filaments_id = f.id
+						";
+					}
+				}
+			}
+
+		} else if (isset($_SESSION['customerName'])) {
+			$sql = "select $select from $customer c 
+					right join $contactData cd on c.ContactData_id = cd.id 
+			";
+
+			switch ($dataType) {
+				case 'contactData': {
+					$sql .= "left join $address a on cd.Address_id = a.id
+						left join $paymentData pd on c.paymentData_ID = pd.id
+					";
+				} break;
+				case 'paymentData': {
+					$sql .= "left join $paymentData pd on c.paymentData_ID = pd.id
+						left join $creditCard cc on pd.CreditCard_id = cc.id
+						left join $paypal pp on pd.Paypal_id = pp.id
+						left join $directDebit dd on pd.DirectDebit_id = dd.id
+					";
+				} break;
+				case 'orders'; {
+					$sql .= "left join $orders o on c.id = o.Customer_id
 						left join $printConfig pc on o.id = pc.Orders_id
 						left join $printSettings ps on pc.PrintSettings_id = ps.id
 						left join $models m on pc.Models_id = m.id
-						left join $filament f on pc.Filaments_id = f.id";
+						left join $filament f on pc.Filaments_id = f.id
+					";
+
+				}
 			}
 		}
 
-//		$sql .= " left join $contactData cd on c.ContactData_id = cd.id
-//				left join $address a on cd.Address_id = a.id
-//
-//				left join $paymentData pd on c.paymentData_ID = pd.id
-//				left join $creditCard cc on pd.CreditCard_id = cc.id
-//				left join $paypal pp on pd.Paypal_id = pp.id
-//				left join $directDebit dd on pd.DirectDebit_id = dd.id
-//
-//				left join $orders o on c.id = o.Customer_id
-//				left join $printConfig pc on o.id = pc.Orders_id
-//				left join $printSettings ps on pc.PrintSettings_id = ps.id
-//				left join $models m on pc.Models_id = m.id
-//				left join $filament f on pc.Filaments_id = f.id";
-
 		try {
 
-			if (!empty($keys) && !empty($values)) {
+			if (isset($sql) && !empty($sql)) {
+				if (!empty($keys) && !empty($values)) {
 
-				$sql .= ' where ';
-				for ($index = 0; $index < count($keys); $index ++) {
-					$sql .= '`'.$keys[$index].'`' . ' = ' . '\''.$values[$index].'\'' . 'or';
+					$sql .= ' where ';
+					for ($index = 0; $index < count($keys); $index ++) {
+						$sql .= '`'.$keys[$index].'`' . ' = ' . '\''.$values[$index].'\'' . 'or';
+					}
+					$sql = trim($sql, 'or');
+					$sql .= ';';
+
 				}
-				$sql = trim($sql, 'or');
-				$sql .= ';';
+//				echo "<br>SQL: <br> $sql <br>";
 
+				$result = $db->query($sql)->fetchAll();
 			}
 
-			echo "SQL: <br> $sql <br><br>";
 
-			$result = $db->query($sql)->fetchAll();
 		}
 		catch (\PDOException $e) {
 			die('Select statement failed: ' . $e->getMessage());

@@ -9,11 +9,6 @@ $finishedOrders = isset($_SESSION['finishedOrders']) ? $_SESSION['finishedOrders
 
 
 ?>
-
-<div class="adminMenuBar">
-
-</div>
-
 <?php
 
 function headerRow() {
@@ -138,11 +133,7 @@ function presentOrders($orderList) {
 	<table id="ordersTabe">
 		<?php
 
-			presentOrders($openOrders);
-
-//			presentOrders($ordersInProcess);
-//
-//			presentOrders($doneOrders);
+			presentOrders($ordersInProcess);
 
 		?>
 

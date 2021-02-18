@@ -1,19 +1,17 @@
 <?php
-$openOrders = isset($_SESSION['openOrders']) ? $_SESSION['openOrders'] : [];
-$ordersInProcess = isset($_SESSION['ordersInProcess']) ? $_SESSION['ordersInProcess'] : [];
-$finishedOrders = isset($_SESSION['finishedOrders']) ? $_SESSION['finishedOrders'] : [];
+//$openOrders = isset($_SESSION['openOrders']) ? $_SESSION['openOrders'] : [];
+//$ordersInProcess = isset($_SESSION['ordersInProcess']) ? $_SESSION['ordersInProcess'] : [];
+//$finishedOrders = isset($_SESSION['finishedOrders']) ? $_SESSION['finishedOrders'] : [];
+//
+////echo '<br>openOrders: <br>'.json_encode($openOrders).'<br>';
+////echo '<br>ordersInProcess: <br>'.json_encode($ordersInProcess).'<br>';
+////echo '<br>doneOrders: <br>'.json_encode($doneOrders).'<br>';
 
-//echo '<br>openOrders: <br>'.json_encode($openOrders).'<br>';
-//echo '<br>ordersInProcess: <br>'.json_encode($ordersInProcess).'<br>';
-//echo '<br>doneOrders: <br>'.json_encode($doneOrders).'<br>';
+$selectedOrderList = isset($GLOBALS['selectedOrderList']) ? $GLOBALS['selectedOrderList'] : 'openOrders';
 
+$orders = isset($_SESSION[$selectedOrderList]) ? $_SESSION[$selectedOrderList] : [];
 
 ?>
-
-<div class="adminMenuBar">
-
-</div>
-
 <?php
 
 function headerRow() {
@@ -23,7 +21,7 @@ function headerRow() {
             <th>Datum</th>
             <th>Dateiname</th>
             <th>Preis</th>
-            <th>Auftrag Verarbeitet</th>
+            <th>Status</th>
             <th colspan=\"2\">Options</th>
 
         </tr>
@@ -32,7 +30,7 @@ function headerRow() {
 	return $output;
 }
 
-function orderRow($orderid, $date) {
+function orderHeadRow($orderid, $date) {
 	$output = "
         <tr>
             <td>$orderid</td>
@@ -49,7 +47,9 @@ function orderRow($orderid, $date) {
 	return $output;
 }
 
-function suborderRow($fileName, $price, $processed, $suborderId) {
+function orderRow($fileName, $price, $processed, $suborderId) {
+	$selectedOrderList = isset($GLOBALS['selectedOrderList']) ? $GLOBALS['selectedOrderList'] : 'openOrders';
+
 	$output = "
          <tr>
             <td></td>
@@ -59,7 +59,7 @@ function suborderRow($fileName, $price, $processed, $suborderId) {
             <td>$processed</td>
             
                 <td>
-                    <form action = 'index.php?c=user&a=cancellOrder' method = 'POST'>
+                     <form action='index.php?c=admin&a=adminOrders".DIRECTORY_SEPARATOR.$selectedOrderList." method = 'POST'>
                         <input type='hidden' name=\"orderId\" value=$suborderId>
                         <input type='submit' name=\"submit\" value='stornieren'>
                     </form>
@@ -132,19 +132,18 @@ function presentOrders($orderList) {
 	echo summRow($summe);
 }
 
+$table = $GLOBALS['ordersTable'];
+
 ?>
 
 <div class="adminContent overfolow">
-	<table id="ordersTabe">
-		<?php
+    <table id="ordersTabe">
+	    <?php
+	    //		presentOrders($orders);
 
-			presentOrders($openOrders);
+	    echo $table;
 
-//			presentOrders($ordersInProcess);
-//
-//			presentOrders($doneOrders);
+	    ?>
 
-		?>
-
-	</table>
+    </table>
 </div>

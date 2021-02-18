@@ -10,15 +10,11 @@ class Controller
 	protected $subAction   = null;
 
 
-	function __construct($controller, $action, $subactoin = '') {
+	function __construct($controller, $action, $subAction = null) {
 
-//		echo 'controller: ' . $controller;
-//		echo '<br>';
-//		echo 'action: ' . $action;
-//		echo '<br>';
-//		echo '<br>';
 
-		$this->subAction = $subactoin;
+
+		$this->subAction = $subAction;
 
 		if (!isset($_SESSION['uid'])) {
 			$uniqid = uniqid();
@@ -71,14 +67,15 @@ class Controller
 	}
 
 	function loggedIn() {
-		return (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true && isset($_SESSION['username']));
+//		return (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true && isset($_SESSION['customerName']));
+		return (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true);
 	}
 
 	function render() {
 //		if (isset($_POST['testing'])) {
 
             $loggedIn = isset($_SESSION['loggedIn']) ? $_SESSION['loggedIn'] : false;
-            $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+            $username = isset($_SESSION['customerName']) ? $_SESSION['customerName'] : '';
 
 
 //            echo 'controllerName: ' . $this->controller;
@@ -118,12 +115,14 @@ class Controller
 				switch ($this->controller) {
 					case 'main':
 
+						echo "<div class=\"mainGrid-container\">";
 
-						if ($this->action == 'admin') {
-							echo "<div class=\"admin-container\">";
-						} else {
-							echo "<div class=\"mainGrid-container\">";
-						}
+
+						break;
+					case 'admin':
+
+						echo "<div class=\"admin-container\">";
+						include_once (VIEWSPATH.'admin'.DIRECTORY_SEPARATOR.'adminMenuBar.php');
 
 						break;
 					case 'order':

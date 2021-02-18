@@ -47,7 +47,7 @@ INSERT INTO `ContactData` (`id`, `createdAt`, `updatedAt`, `Address_id`, `firstN
 (NULL, current_timestamp(), NULL, '6', 'Max', 'Mausoleum', '036151379521557738', 'max@lol.com', 'grüße', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
 (NULL, current_timestamp(), NULL, NULL, 'Annette', 'Schmitt', NULL, 'annette@print.com', 'der', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
 (NULL, current_timestamp(), NULL, NULL, 'Potz', 'Blitz', '0049365485445', 'potzblitz@print.com', 'backend', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '8', 'Andrew Lloyd', 'Webber', '313164975', 'starlightexpress@print.com', 'admin', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q');
+(NULL, current_timestamp(), NULL, '8', 'Andrew Lloyd', 'Webber', '313164975', 'starlightexpress@print.com', 'Starlight-Express', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q');
 
 COMMIT;
 
@@ -137,7 +137,7 @@ INSERT INTO `Employee` (`id`, `createdAt`, `updatedAt`, `admin`, `ContactData_id
 (NULL, current_timestamp(), NULL, '0', '12'),
 (NULL, current_timestamp(), NULL, '0', '13'),
 (NULL, current_timestamp(), NULL, '1', '14'),
-(NULL, current_timestamp(), NULL, '0', '15');
+(NULL, current_timestamp(), NULL, '1', '15');
 
 COMMIT;
 

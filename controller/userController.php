@@ -2,16 +2,17 @@
 
 namespace DDDDD\controller;
 
+use DDDDD\controller\functions\ChangePaymentData;
 use DDDDD\controller\functions\PaymentFunction;
+use DDDDD\controller\functions\Table;
 use DDDDD\core\Controller;
 
 use DDDDD\model\Address;
-use DDDDD\model\Bill;
 use DDDDD\model\ContactData;
 use DDDDD\model\CreditCard;
 use DDDDD\model\Customer;
 use DDDDD\model\DirectDebit;
-use DDDDD\model\Orders;
+use DDDDD\model\Order;
 use DDDDD\model\PaymentData;
 use DDDDD\model\Paypal;
 use DDDDD\model\PrintConfig;
@@ -20,75 +21,57 @@ use DDDDD\model\PrintConfig;
 class UserController extends Controller
 {
 
+
 	protected $errors = [];
 	protected $customerData = NULL;
 //	protected $preferedPaymentMethod = NULL;
 	protected $username = NULL;
 
+	public function __construct($controller, $action, $subAction = null)
+	{
+		parent::__construct($controller, $action, $subAction);
+		if (!isset($_SESSION['customerData'])) {
+			$this->loadCustomerData();
+		}
+
+	}
+
 	public function usermenu($subAction) {
-		$this->loadUserData();
+		$this->loadCustomerData();
 
 		if (isset($_POST['submit']) && isset($_POST['firstName'])) {
 
 			$this->changeUserData();
 		}
-		if (isset($_POST['submit']) && isset($_POST['street'])) {
+		if (isset($_POST['submitAddress']) && isset($_POST['street'])) {
 
 			$this->changeAddressData();
 		}
 	}
 
-
 	public function changePaymentData($subAction) {
-		$this->loadUserData();
-		$action = 'setDirectDebit';
+		$this->loadCustomerData();
 
-
-		if (!empty($subAction)) {
-			$action = $subAction;
-			$GLOBALS['selectedPaymentMethod'] = $subAction;
+		if (isset($_POST['preferedPaymentMethod'])) {
+			$preferedPaymentMthod = $_POST['preferedPaymentMethod'];
+		} else {
+			$preferedPaymentMthod = '';
 		}
 
+		$paymentData = new ChangePaymentData();
+		$paymentData->changePaymentData($subAction, $preferedPaymentMthod);
 
-		$paymentFunction = new PaymentFunction($action);
-//		$GLOBALS['selectedPaymentMethod'] = $action;
-
-		if (method_exists($paymentFunction, $action)) {
-
-			if (isset($_POST['submit'])) {
-
-
-				if (isset($_POST['preferedPaymentMethod'])) {
-
-					switch ($action) {
-						case 'setDirectDebit':
-							$preferedPaymentMethod = 'dd';
-							break;
-						case 'setCreditCard':
-							$preferedPaymentMethod = 'cc';
-							break;
-						case 'setBill':
-							$preferedPaymentMethod = 'bl';
-							break;
-						case 'setPayPal':
-							$preferedPaymentMethod = 'pp';
-							break;
-					}
-
-					$paymentData = new PaymentData(['id'=>$this->customerData['pdid'], 'preferedPaymentMethod'=>$preferedPaymentMethod]);
-
-					$paymentData->update($this->errors);
-				}
-
-			}
-		}
 	}
 
+	public function addressInput() {
+		$this->loadCustomerData();
+	}
 
-	protected function loadUserData() {
-		$this->username = $_SESSION['username'];
+	protected function loadCustomerData() {
 
-		if (!isset($_SESSION['customerData'])) {
+		if ($this->loggedIn()) {
+			$this->username = $_SESSION['username'];
+
 			$loadedData = Customer::findOnJoin(
 				'contactData',
 				[
@@ -112,7 +95,6 @@ class UserController extends Controller
 					'pd.id as pdid',
 					'pd.CreditCard_id as ccid',
 					'pd.DirectDebit_id as ddid',
-					'pd.Bill_id as blid',
 					'pd.Paypal_id as ppid'
 
 				],
@@ -121,45 +103,39 @@ class UserController extends Controller
 
 				[$this->username]);
 
+//		echo json_encode($_SESSION['customerData']);
 
-//			echo json_encode($loadedData[0]) . '<br><br>';
 			$_SESSION['customerData'] = $loadedData[0];
-		}
 
-		$preferedPaymentMethod = $_SESSION['customerData']['preferedPaymentMethod'];
+			$preferedPaymentMethod = $_SESSION['customerData']['preferedPaymentMethod'];
 
-		switch ($preferedPaymentMethod) {
-			case 'dd':
-				$actionName = 'setDirectDebit';
-				$displayedName = 'Lastschrift';
-				break;
-			case 'cc':
-				$actionName = 'setCreditCard';
-				$displayedName = 'Kreditkarte';
-				break;
-			case 'bl':
-				$actionName = 'setBill';
-				$displayedName = 'Rechnung';
-				break;
-			case 'pp':
-				$actionName = 'setPayPal';
-				$displayedName = 'PayPal';
-				break;
-			default:
-				$actionName = 'setDirectDebit';
-				$displayedName = 'Nicht hinterlegt';
-				break;
-		}
+			switch ($preferedPaymentMethod) {
+				case 'dd':
+					$actionName = 'setDirectDebit';
+					$displayedName = 'Lastschrift';
+					break;
+				case 'cc':
+					$actionName = 'setCreditCard';
+					$displayedName = 'Kreditkarte';
+					break;
+				case 'pp':
+					$actionName = 'setPayPal';
+					$displayedName = 'PayPal';
+					break;
+				default:
+					$actionName = 'setDirectDebit';
+					$displayedName = 'Nicht hinterlegt';
+					break;
+			}
 
-		$GLOBALS['preferedPaymentMethod'] = $displayedName;
-		$GLOBALS['selectedPaymentMethod'] = $actionName;
+			$GLOBALS['preferedPaymentMethod'] = $displayedName;
+			$GLOBALS['selectedPaymentMethod'] = $actionName;
 
 //		$GLOBALS['customerData'] = $loadedData[0];
 
+			$this->customerData = $_SESSION['customerData'];
+		}
 
-
-
-		$this->customerData = $_SESSION['customerData'];
 		return;
 
 	}
@@ -185,6 +161,7 @@ class UserController extends Controller
 	}
 
 	protected function changeAddressData() {
+		$this->loadCustomerData();
 		$contactDataId = $this->customerData['cdid'];
 
 		$addressDataId = $this->customerData['aid'];
@@ -196,7 +173,6 @@ class UserController extends Controller
 
 		$addressData = new Address(['id'=>$addressDataId, 'street'=>$street, 'number'=>$number, 'postalCode'=>$postalCode, 'city'=>$city, 'country'=>$country]);
 
-
 		$loadedData = $addressData->find(['id'], [$addressDataId]);
 
 		if (empty($loadedData)) {
@@ -205,35 +181,33 @@ class UserController extends Controller
 			$addressData->update($this->errors);
 		}
 
-		echo json_encode($this->errors);
+//		echo json_encode($this->errors);
 
 		$_SESSION['customerData']['street'] = $street;
 		$_SESSION['customerData']['number'] = $number;
 		$_SESSION['customerData']['postalCode'] = $postalCode;
 		$_SESSION['customerData']['city'] = $city;
 		$_SESSION['customerData']['country'] = $country;
+
+		if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+			$link = 'index.php?c=order&a=checkout';
+			header("Location: $link ");
+		}
 	}
 
 	public function changeUserPassword($subAction) {
-		$this->loadUserData();
-
-
+		$this->loadCustomerData();
 
 		if (isset($_POST['submit'])) {
 
-
-
 			$newPassword = isset($_POST['newPasswort']) ? $_POST['newPasswort'] : '';
 			$newPasswortVerified = isset($_POST['newPasswortVerified']) ? $_POST['newPasswortVerified'] : '';
-
 
 			if ($newPassword === $newPasswortVerified) {
 
 				$contactData = new ContactData();
 				$currentPassword = $_POST['currentPassword'];
 				$passwordData = $contactData->find(['username'], [$this->customerData['username']]);
-
-
 
 				if (!empty($passwordData) && password_verify($currentPassword, $passwordData[0]["password"])) {
 
@@ -271,48 +245,102 @@ class UserController extends Controller
 
 	public function orders($subAction)
 	{
-		$this->loadUserData();
+		if (isset($_POST['submitDelete'])) {
+//			echo "Delete ?";
+			$this->cancellOrder();
+		}
+
+		$this->loadTable();
+	}
+
+	protected function loadTable() {
+		$this->loadCustomerData();
 		$GLOBALS['orders'] = $this->loadOrders();
 
-//		echo 'orders: <br>' . json_encode($_SESSION['orders']) . '<br><br>';
+		$orders = $this->loadOrders();
+
+//		echo json_encode($orders) . '<br><br>';
+
+		$header = [
+			'oid' => 'Bestellnummer',
+			'createdAt' => 'Bestelldatum',
+			'fileName' => 'Dateiname',
+			'modelPrice' => 'Preis',
+			'processed' => 'Status'
+		];
+
+		$subHeader = [
+			'oid' => 'Bestellnummer',
+			'createdAt' => 'Bestelldatum',
+			'fileName' => '',
+			'modelPrice' => '',
+			'processed' => ''
+		];
+
+		$dataRow = [
+			'oid' => '',
+			'createdAt' => '',
+			'fileName' => 'Dateiname',
+			'modelPrice' => 'Preis',
+			'processed' => 'Status'
+
+		];
+
+		$footer = [
+			'Summe',
+			'',
+			'',
+			'sum',
+			''
+		];
+
+		$table = new Table($orders, $header, $subHeader, $dataRow, $footer);
+
+		$GLOBALS['ordersTable'] = $table->render();
 	}
 
 	protected function loadOrders()
 	{
-		$username = $_SESSION['username'];
+		if ($this->loggedIn()) {
+			$username = $_SESSION['username'];
 
-		$orders = Orders::findOnJoin(
-			'orders',
-			['o.id as oid',
-			'm.modelPrice',
-			'm.fileName',
+			$orders = Order::findOnJoin(
+				'orders',
+				[   'o.id as oid',
+					'm.modelPrice',
+					'm.fileName',
 
-			'o.createdAt',
-			'o.processed',
-			'o.payed',
-
-
-			'pc.id as pcid',
-			'pc.amount',
-			'pc.printTime',
-
-			'ps.infill',
-			'ps.description',
-
-			'f.color',
-			'f.type',
-			'o.cancelled'
-			],
-
-			['username'],
-
-			[$username]); // Hier $username einfügen
+					'o.createdAt',
+					'o.processed',
+					'o.payed',
 
 
-		return $orders;
+					'pc.id as pcid',
+					'pc.amount',
+					'pc.printTime',
+
+					'ps.infill',
+					'ps.description',
+
+					'f.color',
+					'f.type',
+					'o.cancelled'
+				],
+
+				['username'],
+
+				[$username]); // Hier $username einfügen
+
+
+			return $orders;
+		} else {
+			return [];
+		}
+
+
 	}
 
-	public function cancellOrder($subAction)
+	public function cancellOrder()
 	{
 
 		$errors = NULL;
@@ -325,7 +353,7 @@ class UserController extends Controller
 
 //		echo json_encode($orderToCancell);
 
-		$id = isset($_POST['orderId']) ? $_POST['orderId'] : NULL;
+		$printConfigId = isset($_POST['printConfigId']) ? $_POST['printConfigId'] : NULL;
 
 //		echo "<br><br>id: $id <br><br>";
 
@@ -333,7 +361,7 @@ class UserController extends Controller
 
 
 			$printConfig = new PrintConfig([
-				'id'=>$id
+				'id'=>$printConfigId
 			]);
 
 			if ($printConfig->delete($errors)) {
@@ -360,18 +388,22 @@ class UserController extends Controller
 
 	protected function getSelectedOrder() {
 
-		$orders = $this->loadOrders('pc');
+		$orders = $this->loadOrders();
 		$value = [];
 
-		$id = isset($_POST['orderId']) ? $_POST['orderId'] : NULL;
+//		echo json_encode($orders);
+
+		$id = isset($_POST['orderId']) ? $_POST['orderId'] : null;
+
+//		echo json_encode($id);
+
+
 
 		foreach ($orders as $order) {
-			if ($order['id'] == $id) {
+			if ($order['oid'] == $id) {
 				$value = $order;
 			}
 		}
-
-//		echo json_encode($value);
 
 		return $value;
 	}

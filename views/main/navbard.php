@@ -3,6 +3,19 @@
         <img src="<?=IMAGESPATH.'Logo.png'?>">
     </a>
 
+	<?php
+	if (isset($_SESSION['admin'])) {
+		$link = 'index.php?c=admin&a=adminOrders';
+		$label = 'Admin';
+	} else if (isset($_SESSION['loggedIn'])) {
+		$link = 'index.php?c=user&a=usermenu';
+		$label = 'Kundenkonto';
+	} else {
+		$link = 'index.php?c=main&a=login';
+		$label = 'Login';
+	}
+	?>
+
     <div class="items">
         <a  href="index.php" class="item">Home</a>
         <a  href="index.php?c=order&a=configurator" class="item">Konfigurator</a>
@@ -17,8 +30,8 @@
 <!--    <a href="index.php?c=main&a=login" class="item login">Login</a>-->
 
     <?php
-        if (isset($_SESSION['loggedIn']) && ($_SESSION['username'] == 'admin')) {
-            $link = 'index.php?c=main&a=admin';
+        if (isset($_SESSION['admin'])) {
+            $link = 'index.php?c=admin&a=adminOrders';
             $label = 'Admin';
         } else if (isset($_SESSION['loggedIn'])) {
 	        $link = 'index.php?c=user&a=usermenu';
@@ -28,7 +41,6 @@
 	        $label = 'Login';
         }
     ?>
-
 
     <a href=<?= $link ?> class="item register"><?= $label ?></a>
 </nav>
