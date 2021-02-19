@@ -64,7 +64,7 @@
     <link rel="stylesheet" href="<?=ROOTPATH.'css/miscStyles.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/topBottom.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/LogReg.css'?>">
-    <link rel="stylesheet" href="<?=ROOTPATH.'css/configurator.css'?>">
+<!--    <link rel="stylesheet" href="--><?//=ROOTPATH.'css/configurator.css'?><!--">-->
     <link rel="stylesheet" href="<?=ROOTPATH.'css/slide.css'?>">
 
     <link rel="stylesheet" href="<?=ROOTPATH.'css/textBoxes.css'?>">

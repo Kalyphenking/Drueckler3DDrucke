@@ -1,12 +1,12 @@
-fileName: uploads/Kalyphenking/glb/cableChain_40MountTop_v2-93.glb
+fileName: uploads/temp/602fa4b35ef9d/glb/170-210_PLA_Temp_Tower-53.glb
 
-modelName: cableChain_40MountTop_v2
+modelName: 170-210_PLA_Temp_Tower
 
-glbDirectory: uploads/Kalyphenking/glb
+glbDirectory: uploads/temp/602fa4b35ef9d/glb
 
-baseName: TopfdeckelTeil
+baseName: 
 
-deleteName: TopfdeckelTeil-57.glb
+deleteName: ..
 
 saved
 

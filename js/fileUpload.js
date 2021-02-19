@@ -51,7 +51,7 @@ async function displayModel(filePath = "", elementId = undefined) {
     const viewer = document.getElementById(elementId);
 
     if (viewer) {
-        var delayInMilliseconds = 100;
+        var delayInMilliseconds = 500;
 
         setTimeout(function() {
             viewer.src = filePath;
