@@ -96,7 +96,7 @@ class OrderController extends Controller
 					//TODO success message
 //					$this->processModel();
 				} else {
-					echo 'Moglicherweise shit\n';
+					echo 'Moglicherweise shit Mist';
 				}
 
 			} else {

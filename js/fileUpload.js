@@ -125,8 +125,13 @@ async function startConversion(usersPath, fileName, rgba) {
         blob.lastModifiedDate = new Date();
         blob.name = fileName+".stl";
 
+        var delayInMilliseconds = 200;
 
-        prepareGLB(blob)
+        setTimeout(function() {
+            prepareGLB(blob);
+        }, delayInMilliseconds);
+
+
     });
 }
 
