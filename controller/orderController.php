@@ -91,7 +91,7 @@ class OrderController extends Controller
 
 				if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $stlFile)) {
 
-					echo "<script>startConversion('$uploadsDir', '$modelName', '150,150,150,1')</script>";
+					echo "<script>startConversion(\"$uploadsDir\", \"$modelName\", \"150,150,150,1\")</script>";
 
 					//TODO success message
 //					$this->processModel();
