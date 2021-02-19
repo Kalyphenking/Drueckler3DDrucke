@@ -22,7 +22,7 @@
 
 	?>
 
-    <form action=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setPayPal"?> method = 'POST'>
+    <form action=<?="index.php?c=user&a=changePaymentData" . '/' . "setPayPal"?> method = 'POST'>
         Emailadresse:
         <br>
             <input type="email" name="emailAddress">

@@ -12,7 +12,7 @@ if (isset($_FILES['file']) && !empty($_FILES['file']))
 
 		$glbDirectory = substr($fileName, 0, strpos($fileName, 'glb')+3);
 
-		$files = scandir('..'.DIRECTORY_SEPARATOR.$glbDirectory, SCANDIR_SORT_NONE);
+		$files = scandir('..'.'/'.$glbDirectory, SCANDIR_SORT_NONE);
 
 		$modelName = substr($fileName, strlen($glbDirectory) + 1);
 
@@ -26,11 +26,11 @@ if (isset($_FILES['file']) && !empty($_FILES['file']))
 
 			if (($extensiont == 'glb') && ($modelName === $baseName)) {
 
-				unlink('..'.DIRECTORY_SEPARATOR.$glbDirectory.DIRECTORY_SEPARATOR.$deleteName);
+				unlink('..'.'/'.$glbDirectory.'/'.$deleteName);
 			}
 		}
 
-		if (move_uploaded_file($_FILES['file']['tmp_name'], '..'.DIRECTORY_SEPARATOR.$fileName)) {
+		if (move_uploaded_file($_FILES['file']['tmp_name'], '..'.'/'.$fileName)) {
 
 		} else {
 			echo 'Moglicherweise shit\n';

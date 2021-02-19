@@ -30,7 +30,7 @@
 
 	?>
 
-    <form action=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setCreditCard"?> method = 'POST'>
+    <form action=<?="index.php?c=user&a=changePaymentData" . '/' . "setCreditCard"?> method = 'POST'>
         Kartentyp:
         <br>
             <input type="text" name="type" >

@@ -26,7 +26,7 @@
 
 	?>
 
-    <form action=<?="index.php?c=user&a=changePaymentData" . DIRECTORY_SEPARATOR . "setDirectDebit"?> method = 'POST'>
+    <form action=<?="index.php?c=user&a=changePaymentData" . '/' . "setDirectDebit"?> method = 'POST'>
         Iban:
         <br>
             <input type="text" name="iban" >

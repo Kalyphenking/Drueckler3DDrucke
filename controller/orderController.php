@@ -74,14 +74,14 @@ class OrderController extends Controller
 				} else {
 					$uploadsDir = UPLOADSPATH.'temp'.'/';
 					$this->makeDirectory($uploadsDir);
-					$uploadsDir .= $_SESSION['uid'] . '/';
+					$uploadsDir .= $_SESSION['uid'] . ''/'';
 				}
 
 				$fileName = $modelName . '.stl';
 
 				$_SESSION['userDirectory'] = $uploadsDir;
-				$stlDir = $uploadsDir.'stl'.DIRECTORY_SEPARATOR;
-				$glbDir = $uploadsDir.'glb'.DIRECTORY_SEPARATOR;
+				$stlDir = $uploadsDir.'stl'.'/';
+				$glbDir = $uploadsDir.'glb'.'/';
 
 				$this->makeDirectory($uploadsDir);
 				$this->makeDirectory($stlDir);
@@ -120,7 +120,7 @@ class OrderController extends Controller
 				$found = strpos($file, $_SESSION['modelName']);
 				if ($found !== false) {
 					$newest_file = $file;
-					$fileName = $directory . DIRECTORY_SEPARATOR . $newest_file;
+					$fileName = $directory . '/' . $newest_file;
 				}
 			}
 
@@ -155,7 +155,7 @@ class OrderController extends Controller
 
 //			echo $modelName;
 
-			$file = $userDirectory.'stl'.DIRECTORY_SEPARATOR.$modelName.'-00.stl';
+			$file = $userDirectory.'stl'.'/'.$modelName.'-00.stl';
 
 			$fileSize = filesize($file);
 
@@ -363,7 +363,7 @@ class OrderController extends Controller
 //					echo '<br>';
 //					echo $item[6];
 //					echo '<br>';
-//					$newDirectory = '..'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.$userData['username'].DIRECTORY_SEPARATOR.'stl'
+//					$newDirectory = '..'.'/'.'uploads'.'/'.$userData['username'].'/'.'stl'
 //
 //					move_uploaded_file($item[6], $item[0]);
 //				}

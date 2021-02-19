@@ -100,7 +100,7 @@ class Controller
 //            echo '<br>';
 //        }
 
-		$view = VIEWSPATH . $this->controller . DIRECTORY_SEPARATOR . $this->action . '.php';
+		$view = VIEWSPATH . $this->controller . '/' . $this->action . '.php';
 
 //		echo "view: $view <br>";
 
@@ -110,7 +110,7 @@ class Controller
 
 			if ($this->action != 'login' && $this->action != 'register') {
 
-				include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
+				include_once(VIEWSPATH . 'main' . '/' . 'navbard.php');
 
 				switch ($this->controller) {
 					case 'main':
@@ -122,7 +122,7 @@ class Controller
 					case 'admin':
 
 						echo "<div class=\"admin-container\">";
-						include_once (VIEWSPATH.'admin'.DIRECTORY_SEPARATOR.'adminMenuBar.php');
+						include_once (VIEWSPATH.'admin'.'/'.'adminMenuBar.php');
 
 						break;
 					case 'order':
@@ -134,13 +134,13 @@ class Controller
 						} else {
 							echo "<div class=\"orderGrid-container\">";
 						}
-						include_once (VIEWSPATH.'order'.DIRECTORY_SEPARATOR.'orderProgressBar.php');
+						include_once (VIEWSPATH.'order'.'/'.'orderProgressBar.php');
 
 
 						break;
 					case 'user':
 						echo "<div class=\"userGrid-container\">";
-						include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
+						include_once (VIEWSPATH.'user'.'/'.'userMenuBar.php');
 
 						break;
 				}
@@ -151,7 +151,7 @@ class Controller
 
 				echo "</div>";
 			} else {
-				include_once(VIEWSPATH . 'main' . DIRECTORY_SEPARATOR . 'navbard.php');
+				include_once(VIEWSPATH . 'main' . '/' . 'navbard.php');
 				include $view;
 			}
 			echo '</div>';
