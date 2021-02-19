@@ -70,11 +70,11 @@ class OrderController extends Controller
 
 				if ($this->loggedIn())
 				{
-					$uploadsDir = UPLOADSPATH.$_SESSION['username'].DIRECTORY_SEPARATOR;
+					$uploadsDir = UPLOADSPATH.$_SESSION['username'].'/';
 				} else {
-					$uploadsDir = UPLOADSPATH.'temp'.DIRECTORY_SEPARATOR;
+					$uploadsDir = UPLOADSPATH.'temp'.'/';
 					$this->makeDirectory($uploadsDir);
-					$uploadsDir .= $_SESSION['uid'] . DIRECTORY_SEPARATOR;
+					$uploadsDir .= $_SESSION['uid'] . '/';
 				}
 
 				$fileName = $modelName . '.stl';
@@ -91,7 +91,7 @@ class OrderController extends Controller
 
 				if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $stlFile)) {
 
-					echo "<script>startConversion($uploadsDir, '$modelName', '150,150,150,1')</script>";
+					echo "<script>startConversion(\"$uploadsDir\", \"$modelName\", \"150,150,150,1\")</script>";
 
 					//TODO success message
 //					$this->processModel();
