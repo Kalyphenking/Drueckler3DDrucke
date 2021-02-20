@@ -289,7 +289,13 @@ class OrderController extends Controller
 				array_splice($shoppingCart, $key, 1);
 			}
 		}
-		$_SESSION['shoppingCart'] = $shoppingCart;
+		if (empty($shoppingCart)) {
+			unset($_SESSION['shoppingCart']);
+		} else {
+			$_SESSION['shoppingCart'] = $shoppingCart;
+		}
+
+
 	}
 //C 3.6
 	//manages shoppinCart
@@ -308,7 +314,7 @@ class OrderController extends Controller
 
 	public function checkout($subaction) {
 
-		echo json_encode($_SESSION['makeOrder']) . '<br>';
+
 		$_SESSION['makeOrder'] = true;
 
 		if (!$this->loggedIn()) {

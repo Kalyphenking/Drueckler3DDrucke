@@ -7,7 +7,7 @@
 ////echo '<br>ordersInProcess: <br>'.json_encode($ordersInProcess).'<br>';
 ////echo '<br>doneOrders: <br>'.json_encode($doneOrders).'<br>';
 
-$selectedOrderList = isset($GLOBALS['selectedOrderList']) ? $GLOBALS['selectedOrderList'] : 'openOrders';
+$selectedOrderList = isset($GLOBALS['selectedOrderList']) && isset($_SESSION['admin']) ? $GLOBALS['selectedOrderList'] : 'openOrders';
 
 $orders = isset($_SESSION[$selectedOrderList]) ? $_SESSION[$selectedOrderList] : [];
 
@@ -40,7 +40,7 @@ foreach ($orders as $data) {
     <a href="index.php?c=management&a=manageOrders/finishedOrders" class=""">Abgeschlossene Bestellungen</a>
 </div>
 
-<div class="managementContent overfolow">
+<div class="managementContent overflow">
     <table id="ordersTabe">
 	    <?php
 	    //		presentOrders($orders);

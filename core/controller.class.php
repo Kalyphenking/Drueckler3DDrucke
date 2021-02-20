@@ -106,54 +106,53 @@ class Controller
 
 		if (file_exists($view)) {
 
-			echo '<div id="höhe">';
+			echo '<div class="parent-container">';
 
-			if ($this->action != 'login' && $this->action != 'register') {
+			include_once(VIEWSPATH . 'main' . '/' . 'navbard.php');
 
-				include_once(VIEWSPATH . 'main' . '/' . 'navbard.php');
+			echo '<div class="content"  id="höhe">';
 
-				switch ($this->controller) {
-					case 'main':
+			switch ($this->controller) {
+				case 'main':
 
-						echo "<div class=\"mainGrid-container\">";
-
-
-						break;
-					case 'management':
-
-						echo "<div class=\"management-container\">";
-						include_once (VIEWSPATH.'management'.'/'.'managementMenuBar.php');
-
-						break;
-					case 'order':
-
-						if ($this->action == 'shoppingCart') {
-							echo "<div class=\"shoppingCart-container\">";
-						} else if($this->action == 'checkout') {
-							echo "<div class=\"checkoutGrid-container\">";
-						} else {
-							echo "<div class=\"orderGrid-container\">";
-						}
-						include_once (VIEWSPATH.'order'.'/'.'orderProgressBar.php');
+					echo "<div class=\"mainGrid-container\">";
 
 
-						break;
-					case 'user':
-						echo "<div class=\"userGrid-container\">";
-						include_once (VIEWSPATH.'user'.'/'.'userMenuBar.php');
+					break;
+				case 'management':
 
-						break;
-				}
+					echo "<div class=\"management-container\">";
+					include_once (VIEWSPATH.'management'.'/'.'managementMenuBar.php');
 
-				include $view;
+					break;
+				case 'order':
 
-				echo "<script>javaScriptEnabled()</script>";
+					if ($this->action == 'shoppingCart') {
+						echo "<div class=\"shoppingCart-container\">";
+					} else if($this->action == 'checkout') {
+						echo "<div class=\"checkoutGrid-container\">";
+					} else {
+						echo "<div class=\"orderGrid-container\">";
+					}
+//						include_once (VIEWSPATH.'order'.'/'.'orderProgressBar.php');
 
-				echo "</div>";
-			} else {
-				include_once(VIEWSPATH . 'main' . '/' . 'navbard.php');
-				include $view;
+
+					break;
+				case 'user':
+					echo "<div class=\"userGrid-container\">";
+					include_once (VIEWSPATH.'user'.'/'.'userMenuBar.php');
+
+					break;
 			}
+
+			include $view;
+
+			echo "<script>javaScriptEnabled()</script>";
+
+			echo "</div>";
+			echo "</div>";
+
+			include_once(VIEWSPATH . 'main/infoBar.php');
 			echo '</div>';
 
 		} else {

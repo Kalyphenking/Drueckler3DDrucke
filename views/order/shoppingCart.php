@@ -13,12 +13,15 @@ $shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [
 <!--</div>-->
 <!--<form action="index.php?c=order&a=shoppingCart" method="POST" enctype="multipart/form-data">-->
     <div class="orderContent">
-        <h1>Warenkorb</h1>
-        <form action="index.php?c=order&a=shoppingCart" method="POST" enctype="multipart/form-data">
-        <table>
-
             <?php
                 if (!empty($shoppingCart)) {
+
+                    echo '
+                        <h1>Warenkorb</h1>
+                        <form action="index.php?c=order&a=shoppingCart" method="POST" enctype="multipart/form-data">
+                        <table>
+                    ';
+
                     foreach ($shoppingCart as $key => $item) {
                         $fileName = $item[6];
 
@@ -69,14 +72,22 @@ $shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [
                         echo'</tr>';
 
                         echo '<script>displayModel("'.$fileName.'", "modelViewer-'.$key.'")</script>';
+
+                        echo '
+                            </table>
+                            <input type="submit" name="submitDelete" value="Auswahl löschen">
+                            <input type="submit" name="submit" value="Weiter">
+                        ';
+
                     }
+                } else {
+	                echo '
+                        <h1>Warenkorb leer</h1>
+                        ';
                 }
             ?>
 
-        </table>
 
-        <input type="submit" name="submitDelete" value="Auswahl löschen">
-        <input type="submit" name="submit" value="Weiter">
         </form>
 
     </div>

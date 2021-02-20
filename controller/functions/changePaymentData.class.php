@@ -50,5 +50,10 @@ class ChangePaymentData
 
 //			}
 		}
+
+		if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+			$link = 'index.php?c=order&a=checkout';
+			header("Location: $link ");
+		}
 	}
 }

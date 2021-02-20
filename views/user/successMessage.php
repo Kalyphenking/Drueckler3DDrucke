@@ -2,6 +2,6 @@
 
 
 <div>
-	<p>Success</p>
+	<p>Erfolgreich</p>
 
 </div>

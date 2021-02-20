@@ -31,23 +31,23 @@ START TRANSACTION;
 
 INSERT INTO `ContactData` (`id`, `createdAt`, `updatedAt`, `Address_id`, `firstName`, `lastName`, `phoneNumber`, `emailAddress`, `username`, `password`) VALUES 
 -- Customer
-(NULL, current_timestamp(), NULL, '1', 'Peter', 'Hase', '03615557738', 'peterhase@lol.com', 'ich', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '2', 'Rainer', 'Zufall', NULL, 'rainerzufall@gmail.com', 'habe', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '3', 'Tom', 'Hanks', '18949948198', 'tomtom@web.com', 'keine', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '5', 'Ronald', 'McDonald', '8948468949', 'notburgerking@t-online.de', 'ideen', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '7', 'Hans', 'Zimmer', NULL, 'räumdeinzimmerauf@keyweb.de', 'mehr', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '9', 'Kevina', 'Lleinzuhaus', '84984118991', 'kevinsmom@de.com', 'für', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '10', 'Oliver Mathias', 'Jensen', '228884984/9', 'joollinololli@lol.eu', 'test', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '11', 'Ronalda', 'Schmidt', '419890070', 'schmidtschmitt@gmail.com', 'einträge', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '12', 'Petra', 'Krause', NULL, 'halskrause@lol.com', 'butterkuchen', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '13', 'Ariell', 'Diemeerjungfrau', '48915484815156', 'Diemeerjungfrau@gmail.com', 'liebe', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '1', 'Peter', 'Hase', '03615557738', 'peterhase@lol.com', 'Customer1', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '2', 'Rainer', 'Zufall', NULL, 'rainerzufall@gmail.com', 'Customer2', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '3', 'Tom', 'Hanks', '18949948198', 'tomtom@web.com', 'Customer3', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '5', 'Ronald', 'McDonald', '8948468949', 'notburgerking@t-online.de', 'Customer4', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '7', 'Hans', 'Zimmer', NULL, 'räumdeinzimmerauf@keyweb.de', 'Customer5', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '9', 'Kevina', 'Lleinzuhaus', '84984118991', 'kevinsmom@de.com', 'Customer6', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '10', 'Oliver Mathias', 'Jensen', '228884984/9', 'joollinololli@lol.eu', 'Customer7', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '11', 'Ronalda', 'Schmidt', '419890070', 'schmidtschmitt@gmail.com', 'Customer8', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '12', 'Petra', 'Krause', NULL, 'halskrause@lol.com', 'Customer9', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '13', 'Ariell', 'Diemeerjungfrau', '48915484815156', 'Diemeerjungfrau@gmail.com', 'Customer10', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
 
 -- Employee
-(NULL, current_timestamp(), NULL, NULL, 'Hans', 'Müller', NULL, 'haensel@web.de', 'hans123', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '6', 'Max', 'Mausoleum', '036151379521557738', 'max@lol.com', 'grüße', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, NULL, 'Annette', 'Schmitt', NULL, 'annette@print.com', 'der', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, NULL, 'Potz', 'Blitz', '0049365485445', 'potzblitz@print.com', 'backend', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
-(NULL, current_timestamp(), NULL, '8', 'Andrew Lloyd', 'Webber', '313164975', 'starlightexpress@print.com', 'Starlight-Express', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q');
+(NULL, current_timestamp(), NULL, NULL, 'Hans', 'Müller', NULL, 'haensel@web.de', 'Employee1', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '6', 'Max', 'Mausoleum', '036151379521557738', 'max@lol.com', 'Employee2', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, NULL, 'Annette', 'Schmitt', NULL, 'annette@print.com', 'Employee3', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, NULL, 'Potz', 'Blitz', '0049365485445', 'potzblitz@print.com', 'Employee4', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q'),
+(NULL, current_timestamp(), NULL, '8', 'Andrew Lloyd', 'Webber', '313164975', 'starlightexpress@print.com', 'Employee5', '$2y$12$yC6BfDpJi9wJ4WZ/OVIEmuEcCjPDZ5UKOnq1Zq0cDo0BvRn8rtZ6q');
 
 COMMIT;
 
@@ -136,8 +136,8 @@ INSERT INTO `Employee` (`id`, `createdAt`, `updatedAt`, `admin`, `ContactData_id
 (NULL, current_timestamp(), NULL, '1', '11'),
 (NULL, current_timestamp(), NULL, '0', '12'),
 (NULL, current_timestamp(), NULL, '0', '13'),
-(NULL, current_timestamp(), NULL, '1', '14'),
-(NULL, current_timestamp(), NULL, '1', '15');
+(NULL, current_timestamp(), NULL, '0', '14'),
+(NULL, current_timestamp(), NULL, '0', '15');
 
 COMMIT;
 

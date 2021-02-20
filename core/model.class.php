@@ -190,6 +190,7 @@ class Model
 
 	//cheks objectdata
 	public function validate(&$errors) {
+		$errors = [];
 		foreach ($this->shema as $key => $shemaOptions) {
 			if(isset($this->data[$key]) && is_array($shemaOptions)) {
 				$valueErrors = $this->validateValue($key, $this->data[$key], $shemaOptions);
