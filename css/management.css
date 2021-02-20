@@ -1,0 +1,32 @@
+
+.managementMenuBar { grid-area: menu; }
+.managementContent { grid-area: main; }
+.orderBar { grid-area: bar; }
+/*.item4 { grid-area: right; }*/
+/*.item5 { grid-area: footer; }*/
+
+.management-container {
+    display: grid;
+    grid-template-areas:
+    'menu bar bar bar bar bar bar bar bar bar'
+    'menu main main main main main main main main main'
+    'menu main main main main main main main main main';
+    grid-gap: 10px;
+    background-color: #eac424;
+    padding: 10px;
+}
+
+.management-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    /*text-align: center;*/
+    /*padding: 20px 0;*/
+    /*font-size: 30px;*/
+}
+
+.overfolow {
+    padding: 15px;
+    width: 90%;
+    height: 700px;
+    overflow: scroll;
+    border: 1px solid #ccc;
+}

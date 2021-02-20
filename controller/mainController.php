@@ -7,7 +7,7 @@ use DDDDD\model\ContactData;
 use DDDDD\model\Employee;
 use DDDDD\model\Order;
 
-//manages admin related functions
+//manages management related functions
 
 class MainController extends Controller
 {
@@ -17,7 +17,7 @@ class MainController extends Controller
 //		unset($_SESSION['username']);
 //		unset($_SESSION['employeeName']);
 //		unset($_SESSION['customerName']);
-//		unset($_SESSION['admin']);
+//		unset($_SESSION['management']);
 		session_destroy();
 
 		echo'<h1>logout</h1>';
@@ -26,7 +26,7 @@ class MainController extends Controller
 		$previousAction = isset($_SESSION['previousAction']) && $_SESSION['previousAction'] != $this->action ? $_SESSION['previousAction'] : 'main';
 
 
-		if (($previousController == 'user') || ($previousController == 'admin')) {
+		if (($previousController == 'user') || ($previousController == 'management')) {
 			$link = 'index.php?c=main&a=main';
 		} else {
 			$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
@@ -52,6 +52,8 @@ class MainController extends Controller
 
 					$data = ContactData::find(['username'],[$username]);
 
+//					echo json_encode($_POST['password']);
+
 					if (!empty($data) && password_verify($password, $data[0]["password"])) {
 
 						$employee = Employee::find(['ContactData_id'], [$data[0]['id']]);
@@ -59,10 +61,10 @@ class MainController extends Controller
 						if (!empty($employee)) {
 							if ($employee[0]['admin'] == true) {
 
-
 								$_SESSION['admin'] = true;
+							} else {
+								$_SESSION['employee'] = true;
 							}
-							$_SESSION['employeeName'] = $username;
 						} else {
 							$_SESSION['customerName'] = $username;
 						}

@@ -5,9 +5,12 @@
 
 	<?php
 	if (isset($_SESSION['admin'])) {
-		$link = 'index.php?c=admin&a=adminOrders';
+		$link = 'index.php?c=management&a=manageOrders';
 		$label = 'Admin';
-	} else if (isset($_SESSION['loggedIn'])) {
+	} else if (isset($_SESSION['employee'])) {
+		$link = 'index.php?c=management&a=manageOrders';
+		$label = 'Mitarbeiter';
+    } else if (isset($_SESSION['customerName'])) {
 		$link = 'index.php?c=user&a=usermenu';
 		$label = 'Kundenkonto';
 	} else {
@@ -29,18 +32,7 @@
 <!--    <a href="index.php?c=main&a=logout" class="item login">Logout</a>-->
 <!--    <a href="index.php?c=main&a=login" class="item login">Login</a>-->
 
-    <?php
-        if (isset($_SESSION['admin'])) {
-            $link = 'index.php?c=admin&a=adminOrders';
-            $label = 'Admin';
-        } else if (isset($_SESSION['loggedIn'])) {
-	        $link = 'index.php?c=user&a=usermenu';
-	        $label = 'Kundenkonto';
-        } else {
-	        $link = 'index.php?c=main&a=login';
-	        $label = 'Login';
-        }
-    ?>
+
 
     <a href=<?= $link ?> class="item register"><?= $label ?></a>
 </nav>

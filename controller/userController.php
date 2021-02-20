@@ -259,14 +259,12 @@ class UserController extends Controller
 
 		$orders = $this->loadOrders();
 
-//		echo json_encode($orders) . '<br><br>';
-
 		$header = [
 			'oid' => 'Bestellnummer',
 			'createdAt' => 'Bestelldatum',
 			'fileName' => 'Dateiname',
 			'modelPrice' => 'Preis',
-			'processed' => 'Status'
+			'status' => 'Status'
 		];
 
 		$subHeader = [
@@ -274,7 +272,7 @@ class UserController extends Controller
 			'createdAt' => 'Bestelldatum',
 			'fileName' => '',
 			'modelPrice' => '',
-			'processed' => ''
+			'status' => ''
 		];
 
 		$dataRow = [
@@ -282,7 +280,7 @@ class UserController extends Controller
 			'createdAt' => '',
 			'fileName' => 'Dateiname',
 			'modelPrice' => 'Preis',
-			'processed' => 'Status'
+			'status' => 'Status'
 
 		];
 
@@ -294,7 +292,15 @@ class UserController extends Controller
 			''
 		];
 
-		$table = new Table($orders, $header, $subHeader, $dataRow, $footer);
+		$input = [
+			'action' => 'index.php?c=user&a=cancellOrder',
+			'inputs' => [
+				'<input type="submit" name="submitDelete" value="stornieren">'
+			],
+			'inSubHeader' => false
+		];
+
+		$table = new Table($orders, $header, $subHeader, $dataRow, $footer, $input);
 
 		$GLOBALS['ordersTable'] = $table->render();
 	}
@@ -313,6 +319,7 @@ class UserController extends Controller
 					'o.createdAt',
 					'o.processed',
 					'o.payed',
+					'o.Employee_id',
 
 
 					'pc.id as pcid',
@@ -330,6 +337,25 @@ class UserController extends Controller
 				['username'],
 
 				[$username]); // Hier $username einfügen
+
+			foreach ($orders as $key => $order) {
+				if (!empty($order['oid'])) {
+//				echo json_encode($order) .  '<br>';
+//				echo json_encode($order['Employee_id']). '<br>';
+
+					if ($order['processed'] == true) {
+//						$doneOrders[] = $order;
+						$orders[$key]['status'] = 'verarbeitet und versand';
+					} else if (!empty($order['Employee_id'])) {
+//						$ordersInProcess[] = $order;
+						$orders[$key]['status'] = 'in Arbeit';
+					} else {
+//						$openOrders[] = $order;
+						$orders[$key]['status'] = 'noch nicht in Arbeit';
+					}
+
+				}
+			}
 
 
 			return $orders;
@@ -364,9 +390,20 @@ class UserController extends Controller
 				'id'=>$printConfigId
 			]);
 
-			if ($printConfig->delete($errors)) {
+			if ($printConfig->delete($this->errors)) {
 				$GLOBALS['success'] = true;
-			};
+			}
+
+			$remainingOrders = $this->loadOrders();
+
+			foreach ($remainingOrders as $remainingOrder) {
+				if (empty($remainingOrder['pcid'])) {
+					$delteOrder = new Order(['id' => $remainingOrder['oid']]);
+					$delteOrder->delete($this->errors);
+					unset($delteOrder);
+
+				}
+			}
 
 
 

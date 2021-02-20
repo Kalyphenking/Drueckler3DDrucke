@@ -308,10 +308,10 @@ class OrderController extends Controller
 
 	public function checkout($subaction) {
 
-//		echo $subaction . '<br>';
+		echo json_encode($_SESSION['makeOrder']) . '<br>';
+		$_SESSION['makeOrder'] = true;
 
 		if (!$this->loggedIn()) {
-			$_SESSION['makeOrder'] = true;
 			$link = 'index.php?c=main&a=login';
 			header("Location: $link ");
 		} else {
@@ -321,7 +321,7 @@ class OrderController extends Controller
 				$GLOBALS['currentView'] = 'addressData';
 			}
 			else if (!isset($customerData['pdid'])) {
-				echo 'PAYMENTDATA <br>';
+//				echo 'PAYMENTDATA <br>';
 
 				$paymentData = new ChangePaymentData();
 				$paymentData->changePaymentData($subaction);
@@ -331,12 +331,6 @@ class OrderController extends Controller
 
 		if (isset($_POST['submitOrder'])) {
 			$this->makeOrder();
-//			$userData = $this->loadUserData();
-//			$orderData = $this->loadOrders();
-//			$this->loadFilaments();
-//			echo '<br>UserData<br>' . json_encode($userData) . '<br><br>';
-//			echo '<br>OrderData<br>' . json_encode($orderData) . '<br><br>';
-//			echo '<br>OrderData<br>' . json_encode($_SESSION['filaments']) . '<br><br>';
 		}
 
 		if (isset($_POST['editShoppingCart'])) {
@@ -418,6 +412,7 @@ class OrderController extends Controller
 			}
 
 			if (empty($this->errors)) {
+				unset($_SESSION['shoppingCart']);
 				$link = 'index.php?c=order&a=orderSuccess';
 
 				header("Location: $link ");

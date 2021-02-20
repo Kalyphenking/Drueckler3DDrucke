@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="<?=ROOTPATH.'css/main.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/order.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/user.css'?>">
-    <link rel="stylesheet" href="<?=ROOTPATH.'css/admin.css'?>">
+    <link rel="stylesheet" href="<?=ROOTPATH.'css/management.css'?>">
 
 
 

@@ -84,7 +84,7 @@ class Model
 
 			$sql .= 'COMMIT;';
 //
-			echo "SQL:<br> $sql <br><br>";
+//			echo "SQL:<br> $sql <br><br>";
 
 			$statement = $db->prepare($sql);
 			$statement->execute();
@@ -278,7 +278,7 @@ class Model
 		}
 
 
-		if (isset($_SESSION['employeeName'])) {
+		if (isset($_SESSION['admin']) || isset($_SESSION['employee'])) {
 			$sql = "select $select from $employee emp 
 					right join $contactData cd on emp.ContactData_id = cd.id
 			";

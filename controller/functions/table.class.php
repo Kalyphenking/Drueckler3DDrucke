@@ -12,14 +12,45 @@ class Table
 	protected $subHeader = null;
 	protected $footer = null;
 	protected $rows = null;
+	protected $inputs = null;
+	protected $subHeaderLabelsCount = null;
+	protected $dataRowLabelCount = null;
 
 
-	function __construct($dataSource = [], $header = [], $subHeader = [], $rows = [], $footer = []) {
+	function __construct($dataSource = [], $header = [], $subHeader = [], $rows = [], $footer = [], $inputs = []) {
+
+		foreach ($dataSource as $key => $data) {
+			if (empty($data['oid'])) {
+				array_splice($dataSource, $key, 1);
+			}
+		}
+
+		$count = 0;
+		foreach ($subHeader as $item) {
+			if (!empty($item)) {
+				$count ++;
+			}
+		}
+		$this->subHeaderLabelsCount = $count;
+
+
+		$count = 0;
+		foreach ($rows as $item) {
+			if (!empty($item)) {
+				$count ++;
+			}
+		}
+
+
+		$this->dataRowLabelCount = $count;
+
+
 		$this->dataSource = $dataSource;
 		$this->header = $header;
 		$this->subHeader = $subHeader;
 		$this->footer = $footer;
 		$this->rows = $rows;
+		$this->inputs = $inputs;
 	}
 
 	public function render() {
@@ -29,6 +60,7 @@ class Table
 
 		$previousId = 0;
 		$summe = 0.0;
+		$outputSumme = 0.0;
 
 		foreach ($this->dataSource as $key => $order)
 		{
@@ -83,8 +115,23 @@ class Table
 		
 				';
 			}
+		}
+
+		$inputs = $this->inputs;
 
 
+		if (!empty($inputs)) {
+			if ($sum == 0) {
+				$output .= '
+		            <th colspan="'.count($this->inputs['inputs']).'">Optionen</th>
+		
+				';
+			} else {
+				$output .= '
+		            <th colspan="'.count($this->inputs['inputs']).'"></th>
+		
+				';
+			}
 		}
 
 		$output .= '</tr>';
@@ -112,15 +159,37 @@ class Table
 			}
 		}
 
-		if ($filledCount == 3) {
-			$output .= '
-			<td>
-                <form action="index.php?c=user&a=cancellOrder" method = "POST">
-                	<input type="hidden" name="orderId" value='.$data['oid'].'>
-                    <input type="submit" name="submitDelete" value="stornieren">
-                </form>
-            </td>
-        ';
+		$inputs = $this->inputs;
+
+		if (!empty($inputs)) {
+
+			if ($inputs['inSubHeader']) {
+				$number = $this->subHeaderLabelsCount;
+			} else {
+				$number = $this->dataRowLabelCount;
+			}
+
+			if ($filledCount == $number) {
+
+				$output .= '
+				<td>
+	                <form action="'.$inputs['action'].'" method = "POST">
+	                    <input type="hidden" name="orderId" value='.$data['oid'].'>';
+
+				foreach ($inputs['inputs'] as $input) {
+					$output .= $input;
+				}
+
+				$output .= '
+		                </form>
+		            </td>
+		        ';
+			} else {
+				$output .= '
+		            <td colspan="'.count($this->inputs['inputs']).'"></td>
+		
+				';
+			}
 		}
 
 		$filledCount = 0;

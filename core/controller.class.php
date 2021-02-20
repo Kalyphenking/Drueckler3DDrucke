@@ -119,10 +119,10 @@ class Controller
 
 
 						break;
-					case 'admin':
+					case 'management':
 
-						echo "<div class=\"admin-container\">";
-						include_once (VIEWSPATH.'admin'.'/'.'adminMenuBar.php');
+						echo "<div class=\"management-container\">";
+						include_once (VIEWSPATH.'management'.'/'.'managementMenuBar.php');
 
 						break;
 					case 'order':
