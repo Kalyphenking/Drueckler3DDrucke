@@ -19,17 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Update">
-      <change afterPath="$PROJECT_DIR$/ressources/images/PrintExample1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/images/PrintExample2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/images/PrintExample3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/images/PrintExample4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/images/PrintExample5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/menuStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menuStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/slide.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/slide.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/main.php" afterDir="false" />
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Admin und Employee Implementiert">
+      <change afterPath="$PROJECT_DIR$/exampleModels/Osterhase V1.0.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/6032554f164cf/glb/Bracket-23.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/6032554f164cf/glb/HuePlayStand-33.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/6032554f164cf/glb/corner-piece-11.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/6032554f164cf/stl/Bracket-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/temp/6032554f164cf/stl/HuePlayStand-00.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/file.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/temp/6032554f164cf/glb/corner-piece-63.glb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +50,6 @@
   </component>
   <component name="ProjectId" id="1nCM1hXgcEI6YtgADZejZh2kkE7" />
   <component name="ProjectLevelVcsManager">
-    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -66,17 +63,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ressources/images" />
       <recent name="$PROJECT_DIR$/views/user" />
       <recent name="$PROJECT_DIR$/views" />
     </key>
@@ -99,28 +91,7 @@
       <workItem from="1611608571322" duration="32796000" />
       <workItem from="1612197033804" duration="46599000" />
       <workItem from="1612619565367" duration="56810000" />
-      <workItem from="1613072254782" duration="51590000" />
-    </task>
-    <task id="LOCAL-00001" summary="Bilder">
-      <created>1610889492139</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1610889492139</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Slideshow, css fixes">
-      <created>1610903250524</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1610903250524</updated>
-    </task>
-    <task id="LOCAL-00003" summary="??">
-      <created>1610903371982</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1610903371982</updated>
+      <workItem from="1613072254782" duration="128103000" />
     </task>
     <task id="LOCAL-00004" summary="Test">
       <created>1610904702708</created>
@@ -374,7 +345,98 @@
       <option name="project" value="LOCAL" />
       <updated>1613237708094</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Kommentare hinzugefügt">
+      <created>1613332780306</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1613332780306</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Warenkorb update">
+      <created>1613428529473</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1613428529473</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Bestellungden lassen sich nun abschicken">
+      <created>1613516088079</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1613516088079</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Orders werden in Admin Panel sortiert und angezeigt">
+      <created>1613519073639</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1613519073639</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Images Path geändert">
+      <created>1613750043626</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1613750043626</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Browser Fehler behoben">
+      <created>1613767031879</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1613767031879</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Browser Fehler behoben">
+      <created>1613768889900</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1613768889901</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Browser Fehler behoben">
+      <created>1613769177248</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1613769177248</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Browser Fehler behoben">
+      <created>1613769971276</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1613769971276</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Browser Fehler behoben">
+      <created>1613770096863</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1613770096863</updated>
+    </task>
+    <task id="LOCAL-00050" summary="DIRECTORY_SEPARATOR weg">
+      <created>1613770773184</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1613770773197</updated>
+    </task>
+    <task id="LOCAL-00051" summary="DIRECTORY_SEPARATOR weg">
+      <created>1613771032643</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1613771032643</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Admin und Employee Implementiert">
+      <created>1613855880770</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1613855880770</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,15 +456,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Bilder" />
-    <MESSAGE value="Slideshow, css fixes" />
-    <MESSAGE value="??" />
-    <MESSAGE value="Test" />
-    <MESSAGE value="Controller" />
-    <MESSAGE value="Database update &amp; login + register" />
-    <MESSAGE value="Controller und Klassen ausgebaut" />
-    <MESSAGE value="Weiterleitung bei Login getestet" />
-    <MESSAGE value="Spaß Updata" />
     <MESSAGE value="logout hinzugefügt" />
     <MESSAGE value="preset und orders abrufbar" />
     <MESSAGE value="Configurator setup in progress" />
@@ -419,49 +472,59 @@
     <MESSAGE value="3D Model verarbeitung in arbeit" />
     <MESSAGE value="Wahrenkorb in arbeit" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Commentare hinzugefügt" />
+    <MESSAGE value="Kommentare hinzugefügt" />
+    <MESSAGE value="Warenkorb update" />
+    <MESSAGE value="Bestellungden lassen sich nun abschicken" />
+    <MESSAGE value="Orders werden in Admin Panel sortiert und angezeigt" />
+    <MESSAGE value="Images Path geändert" />
+    <MESSAGE value="Browser Fehler behoben" />
+    <MESSAGE value="DIRECTORY_SEPARATOR weg" />
+    <MESSAGE value="Admin und Employee Implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin und Employee Implementiert" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1085" y="553" key="#SQL_Dialects" timestamp="1612363682860">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1085" y="553" key="#SQL_Dialects/0.0.3440.1440@0.0.3440.1440" timestamp="1612363682860" />
-    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611330646686">
+    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1613588392270">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1611330646686" />
-    <state x="1458" y="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613168709778">
+    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613588392270" />
+    <state x="1458" y="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613577568605">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1458" y="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613168709778" />
-    <state x="539" y="269" key="NewPhpClassDialog" timestamp="1613238135261">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="1458" y="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613577568605" />
+    <state x="1104" y="369" key="NewPhpClassDialog" timestamp="1613581157477">
+      <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="539" y="269" key="NewPhpClassDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1613238135261" />
-    <state x="1104" y="369" key="NewPhpClassDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1612360388951" />
-    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1613165501970">
+    <state x="1104" y="369" key="NewPhpClassDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613581157477" />
+    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1613861926857">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613165501970" />
+    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613861926857" />
     <state x="1229" y="356" key="SettingsEditor" timestamp="1612359714205">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1229" y="356" key="SettingsEditor/0.0.3440.1440@0.0.3440.1440" timestamp="1612359714205" />
-    <state x="645" y="324" width="1716" height="1117" key="Vcs.Push.Dialog.v2" timestamp="1613237709679">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="1320" y="444" width="1716" height="1117" key="Vcs.Push.Dialog.v2" timestamp="1613855882265">
+      <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1613237709679" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613152426773" />
+    <state x="660" y="323" key="Vcs.Push.Dialog.v2/0.0.1720.1440@0.0.1720.1440" timestamp="1613771034574" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613855882265" />
     <state x="426" y="249" width="1716" height="1117" key="Vcs.Push.Dialog.v2/0.25.3440.1342@0.25.3440.1342" timestamp="1612898069687" />
     <state x="1339" y="334" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1613147981007">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1339" y="334" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.3440.1440@0.0.3440.1440" timestamp="1613147981007" />
-    <state x="745" y="465" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613310243833">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613855860782">
+      <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="745" y="465" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1613310243833" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613152410859" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613855860782" />
     <state x="1936" y="271" width="1081" height="1084" key="dock-window-1" timestamp="1612359910285">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
@@ -470,10 +533,14 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1921" y="25" width="736" height="1083" key="dock-window-2/0.0.3440.1440@0.0.3440.1440" timestamp="1612359910287" />
-    <state x="1385" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1613086592036">
+    <state x="1566" y="510" key="refactoring.ChangeSignatureDialog" timestamp="1613589910496">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1385" y="331" width="670" height="676" key="search.everywhere.popup/0.0.3440.1440@0.0.3440.1440" timestamp="1613086592036" />
+    <state x="1566" y="510" key="refactoring.ChangeSignatureDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613589910496" />
+    <state x="1385" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1613664106715">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state x="1385" y="331" width="670" height="676" key="search.everywhere.popup/0.0.3440.1440@0.0.3440.1440" timestamp="1613664106715" />
     <state x="1450" y="596" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1612622519162">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
