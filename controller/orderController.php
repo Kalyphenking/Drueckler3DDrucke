@@ -74,7 +74,7 @@ class OrderController extends Controller
 				} else {
 					$uploadsDir = UPLOADSPATH.'temp'.'/';
 					$this->makeDirectory($uploadsDir);
-					$uploadsDir .= $_SESSION['uid'] . ''/'';
+					$uploadsDir .= $_SESSION['uid'] . '/';
 				}
 
 				$fileName = $modelName . '.stl';
