@@ -15,23 +15,23 @@
     }
     
     .class_PrintExample1 {
-        animation: Animation_PrintExample1 infinite 20000ms;
+        animation: Animation_PrintExample1 infinite 40000ms;
     }
     
     .class_PrintExample2 {
-        animation: Animation_PrintExample2 infinite 20000ms;
+        animation: Animation_PrintExample2 infinite 40000ms;
     }
     
     .class_PrintExample3 {
-        animation: Animation_PrintExample3 infinite 20000ms;
+        animation: Animation_PrintExample3 infinite 40000ms;
     }
     
     .class_PrintExample4 {
-        animation: Animation_PrintExample4 infinite 20000ms;
+        animation: Animation_PrintExample4 infinite 40000ms;
     }
 
     .class_PrintExample5 {
-        animation: Animation_PrintExample5 infinite 20000ms;
+        animation: Animation_PrintExample5 infinite 40000ms;
     }
     
     @keyframes Animation_PrintExample1 {

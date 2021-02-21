@@ -71,6 +71,18 @@
     <link rel="stylesheet" href="<?=ROOTPATH.'css/inputStyles.css'?>">
 
 
+
+
+<nav id="mobile">
+    <div id="menu" Menü </div>
+
+</nav>
+
+
+
+
+
+
     <!--requierd javascript-->
 <!--    <script src="--><?//=JSPATH.'default.js'?><!--"></script>-->
     <script src="<?=JSPATH.'fileUpload.js'?>"></script>
