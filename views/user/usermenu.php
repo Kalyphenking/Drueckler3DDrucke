@@ -16,11 +16,18 @@ $postalCode = $customerData['postalCode'];
 $city = $customerData['city'];
 $country = $customerData['country'];
 
+$error = '';
+
+if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+	$error = $_SESSION['error'];
+}
+
 //echo "contactData: <br>" .  json_encode($contactData);
 
 ?>
 <div class="userContent">
     <label id="contactDataId" hidden><?=$contactDataId?></label>
+
     <form action="index.php?c=user&a=usermenu" method = 'POST'>
 		Vorname:
 		<input id="firstName" type="text" name="firstName" value=<?=$firstName?> >

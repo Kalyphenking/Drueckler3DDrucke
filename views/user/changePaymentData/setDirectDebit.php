@@ -29,11 +29,11 @@
     <form action=<?="index.php?c=user&a=changePaymentData" . '/' . "setDirectDebit"?> method = 'POST'>
         Iban:
         <br>
-            <input type="text" name="iban" >
+            <input type="text" name="iban" value="<?= (isset($_POST['iban']) ? $_POST['iban'] : ''); //default Values?>">
         <br>
         Kontoinhaber:
         <br>
-            <input type="text" name="owner" >
+            <input type="text" name="owner" value="<?= (isset($_POST['owner']) ? $_POST['owner'] : ''); //default Values?>">
         <br>
         Lastschriftmandat erteilen:
         <br>

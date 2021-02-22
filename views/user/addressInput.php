@@ -20,13 +20,18 @@ if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
 	$label = 'Speichern';
 }
 
+$error = '';
+
+if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+	$error = $_SESSION['error'];
+}
+
 ?>
 
 <label id="addressId" hidden><?=$addressId?></label>
 <label id="customerId" hidden><?=$customerId?></label>
 
 <form action="index.php?c=user&a=usermenu" method = 'POST'>
-
 	Straße:
 	<input id="street" type="text" name="street" value=<?=$street?> >
 	<br>
@@ -44,3 +49,4 @@ if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
 	<br>
 	<input id="submitAddress" type="submit" name="submitAddress" value="<?=$label?>">
 </form>
+<label class="errorMessage"><?=$error?></label>

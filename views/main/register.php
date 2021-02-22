@@ -1,32 +1,33 @@
+<?php
+$error = '';
+
+
+if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+	$error = $_SESSION['error'];
+}
+
+$guest = false;
+if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+	$label = 'Weiter';
+	//        $_SESSION['guest'] = true;
+} else {
+	$label = 'Registrieren';
+}
+
+if (isset($_SESSION['guest'])) {
+	$guest = true;
+
+	$userName = isset($_SESSION['uid']) ? $_SESSION['uid'] : '';
+	$password = isset($_SESSION['uid']) ? $_SESSION['uid'] : '';
+}
+
+?>
 
 <div class = "InputBox">
     <form action = 'index.php?c=main&a=register' method = 'POST'>
+        <label class="errorMessage"><?=$error?></label>
 
         <h3>Registrierung</h3>
-
-        <?php
-
-            $guest = false;
-            if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
-                $label = 'Weiter';
-    //        $_SESSION['guest'] = true;
-            } else {
-                $label = 'Registrieren';
-            }
-
-            if (isset($_SESSION['guest'])) {
-	            $guest = true;
-
-	            $userName = isset($_SESSION['uid']) ? $_SESSION['uid'] : '';
-	            $password = isset($_SESSION['uid']) ? $_SESSION['uid'] : '';
-
-            } else {
-	            $userName = isset($_POST['username']) ? $_POST['username'] : '';
-	            $password = isset($_POST['password']) ? $_POST['password'] : '';
-
-            }
-        ?>
-
         <?if($guest) : ?>
 
             <div class = "InputLine">
@@ -53,7 +54,7 @@
                        name="username"
                        type="username"
                        placeholder="Username"
-                       required value="<?$userName?>">
+                       required value="<?= (isset($_POST['username']) ? $_POST['username'] : ''); //default Values?>">
                 <br>
 
                 <label id="passwordStrength"></label>
@@ -73,14 +74,14 @@
                        name="firstName"
                        type="firstName"
                        placeholder="First name"
-                       required value=<?php echo (isset($_POST['firstName']) ? $_POST['firstName'] : ''); //default Values?> >
+                       required value=<?= (isset($_POST['firstName']) ? $_POST['firstName'] : ''); //default Values?> >
                 <br>
                 <label id="validLastName"></label>
                 <input id="lastName"
                        name="lastName"
                        type="lastName"
                        placeholder="Last name"
-                       required value=<?php echo (isset($_POST['lastName']) ? $_POST['lastName'] : NULL); //default Values?> >
+                       required value=<?= (isset($_POST['lastName']) ? $_POST['lastName'] : NULL); //default Values?> >
 
                 <br><br>
                 <label id="validEmail"></label>
@@ -88,13 +89,13 @@
                        name="emailAddress"
                        type="email"
                        placeholder="e-Mail"
-                       required value=<?php echo (isset($_POST['emailAddress']) ? $_POST['emailAddress'] : NULL); //default Values?> >
+                       required value=<?= (isset($_POST['emailAddress']) ? $_POST['emailAddress'] : NULL); //default Values?> >
                 <br>
                 <input id="phoneNumber"
                        name="phoneNumber"
                        type="tel"
                        placeholder="Mobile number"
-                       value=<?php echo (isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : ''); //default Values?> >
+                       value=<?= (isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : ''); //default Values?> >
             </div>
         <br>
 

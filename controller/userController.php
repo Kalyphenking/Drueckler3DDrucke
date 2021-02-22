@@ -21,7 +21,6 @@ use DDDDD\model\PrintConfig;
 class UserController extends Controller
 {
 
-
 	protected $errors = [];
 	protected $customerData = NULL;
 //	protected $preferedPaymentMethod = NULL;
@@ -51,6 +50,7 @@ class UserController extends Controller
 	}
 
 	public function changePaymentData($subAction) {
+
 		$this->loadCustomerData();
 
 		if (isset($_POST['preferedPaymentMethod'])) {
@@ -148,20 +148,33 @@ class UserController extends Controller
 		$emailAddress = !empty($_POST['emailAddress']) ? $_POST['emailAddress'] : $this->customerData['emailAddress'];
 		$phoneNumber = !empty($_POST['phoneNumber']) ? $_POST['phoneNumber'] : $this->customerData['phoneNumber'];
 
-
-
 		$contactData = new ContactData(['id'=>$contactDataId, 'firstName'=>$firstName, 'lastName'=>$lastName, 'emailAddress'=>$emailAddress, 'phoneNumber'=>$phoneNumber]);
 
-		$contactData->update($this->errors);
 
-		$_SESSION['customerData']['firstName'] = $firstName;
-		$_SESSION['customerData']['lastName'] = $lastName;
-		$_SESSION['customerData']['emailAddress'] = $emailAddress;
-		$_SESSION['customerData']['phoneNumber'] = $phoneNumber;
+		$contactData->validate($this->errors);
+
+		if (empty($this->errors)) {
+			$contactData->update($this->errors);
+
+			$_SESSION['customerData']['firstName'] = $firstName;
+			$_SESSION['customerData']['lastName'] = $lastName;
+			$_SESSION['customerData']['emailAddress'] = $emailAddress;
+			$_SESSION['customerData']['phoneNumber'] = $phoneNumber;
+		} else {
+			$_SESSION['error'] = '';
+			foreach ($this->errors as $item) {
+				$_SESSION['error'] .= $item[0];
+				$_SESSION['error'] .= '<br>';
+			}
+		}
+
+
 
 	}
 
 	protected function changeAddressData() {
+
+
 
 		if (isset($_POST['addressId'])) {
 			$contactDataId = $_POST['addressId'];
@@ -179,32 +192,45 @@ class UserController extends Controller
 
 		$addressData = new Address(['id'=>$addressDataId, 'street'=>$street, 'number'=>$number, 'postalCode'=>$postalCode, 'city'=>$city, 'country'=>$country]);
 
-		$loadedData = $addressData->find(['id'], [$addressDataId]);
+		$addressData->validate($this->errors);
 
-		if (empty($loadedData)) {
-			$addressData->insert($this->errors, ['UPDATE ContactData SET Address_id = LAST_INSERT_ID() where id = ' . $contactDataId . ' ;']);
+		if (empty($this->errors)) {
+			$loadedData = $addressData->find(['id'], [$addressDataId]);
+
+			if (empty($loadedData)) {
+				$addressData->insert($this->errors, ['UPDATE ContactData SET Address_id = LAST_INSERT_ID() where id = ' . $contactDataId . ' ;']);
+			} else {
+				$addressData->update($this->errors);
+			}
+
+			$_SESSION['customerData']['street'] = $street;
+			$_SESSION['customerData']['number'] = $number;
+			$_SESSION['customerData']['postalCode'] = $postalCode;
+			$_SESSION['customerData']['city'] = $city;
+			$_SESSION['customerData']['country'] = $country;
+
+			if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+				$link = 'index.php?c=order&a=checkout';
+				header("Location: $link ");
+			}
 		} else {
-			$addressData->update($this->errors);
+			$_SESSION['error'] = '';
+			foreach ($this->errors as $item) {
+				$_SESSION['error'] .= $item[0];
+				$_SESSION['error'] .= '<br>';
+			}
 		}
 
-//		echo json_encode($this->errors);
 
-		$_SESSION['customerData']['street'] = $street;
-		$_SESSION['customerData']['number'] = $number;
-		$_SESSION['customerData']['postalCode'] = $postalCode;
-		$_SESSION['customerData']['city'] = $city;
-		$_SESSION['customerData']['country'] = $country;
-
-		if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
-			$link = 'index.php?c=order&a=checkout';
-			header("Location: $link ");
-		}
 
 
 
 	}
 
 	public function changeUserPassword($subAction) {
+		$previousController = isset($_SESSION['previousController']) ? $_SESSION['previousController'] : 'main';
+		$previousAction = isset($_SESSION['previousAction']) ? $_SESSION['previousAction'] : 'main';
+
 		$this->loadCustomerData();
 
 		if (isset($_POST['submit'])) {
@@ -226,30 +252,35 @@ class UserController extends Controller
 					];
 					$password = password_hash($newPassword,PASSWORD_BCRYPT, $options);
 
-
-
 					$contactData->{'id'} = $this->customerData['cdid'];
 					$contactData->{'password'} = $password;
 
-					$contactData->update($this->errors);
+					$contactData->validate($this->errors);
 
-					unset($contactData);
+					if (empty($this->errors)) {
+						$contactData->update($this->errors);
 
-					//TODO successMessage
+						unset($contactData);
+//						$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
+//
+//						header("Location: $link ");
+						$_SESSION['error'] = 'Passwort erfolgreich geänder';
+					} else {
+						$_SESSION['error'] = '';
+						foreach ($this->errors as $item) {
+//								echo json_encode($this->errors);
+							$_SESSION['error'] .= $item[0];
+							$_SESSION['error'] .= '<br>';
+						}
+					}
 
 				} else {
-					//TODO errorHandling
+					$_SESSION['error'] = 'Altes Passwort stimmt nicht';
 				}
 			} else {
-				//TODO errorHandling
+				$_SESSION['error'] = 'Eingaben stimmen nicht überein';
 			}
 		}
-		//TODO errorHandling
-		if (!empty($errors)) {
-			echo json_encode($errors) . '<br>';
-		}
-
-
 	}
 
 	public function orders($subAction)

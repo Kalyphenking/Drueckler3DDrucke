@@ -17,6 +17,7 @@ class ChangePaymentData
 	}
 
 	public function changePaymentData($subAction = 'setDirectDebit', $preferedPaymentMthod = '') {
+
 		$action = 'setDirectDebit';
 
 		if (!empty($subAction)) {
@@ -45,15 +46,26 @@ class ChangePaymentData
 					}
 					$paymentData = new PaymentData(['id'=>$this->customerData['pdid'], 'preferedPaymentMethod'=>$preferedPaymentMethod]);
 
-					$paymentData->update($this->errors);
+					$paymentData->validate($this->errors);
+
+					if (empty($this->errors)) {
+						$paymentData->update($this->errors);
+
+					} else {
+						$_SESSION['error'] = '';
+						foreach ($this->errors as $item) {
+//								echo json_encode($this->errors);
+							$_SESSION['error'] .= $item[0];
+							$_SESSION['error'] .= '<br>';
+						}
+					}
+
+
 				}
 
 //			}
 		}
 
-		if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
-			$link = 'index.php?c=order&a=checkout';
-			header("Location: $link ");
-		}
+
 	}
 }

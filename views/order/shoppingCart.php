@@ -2,9 +2,11 @@
 
 $shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [];
 
-//$amount = isset($_POST['amount']) ? $_POST['amount'] : 1;
+$error = '';
 
-//echo json_encode($shoppingCart)
+if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+	$error = $_SESSION['error'];
+}
 ?>
 
 <!--<div class="modelViewerDiv">-->
@@ -43,17 +45,7 @@ $shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [
                             echo '<td>'.$item[4].'</td>';
                             echo '<td>'.$item[5][0].'</td>';
                             echo '<td>'.$item[6].'</td>';
-//	                        echo '<td>Anzahl:
-//
-//                                <input type="number"
-//                                       name="amount-'.$key.'"
-//                                       id="amount"
-//                                       min="1"
-//                                       max="1000"
-//                                       required value='.$amount.'
-//                                >
-//
-//                            </td>';
+
                             echo '<td>
                                 
                                      <input 
@@ -66,17 +58,14 @@ $shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [
                             </td>';
 
 
-
-
-
                         echo'</tr>';
 
                         echo '<script>displayModel("'.$fileName.'", "modelViewer-'.$key.'")</script>';
 
                         echo '
                             </table>
-                            <input type="submit" name="submitDelete" value="Auswahl löschen">
-                            <input type="submit" name="submit" value="Weiter">
+                            
+                            
                         ';
 
                     }
@@ -86,6 +75,11 @@ $shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [
                         ';
                 }
             ?>
+            <br>
+            <input type="submit" name="submitDelete" value="Auswahl löschen">
+            <input type="submit" name="submit" value="Weiter">
+            <br>
+            <label class="errorMessage"><?=$error?></label>
 
 
         </form>

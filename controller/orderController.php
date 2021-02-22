@@ -104,6 +104,8 @@ class OrderController extends Controller
 				echo 'no upload';
 				echo '<br>';
 			}
+		} else {
+			$_SESSION['error'] = 'Fehler: kein Model hochgeladen';
 		}
 	}
 
@@ -130,6 +132,7 @@ class OrderController extends Controller
 		};
 	}
 //C 3.3
+	//creates directory if is not exits
 	protected function makeDirectory($directory) {
 		if (!file_exists($directory)) {
 			mkdir($directory, 0777);
@@ -137,87 +140,96 @@ class OrderController extends Controller
 		}
 	}
 //C 3.4
+	//calculates model based on userinput
 	protected function calculateModel() {
 
-		if (!empty($_POST['infill'] && isset($_SESSION['modelName']))
-			&& !empty($_POST['resolution'])
-			&& !empty($_POST['filament'])
-			&& !empty($_POST['amount'])) {
+		if (!empty(isset($_SESSION['modelName']))) {
+			if (!empty($_POST['infill'])
+				&& !empty($_POST['resolution'])
+				&& !empty($_POST['filament'])
+				&& !empty($_POST['amount'])) {
 
 
-			$infill = $_POST['infill'];
-			$resolution = $_POST['resolution'];
-			$filamentColorCode = $_POST['filament'];
-			$amount = $_POST['amount'];
+				$infill = $_POST['infill'];
+				$resolution = $_POST['resolution'];
+				$filamentColorCode = $_POST['filament'];
+				$amount = $_POST['amount'];
 
-			$userDirectory = $_SESSION['userDirectory'];
-			$modelName = $_SESSION['modelName'];
+				$userDirectory = $_SESSION['userDirectory'];
+				$modelName = $_SESSION['modelName'];
 
 //			echo $modelName;
 
-			$file = $userDirectory.'stl'.'/'.$modelName.'-00.stl';
+				$file = $userDirectory.'stl'.'/'.$modelName.'-00.stl';
 
-			$fileSize = filesize($file);
+				$fileSize = filesize($file);
 
-			$baseTime = 10;
-			$size = $fileSize / 2500;
+				$baseTime = 10;
+				$size = $fileSize / 2500;
 
 
 //			echo "<br>Size: ".$size."<br>";
 
-			$faktor = 2.2;
-			$summand = 1.4;
-			$counter = 100;
+				$faktor = 2.2;
+				$summand = 1.4;
+				$counter = 100;
 
 
-			$printTime = pow(($counter/($infill*$size)), ($resolution*$faktor-$summand)) + $baseTime;
+				$printTime = pow(($counter/($infill*$size)), ($resolution*$faktor-$summand)) + $baseTime;
 
 
-			$totalPrintTime = pow(($counter/($infill*$size)), ($resolution*$faktor-$summand)) * $amount + $baseTime;
+				$totalPrintTime = pow(($counter/($infill*$size)), ($resolution*$faktor-$summand)) * $amount + $baseTime;
 
-			$_SESSION['printTime'] = round($totalPrintTime,2);
+				$_SESSION['printTime'] = round($totalPrintTime,2);
 
-			$pricing = Pricing::find()[0];
+				$pricing = Pricing::find()[0];
 
 
-			$shippting = $pricing['shipping'];
-			$workPerGramm = $pricing['workPerGramm'];
-			$energyPerHour = $pricing['energyPerHour'];
-			$taxes = $pricing['taxes'];
-			$grammsPerHour = $pricing['grammsPerHour'];
-			$filaments = $_SESSION['filaments'];
+				$shippting = $pricing['shipping'];
+				$workPerGramm = $pricing['workPerGramm'];
+				$energyPerHour = $pricing['energyPerHour'];
+				$taxes = $pricing['taxes'];
+				$grammsPerHour = $pricing['grammsPerHour'];
+				$filaments = $_SESSION['filaments'];
 
-			//vergessen was das macht
-			foreach ($filaments as $filament) {
-				if ($filament['rgba'] == $filamentColorCode) {
-					$pricerPerGramm = $filament['pricePerGramm'];
-					$_SESSION['filamentId'] = $filament['id'];
-					$_SESSION['filamentColor'] = $filament['type'].': '.$filament['color'];
-					$_SESSION['filamentColorCode'] = $filament['rgba'];
+				//vergessen was das macht
+				foreach ($filaments as $filament) {
+					if ($filament['rgba'] == $filamentColorCode) {
+						$pricerPerGramm = $filament['pricePerGramm'];
+						$_SESSION['filamentId'] = $filament['id'];
+						$_SESSION['filamentColor'] = $filament['type'].': '.$filament['color'];
+						$_SESSION['filamentColorCode'] = $filament['rgba'];
+					}
 				}
+
+				$materialPrice = $printTime * $pricerPerGramm * ($grammsPerHour / ($resolution+1));
+				$workPrice = $workPerGramm * ($grammsPerHour / ($resolution+1));
+				$energyPrice = $printTime * $energyPerHour;
+
+				$taxesPrice = ($materialPrice + $workPrice + $energyPrice) * $taxes;
+
+				$totalPrintPrice = ($workPrice + $energyPrice + $shippting) * $amount + $taxesPrice;
+				$modelPrice = $workPrice + $energyPrice + $taxesPrice;
+
+				$_SESSION['printPrices'][0] = round($totalPrintPrice, 2);
+				$_SESSION['printPrices'][1] = round($energyPerHour, 2);
+				$_SESSION['printPrices'][2] = round($workPrice, 2);
+				$_SESSION['printPrices'][3] = round($energyPrice, 2);
+				$_SESSION['printPrices'][4] = round($shippting, 2);
+				$_SESSION['printPrices'][5] = round($taxesPrice, 2);
+				$_SESSION['printPrices'][6] = round($modelPrice, 2);
+				$_SESSION['filamentColorCode'] = $filamentColorCode;
+				$_SESSION['infill'] = $infill;
+				$_SESSION['resolution'] = $resolution;
+				$_SESSION['stlFileName'] = $file;
+			} else {
+				$_SESSION['error'] = 'Fehler: es müssen alle Datan angegeben sein';
 			}
-
-			$materialPrice = $printTime * $pricerPerGramm * ($grammsPerHour / ($resolution+1));
-			$workPrice = $workPerGramm * ($grammsPerHour / ($resolution+1));
-			$energyPrice = $printTime * $energyPerHour;
-
-			$taxesPrice = ($materialPrice + $workPrice + $energyPrice) * $taxes;
-
-			$totalPrintPrice = ($workPrice + $energyPrice + $shippting) * $amount + $taxesPrice;
-			$modelPrice = $workPrice + $energyPrice + $taxesPrice;
-
-			$_SESSION['printPrices'][0] = round($totalPrintPrice, 2);
-			$_SESSION['printPrices'][1] = round($energyPerHour, 2);
-			$_SESSION['printPrices'][2] = round($workPrice, 2);
-			$_SESSION['printPrices'][3] = round($energyPrice, 2);
-			$_SESSION['printPrices'][4] = round($shippting, 2);
-			$_SESSION['printPrices'][5] = round($taxesPrice, 2);
-			$_SESSION['printPrices'][6] = round($modelPrice, 2);
-			$_SESSION['filamentColorCode'] = $filamentColorCode;
-			$_SESSION['infill'] = $infill;
-			$_SESSION['resolution'] = $resolution;
-			$_SESSION['stlFileName'] = $file;
+		} else {
+			$_SESSION['error'] = 'Fehler: kein Model hochgeladen';
 		}
+
+
 	}
 
 	protected function saveConfiguration() {
@@ -229,8 +241,9 @@ class OrderController extends Controller
 
 			header("Location: $link ");
 		} else {
-			//TODO: errorHandling
-			echo "no Model selected <br>";
+			$_SESSION['error'] = 'Fehler: kein Model hochgeladen';
+//			//TODO: errorHandling
+//			echo "no Model selected <br>";
 		}
 	}
 
@@ -302,18 +315,30 @@ class OrderController extends Controller
 	public function shoppingCart() {
 		if (isset($_POST['submit'])) {
 
-			$link = 'index.php?c=order&a=checkout';
-			header("Location: $link ");
+			$shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [];
+
+			if (!empty($shoppingCart)) {
+				$link = 'index.php?c=order&a=checkout';
+				header("Location: $link ");
+			} else {
+				$_SESSION['error'] = 'Der Warenkorb ist leer';
+			}
 		}
 
 		if (isset($_POST['submitDelete'])) {
-			$this->removeFromShoppingCart();
+
+			if (count($_POST) < 2) {
+				$_SESSION['error'] = 'Zum Löschen, wählen Sie ein Model aus';
+			} else {
+				$this->removeFromShoppingCart();
+			}
+
+
 		}
 	}
 //C 3.7
-
+	//manages checkout, checks reqiered userData
 	public function checkout($subaction) {
-
 
 		$_SESSION['makeOrder'] = true;
 
@@ -326,8 +351,7 @@ class OrderController extends Controller
 			if (!isset($customerData['aid']) ) {
 				$GLOBALS['currentView'] = 'addressData';
 			}
-			else if (!isset($customerData['pdid'])) {
-//				echo 'PAYMENTDATA <br>';
+            else if (!isset($customerData['pdid'])) {
 
 				$paymentData = new ChangePaymentData();
 				$paymentData->changePaymentData($subaction);

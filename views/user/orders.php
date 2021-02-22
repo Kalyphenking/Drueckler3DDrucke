@@ -25,7 +25,7 @@ $table = $GLOBALS['ordersTable'];
         if ($ordersExist) {
 	        echo $table;
         } else {
-            echo '<h3>Keine Bestellungen vorhenden</h3>';
+            echo '<h3>Keine Bestellungen vorhanden</h3>';
         }
 
 

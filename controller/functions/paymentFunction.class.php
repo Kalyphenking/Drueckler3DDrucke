@@ -54,40 +54,52 @@ class PaymentFunction
 
 				$directDebitData->validate($this->errors);
 
-				//TODO: errorHandling
+				if (empty($this->errors)) {
+					$loadedData = $directDebitData->find(['id'], [$directDebitId]);
 
-				$loadedData = $directDebitData->find(['id'], [$directDebitId]);
 
+					if (empty($loadedData)) {
 
-				if (empty($loadedData)) {
+						$db = $GLOBALS['db'];
+						if (empty($paymentDataId)) {
 
-					$db = $GLOBALS['db'];
-					if (empty($paymentDataId)) {
+							//inserts directDebitData in database and inserts newest DirectDebit_id into PaymentData
+							//updates Customer with newest PaymentData_id
+							//to reduce database request, this will processed in one request
 
-						//inserts directDebitData in database and inserts newest DirectDebit_id into PaymentData
-						//updates Customer with newest PaymentData_id
-						//to reduce database request, this will processed in one request
-
-						$directDebitData->insert($this->errors,
-							['INSERT INTO PaymentData (DirectDebit_id)	
+							$directDebitData->insert($this->errors,
+								['INSERT INTO PaymentData (DirectDebit_id)	
 								VALUES (LAST_INSERT_ID());',
 
-								'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+									'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+						} else {
+
+							//inserts directDebitData in database and updates newest DirectDebit_id into PaymentData
+
+							$directDebitData->insert($this->errors,
+								['UPDATE PaymentData set DirectDebit_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+						}
+
+
 					} else {
-
-						//inserts directDebitData in database and updates newest DirectDebit_id into PaymentData
-
-						$directDebitData->insert($this->errors,
-							['UPDATE PaymentData set DirectDebit_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+						$directDebitData->update($this->errors);
 					}
 
-
 				} else {
-					$directDebitData->update($this->errors);
+					$_SESSION['error'] = '';
+					foreach ($this->errors as $item) {
+//								echo json_encode($this->errors);
+						$_SESSION['error'] .= $item[0];
+						$_SESSION['error'] .= '<br>';
+					}
 				}
 
 			} else {
-				//TODO errorHandling
+				$_SESSION['error'] = 'Fehler: alle Felder müssen ausgefüllt sein';
+			}
+			if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+				$link = 'index.php?c=order&a=checkout';
+				header("Location: $link ");
 			}
 		}
 		$loadedData = $this->loadDirectDebitData();
@@ -100,8 +112,6 @@ class PaymentFunction
 		$creditCardId = $this->customerData['ccid'];
 		$customerId = $this->customerData['cid'];
 		$paymentDataId = $this->customerData['pdid'];
-
-
 
 		if (isset($_POST['submit'])) {
 
@@ -130,138 +140,51 @@ class PaymentFunction
 					'expiryDate'=>$expiryDate,
 					'securityCode'=>$securityCode]);
 
-				$loadedData = $creditCardData->find(['id'], [$creditCardId]);
+				$creditCardData->validate($this->errors);
 
-				if (empty($loadedData)) {
+				if (empty($this->errors)) {
+					$loadedData = $creditCardData->find(['id'], [$creditCardId]);
 
-					$db = $GLOBALS['db'];
-					if (empty($paymentDataId)) {
+					if (empty($loadedData)) {
 
-						//inserts creditCardData in database and inserts newest CreditCard_id into PaymentData
-						//updates Customer with newest PaymentData_id
-						//to reduce database request, this will processed in one request
+						$db = $GLOBALS['db'];
+						if (empty($paymentDataId)) {
 
-						$creditCardData->insert($this->errors,
-							['INSERT INTO PaymentData (CreditCard_id)	
+							//inserts creditCardData in database and inserts newest CreditCard_id into PaymentData
+							//updates Customer with newest PaymentData_id
+							//to reduce database request, this will processed in one request
+
+							$creditCardData->insert($this->errors,
+								['INSERT INTO PaymentData (CreditCard_id)	
 								VALUES (LAST_INSERT_ID());',
 
-								'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+									'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+						} else {
+
+							$creditCardData->insert($this->errors,
+								['UPDATE PaymentData set CreditCard_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+						}
 					} else {
-
-						//inserts creditCardData in database and updates newest creditCardData into PaymentData
-
-						$creditCardData->insert($this->errors,
-							['UPDATE PaymentData set CreditCard_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+						$creditCardData->update($this->errors);
 					}
 				} else {
-					$creditCardData->update($this->errors);
+					$_SESSION['error'] = '';
+					foreach ($this->errors as $item) {
+//								echo json_encode($this->errors);
+						$_SESSION['error'] .= $item[0];
+						$_SESSION['error'] .= '<br>';
+					}
 				}
-
 			} else {
-				//TODO errorHandling
+				$_SESSION['error'] = 'Fehler: alle Felder müssen ausgefüllt sein';
+			}
+			if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+				$link = 'index.php?c=order&a=checkout';
+				header("Location: $link ");
 			}
 		}
 		$loadedData = $this->loadCreditCardData();
 		$GLOBALS['paymentData'] = $loadedData[0];
-	}
-
-	protected function setBill() {
-		$GLOBALS['selectedPaymentMethod'] = 'setBill';
-
-		$loadedData = $this->loadBillData();
-		$GLOBALS['paymentData'] = $loadedData[0];
-
-
-		$billId = $this->customerData['blid'];
-
-		$billAddressId = $loadedData[0]['baid'];
-
-		$customerId = $this->customerData['cid'];
-		$paymentDataId = $this->customerData['pdid'];
-		$addressId = $this->customerData['aid'];
-
-
-
-		if (isset($_POST['submit'])) {
-
-			if(isset($_POST['sameAsShipping']) && !empty($_POST['sameAsShipping']))
-			{
-
-				if (!empty($addressId)) {
-
-					$street = $this->customerData['street'];
-					$number = $this->customerData['number'];
-					$postalCode = $this->customerData['postalCode'];
-					$city = $this->customerData['city'];
-					$country = $this->customerData['country'];
-
-				} else {
-					//TODO errorHandling
-					echo 'error, keine Lieferadresse bekannt';
-					return;
-				}
-
-			} else if(!empty($_POST['street'])
-				&& !empty($_POST['number'])
-				&& !empty($_POST['postalCode'])
-				&& !empty($_POST['city'])
-				&& !empty($_POST['country']))
-			{
-
-				$street = $_POST['street'];
-				$number = $_POST['number'];
-				$postalCode = $_POST['postalCode'];
-				$city = $_POST['city'];
-				$country = $_POST['country'];
-
-			} else {
-				//TODO errorHandling
-				echo 'error, alle alle';
-				return;
-			}
-
-			$billAddressData = new Address(['id'=>$billAddressId,
-				'street'=>$street,
-				'number'=>$number,
-				'postalCode'=>$postalCode,
-				'city'=>$city,
-				'country'=>$country]);
-
-			$loadedData = $billAddressData->find(['id'], [$billId]);
-
-			if (empty($loadedData)) {
-				$db = $GLOBALS['db'];
-				if (empty($paymentDataId)) {
-
-					//inserts billAddressData in database and inserts newest Bill_id into PaymentData
-					//updates Customer with newest PaymentData_id
-					//to reduce database request, this will processed in one request
-
-					$billAddressData->insert($this->errors,
-						['INSERT INTO PaymentData (Bill_id)	
-								VALUES (LAST_INSERT_ID());',
-
-							'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
-				} else {
-
-					//inserts billAddressData in database and updates newest Bill_id into PaymentData
-
-					$billAddressData->insert($this->errors,
-						['INSERT INTO Bill (Address_id) VALUES (LAST_INSERT_ID());',
-							'UPDATE PaymentData set Bill_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
-				}
-			} else {
-				$billAddressData->update($this->errors);
-			}
-
-			$GLOBALS['paymentData']['street'] = $street;
-			$GLOBALS['paymentData']['number'] = $number;
-			$GLOBALS['paymentData']['postalCode'] = $postalCode;
-			$GLOBALS['paymentData']['city'] = $city;
-			$GLOBALS['paymentData']['country'] = $country;
-
-		}
-
 	}
 
 	protected function setPayPal() {
@@ -284,36 +207,50 @@ class PaymentFunction
 
 				$paypalData = new Paypal(['emailAddress'=>$emailAddress, 'password'=>$password, 'id'=>$payPalId]);
 
-				$loadedData = $paypalData->find(['id'], [$payPalId]);
+				$paypalData->validate($this->errors);
 
-				if (empty($loadedData)) {
-					$db = $GLOBALS['db'];
-					if (empty($paymentDataId)) {
+				if (empty($this->errors)) {
+					$loadedData = $paypalData->find(['id'], [$payPalId]);
 
-						//inserts paypalData in database and inserts newest Paypal_id into PaymentData
-						//updates Customer with newest PaymentData_id
-						//to reduce database request, this will processed in one request
+					if (empty($loadedData)) {
+						$db = $GLOBALS['db'];
+						if (empty($paymentDataId)) {
 
-						$paypalData->insert($this->errors,
-							['INSERT INTO PaymentData (Paypal_id)	
+							//inserts paypalData in database and inserts newest Paypal_id into PaymentData
+							//updates Customer with newest PaymentData_id
+							//to reduce database request, this will processed in one request
+
+							$paypalData->insert($this->errors,
+								['INSERT INTO PaymentData (Paypal_id)	
 								VALUES (LAST_INSERT_ID());',
 
-								'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+									'UPDATE Customer SET PaymentData_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+						} else {
+
+							//inserts paypalData in database and updates newest Paypal_id into PaymentData
+
+							$paypalData->insert($this->errors,
+								['UPDATE PaymentData set Paypal_id = LAST_INSERT_ID() where id = '
+									. $customerId .
+									' ;']);
+						}
 					} else {
-
-						//inserts paypalData in database and updates newest Paypal_id into PaymentData
-
-						$paypalData->insert($this->errors,
-							['UPDATE PaymentData set Paypal_id = LAST_INSERT_ID() where id = '
-								. $customerId .
-								' ;']);
+						$paypalData->update($this->errors);
 					}
 				} else {
-					$paypalData->update($this->errors);
+					$_SESSION['error'] = '';
+					foreach ($this->errors as $item) {
+//								echo json_encode($this->errors);
+						$_SESSION['error'] .= $item[0];
+						$_SESSION['error'] .= '<br>';
+					}
 				}
-
 			} else {
-				//TODO errorHandling
+				$_SESSION['error'] = 'Fehler: alle Felder müssen ausgefüllt sein';
+			}
+			if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+				$link = 'index.php?c=order&a=checkout';
+				header("Location: $link ");
 			}
 		}
 

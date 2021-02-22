@@ -12,12 +12,9 @@ use DDDDD\model\Order;
 class MainController extends Controller
 {
 
+	protected $errors = null;
+
 	public function logout($subAction) {
-//		unset($_SESSION['loggedIn']);
-//		unset($_SESSION['username']);
-//		unset($_SESSION['employeeName']);
-//		unset($_SESSION['customerName']);
-//		unset($_SESSION['management']);
 		session_destroy();
 
 		echo'<h1>logout</h1>';
@@ -75,7 +72,7 @@ class MainController extends Controller
 						header("Location: $link ");
 
 					} else {
-						echo 'FALSE';
+						$_SESSION['error'] = 'Fehler: Username oder Passwort falsch!';
 					}
 
 				}
@@ -139,26 +136,41 @@ class MainController extends Controller
 							'lastName'=>$lastName,
 							'emailAddress'=>$emailAddress,
 							'username'=>$username,
-							'password'=>$password]);
+							'password'=>$password
+						]);
 
 						if (!empty($phoneNumber)) {
 							$contactData->{'phoneNumber'} = $phoneNumber;
 						}
 
-						$contactData->insert($error, ['INSERT INTO Customer (guest, ContactData_id)	VALUES ('.$guest.', LAST_INSERT_ID());']);
+						$contactData->validate($this->errors);
 
-						$_SESSION['loggedIn'] = true;
-						$_SESSION['customerName'] = $contactData->{'username'};
-						$_SESSION['username'] = $contactData->{'username'};
+						if (empty($this->errors)) {
+							$contactData->insert($error, ['INSERT INTO Customer (guest, ContactData_id)	VALUES ('.$guest.', LAST_INSERT_ID());']);
 
-						$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
+							$_SESSION['loggedIn'] = true;
+							$_SESSION['customerName'] = $contactData->{'username'};
+							$_SESSION['username'] = $contactData->{'username'};
 
-						header("Location: $link ");
+							$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
+
+							header("Location: $link ");
+						} else {
+							$_SESSION['error'] = '';
+							foreach ($this->errors as $item) {
+//								echo json_encode($this->errors);
+								$_SESSION['error'] .= $item[0];
+								$_SESSION['error'] .= '<br>';
+							}
+						}
+
+
 
 					} else {
-						echo json_encode($data);
-						echo '<br>';
-						// TODO: error, username already exists
+						$_SESSION['error'] = 'Fehler: Username oder Emailadresse schon in Benutzung!';
+						if (!empty($phoneNumber)) {
+							$_SESSION['error'] = 'Fehler: Username, Emailadresse oder Telefonnummer schon in Benutzung!';
+						}
 					}
 				} else {
 

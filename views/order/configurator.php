@@ -18,6 +18,11 @@ $filamentColorCode = isset($_SESSION['filamentColorCode']) ? $_SESSION['filament
 
 $amount = isset($_POST['amount']) ? $_POST['amount'] : 1;
 
+$error = '';
+
+if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+	$error = $_SESSION['error'];
+}
 
 echo "filamentColorCode: $filamentColorCode <br><br>";
 echo "selectedResolution: $selectedResolution <br><br>";
@@ -50,7 +55,6 @@ echo "PrintPrices: $printPrices[0] <br><br>";
             <br>
 
             <input class="phpBased" id="submitUpload" name="submitUpload" type="submit" value="Model hochladen">
-
         </form>
     </div>
 
@@ -64,8 +68,8 @@ echo "PrintPrices: $printPrices[0] <br><br>";
                    id="infill"
                    min="30"
                    max="100"
-                   placeholder="80"
-                   required value=<?=$infill?>
+                   placeholder="30"
+                   required value=<?= (isset($_POST['infill']) ? $_POST['infill'] : ''); //default Values?>
             >
 
             <br>
@@ -77,17 +81,22 @@ echo "PrintPrices: $printPrices[0] <br><br>";
 <!--                   required value=--><?php //echo (isset($_POST['resolution']) ? $_POST['resolution'] : ''); ?>
 <!--            >-->
             <select id="resolution" name="resolution">
+<!--                <option value="--><?//= (isset($_POST['resolution']) ? $_POST['resolution'] : 0.28); //default Values?><!--" selected hidden>--><?//=number_format(isset($_POST['resolution']) ? $_POST['resolution'] : 0.28, 2, '.', '')?><!--</option>-->
 				<?php
-                if ($selectedResolution) {
-	                echo '<option value="'.$selectedResolution.'" selected hidden>'.number_format($selectedResolution, 2, '.', '').'</option>';
-                }
+//                if ($selectedResolution) {
+//	                echo '<option value="'.$selectedResolution.'" selected hidden>'.number_format($selectedResolution, 2, '.', '').'</option>';
+//                }
 				for ($index = 7; $index >= 1; $index --)
 				{
 					$resolution = ($index * 4) / 100;
 
-//					echo '<option value="' . number_format($resolution, 2, '.', '') . '">';
-					echo '<option>' . number_format($resolution, 2, '.', '') . '</option>';
+					$previousResolution = isset($_POST['resolution']) ? $_POST['resolution'] : 0.28;
 
+					if ($resolution == $previousResolution) {
+						echo '<option selected>' . number_format($resolution, 2, '.', '') . '</option>';
+                    } else {
+						echo '<option>' . number_format($resolution, 2, '.', '') . '</option>';
+                    }
 
 				}
 
@@ -104,7 +113,6 @@ echo "PrintPrices: $printPrices[0] <br><br>";
                 }
 				foreach ($filaments as $filament)
 				{
-//					echo '<option value="' . $filament['type'] . ': ' . $filament['color'] . '">';
 					echo '<option value="'. $filament['rgba'] .'">' . $filament['type'] . ': ' . $filament['color'] . '</option>';
 				}
 				?>
@@ -121,8 +129,10 @@ echo "PrintPrices: $printPrices[0] <br><br>";
             >
             <br>
 
+
             <input type="submit" name="submitCalculation" value="Model berechnen">
-            <input type="submit" name="submitContinue" value="Weiter">
+            <input type="submit" name="submitContinue" value="In den Warenkorb">
+            <label class="errorMessage"><?=$error?></label>
 
             <?php
 

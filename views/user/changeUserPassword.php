@@ -1,5 +1,9 @@
 <?php
-//include_once (VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'userMenuBar.php');
+    $error = '';
+
+    if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+        $error = $_SESSION['error'];
+    }
 ?>
 
 <div class="userContent">
@@ -15,4 +19,5 @@
         <br>
 		<input type="submit" name="submit" value="Speichern">
 	</form>
+    <label class="errorMessage"><?=$error?></label>
 </div>

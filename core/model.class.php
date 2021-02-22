@@ -177,10 +177,10 @@ class Model
 				break;
 			case Model::TYPE_STRING: {
 				if(isset($shemaOptions['min']) && mb_strlen($value) < $shemaOptions['min']) {
-					$errors[] = $attribute . ': String needs min. ' . $shemaOptions['min'] . ' characters!';
+					$errors[] = $attribute . ' muss mindestens ' . $shemaOptions['min'] . ' Zeichen haben!';
 				}
 				if(isset($shemaOptions['max']) && mb_strlen($value) > $shemaOptions['max']) {
-					$errors[] = $attribute . ': String can have max. ' . $shemaOptions['max'] . ' characters!';
+					$errors[] = $attribute . ' darf maximal ' . $shemaOptions['max'] . ' Zeichen haben!';
 				}
 			}
 				break;
@@ -196,7 +196,6 @@ class Model
 				$valueErrors = $this->validateValue($key, $this->data[$key], $shemaOptions);
 
 				if($valueErrors !== true) {
-//					array_push($errors, $valueErrors);
 					$errors[] = $valueErrors;
 				}
 			}

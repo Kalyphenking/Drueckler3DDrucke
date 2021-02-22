@@ -77,21 +77,16 @@
 
 </nav>
 
-
-
-
-
-
     <!--requierd javascript-->
     <script src="<?=JSPATH.'fileUpload.js'?>"></script>
     <script src="<?=JSPATH.'checkForJavaScript.js'?>"></script>
     <script src="<?=JSPATH.'register.js'?>"></script>
     <script src="<?=JSPATH.'changeAddress.js'?>"></script>
     <script src="<?=JSPATH.'changeContactData.js'?>"></script>
-
+<!---->
     <!--Color Picker-->
     <script src="https://rawgit.com/Sphinxxxx/vanilla-picker/master/dist/vanilla-picker.min.js"></script>
-
+<!---->
     <!--3D model viewer-->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>

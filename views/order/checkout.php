@@ -17,6 +17,12 @@ if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
 
 $fullPrice = 0;
 
+$error = '';
+
+if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+	$error = $_SESSION['error'];
+}
+
 ?>
 
 <div class="orderContent">
@@ -55,7 +61,7 @@ $fullPrice = 0;
 		    echo '</form>';
 	    }
 	    ?>
-
+        <label class="errorMessage"><?=$error?></label>
 
 
 </div>

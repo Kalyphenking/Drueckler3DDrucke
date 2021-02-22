@@ -33,21 +33,21 @@
     <form action=<?="index.php?c=user&a=changePaymentData" . '/' . "setCreditCard"?> method = 'POST'>
         Kartentyp:
         <br>
-            <input type="text" name="type" >
+            <input type="text" name="type" value="<?= (isset($_POST['type']) ? $_POST['type'] : ''); //default Values?>">
         <br>
         Kartennummer:
         <br>
-            <input type="text" name="number" >
+            <input type="text" name="number" value="<?= (isset($_POST['number']) ? $_POST['number'] : ''); //default Values?>">
         <br>
         Name des Eigentümers:
         <br>
-            <input type="text" name="owner" >
+            <input type="text" name="owner" value="<?= (isset($_POST['owner']) ? $_POST['owner'] : ''); //default Values?>">
         <br>
         Ablaufdatum:
         <br>
-            <input type="text" name="expiryDateMonth"  placeholder="12">
+            <input type="text" name="expiryDateMonth"  placeholder="12" value="<?= (isset($_POST['expiryDateMonth']) ? $_POST['expiryDateMonth'] : ''); //default Values?>">
             /
-            <input type="text" name="expiryDateYear"  placeholder="21">
+            <input type="text" name="expiryDateYear"  placeholder="21" value="<?= (isset($_POST['expiryDateYear']) ? $_POST['expiryDateYear'] : ''); //default Values?>">
         <br>
         Sicherheitscode:
         <br>

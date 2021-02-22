@@ -17,7 +17,7 @@ class ContactData extends Model
 		'phoneNumber' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50],
 		'emailAddress' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50],
 		'username' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50],
-		'password' => ['type' => Model::TYPE_STRING, 'min' => 2, 'max' => 50]
+		'password' => ['type' => Model::TYPE_STRING, 'min' => 8, 'max' => 70]
 	];
 
 //	public function insert(&$errors, $isGuest = 0) {
