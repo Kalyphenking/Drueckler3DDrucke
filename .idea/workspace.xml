@@ -20,14 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Admin und Employee Implementiert">
-      <change afterPath="$PROJECT_DIR$/exampleModels/Osterhase V1.0.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6032554f164cf/glb/Bracket-23.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6032554f164cf/glb/HuePlayStand-33.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6032554f164cf/glb/corner-piece-11.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6032554f164cf/stl/Bracket-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6032554f164cf/stl/HuePlayStand-00.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/file.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/temp/6032554f164cf/glb/corner-piece-63.glb" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/changeAddress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/changeContactData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/userErrors.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/changeAddress.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/changeContactData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/stl/DDD-00.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/managementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/managementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/miscStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/miscStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/management/manageOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/management/manageOrders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/addressInput.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/addressInput.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/usermenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/usermenu.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +50,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -63,7 +73,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -92,13 +102,6 @@
       <workItem from="1612197033804" duration="46599000" />
       <workItem from="1612619565367" duration="56810000" />
       <workItem from="1613072254782" duration="128103000" />
-    </task>
-    <task id="LOCAL-00004" summary="Test">
-      <created>1610904702708</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1610904702708</updated>
     </task>
     <task id="LOCAL-00005" summary="Controller">
       <created>1610905229118</created>
@@ -436,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613855880770</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Admin und Employee Implementiert">
+      <created>1613912483286</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1613912483286</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,39 +502,39 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613588392270" />
-    <state x="1458" y="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613577568605">
+    <state x="1458" y="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613929838606">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1458" y="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613577568605" />
+    <state x="1458" y="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613929838606" />
     <state x="1104" y="369" key="NewPhpClassDialog" timestamp="1613581157477">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="539" y="269" key="NewPhpClassDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1613238135261" />
     <state x="1104" y="369" key="NewPhpClassDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613581157477" />
-    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1613861926857">
+    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1613942560461">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613861926857" />
-    <state x="1229" y="356" key="SettingsEditor" timestamp="1612359714205">
+    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613942560461" />
+    <state x="1229" y="356" key="SettingsEditor" timestamp="1613916280555">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1229" y="356" key="SettingsEditor/0.0.3440.1440@0.0.3440.1440" timestamp="1612359714205" />
-    <state x="1320" y="444" width="1716" height="1117" key="Vcs.Push.Dialog.v2" timestamp="1613855882265">
+    <state x="1229" y="356" key="SettingsEditor/0.0.3440.1440@0.0.3440.1440" timestamp="1613916280555" />
+    <state x="1320" y="444" width="1716" height="1117" key="Vcs.Push.Dialog.v2" timestamp="1613912521546">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1613237709679" />
     <state x="660" y="323" key="Vcs.Push.Dialog.v2/0.0.1720.1440@0.0.1720.1440" timestamp="1613771034574" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613855882265" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613912521546" />
     <state x="426" y="249" width="1716" height="1117" key="Vcs.Push.Dialog.v2/0.25.3440.1342@0.25.3440.1342" timestamp="1612898069687" />
     <state x="1339" y="334" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1613147981007">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1339" y="334" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.3440.1440@0.0.3440.1440" timestamp="1613147981007" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613855860782">
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613944164768">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="745" y="465" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1613310243833" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613855860782" />
+    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1613944164768" />
     <state x="1936" y="271" width="1081" height="1084" key="dock-window-1" timestamp="1612359910285">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>

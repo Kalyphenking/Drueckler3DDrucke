@@ -1,45 +1,9 @@
-<!--<div>
-	<form action = 'index.php?c=main&a=login' method = 'POST'>
-		<div class="input">
-			<label for="username">
-				Nutzername
-			</label>
-			<input id="username"
-                   name="username"
-                   type="username"
-                   placeholder="username"
-                   required value=<?php echo (isset($_POST['username']) ? $_POST['username'] : ''); //default Values?> >
-		</div
-
-		<div class="input">
-			<label for="password">
-				Passwort:
-			</label>
-			<input id="password"
-                   name="password"
-                   type="password"
-                   placeholder="password"
-                   required value=<?php echo (isset($_POST['passowrd']) ? $_POST['passowrd'] : ''); //default Values?> >
-		</div>
-
-		<div class="input submit">
-			<input name="submit"
-                   type="submit"
-                   value="Login">
-		</div>
-		<div class="login-footer">
-			<a href="index.php?c=main&a=register">Konto erstellen</a>
-		</div>
-	</form>
-
-</div>-->
 
 <?php
+    $guest = false;
+
     if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
-        $guest = '<a href="index.php?c=main&a=register'.'/'.'guest">Als Gast fortfahren</a>';
-//        $_SESSION['guest'] = true;
-    } else {
-	    $guest = '';
+	    $guest = true;
     }
 ?>
 
@@ -75,7 +39,9 @@
 		<div class="login-footer">
 			<a href="index.php?c=main&a=register">Konto erstellen</a>
 
-            <?=$guest?>
+			<?if($guest) : ?>
+                <a href="index.php?c=main&a=register'.'/'.'guest">Als Gast fortfahren</a>
+            <?endif?>
 		</div>
     </form>
 </div>

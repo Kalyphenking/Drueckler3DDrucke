@@ -37,9 +37,10 @@ class UserController extends Controller
 	}
 
 	public function usermenu($subAction) {
+
 		$this->loadCustomerData();
 
-		if (isset($_POST['submit']) && isset($_POST['firstName'])) {
+		if (isset($_POST['submitContactData']) && isset($_POST['firstName'])) {
 
 			$this->changeUserData();
 		}
@@ -161,8 +162,13 @@ class UserController extends Controller
 	}
 
 	protected function changeAddressData() {
-		$this->loadCustomerData();
-		$contactDataId = $this->customerData['cdid'];
+
+		if (isset($_POST['addressId'])) {
+			$contactDataId = $_POST['addressId'];
+		} else {
+			$this->loadCustomerData();
+			$contactDataId = $this->customerData['cdid'];
+		}
 
 		$addressDataId = $this->customerData['aid'];
 		$street = !empty($_POST['street']) ? $_POST['street'] : $this->customerData['street'];
@@ -193,6 +199,9 @@ class UserController extends Controller
 			$link = 'index.php?c=order&a=checkout';
 			header("Location: $link ");
 		}
+
+
+
 	}
 
 	public function changeUserPassword($subAction) {

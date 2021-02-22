@@ -147,6 +147,11 @@ class ManagementController extends Controller
 					}
 					break;
 				case 'ordersInProcess':
+					$header['Employee_id'] = 'MitarbeiterNummer';
+					$subHeader['Employee_id'] = 'MitarbeiterNummer';
+					$dataRow['Employee_id'] = '';
+					$footer[] = '';
+
 					break;
 				case 'finishedOrders':
 					break;
@@ -246,7 +251,9 @@ class ManagementController extends Controller
 			$data = [];
 
 			foreach ($orders as $order) {
+
 				if ($order['Employee_id'] == $this->employeeId) {
+//					echo json_encode($order) . '<br>';
 					$data[] = $order;
 				}
 			}
@@ -259,8 +266,10 @@ class ManagementController extends Controller
 			if (!empty($order['oid'])) {
 //				echo json_encode($order) .  '<br>';
 				if ($order['processed'] == true) {
+//					echo json_encode($order) .  '<br>';
 					$finishedOrders[] = $order;
 				} else if (!empty($order['Employee_id'])) {
+//					echo json_encode($order) .  '<br>';
 					$ordersInProcess[] = $order;
 				} else {
 //					echo json_encode($order) .  '<br>';

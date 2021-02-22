@@ -3,11 +3,15 @@ $customerData = $_SESSION['customerData'];
 
 //echo json_encode($customerData);
 
+$addressId = $customerData['aid'];
 $street = $customerData['street'];
 $number = $customerData['number'];
 $postalCode = $customerData['postalCode'];
 $city = $customerData['city'];
 $country = $customerData['country'];
+$customerId = $customerData['cid'];
+
+//echo json_encode($addressId);
 
 if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
 	$label = 'Weiter';
@@ -18,21 +22,25 @@ if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
 
 ?>
 
+<label id="addressId" hidden><?=$addressId?></label>
+<label id="customerId" hidden><?=$customerId?></label>
+
 <form action="index.php?c=user&a=usermenu" method = 'POST'>
+
 	Straße:
-	<input type="text" name="street" value=<?=$street?> >
+	<input id="street" type="text" name="street" value=<?=$street?> >
 	<br>
 	Hausnummer:
-	<input type="text" name="number" value=<?=$number?> >
+	<input id="number" type="text" name="number" value=<?=$number?> >
 	<br>
 	Postleitzahl:
-	<input type="text" name="postalCode" value=<?=$postalCode?> >
+	<input id="postalCode" type="text" name="postalCode" value=<?=$postalCode?> >
 	<br>
 	Stadt:
-	<input type="text" name="city" value=<?=$city?> >
+	<input id="city" type="text" name="city" value=<?=$city?> >
 	<br>
 	Land:
-	<input type="text" name="country" value=<?=$country?> >
+	<input id="country" type="text" name="country" value=<?=$country?> >
 	<br>
-	<input type="submit" name="submitAddress" value="<?=$label?>">
+	<input id="submitAddress" type="submit" name="submitAddress" value="<?=$label?>">
 </form>

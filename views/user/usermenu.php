@@ -8,6 +8,7 @@ $firstName = $customerData['firstName'];
 $lastName = $customerData['lastName'];
 $emailAddress = $customerData['emailAddress'];
 $phoneNumber = $customerData['phoneNumber'];
+$contactDataId = $customerData['cdid'];
 
 $street = $customerData['street'];
 $number = $customerData['number'];
@@ -19,20 +20,21 @@ $country = $customerData['country'];
 
 ?>
 <div class="userContent">
-	<form action="index.php?c=user&a=usermenu" method = 'POST'>
+    <label id="contactDataId" hidden><?=$contactDataId?></label>
+    <form action="index.php?c=user&a=usermenu" method = 'POST'>
 		Vorname:
-		<input type="text" name="firstName" value=<?=$firstName?> >
+		<input id="firstName" type="text" name="firstName" value=<?=$firstName?> >
 		<br>
 		Nachname:
-		<input type="text" name="lastName" value=<?=$lastName?> >
+		<input id="lastName" type="text" name="lastName" value=<?=$lastName?> >
 		<br>
 		Emailadresse:
-		<input type="text" name="emailAddress" value=<?=$emailAddress?> >
+		<input id="emailAddress" type="text" name="emailAddress" value=<?=$emailAddress?> >
 		<br>
 		Telefonnummer:
-		<input type="text" name="phoneNumber" value=<?=$phoneNumber?> >
+		<input id="phoneNumber" type="text" name="phoneNumber" value=<?=$phoneNumber?> >
 		<br>
-		<input type="submit" name="submit" value="Speichern">
+		<input id="submitContactData" type="submit" name="submitContactData" value="Speichern">
 	</form>
 
     <?php

@@ -1,0 +1,16 @@
+POST: {"firstName":"Marius","lastName":"Lange","phoneNumber":"01621011009","emailAddress":"mariuslange2000@gmail.com","cdid":"16"}
+
+SQL: 
+	UPDATE 
+	ContactData SET 
+	firstName='Marius',
+	lastName='Lange',
+	phoneNumber='01621011009',
+	emailAddress='mariuslange2000@gmail.com'
+	WHERE id = '16'
+
+
+Works: 
+
+Works: 
+

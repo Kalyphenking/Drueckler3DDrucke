@@ -5,6 +5,8 @@
         <h3>Registrierung</h3>
 
         <?php
+
+            $guest = false;
             if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
                 $label = 'Weiter';
     //        $_SESSION['guest'] = true;
@@ -12,67 +14,68 @@
                 $label = 'Registrieren';
             }
 
-
-            if (!isset($_SESSION['guest'])) {
-
-	            $userName = isset($_POST['username']) ? $_POST['username'] : '';
-	            $password = isset($_POST['password']) ? $_POST['password'] : '';
-
-	            echo '
-            
-                    <div class = "InputLine">
-                        <input id="username"
-                               name="username"
-                               type="username"
-                               placeholder="Username"
-                               required value="'.$userName.'">
-                        <br>
-        
-                        <input id="password"
-                               name="password"
-                               type="password"
-                               placeholder="Password"
-                               required value="'.$password.'">
-                    </div>
-                    
-                   ';
-            } else {
+            if (isset($_SESSION['guest'])) {
+	            $guest = true;
 
 	            $userName = isset($_SESSION['uid']) ? $_SESSION['uid'] : '';
 	            $password = isset($_SESSION['uid']) ? $_SESSION['uid'] : '';
 
-	            echo '
-            
-                    <div class = "InputLine">
-                        <input id="username"
-                               name="username"
-                               type="username"
-                               placeholder="Username"
-                               hidden
-                               required value="'.$userName.'">
-                        <br>
-        
-                        <input id="password"
-                               name="password"
-                               type="password"
-                               placeholder="Password"
-                               hidden
-                               required value="'.$password.'">
-                    </div>
-            
-                ';
+            } else {
+	            $userName = isset($_POST['username']) ? $_POST['username'] : '';
+	            $password = isset($_POST['password']) ? $_POST['password'] : '';
+
             }
         ?>
+
+        <?if($guest) : ?>
+
+            <div class = "InputLine">
+                <input id="username"
+                       name="username"
+                       type="username"
+                       placeholder="Username"
+                       hidden
+                       required value="<?$userName?>">
+                <br>
+
+                <input id="password"
+                       name="password"
+                       type="password"
+                       placeholder="Password"
+                       hidden
+                       required value="<?$password?>">
+            </div>
+
+	    <?else : ?>
+            <div class = "InputLine">
+                <label id="validUsername"></label>
+                <input id="username"
+                       name="username"
+                       type="username"
+                       placeholder="Username"
+                       required value="<?$userName?>">
+                <br>
+
+                <label id="passwordStrength"></label>
+                <input id="password"
+                       name="password"
+                       type="password"
+                       placeholder="Password"
+                       required>
+            </div>
+        <?endif?>
 
             <br>
 
             <div class = "InputLine">
+                <label id="validFirstName"></label>
                 <input id="firstName"
                        name="firstName"
                        type="firstName"
                        placeholder="First name"
                        required value=<?php echo (isset($_POST['firstName']) ? $_POST['firstName'] : ''); //default Values?> >
                 <br>
+                <label id="validLastName"></label>
                 <input id="lastName"
                        name="lastName"
                        type="lastName"
@@ -80,7 +83,7 @@
                        required value=<?php echo (isset($_POST['lastName']) ? $_POST['lastName'] : NULL); //default Values?> >
 
                 <br><br>
-
+                <label id="validEmail"></label>
                 <input id="emailAddress"
                        name="emailAddress"
                        type="email"
@@ -96,6 +99,8 @@
         <br>
 
         <input type = "checkbox" required> AGB <br><br>
-        <input name="submit" type="submit" value="<?=$label?>">
+        <input id="submitRegister" name="submit" type="submit" value="<?=$label?>">
+
+
     </form>
 </div>

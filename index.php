@@ -57,7 +57,6 @@
     <link rel="stylesheet" href="<?=ROOTPATH.'css/management.css'?>">
 
 
-
     <link rel="stylesheet" href="<?=ROOTPATH.'css/LogReg.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'css/menuStyles.css'?>">
 
@@ -84,11 +83,11 @@
 
 
     <!--requierd javascript-->
-<!--    <script src="--><?//=JSPATH.'default.js'?><!--"></script>-->
     <script src="<?=JSPATH.'fileUpload.js'?>"></script>
     <script src="<?=JSPATH.'checkForJavaScript.js'?>"></script>
-
-    <!--STL to GLTF converter-->
+    <script src="<?=JSPATH.'register.js'?>"></script>
+    <script src="<?=JSPATH.'changeAddress.js'?>"></script>
+    <script src="<?=JSPATH.'changeContactData.js'?>"></script>
 
     <!--Color Picker-->
     <script src="https://rawgit.com/Sphinxxxx/vanilla-picker/master/dist/vanilla-picker.min.js"></script>

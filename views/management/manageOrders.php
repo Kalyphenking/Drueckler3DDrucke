@@ -8,6 +8,7 @@
 ////echo '<br>doneOrders: <br>'.json_encode($doneOrders).'<br>';
 
 $selectedOrderList = isset($GLOBALS['selectedOrderList']) && isset($_SESSION['admin']) ? $GLOBALS['selectedOrderList'] : 'openOrders';
+$selectedOrderList = isset($GLOBALS['selectedOrderList']) && isset($_SESSION['employee']) ? $GLOBALS['selectedOrderList'] : 'ordersInProcess';
 
 $orders = isset($_SESSION[$selectedOrderList]) ? $_SESSION[$selectedOrderList] : [];
 
@@ -48,7 +49,12 @@ foreach ($orders as $data) {
 	    if ($ordersExist) {
 		    echo $table;
 	    } else {
-		    echo '<h3>Ihnen wurden keine Bestellungen zugeteilt</h3>';
+	        if ($selectedOrderList == 'finishedOrders') {
+		        echo '<h3>Noch keine Bestellung abgeschlossen</h3>';
+            } else {
+		        echo '<h3>Ihnen wurden keine Bestellungen zugeteilt</h3>';
+            }
+
 	    }
 
 	    ?>
