@@ -109,40 +109,40 @@ class Controller
 	function render() {
 		$view = VIEWSPATH . $this->controller . '/' . $this->action . '.php';
 		if (file_exists($view)) {
-			echo '<div id="mainContainer">';
+			echo '<div class="mainContainer">';
 
 			include_once(VIEWSPATH . 'main' . '/' . 'navbard.php');
 
-			echo '<div id="content"  id="höhe">';
+			echo '<div class="content" >';
 
 			switch ($this->controller) {
 				case 'main':
 
-					echo "<div class=\"mainGrid-container\">";
+//					echo "<div class=\"mainGrid-container\">";
 
 
 					break;
 				case 'management':
 
-					echo "<div class=\"management-container\">";
+//					echo "<div class=\"management-container\">";
 					include_once (VIEWSPATH.'management'.'/'.'managementMenuBar.php');
 
 					break;
 				case 'order':
 
 					if ($this->action == 'shoppingCart') {
-						echo "<div class=\"shoppingCart-container\">";
+//						echo "<div class=\"shoppingCart-container\">";
 					} else if($this->action == 'checkout') {
-						echo "<div class=\"checkoutGrid-container\">";
+//						echo "<div class=\"checkoutGrid-container\">";
 					} else {
-						echo "<div class=\"orderGrid-container\">";
+//						echo "<div class=\"orderGrid-container\">";
 					}
 //						include_once (VIEWSPATH.'order'.'/'.'orderProgressBar.php');
 
 
 					break;
 				case 'user':
-					echo "<div class=\"userGrid-container\">";
+//					echo "<div class=\"userGrid-container\">";
 					include_once (VIEWSPATH.'user'.'/'.'userMenuBar.php');
 
 					break;
@@ -152,7 +152,7 @@ class Controller
 
 			echo "<script>javaScriptEnabled()</script>";
 
-			echo "</div>";
+//			echo "</div>";
 			echo "</div>";
 
 			include_once(VIEWSPATH . 'main/infoBar.php');

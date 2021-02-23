@@ -2,8 +2,6 @@
 .managementMenuBar { grid-area: menu; }
 .managementContent { grid-area: main; }
 .orderBar { grid-area: bar; }
-/*.item4 { grid-area: right; }*/
-/*.item5 { grid-area: footer; }*/
 
 .management-container {
     display: grid;

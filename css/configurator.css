@@ -1,0 +1,98 @@
+
+/*!*.orderProgressBar { grid-area: progress; }*!*/
+/*.orderContent { grid-area: main; }*/
+/*.modelViewerDiv { grid-area: viewer;}*/
+/*.shoppingCartFooter { grid-area: footer;}*/
+/*!*.userContent { grid-area: main; }*!*/
+/*!*.item4 { grid-area: right; }*!*/
+/*!*.item5 { grid-area: footer; }*!*/
+
+/*.orderGrid-container {*/
+/*    display: grid;*/
+/*    grid-template-areas:*/
+/*    'progress progress progress progress progress progress progress'*/
+/*    'viewer main main main main main main';*/
+/*    grid-gap: 10px;*/
+/*    background-color: #eac424;*/
+/*    padding: 10px;*/
+/*    !*height: 100%;*!*/
+/*    flex-grow: 1;*/
+/*}*/
+
+/*#content {*/
+/*    display: flex; flex-direction: column;*/
+/*}*/
+
+/*.checkoutGrid-container {*/
+/*    display: grid;*/
+/*    grid-template-areas:*/
+/*    'progress progress progress progress progress progress progress'*/
+/*    'main main main main main main main';*/
+/*    grid-gap: 10px;*/
+/*    background-color: #eac424;*/
+/*    padding: 10px;*/
+/*}*/
+
+/*.shoppingCart-container > div, .checkoutGrid-container > div, .orderGrid-container > div {*/
+/*    background-color: rgba(255, 255, 255, 0.8);*/
+/*    !*text-align: center;*!*/
+/*    !*padding: 20px 0;*!*/
+/*    !*font-size: 30px;*!*/
+/*}*/
+
+/*#modelViewerDiv{*/
+/*    max-width: 500px;*/
+/*}*/
+
+
+/*div.userInput {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
+
+/*#modelViewer {*/
+/*    width: 500px;*/
+/*    height: 350px;*/
+/*    !*width: 100%;*!*/
+/*    !*height: 100%;*!*/
+/*}*/
+
+/*.modelViewerShopppingCart {*/
+/*    width: 100px;*/
+/*    height: 75px;*/
+/*}*/
+
+/*input[type='file'] {*/
+/*    color: transparent;*/
+/*}*/
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 1.5fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "modelViewer orderContent"
+    "test test";
+}
+.test { grid-area: test; background-color: greenyellow}
+.modelViewer {
+    grid-area: modelViewer;
+    background-color: rebeccapurple;
+    align-items: center;
+    display: flex;
+    /*border: 1px solid;*/
+}
+.orderContent { grid-area: orderContent; background-color: brown}
+
+#modelViewer {
+    /*width: auto;*/
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#missingJavaScriptMessage {
+    order: 2;
+    margin:0 auto;
+}

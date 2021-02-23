@@ -24,24 +24,23 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 	$error = $_SESSION['error'];
 }
 
-echo "filamentColorCode: $filamentColorCode <br><br>";
-echo "selectedResolution: $selectedResolution <br><br>";
-echo "Filament: $filamentColor <br><br>";
-echo "PrintTime: $printTime <br><br>";
-echo "PrintPrices: $printPrices[0] <br><br>";
+//echo "filamentColorCode: $filamentColorCode <br><br>";
+//echo "selectedResolution: $selectedResolution <br><br>";
+//echo "Filament: $filamentColor <br><br>";
+//echo "PrintTime: $printTime <br><br>";
+//echo "PrintPrices: $printPrices[0] <br><br>";
 
 
 ?>
 
-<div class="modelViewerDiv">
-    <model-viewer id="modelViewer" loading="lazy" src="uploads/default/glb/3DModelHochladen.glb"  alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>
+<div class="modelViewer">
+    <model-viewer id="modelViewer" class="javaScriptBased" loading="lazy" src="uploads/default/glb/3DModelHochladen.glb"  alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>
     <!--        <model-viewer src="http://localhost/Drueckler3DDrucke/uploads/temp/glb/6021449f3c57b_TopfdeckelTeil.glb" style="height: 500px; width: 50%" alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>-->
+<!---->
+    <label id="missingJavaScriptMessage" class="phpBased text-warning">Für Modelvorschau JavaScript aktivieren</label>
+</div>
+<div class="test">
 
-    <label class="phpBased">Für Modelvorschau JavaScript aktivieren</label>
-    <br>
-    <br>
-    <br>
-    <label><?=$modelName?></label>
 </div>
 
 <div class="orderContent">

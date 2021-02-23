@@ -1,5 +1,6 @@
-<nav id="navBar">
-    <a href="index.php" class="menu-button">
+
+<nav class="navBar">
+    <a href="index.php" id="menu-button">
         <img src="<?=IMAGESPATH.'Logo.png'?>">
     </a>
 

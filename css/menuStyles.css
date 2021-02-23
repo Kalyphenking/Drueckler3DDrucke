@@ -1,9 +1,9 @@
-
-
-#navBar {
+.navBar {
+    grid-area: navBar;
+    ackground-color: red;
     height: 80px;
     width: 100%;
-    padding: 0 15px;
+    /*padding: 0 15px;*/
     background-image: url(../ressources/images/Banner.png);
     background-size: cover;
     color: rgb(189, 101, 1);
@@ -15,23 +15,23 @@
     font-size: 40px;
 }
 
-#navBar .menu-button {
+.navBar > #menu-button {
     background-color: #333333;
     width: 110px;
     height: 60px;
     margin-right: 10px;
 }
 
-#navBar .menu-button img {
+.navBar #menu-button img {
     width: 100%;
     height: 100%;
 }
 
-#navBar .items {
+.navBar .items {
     flex: 1;
 }
 
-#navBar .item {
+.navBar .item {
     margin: 0 10px;
     font-weight: 800;
 }
@@ -40,3 +40,35 @@
 {
 
 }
+
+
+
+
+
+.content { grid-area: content; background-color: green;}
+.footer { grid-area: footer; background-color: blue;}
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr 50px;
+    gap: 0px 0px;
+    grid-template-areas:
+    "navBar"
+    "content"
+    "footer";
+}
+
+/*.content {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1.5fr;*/
+/*    grid-template-rows: 1.5fr 1fr;*/
+/*    gap: 0px 0px;*/
+/*    grid-template-areas:*/
+/*    "modelViewer orderContent"*/
+/*    "test test";*/
+/*    grid-area: orderGrid-container;*/
+/*}*/
+/*.modelViewer { grid-area: modelViewer; }*/
+/*.orderContent { grid-area: orderContent; }*/

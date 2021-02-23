@@ -8,10 +8,6 @@ body {
 .javaScriptBased {
     display: none;
 }
-
-.javaScriptBased {
-    display: none;
-}
 #ordersTabe td, #ordersTabe th {
     /*border: 1px solid #ddd;*/
     padding: 8px;
@@ -64,6 +60,11 @@ body {
 /*.item4 { grid-area: right; }*/
 /*.item5 { grid-area: footer; }*/
 
+.text-warning {
+    font-family: "Helvetica Neue";
+    color: black;
+    font-size: 18pt;
+}
 
 
 
