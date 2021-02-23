@@ -1,5 +1,4 @@
 
-/*.navBar { grid-area: bar; }*/
 .userMenuBar { grid-area: menu; }
 .userContent { grid-area: main; }
 /*.item4 { grid-area: right; }*/

@@ -1,6 +1,6 @@
 
 
-.navBar {
+#navBar {
     height: 80px;
     width: 100%;
     padding: 0 15px;
@@ -15,23 +15,23 @@
     font-size: 40px;
 }
 
-.navBar .menu-button {
+#navBar .menu-button {
     background-color: #333333;
     width: 110px;
     height: 60px;
     margin-right: 10px;
 }
 
-.navBar .menu-button img {
+#navBar .menu-button img {
     width: 100%;
     height: 100%;
 }
 
-.navBar .items {
+#navBar .items {
     flex: 1;
 }
 
-.navBar .item {
+#navBar .item {
     margin: 0 10px;
     font-weight: 800;
 }

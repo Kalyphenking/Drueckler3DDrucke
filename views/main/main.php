@@ -2,8 +2,8 @@
 
 <h1>Main</h1>
 
-<div class="phpBased">
-    <a>To imporve user experience, please enable Java Script</a>
+<div class="phpBased" id="enableJavaScriptMessage">
+    <a>Um ihr persönliches Nutzererlebnis auf dieser Seite zu seteigern, empfehlen wir JavaScript für ihren Browser zu aktivieren</a>
 </div>
 <div id="slider">
     <img src="<?=IMAGESPATH.'PrintExample1.jpg'?>" width="1200" height="900" class = "slider_img class_PrintExample1">

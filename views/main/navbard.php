@@ -1,4 +1,4 @@
-<nav class="navBar">
+<nav id="navBar">
     <a href="index.php" class="menu-button">
         <img src="<?=IMAGESPATH.'Logo.png'?>">
     </a>

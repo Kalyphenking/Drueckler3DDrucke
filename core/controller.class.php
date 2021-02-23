@@ -79,46 +79,41 @@ class Controller
 		return (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true);
 	}
 
-	function render() {
-//		if (isset($_POST['testing'])) {
-
-            $loggedIn = isset($_SESSION['loggedIn']) ? $_SESSION['loggedIn'] : false;
+	function debug() {
+		$loggedIn = isset($_SESSION['loggedIn']) ? $_SESSION['loggedIn'] : false;
             $username = isset($_SESSION['customerName']) ? $_SESSION['customerName'] : '';
 
 
-//            echo 'controllerName: ' . $this->controller;
-//            echo '<br>';
-//            echo 'actionName: ' . $this->action;
-//            echo '<br>';
-//			echo '<br>';
-//			echo 'currentController: ' . $_SESSION['currentController'];
-//            echo '<br>';
-//			echo 'currentAction: ' . $_SESSION['currentAction'];
-//			echo '<br>';
-//			echo '<br>';
-//			echo 'previousController: ' . $_SESSION['previousController'];
-//			echo '<br>';
-//			echo 'previousAction: ' . $_SESSION['previousAction'];
-//			echo '<br>';
-//			echo '<br>';
-//            echo 'loggedIn: ' . $loggedIn;
-//            echo '<br>';
-//            echo 'username: ' . $username;
-//            echo '<br>';
-//            echo '<br>';
-//        }
+            echo 'controllerName: ' . $this->controller;
+            echo '<br>';
+            echo 'actionName: ' . $this->action;
+            echo '<br>';
+			echo '<br>';
+			echo 'currentController: ' . $_SESSION['currentController'];
+            echo '<br>';
+			echo 'currentAction: ' . $_SESSION['currentAction'];
+			echo '<br>';
+			echo '<br>';
+			echo 'previousController: ' . $_SESSION['previousController'];
+			echo '<br>';
+			echo 'previousAction: ' . $_SESSION['previousAction'];
+			echo '<br>';
+			echo '<br>';
+            echo 'loggedIn: ' . $loggedIn;
+            echo '<br>';
+            echo 'username: ' . $username;
+            echo '<br>';
+            echo '<br>';
+	}
 
+	function render() {
 		$view = VIEWSPATH . $this->controller . '/' . $this->action . '.php';
-
-//		echo "view: $view <br>";
-
 		if (file_exists($view)) {
-
-			echo '<div class="parent-container">';
+			echo '<div id="mainContainer">';
 
 			include_once(VIEWSPATH . 'main' . '/' . 'navbard.php');
 
-			echo '<div class="content"  id="höhe">';
+			echo '<div id="content"  id="höhe">';
 
 			switch ($this->controller) {
 				case 'main':
@@ -164,6 +159,10 @@ class Controller
 			echo '</div>';
 
 		} else {
+
+			$link = '404.html';
+			header("Location: $link ");
+
 			die('404 action you call does not exists');
 		}
 

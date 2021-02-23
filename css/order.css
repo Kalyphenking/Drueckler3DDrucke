@@ -1,4 +1,4 @@
-/*.navBar { grid-area: bar; }*/
+
 .orderProgressBar { grid-area: progress; }
 .orderContent { grid-area: main; }
 .modelViewerDiv { grid-area: viewer;}

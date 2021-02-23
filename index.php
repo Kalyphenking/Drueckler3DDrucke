@@ -47,7 +47,7 @@
     <title>Drückler 3D Drucke</title>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="<?=ROOTPATH.'css/default.css'?>">
 
@@ -72,10 +72,10 @@
 
 
 
-<nav id="mobile">
-    <div id="menu" Menü </div>
-
-</nav>
+<!--<nav id="mobile">-->
+<!--    <div id="menu" Menü </div>-->
+<!---->
+<!--</nav>-->
 
     <!--requierd javascript-->
     <script src="<?=JSPATH.'fileUpload.js'?>"></script>
@@ -120,15 +120,15 @@
         }
 
     } else {
-
-        die('404 Controller you call does not exists');
+	    $link = '404.html';
+	    header("Location: $link ");
+//        die('404 Controller you call does not exists');
     }
 
     $error = Array();
 ?>
 
 <body>
-
     <?php
         $controller->render();
     ?>
