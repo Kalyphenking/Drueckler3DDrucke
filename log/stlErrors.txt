@@ -1,12 +1,12 @@
-fileName: uploads/temp/602fa4b35ef9d/glb/170-210_PLA_Temp_Tower-53.glb
+fileName: uploads/Kalyphenking/glb/HuePlayStand-85.glb
 
-modelName: 170-210_PLA_Temp_Tower
+modelName: HuePlayStand
 
-glbDirectory: uploads/temp/602fa4b35ef9d/glb
+glbDirectory: uploads/Kalyphenking/glb
 
-baseName: 
+baseName: 170-210_PLA_Temp_Tower
 
-deleteName: ..
+deleteName: 170-210_PLA_Temp_Tower-61.glb
 
 saved
 

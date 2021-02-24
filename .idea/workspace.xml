@@ -20,7 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/HuePlayStand-85.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/stl/HuePlayStand-00.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/menuStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menuStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/stlErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/stlErrors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/navbard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/navbard.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +98,7 @@
       <workItem from="1612619565367" duration="56810000" />
       <workItem from="1613072254782" duration="128103000" />
       <workItem from="1614165186259" duration="23309000" />
+      <workItem from="1614200236486" duration="292000" />
     </task>
     <task id="LOCAL-00010" summary="Spaß Updata">
       <created>1611171691688</created>

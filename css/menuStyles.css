@@ -76,7 +76,7 @@ header{
     width: 100%;
     text-align: right;
     transition: 2000ms all;
-    height: 7rem;
+    /*height: 7rem;*/
 }
 
 /*header nav#desktop{*/
@@ -182,6 +182,7 @@ header nav#mobile ul li a{
 header nav#mobile ul li:hover > a{
     background: rgb(190, 185, 1);
 }
+
 
 .main-container {
     background-color: bisque;

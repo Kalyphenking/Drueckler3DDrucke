@@ -1,5 +1,4 @@
 <header class="header">
-
     <nav class="navBar" id="desktop">
         <a href="index.php" id="menu-button">
             <img src="<?=IMAGESPATH.'Logo.png'?>">
