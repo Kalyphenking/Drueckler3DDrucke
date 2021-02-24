@@ -1,6 +1,6 @@
 <?php
 
-
+//CF1
 namespace DDDDD\controller\functions;
 
 
@@ -8,14 +8,14 @@ use DDDDD\model\PaymentData;
 
 class ChangePaymentData
 {
-
+//CF1_F1
 	function __construct() {
 		$this->username = isset($_SESSION['customerName']) ? $_SESSION['customerName'] : $_SESSION['uid'];
 		$this->customerData = $_SESSION['customerData'];
 
 //		$this->{$function}();
 	}
-
+//CF1_F2
 	public function changePaymentData($subAction = 'setDirectDebit', $preferedPaymentMthod = '') {
 
 		$action = 'setDirectDebit';

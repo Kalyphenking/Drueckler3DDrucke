@@ -1,5 +1,5 @@
 <?php
-
+//M4
 namespace DDDDD\model;
 
 class Customer extends Model
@@ -15,7 +15,7 @@ class Customer extends Model
 		'guest' => ['type' => Model::TYPE_TINYINT],
 		'ContactData_id' => ['type' => Model::TYPE_INT]
 	];
-
+//M4_F1
 	public static function findTest($attributs = [], $keys = [], $values = [])
 	{
 		$db = $GLOBALS['db'];

@@ -6,14 +6,14 @@ use DDDDD\core\Controller;
 use DDDDD\model\ContactData;
 use DDDDD\model\Employee;
 use DDDDD\model\Order;
-
+//C1
 //manages management related functions
 
 class MainController extends Controller
 {
 
 	protected $errors = null;
-
+//C1_F1
 	public function logout($subAction) {
 		session_destroy();
 
@@ -31,7 +31,7 @@ class MainController extends Controller
 
 		header("Location: $link ");
 	}
-
+//C1_F2
 	public function login($subAction) {
 		$_SESSION['guest'] = false;
 

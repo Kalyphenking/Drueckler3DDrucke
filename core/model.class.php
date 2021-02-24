@@ -1,5 +1,5 @@
 <?php
-
+//Co2
 namespace DDDDD\model;
 
 //model parrent class
@@ -13,7 +13,7 @@ class Model
 
 	protected $shema = [];
 	protected $data = [];
-
+//Co2_F1
 	public function __construct($params = []) {
 		foreach ($this->shema as $key => $value) {
 //			echo ();
@@ -24,7 +24,7 @@ class Model
 			}
 		}
 	}
-
+//Co2_F2
 	public function __get($key) {
 
 
@@ -36,7 +36,7 @@ class Model
 		throw new \Exception('You can not acces to property "' . $key . '"" for the class "' . get_called_class());
 
 	}
-
+//Co2_F3
 	public function __set($key, $value) {
 		if(array_key_exists($key, $this->shema)) {
 			$this->data[$key] = $value;
@@ -45,6 +45,7 @@ class Model
 		throw new \Exception('You can not write to property "' . $key . '"" for the class "' . get_called_class());
 	}
 
+//Co2_F4
 	//inserts objectData in new database row
 	public function insert(&$errors, $extraSql = []) {
 		try {
@@ -96,7 +97,7 @@ class Model
 		}
 		return false;
 	}
-
+//Co2_F5
 	public function sendSql(&$errors, $sql) {
 		try {
 			$db = $GLOBALS['db'];
@@ -111,7 +112,7 @@ class Model
 		}
 		return false;
 	}
-
+//Co2_F6
 	//updates objectData in existing databse row
 	public function update(&$errors) {
 		$db = $GLOBALS['db'];
@@ -144,7 +145,7 @@ class Model
 		}
 		return false;
 	}
-
+//Co2_F7
 	//deletes database row
 	public function delete(&$errors = null) {
 		$db = $GLOBALS['db'];
@@ -163,7 +164,7 @@ class Model
 		}
 		return false;
 	}
-
+//Co2_F8
 	//checks for correct input value
 	public function validateValue($attribute, &$value, &$shemaOptions) {
 		$type = $shemaOptions['type'];
@@ -187,7 +188,7 @@ class Model
 		}
 		return count($errors) > 0 ? $errors : true;
 	}
-
+//Co2_F9
 	//cheks objectdata
 	public function validate(&$errors) {
 		$errors = [];
@@ -207,7 +208,7 @@ class Model
 			return false;
 		}
 	}
-
+//Co2_F10
 	//returns name of related database table
 	public static function tablename() {
 		$class = get_called_class();
@@ -216,7 +217,7 @@ class Model
 		}
 		return null;
 	}
-
+//Co2_F11
 	//searchs for data with specific attributes
 	public static function find($keys = [], $values = [], $method = 'and') {
 
@@ -244,7 +245,7 @@ class Model
 		}
 		return $result;
 	}
-
+//Co2_F12
 	//searchs for data with specific attributes on multiple tables
 	public static function findOnJoin($dataType = "", $attributs = [], $keys = [], $values = [])
 	{

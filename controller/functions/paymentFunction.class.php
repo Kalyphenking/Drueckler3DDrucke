@@ -1,5 +1,5 @@
 <?php
-
+//CF2
 namespace DDDDD\controller\functions;
 
 use DDDDD\model\Address;
@@ -18,7 +18,7 @@ class PaymentFunction
 	protected $errors = null;
 
 	//calls functions selected by url (a=orderController/setDirectDebit)
-
+//CF2_F1
 	function __construct($function) {
 		$this->username = $_SESSION['username'];
 		$this->customerData = $_SESSION['customerData'];
@@ -26,7 +26,7 @@ class PaymentFunction
 		$this->{$function}();
 	}
 
-
+//CF2_F2
 	protected function setDirectDebit() {
 		$GLOBALS['selectedPaymentMethod'] = 'setDirectDebit';
 
@@ -105,7 +105,7 @@ class PaymentFunction
 		$loadedData = $this->loadDirectDebitData();
 		$GLOBALS['paymentData'] = $loadedData[0];
 	}
-
+//CF2_F3
 	protected function setCreditCard() {
 		$GLOBALS['selectedPaymentMethod'] = 'setCreditCard';
 
@@ -186,7 +186,7 @@ class PaymentFunction
 		$loadedData = $this->loadCreditCardData();
 		$GLOBALS['paymentData'] = $loadedData[0];
 	}
-
+//CF2_F4
 	protected function setPayPal() {
 		$GLOBALS['selectedPaymentMethod'] = 'setPayPal';
 
@@ -258,7 +258,7 @@ class PaymentFunction
 		$GLOBALS['paymentData'] = $payPalData;
 	}
 
-
+//CF_F5
 	protected function loadDirectDebitData() {
 
 		$loadedData = PaymentData::findOnJoin(
@@ -275,7 +275,7 @@ class PaymentFunction
 
 		return $loadedData;
 	}
-
+//CF2_F6
 	protected function loadCreditCardData() {
 
 		$loadedData = PaymentData::findOnJoin(
@@ -293,7 +293,7 @@ class PaymentFunction
 
 		return $loadedData;
 	}
-
+//CF2_F7
 	protected function loadBillData() {
 
 		$loadedData = PaymentData::findOnJoin(
@@ -312,7 +312,7 @@ class PaymentFunction
 
 		return $loadedData;
 	}
-
+//CF2_F8
 	protected function loadPayPalData() {
 
 

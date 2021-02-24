@@ -1,5 +1,5 @@
 <?php
-
+//M2
 namespace DDDDD\model;
 
 class ContactData extends Model

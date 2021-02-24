@@ -19,22 +19,41 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Bissel Styling dies das">
-      <change afterPath="$PROJECT_DIR$/css/configurator.css" afterDir="false" />
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="JavaScript bei ContactData &amp; Address">
+      <change afterPath="$PROJECT_DIR$/html/dokumentation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/functions/changePaymentData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/functions/changePaymentData.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/functions/paymentFunction.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/functions/paymentFunction.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/functions/table.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/functions/table.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/mainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/mainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/managementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/managementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/orderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/orderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/model.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/management.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/management.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/menuStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menuStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/order.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/topBottom.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/topBottom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/user.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/miscStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/miscStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/slide.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/slide.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/textBoxes.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/textBoxes.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/infoBar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/infoBar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/address.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/address.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/contactData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/contactData.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/creditCard.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/creditCard.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/customer.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/customer.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/dddmodel.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/dddmodel.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/directDebit.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/directDebit.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/employee.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/employee.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/filament.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/filament.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/order.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/order.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/paymentData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/paymentData.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/paypal.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/paypal.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/pricing.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/pricing.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/printConfig.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/printConfig.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/printSetting.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/printSetting.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/main/navbard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/navbard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/order/configurator.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/configurator.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +68,6 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -58,6 +76,7 @@
   </component>
   <component name="ProjectId" id="1nCM1hXgcEI6YtgADZejZh2kkE7" />
   <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -66,18 +85,22 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/ressources/images" />
       <recent name="$PROJECT_DIR$/views/user" />
       <recent name="$PROJECT_DIR$/views" />
@@ -102,7 +125,28 @@
       <workItem from="1612197033804" duration="46599000" />
       <workItem from="1612619565367" duration="56810000" />
       <workItem from="1613072254782" duration="128103000" />
-      <workItem from="1614071568614" duration="9675000" />
+      <workItem from="1614165186259" duration="17242000" />
+    </task>
+    <task id="LOCAL-00006" summary="Database update &amp; login + register">
+      <created>1610920117670</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610920117670</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update">
+      <created>1610983083211</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610983083211</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Controller und Klassen ausgebaut">
+      <created>1611149885220</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1611149885220</updated>
     </task>
     <task id="LOCAL-00009" summary="Weiterleitung bei Login getestet">
       <created>1611163630590</created>
@@ -426,28 +470,7 @@
       <option name="project" value="LOCAL" />
       <updated>1613986950017</updated>
     </task>
-    <task id="LOCAL-00055" summary="ErrorManagement und Validierung von Eingaben">
-      <created>1614031523062</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1614031523063</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Bissel Styling dies das">
-      <created>1614113735999</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1614113736000</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Bissel Styling dies das">
-      <created>1614113766971</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1614113766971</updated>
-    </task>
-    <option name="localTasksCounter" value="58" />
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,6 +490,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="preset und orders abrufbar" />
+    <MESSAGE value="Configurator setup in progress" />
     <MESSAGE value="Jede Menge Stuff" />
     <MESSAGE value="Büsschen css dies das" />
     <MESSAGE value="Controller geändert" />
@@ -490,83 +515,6 @@
     <MESSAGE value="DIRECTORY_SEPARATOR weg" />
     <MESSAGE value="Admin und Employee Implementiert" />
     <MESSAGE value="JavaScript bei ContactData &amp; Address" />
-    <MESSAGE value="ErrorManagement und Validierung von Eingaben" />
-    <MESSAGE value="Bissel Styling dies das" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bissel Styling dies das" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1085" y="553" key="#SQL_Dialects" timestamp="1612363682860">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="1085" y="553" key="#SQL_Dialects/0.0.3440.1440@0.0.3440.1440" timestamp="1612363682860" />
-    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1613588392270">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="966" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613588392270" />
-    <state x="1458" y="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613929838606">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="1458" y="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613929838606" />
-    <state x="344" y="130" key="MergeDialog" timestamp="1614113376806">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="344" y="130" key="MergeDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1614113376806" />
-    <state x="1104" y="369" key="NewPhpClassDialog" timestamp="1613581157477">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="539" y="269" key="NewPhpClassDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1613238135261" />
-    <state x="1104" y="369" key="NewPhpClassDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613581157477" />
-    <state x="1541" y="647" key="NewPhpFileDialog" timestamp="1614094146852">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="1541" y="647" key="NewPhpFileDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1614094146852" />
-    <state x="1229" y="356" key="SettingsEditor" timestamp="1613916280555">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="1229" y="356" key="SettingsEditor/0.0.3440.1440@0.0.3440.1440" timestamp="1613916280555" />
-    <state x="1320" y="444" width="1716" height="1117" key="Vcs.Push.Dialog.v2" timestamp="1614113768392">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="645" y="324" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1613237709679" />
-    <state x="660" y="323" key="Vcs.Push.Dialog.v2/0.0.1720.1440@0.0.1720.1440" timestamp="1613771034574" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1614113768392" />
-    <state x="426" y="249" width="1716" height="1117" key="Vcs.Push.Dialog.v2/0.25.3440.1342@0.25.3440.1342" timestamp="1612898069687" />
-    <state x="1339" y="334" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1613147981007">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="1339" y="334" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.3440.1440@0.0.3440.1440" timestamp="1613147981007" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614113512971">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="745" y="465" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1613310243833" />
-    <state x="1526" y="638" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1440@0.0.3440.1440" timestamp="1614113512971" />
-    <state x="1936" y="271" width="1081" height="1084" key="dock-window-1" timestamp="1612359910285">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="1936" y="271" width="1081" height="1084" key="dock-window-1/0.0.3440.1440@0.0.3440.1440" timestamp="1612359910285" />
-    <state x="1921" y="25" width="736" height="1083" key="dock-window-2" timestamp="1612359910287">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="1921" y="25" width="736" height="1083" key="dock-window-2/0.0.3440.1440@0.0.3440.1440" timestamp="1612359910287" />
-    <state x="1419" y="309" width="602" height="822" key="find.popup" timestamp="1614119619955">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="1419" y="309" width="602" height="822" key="find.popup/0.0.3440.1440@0.0.3440.1440" timestamp="1614119619955" />
-    <state width="600" height="428" key="javadoc.popup" timestamp="1614118683332">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state width="600" height="428" key="javadoc.popup/0.0.3440.1440@0.0.3440.1440" timestamp="1614118683332" />
-    <state x="1566" y="510" key="refactoring.ChangeSignatureDialog" timestamp="1613589910496">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="1566" y="510" key="refactoring.ChangeSignatureDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1613589910496" />
-    <state x="1385" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1613664106715">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="1385" y="331" width="670" height="676" key="search.everywhere.popup/0.0.3440.1440@0.0.3440.1440" timestamp="1613664106715" />
-    <state x="1450" y="596" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1612622519162">
-      <screen x="0" y="0" width="3440" height="1440" />
-    </state>
-    <state x="1450" y="596" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1612622519162" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaScript bei ContactData &amp; Address" />
   </component>
 </project>

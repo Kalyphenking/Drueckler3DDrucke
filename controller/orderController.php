@@ -12,13 +12,13 @@ use DDDDD\model\Pricing;
 use DDDDD\model\PrintConfig;
 use DDDDD\model\PrintSetting;
 
-//C 3.1
+
 class OrderController extends Controller
 {
 
 	protected $filaments = null;
 	protected $errors = [];
-//C 3.2
+//C3_F1
 	//manages 3D Model configurator
 	public function configurator($subAction) {
 
@@ -55,7 +55,7 @@ class OrderController extends Controller
 		}
 
 	}
-
+//C3_F2
 	protected function saveModel() {
 		if (isset($_FILES['uploadFile']) && !empty($_FILES['uploadFile']))
 		{
@@ -108,7 +108,7 @@ class OrderController extends Controller
 			$_SESSION['error'] = 'Fehler: kein Model hochgeladen';
 		}
 	}
-
+////C3_F3
 	//recalls newest model in directory to display in ModelViewer
 	protected function recallModel() {
 		if ((isset($_SESSION['userDirectory']) && isset($_SESSION['modelName']))) {
@@ -131,7 +131,7 @@ class OrderController extends Controller
 			echo "<script>displayModel(\"$fileName\")</script>";
 		};
 	}
-//C 3.3
+//C3_F4
 	//creates directory if is not exits
 	protected function makeDirectory($directory) {
 		if (!file_exists($directory)) {
@@ -139,7 +139,7 @@ class OrderController extends Controller
 			chmod($directory, 0777);
 		}
 	}
-//C 3.4
+//C3_F5
 	//calculates model based on userinput
 	protected function calculateModel() {
 
@@ -229,7 +229,7 @@ class OrderController extends Controller
 			$_SESSION['error'] = 'Fehler: kein Model hochgeladen';
 		}
 	}
-
+//C3_F6
 	protected function saveConfiguration() {
 
 		if(isset($_SESSION['modelName'])) {
@@ -244,7 +244,7 @@ class OrderController extends Controller
 //			echo "no Model selected <br>";
 		}
 	}
-
+//C3_F7
 	protected function appendToShoppingCart() {
 		$orderModelName = $_SESSION['modelName'];
 		$orderInfill = $_SESSION['infill'];
@@ -290,9 +290,8 @@ class OrderController extends Controller
 //			echo json_encode($item) . '<br>';
 //		}
 
-//C 3.9
 	}
-
+//C3_F8
 	protected function removeFromShoppingCart() {
 		$shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [];
 		foreach ($shoppingCart as $key => $item) {
@@ -308,7 +307,7 @@ class OrderController extends Controller
 
 
 	}
-//C 3.6
+//C3_F9
 	//manages shoppinCart
 	public function shoppingCart() {
 
@@ -337,7 +336,7 @@ class OrderController extends Controller
 			}
 		}
 	}
-//C 3.7
+//C3_F10
 	//manages checkout, checks reqiered userData
 	public function checkout($subaction) {
 
@@ -370,7 +369,7 @@ class OrderController extends Controller
 			header("Location: $link ");
 		}
 	}
-//C 3.5
+//C3_F11
 	//manages orders
 	public function makeOrder() {
 		$userData = $this->loadUserData();
@@ -473,7 +472,7 @@ class OrderController extends Controller
 
 //				echo json_encode($_SESSION['customerData']) . '<br>';
 	}
-
+//C3_F12
 	protected function loadUserData() {
 
 		$username = $_SESSION['username'];
@@ -537,7 +536,7 @@ class OrderController extends Controller
 
 		return $loadedData[0];
 	}
-
+//C3_F13
 	protected function loadOrders()
 	{
 		$username = $_SESSION['username'];
@@ -572,7 +571,7 @@ class OrderController extends Controller
 
 		return $orders;
 	}
-
+//C3_F14
 	protected function loadFilaments() {
 		$filaments = Filament::find();
 
@@ -586,7 +585,7 @@ class OrderController extends Controller
 
 		$_SESSION['filaments'] = $filaments;
 	}
-//C 3.8
+//C3_F15
 	//manages presets
 	public function presets() {
 		$this->loadPresets();
@@ -595,7 +594,7 @@ class OrderController extends Controller
 
 
 	}
-//C 3.10
+//C3_F16
 	//loads and saves printSettings in sessin with filled preset attribute
 	protected function loadPresets() {
 		$data = PrintSetting::find();
@@ -609,7 +608,5 @@ class OrderController extends Controller
 
 		$_SESSION['presets'] = $presets;
 	}
-//C 3.11
-
 
 }

@@ -15,107 +15,93 @@
     }
     
     .class_PrintExample1 {
-        animation: Animation_PrintExample1 infinite 40000ms;
+        animation: Animation_PrintExample1 infinite 20000ms;
     }
     
     .class_PrintExample2 {
-        animation: Animation_PrintExample2 infinite 40000ms;
+        animation: Animation_PrintExample2 infinite 20000ms;
     }
     
     .class_PrintExample3 {
-        animation: Animation_PrintExample3 infinite 40000ms;
+        animation: Animation_PrintExample3 infinite 20000ms;
     }
     
     .class_PrintExample4 {
-        animation: Animation_PrintExample4 infinite 40000ms;
+        animation: Animation_PrintExample4 infinite 20000ms;
     }
 
-    .class_PrintExample5 {
-        animation: Animation_PrintExample5 infinite 40000ms;
-    }
-    
+
     @keyframes Animation_PrintExample1 {
         0% {
             opacity: 1;
         }
-        15% {
+        20% {
             opacity: 1;
         }
-        20% {
+        25% {
             opacity: 0;
         }
         100% {
             opacity: 0;
         }
     }
-    
+
     @keyframes Animation_PrintExample2 {
         0% {
             opacity: 0;
         }
         20% {
-            opacity: 1;
-        }
-        35% {
-            opacity: 1;
-        }
-        40% {
             opacity: 0;
         }
-
+        25% {
+            opacity: 1;
+        }
+        45% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
         100% {
             opacity: 0;
         }
     }
-    
+
     @keyframes Animation_PrintExample3 {
         0% {
             opacity: 0;
         }
-        40% {
-            opacity: 1;
-        }
-        55% {
-            opacity: 1;
-        }
-        60% {
+        45% {
             opacity: 0;
         }
-
+        50% {
+            opacity: 1;
+        }
+        70% {
+            opacity: 1;
+        }
+        75% {
+            opacity: 0;
+        }
         100% {
             opacity: 0;
         }
     }
-    
+
     @keyframes Animation_PrintExample4 {
         0% {
             opacity: 0;
         }
-        60% {
-            opacity: 1;
+        70% {
+            opacity: 0;
         }
         75% {
-            opacity: 1;
-        }
-        80% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-
-    @keyframes Animation_PrintExample5 {
-        0% {
-            opacity: 0;
-        }
-        80% {
             opacity: 1;
         }
         95% {
             opacity: 1;
         }
-        100%{
+        100% {
             opacity: 0;
         }
     }

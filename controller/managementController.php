@@ -2,7 +2,7 @@
 
 
 namespace DDDDD\controller;
-
+//C2
 //manages management related functions
 
 use DDDDD\controller\functions\Table;
@@ -15,7 +15,7 @@ class ManagementController extends Controller
 {
 	protected $errors = null;
 	protected $employeeId = null;
-
+//C2_F1
 	public function __construct($controller, $action, $subAction = null)
 	{
 
@@ -36,12 +36,12 @@ class ManagementController extends Controller
 
 
 	}
-
+//C2_F2
 	public function admin($subAction) {
 		$orders = $this->loadAllOrders();
 
 	}
-
+//C2_F3
 	public function manageOrders($subAction) {
 
 		if (isset($_POST['selectedEmployee'])) {
@@ -178,7 +178,7 @@ class ManagementController extends Controller
 		$GLOBALS['ordersTable'] = $table->render();
 
 	}
-
+//C2_F4
 	protected function loadCustomerData() {
 
 		if ($this->loggedIn()) {
@@ -216,7 +216,7 @@ class ManagementController extends Controller
 //			echo json_encode($_SESSION['customerData']);
 		}
 	}
-
+//C2_F5
 	protected function loadAllOrders() {
 		$orders = Order::findOnJoin(
 			'orders',
@@ -286,7 +286,7 @@ class ManagementController extends Controller
 		$_SESSION['finishedOrders'] = $finishedOrders;
 	}
 
-
+//C2_F6
 	protected function loadEmployeeData() {
 
 		if ($this->loggedIn()) {
@@ -325,7 +325,7 @@ class ManagementController extends Controller
 		return;
 
 	}
-
+//C2_F7
 	protected function loadAllEmployeeData() {
 
 		if ($this->loggedIn()) {
@@ -368,7 +368,7 @@ class ManagementController extends Controller
 		return;
 
 	}
-
+//C2_F8
 	public function ordersInProcess() {
 //		echo json_encode($_SESSION['ordersInProcess']) . '<br>';
 
@@ -384,7 +384,7 @@ class ManagementController extends Controller
 
 		$GLOBALS['table'] = $table->render();
 	}
-
+//C2_F9
 	public function manageEmployee() {
 
 	}

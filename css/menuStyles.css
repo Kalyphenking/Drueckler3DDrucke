@@ -1,4 +1,6 @@
-.navBar {
+
+
+.navBar{
     grid-area: navBar;
     ackground-color: red;
     height: 80px;
@@ -36,8 +38,121 @@
     font-weight: 800;
 }
 
-@media screen and (max-width: 600px)
-{
+
+
+body, html{
+    background: #1c1c22;
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+}
+
+@media screen and (max-width: 600px){
+    body, html{
+        font-size: 48%;
+    }
+}
+
+@media screen and (min-width: 600px){
+    body, html{
+        font-size: 53%;
+    }
+}
+
+@media screen and (min-width: 800px){
+    body, html{
+        font-size: 57%;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    body, html{
+        font-size: 70%;
+    }
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: right;
+    transition: 2000ms all;
+    height: 7rem;
+}
+
+header nav#desktop{
+    color: #c8354e;
+    display: inline-block;
+}
+
+@media screen and (max-width: 800px){
+    header nav#desktop{
+        display: none;
+    }
+}
+
+header nav#desktop ul{
+    margin: 0;
+    padding: 0;
+    transition: all 300ms;
+    display: inline-block;
+}
+
+header nav#desktop ul li{
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    position: relative;
+}
+header nav#desktop ul li a{
+    display: inline-block;
+    padding: 2.17rem;
+    float: left;
+    min-width: 12rem;
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+    margin: 0 1px 0 0;
+    text-decoration: none;
+    background: #c8354e;
+}
+
+header nav#desktop ul li:hover > a{
+    background: #8c1e31;
+}
+
+
+header nav#mobile{
+    color: #c8354e;
+    display: none;
+}
+
+@media screen and (max-width: 800px){
+    header nav#mobile{
+        display: block;
+    }
+}
+
+header nav #menu {
+    padding: 2.17rem 5% 2.17rem 5%;
+    float: left;
+    width: 90%;
+    color: rgb(189, 101, 1);
+    cursor: pointer;
+    font-weight: 300;
+}
+
+header nav#mobile ul{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    transition: all 500ms;
+    overflow: hidden;
+    float: left;
+}
 
 }
 
@@ -62,18 +177,10 @@
     "main-content";
     grid-area: content;
 }
-
-.order-container {
-    background-color: bisque;
-    grid-area: content;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-    "order-content";
-    grid-area: content;
+header nav#mobile ul li:hover > a{
+    background: #8c1e31;
 }
+
 
 .user-container {
     background-color: bisque;
@@ -114,3 +221,16 @@
     "content"
     "footer";
 }
+
+/*.content {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1.5fr;*/
+/*    grid-template-rows: 1.5fr 1fr;*/
+/*    gap: 0px 0px;*/
+/*    grid-template-areas:*/
+/*    "modelViewer orderContent"*/
+/*    "test test";*/
+/*    grid-area: orderGrid-container;*/
+/*}*/
+/*.modelViewer { grid-area: modelViewer; }*/
+/*.orderContent { grid-area: orderContent; }*/

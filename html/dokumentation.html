@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta> charset="utf8">
+    <meta> name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokeumentation Drückler 3D Drücke</title>
+</head>
+
+<body>
+
+<h1>Dokumentation Drückler 3d Drücke</h1>
+<p>
+    1) Ausgangssituation <br>
+    Drückler 3D Drücke (im folgenden DDD genannt) ist ein kleinen Familienunternehmen was sich in den Letzten Jahren auf 3D drücke spezialisiert hat. Da das Geschäft in letzter zeit gut lief entschieden sie sich einen Onlineshop zu Eröffnen.<br>
+    2) Zielbestimmung<br>
+    Der Auftraggeber möchte einen Onlineshop haben bei den man sich seine Modelle auch vor den Login ansehen kann und einen Preisvorschlag erhält.<br>
+    2.1) Muss Kriterien<br>
+    - Das System muss einen Login/Register Haben<br>
+    - Das System muss Überweisung, Paypal und Kreditkarte als Zahlungsmethode annehmen<br>
+    - Das System muss den User auch ohne Login ein Modell hochladen lassen und Ihn einen Preisvorschlag geben<br>
+    2.2) Wunsch Kriterien<br>
+
+    2.3) Abgrenzungs Kriterien<br>
+
+    3) Controller<br>
+    C1) Main Controller<br>
+    Manages management related functions<br>
+    Funktionen Main Controller<br>
+    -	C1_F1 – public function logout<br>
+    -	C1_F2 – public function login<br>
+    -	C1_F3 – public function register<br>
+    C2) Management Controller<br>
+    Manages management related functions<br>
+    -	C2_F1 – public function _ _ construct<br>
+    -	C2_F2 – public function admin<br>
+    -	C2_F3 – public function manageOrders<br>
+    -	C2_F4 – protected function loadCustomerData<br>
+    -	C2_F5 – protected function loadAllOrders<br>
+    -	C2_F6 – protected function loadEmployeeData<br>
+    -	C2_F7 – protected function loadAllEmployeeData<br>
+    -	C2_F8 – public function ordersInProcess<br>
+    -	C2_F9 – public function manageEmployee<br>
+    C3) Order Controller<br>
+    -	C3_F1 – public function configurator<br>
+    -	C3_F2 – protected function saveModel<br>
+    -	C3_F3 – protected function recallModel<br>
+    Recalls newes model in directory to display in ModelViewer<br>
+    -	C3_F4 – protected function makeDirectory<br>
+    Creates directory if is not exists<br>
+    -	C3_F5 – protected function calculateModel<br>
+    Calculate model based on userinput<br>
+    -	C3_F6 – protectet function saveConfiguration<br>
+    -	C3_F7 – protectet function appendToShoppingCart<br>
+    -	C3_F8 – protectet function removeFromShoppingCart<br>
+    -	C3_F9 – public function shoppingCart<br>
+    Manages shoppingCart<br>
+    -	C3F_10 – public function checkout<br>
+    Manages checkout, checks requiered userData<br>
+    -	C3_F11 – public function makeOrder<br>
+    Manages orders<br>
+    -	C3_F12 – protectet function loadUserData<br>
+    -	C3_F13 – protectet function loadOrders<br>
+    -	C3_F14 – protectet function loadFilaments<br>
+    -	C3_F15 – protectet function presets<br>
+    Manages presets<br>
+    -	C3_F16 – protectet function loadPresets<br>
+    Loads and saves printSettings in sessin with filled preset attribute<br>
+    C4) UserController<br>
+    -	C4_F1 – protectet fucntion _ _ construkt<br>
+    -	C4_F2 – public function usermenu<br>
+    -	C4_F3 – public fucntion changePaymentData<br>
+    -	C4_F4 – public function addressInput<br>
+    -	C4_F5 – protectet function loadCustomerData<br>
+    -	C4_F6 – protectet function changeUserData<br>
+    -	C4_F7 – protectet function changeAddressData<br>
+    -	C4_F8 – public function changeUserPassword<br>
+    -	C4_F9 – public function orders<br>
+    -	C4_F10 – protectet function loadTable<br>
+    -	C4_F11 – protectet function loadOrders<br>
+    -	C4_F12 – public function cancellOrder<br>
+    -	C4_F13 – public function details<br>
+    -	C4_F14 – protectet function getSelectetOrder<br>
+    Controller Functions<br>
+    CF1) ChangePaymentData.class.php<br>
+    -	CF1_F1 – function _ _ construct<br>
+    -	CF1_F2 – public function changePaymentData<br>
+    CF2) Payment.function.class.php<br>
+    - CF2_F1 – function _ _ construct<br>
+    - CF2_F2 – protectet function setDirectDebit<br>
+    - CF2_F3 – protectet function setCreditCard<br>
+    - CF2_F4 – protectet function setPayPal<br>
+    - CF2_F5 – protectet function loadDirectDebitData<br>
+    - CF2_F6 – protectet function loadCreditCardData<br>
+    - CF2_F7 – protectet function loadBillData<br>
+    - CF2_F8 – protectet function loadPayPalData<br>
+    CF3) table.class.php<br>
+    - CF3_F1 – function _ _ construct<br>
+    - CF3_F2 – public function render<br>
+    - CF3_F3 – protectet function labelRow<br>
+    - CF3_F4 – protectet function dataRow<br>
+    4) Core<br>
+    Co1) controller.class.php<br>
+    -	Co1_F1 – function _ _ construct<br>
+    -	Co1_F2 – functuin loggedIn<br>
+    -	Co1_F3 – function render<br>
+    -	Co1_F4 – function clear<br>
+    -	Co1_F5 – function _ _ destruct<br>
+    Co2) model.class.php<br>
+    -	Co2_F1 – public function _ _ construct<br>
+    -	Co2_F2 – public function _ _ get<br>
+    -	Co2_F3 – public function _ _ set<br>
+    -	Co2_F4 – public function insert<br>
+    Inserts objectData in new Database row<br>
+    -	Co2_F5 – public function sendSql<br>
+    -	Co2_F6 – public function update<br>
+    Updates objectData in existing database row<br>
+    -	Co2_F7 – public function delete<br>
+    Deletes database row<br>
+    -	Co2_F8 – public function validateValue<br>
+    -	Co2_F9 – piblic function objectdata<br>
+    -	Co2_F10 – public static function tablename<br>
+    Return name of realted database table<br>
+    -	Co2_F11 – public static function find<br>
+    Searches fo data with specific attributes<br>
+    -	Co2_F12 – public static function findOnJoin<br>
+    Searches for data with  specific attributes on multible tables<br>
+
+    5) Models<br>
+    M1) address.class.php<br>
+    M2) contactData.class.php<br>
+    M3) creditCard.class.php<br>
+    M4) customer.class.php<br>
+    -	M4_F1 – public static function findTest<br>
+    M5) ddd.class.php<br>
+    M6) directDebit.class.php<br>
+    M7) employee.Class.php<br>
+    M8) filament.Class.php<br>
+    M9) order.class.php<br>
+    M10) paymentData.class.php<br>
+    M11) paypal.class.php<br>
+    M12) pricing.class.php<br>
+    M13) printConfig.class.php<br>
+    M14) printSetting.class.php<br>
+
+    Views<br>
+    Main Views<br>
+    MV1) Admin<br>
+    -	MV1_F1 – function headerRow<br>
+    -	MV1_F2 – function orderRow<br>
+    -	MV1_F3 – function suborderRow<br>
+    -	MV1_F4 – function summRow<br>
+    -	MV1_F5 – function presentOrders<br>
+
+</p>
+
+
+</body>

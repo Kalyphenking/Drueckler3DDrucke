@@ -1,5 +1,5 @@
 <?php
-
+//C4
 namespace DDDDD\controller;
 
 use DDDDD\controller\functions\ChangePaymentData;
@@ -25,7 +25,7 @@ class UserController extends Controller
 	protected $customerData = NULL;
 //	protected $preferedPaymentMethod = NULL;
 	protected $username = NULL;
-
+//C4_F1
 	public function __construct($controller, $action, $subAction = null)
 	{
 		parent::__construct($controller, $action, $subAction);
@@ -34,7 +34,7 @@ class UserController extends Controller
 		}
 
 	}
-
+//C4_F2
 	public function usermenu($subAction) {
 
 		$this->loadCustomerData();
@@ -48,7 +48,7 @@ class UserController extends Controller
 			$this->changeAddressData();
 		}
 	}
-
+//C4_F3
 	public function changePaymentData($subAction) {
 
 		$this->loadCustomerData();
@@ -63,11 +63,11 @@ class UserController extends Controller
 		$paymentData->changePaymentData($subAction, $preferedPaymentMthod);
 
 	}
-
+//C4_F4
 	public function addressInput() {
 		$this->loadCustomerData();
 	}
-
+//C4_F5
 	protected function loadCustomerData() {
 
 		if ($this->loggedIn()) {
@@ -140,7 +140,7 @@ class UserController extends Controller
 		return;
 
 	}
-
+//C4_F6
 	protected function changeUserData() {
 		$contactDataId = $this->customerData['cdid'];
 		$firstName = !empty($_POST['firstName']) ? $_POST['firstName'] : $this->customerData['firstName'];
@@ -171,7 +171,7 @@ class UserController extends Controller
 
 
 	}
-
+//C4_F7
 	protected function changeAddressData() {
 
 
@@ -226,7 +226,7 @@ class UserController extends Controller
 
 
 	}
-
+//C4_F8
 	public function changeUserPassword($subAction) {
 		$previousController = isset($_SESSION['previousController']) ? $_SESSION['previousController'] : 'main';
 		$previousAction = isset($_SESSION['previousAction']) ? $_SESSION['previousAction'] : 'main';
@@ -282,7 +282,7 @@ class UserController extends Controller
 			}
 		}
 	}
-
+//C4_F9
 	public function orders($subAction)
 	{
 		if (isset($_POST['submitDelete'])) {
@@ -292,7 +292,7 @@ class UserController extends Controller
 
 		$this->loadTable();
 	}
-
+//C4_F10
 	protected function loadTable() {
 		$this->loadCustomerData();
 		$GLOBALS['orders'] = $this->loadOrders();
@@ -344,7 +344,7 @@ class UserController extends Controller
 
 		$GLOBALS['ordersTable'] = $table->render();
 	}
-
+//C4_F11
 	protected function loadOrders()
 	{
 		if ($this->loggedIn()) {
@@ -405,7 +405,7 @@ class UserController extends Controller
 
 
 	}
-
+//C4_F12
 	public function cancellOrder()
 	{
 
@@ -456,13 +456,13 @@ class UserController extends Controller
 
 		}
 	}
-
+//C4_F13
 	public function details($subAction)
 	{
 
 		$GLOBALS['detailedOrder'] = $this->getSelectedOrder();
 	}
-
+//C4_F14
 	protected function getSelectedOrder() {
 
 		$orders = $this->loadOrders();

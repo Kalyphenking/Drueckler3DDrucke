@@ -1,5 +1,5 @@
 <?php
-
+//Co1
 namespace DDDDD\core;
 
 //controller parent class
@@ -9,7 +9,7 @@ class Controller
 	protected $action 	   = null;
 	protected $subAction   = null;
 
-
+//Co1_F1
 	function __construct($controller, $action, $subAction = null) {
 		unset($_SESSION['error']);
 
@@ -64,12 +64,12 @@ class Controller
 //		echo '<br>';
 //		echo '<br>';
 	}
-
+//Co1_F2
 	function loggedIn() {
 //		return (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true && isset($_SESSION['customerName']));
 		return (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true);
 	}
-
+//Co1_F3
 	function debug() {
 		$loggedIn = isset($_SESSION['loggedIn']) ? $_SESSION['loggedIn'] : false;
             $username = isset($_SESSION['customerName']) ? $_SESSION['customerName'] : '';
@@ -169,7 +169,7 @@ class Controller
 
 	}
 
-
+//Co1_F4
 	//TODO: delete session variables used in previous controller
 	function clear() {
 		if (isset($_SESSION['filaments'])) {
@@ -177,7 +177,7 @@ class Controller
 		}
 
 	}
-
+//Co1_F5
 	public function __destruct()
 	{
 		$this->controller = null;

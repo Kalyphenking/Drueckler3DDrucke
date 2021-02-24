@@ -1,6 +1,6 @@
 <?php
 
-
+//CF3
 namespace DDDDD\controller\functions;
 
 
@@ -16,7 +16,7 @@ class Table
 	protected $subHeaderLabelsCount = null;
 	protected $dataRowLabelCount = null;
 
-
+//CF3_F1
 	function __construct($dataSource = [], $header = [], $subHeader = [], $rows = [], $footer = [], $inputs = []) {
 
 		foreach ($dataSource as $key => $data) {
@@ -52,7 +52,7 @@ class Table
 		$this->rows = $rows;
 		$this->inputs = $inputs;
 	}
-
+//CF3_F2
 	public function render() {
 		$output = '<table id="ordersTable">';
 
@@ -97,7 +97,7 @@ class Table
 		return $output;
 	}
 
-
+//CF3_F3
 	protected function labelRow($header, $sum = 0) {
 //		$data = $this->dataSource;
 		$output = '<tr>';
@@ -138,7 +138,7 @@ class Table
 
 		return $output;
 	}
-
+//CF3_F4
 	protected function dataRow($data = [], $dataRow = []) {
 //		$data = $this->dataSource;
 		$output = '<tr>';

@@ -15,7 +15,7 @@ $finishedOrders = isset($_SESSION['finishedOrders']) ? $_SESSION['finishedOrders
 </div>
 
 <?php
-
+//MV1_F1
 function headerRow() {
 	$output = "
         <tr>
@@ -31,7 +31,7 @@ function headerRow() {
 
 	return $output;
 }
-
+//MV1_F2
 function orderRow($orderid, $date) {
 	$output = "
         <tr>
@@ -48,7 +48,7 @@ function orderRow($orderid, $date) {
 
 	return $output;
 }
-
+//MV1_F3
 function suborderRow($fileName, $price, $processed, $suborderId) {
 	$output = "
          <tr>
@@ -74,7 +74,7 @@ function suborderRow($fileName, $price, $processed, $suborderId) {
 
 	return $output;
 }
-
+//MV1_F4
 function summRow($summe) {
 
 	$output = "
@@ -91,7 +91,7 @@ function summRow($summe) {
 
 	return $output;
 }
-
+//MV1_F5
 function presentOrders($orderList) {
 	echo headerRow();
 
