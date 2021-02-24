@@ -43,11 +43,66 @@
 
 
 
+/*.main-container { grid-area: content; background-color: green;}*/
+/*.management-container { grid-area: content; background-color: green;}*/
+/*.shoppingCart-container { grid-area: content; background-color: green;}*/
+/*.checkout-container { grid-area: content; background-color: green;}*/
+/*.configurator-container { grid-area: content; background-color: green;}*/
+/*.user-container { grid-area: content; background-color: green;}*/
+/*.order-container {  background-color: green;}*/
 
+.main-container {
+    background-color: bisque;
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "main-content";
+    grid-area: content;
+}
 
-.content { grid-area: content; background-color: green;}
+.order-container {
+    background-color: bisque;
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "order-content";
+    grid-area: content;
+}
+
+.user-container {
+    background-color: bisque;
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "user-content";
+    grid-area: content;
+}
+
+.management-container {
+    background-color: bisque;
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "user-content";
+    grid-area: content;
+}
+
+/*.content { grid-area: content; background-color: green;}*/
 .footer { grid-area: footer; background-color: blue;}
-.mainContainer {
+
+.parent {
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -59,16 +114,3 @@
     "content"
     "footer";
 }
-
-/*.content {*/
-/*    display: grid;*/
-/*    grid-template-columns: 1fr 1.5fr;*/
-/*    grid-template-rows: 1.5fr 1fr;*/
-/*    gap: 0px 0px;*/
-/*    grid-template-areas:*/
-/*    "modelViewer orderContent"*/
-/*    "test test";*/
-/*    grid-area: orderGrid-container;*/
-/*}*/
-/*.modelViewer { grid-area: modelViewer; }*/
-/*.orderContent { grid-area: orderContent; }*/

@@ -14,7 +14,7 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 <!--    <label class="phpBased">Für Modelvorschau JavaScript aktivieren</label>-->
 <!--</div>-->
 <!--<form action="index.php?c=order&a=shoppingCart" method="POST" enctype="multipart/form-data">-->
-    <div class="orderContent">
+    <div class="shoppingCart-container">
             <?php
                 if (!empty($shoppingCart)) {
 

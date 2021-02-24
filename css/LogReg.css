@@ -1,3 +1,14 @@
+
+.login-container {
+    grid-area: main-content;
+}
+
+.register-container {
+    grid-area: main-content;
+}
+
+
+
 .InputBox {
     color:rgb(255, 233, 35);
     background-color: rgba(200,200,200, 0.3);

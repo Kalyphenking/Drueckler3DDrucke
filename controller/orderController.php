@@ -228,8 +228,6 @@ class OrderController extends Controller
 		} else {
 			$_SESSION['error'] = 'Fehler: kein Model hochgeladen';
 		}
-
-
 	}
 
 	protected function saveConfiguration() {
@@ -313,6 +311,11 @@ class OrderController extends Controller
 //C 3.6
 	//manages shoppinCart
 	public function shoppingCart() {
+
+		if (empty($_SESSION['shoppingCart'])) {
+			unset($_SESSION['makeOrder']);
+		}
+
 		if (isset($_POST['submit'])) {
 
 			$shoppingCart = isset($_SESSION['shoppingCart']) ? $_SESSION['shoppingCart'] : [];
@@ -332,8 +335,6 @@ class OrderController extends Controller
 			} else {
 				$this->removeFromShoppingCart();
 			}
-
-
 		}
 	}
 //C 3.7

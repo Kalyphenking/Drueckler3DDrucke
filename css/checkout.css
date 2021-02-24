@@ -1,0 +1,10 @@
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "shoppingCart";
+    grid-area: content;
+}
+/*.shoppingCart { grid-area: shoppingCart; }*/

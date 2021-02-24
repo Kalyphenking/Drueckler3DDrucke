@@ -14,7 +14,7 @@ if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
 	$label = 'Registrieren';
 }
 
-if (isset($_SESSION['guest'])) {
+if (isset($_SESSION['guest']) && $_SESSION['guest'] == true) {
 	$guest = true;
 
 	$userName = isset($_SESSION['uid']) ? $_SESSION['uid'] : '';
@@ -22,49 +22,49 @@ if (isset($_SESSION['guest'])) {
 }
 
 ?>
+<div class="register-container">
+    <div class = "InputBox">
+        <form action = 'index.php?c=main&a=register' method = 'POST'>
+            <label class="errorMessage"><?=$error?></label>
 
-<div class = "InputBox">
-    <form action = 'index.php?c=main&a=register' method = 'POST'>
-        <label class="errorMessage"><?=$error?></label>
+            <h3>Registrierung</h3>
+			<?php if($guest) : ?>
 
-        <h3>Registrierung</h3>
-        <?if($guest) : ?>
+                <div class = "InputLine">
+                    <input id="username"
+                           name="username"
+                           type="username"
+                           placeholder="Username"
+                           hidden
+                           required value="<?$userName?>">
+                    <br>
 
-            <div class = "InputLine">
-                <input id="username"
-                       name="username"
-                       type="username"
-                       placeholder="Username"
-                       hidden
-                       required value="<?$userName?>">
-                <br>
+                    <input id="password"
+                           name="password"
+                           type="password"
+                           placeholder="Password"
+                           hidden
+                           required value="<?$password?>">
+                </div>
 
-                <input id="password"
-                       name="password"
-                       type="password"
-                       placeholder="Password"
-                       hidden
-                       required value="<?$password?>">
-            </div>
+			<?php else : ?>
+                <div class = "InputLine">
+                    <label id="validUsername"></label>
+                    <input id="username"
+                           name="username"
+                           type="username"
+                           placeholder="Username"
+                           required value="<?= (isset($_POST['username']) ? $_POST['username'] : ''); //default Values?>">
+                    <br>
 
-	    <?else : ?>
-            <div class = "InputLine">
-                <label id="validUsername"></label>
-                <input id="username"
-                       name="username"
-                       type="username"
-                       placeholder="Username"
-                       required value="<?= (isset($_POST['username']) ? $_POST['username'] : ''); //default Values?>">
-                <br>
-
-                <label id="passwordStrength"></label>
-                <input id="password"
-                       name="password"
-                       type="password"
-                       placeholder="Password"
-                       required>
-            </div>
-        <?endif?>
+                    <label id="passwordStrength"></label>
+                    <input id="password"
+                           name="password"
+                           type="password"
+                           placeholder="Password"
+                           required>
+                </div>
+			<?php endif;?>
 
             <br>
 
@@ -97,11 +97,15 @@ if (isset($_SESSION['guest'])) {
                        placeholder="Mobile number"
                        value=<?= (isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : ''); //default Values?> >
             </div>
-        <br>
+            <br>
+            <input type = "checkbox" required> AGB <br><br>
+            <input id="submitRegister" name="submit" type="submit" value="<?=$label?>">
 
-        <input type = "checkbox" required> AGB <br><br>
-        <input id="submitRegister" name="submit" type="submit" value="<?=$label?>">
 
-
-    </form>
+        </form>
+        <form action = 'index.php?c=main&a=register' method = 'POST'>
+            <input id="abort" name="abort" type="submit" value="abbrechen">
+        </form>
+    </div>
 </div>
+

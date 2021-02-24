@@ -33,6 +33,7 @@ class MainController extends Controller
 	}
 
 	public function login($subAction) {
+		$_SESSION['guest'] = false;
 
 		$previousController = isset($_SESSION['previousController']) && $_SESSION['previousController'] != $this->controller ? $_SESSION['previousController'] : 'main';
 		$previousAction = isset($_SESSION['previousAction']) && $_SESSION['previousAction'] != $this->action ? $_SESSION['previousAction'] : 'main';
@@ -101,6 +102,13 @@ class MainController extends Controller
 				$guest = 0;
 			}
 
+			if(isset($_POST['abort'])) {
+				$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
+				$link = 'index.php?c=main&a=login';
+
+				header("Location: $link ");
+			}
+
 			if (isset($_POST['submit'])) {
 
 				if(!empty($_POST['firstName'])
@@ -163,6 +171,9 @@ class MainController extends Controller
 								$_SESSION['error'] .= '<br>';
 							}
 						}
+						$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
+
+						header("Location: $link ");
 
 
 
@@ -175,11 +186,8 @@ class MainController extends Controller
 				} else {
 
 				}
-			}
-		} else {
-			$link = 'index.php?c=' . $previousController . '&a=' . $previousAction;
 
-			header("Location: $link ");
+			}
 		}
 
 

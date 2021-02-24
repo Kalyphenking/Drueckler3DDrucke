@@ -33,112 +33,116 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 
 ?>
 
-<div class="modelViewer">
-    <model-viewer id="modelViewer" class="javaScriptBased" loading="lazy" src="uploads/default/glb/3DModelHochladen.glb"  alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>
-    <!--        <model-viewer src="http://localhost/Drueckler3DDrucke/uploads/temp/glb/6021449f3c57b_TopfdeckelTeil.glb" style="height: 500px; width: 50%" alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>-->
-<!---->
-    <label id="missingJavaScriptMessage" class="phpBased text-warning">Für Modelvorschau JavaScript aktivieren</label>
-</div>
-<div class="test">
+<div class="configurator-container">
+    <div class="modelViewer">
+        <model-viewer id="modelViewer" class="javaScriptBased" loading="lazy" src="uploads/default/glb/3DModelHochladen.glb"  alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>
+        <!--        <model-viewer src="http://localhost/Drueckler3DDrucke/uploads/temp/glb/6021449f3c57b_TopfdeckelTeil.glb" style="height: 500px; width: 50%" alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>-->
+        <!---->
+        <label id="missingJavaScriptMessage" class="phpBased text-warning">Für Modelvorschau JavaScript aktivieren</label>
+    </div>
+    <div class="test">
 
-</div>
-
-<div class="orderContent">
-
-    <div id="fileUpload">
-        <form action="index.php?c=order&a=configurator" method="POST" enctype="multipart/form-data">
-
-            <input type="button" class="javaScriptBased" id="uploadFileButton" value="Model auswählen"></input>
-            <input class="phpBased" type="file" name="uploadFile" id="uploadFile" onchange="uploadModel()" value="Model auswählen" required>
-
-            <br>
-
-            <input class="phpBased" id="submitUpload" name="submitUpload" type="submit" value="Model hochladen">
-        </form>
     </div>
 
+    <div class="modelSettings">
 
-    <div id="modelSettings">
-        <form action="index.php?c=order&a=configurator" method="POST">
+        <div id="fileUpload">
+            <form action="index.php?c=order&a=configurator" method="POST" enctype="multipart/form-data">
 
-            <label for="infill"  id="banana">Infill:  </label>
-            <input type="number"
-                   name="infill"
-                   id="infill"
-                   min="30"
-                   max="100"
-                   placeholder="30"
-                   required value=<?= (isset($_POST['infill']) ? $_POST['infill'] : ''); //default Values?>
-            >
+                <input type="button" class="javaScriptBased" id="uploadFileButton" value="Model auswählen"></input>
+                <input class="phpBased" type="file" name="uploadFile" id="uploadFile" onchange="uploadModel()" value="Model auswählen" required>
 
-            <br>
+                <br>
 
-            <label for="resolution">Auflösung:  </label>
-<!--            <input list="resolution"-->
-<!--                   name="resolution"-->
-<!--                   placeholder=--><?php //echo ('0.20'); ?>
-<!--                   required value=--><?php //echo (isset($_POST['resolution']) ? $_POST['resolution'] : ''); ?>
-<!--            >-->
-            <select id="resolution" name="resolution">
-<!--                <option value="--><?//= (isset($_POST['resolution']) ? $_POST['resolution'] : 0.28); //default Values?><!--" selected hidden>--><?//=number_format(isset($_POST['resolution']) ? $_POST['resolution'] : 0.28, 2, '.', '')?><!--</option>-->
+                <input class="phpBased" id="submitUpload" name="submitUpload" type="submit" value="Model hochladen">
+            </form>
+        </div>
+
+
+        <div id="modelSettings">
+            <form action="index.php?c=order&a=configurator" method="POST">
+
+                <label for="infill"  id="banana">Infill:  </label>
+                <input type="number"
+                       name="infill"
+                       id="infill"
+                       min="30"
+                       max="100"
+                       placeholder="30"
+                       required value=<?= (isset($_POST['infill']) ? $_POST['infill'] : ''); //default Values?>
+                >
+
+                <br>
+
+                <label for="resolution">Auflösung:  </label>
+                <!--            <input list="resolution"-->
+                <!--                   name="resolution"-->
+                <!--                   placeholder=--><?php //echo ('0.20'); ?>
+                <!--                   required value=--><?php //echo (isset($_POST['resolution']) ? $_POST['resolution'] : ''); ?>
+                <!--            >-->
+                <select id="resolution" name="resolution">
+                    <!--                <option value="--><?//= (isset($_POST['resolution']) ? $_POST['resolution'] : 0.28); //default Values?><!--" selected hidden>--><?//=number_format(isset($_POST['resolution']) ? $_POST['resolution'] : 0.28, 2, '.', '')?><!--</option>-->
+					<?php
+					//                if ($selectedResolution) {
+					//	                echo '<option value="'.$selectedResolution.'" selected hidden>'.number_format($selectedResolution, 2, '.', '').'</option>';
+					//                }
+					for ($index = 7; $index >= 1; $index --)
+					{
+						$resolution = ($index * 4) / 100;
+
+						$previousResolution = isset($_POST['resolution']) ? $_POST['resolution'] : 0.28;
+
+						if ($resolution == $previousResolution) {
+							echo '<option selected>' . number_format($resolution, 2, '.', '') . '</option>';
+						} else {
+							echo '<option>' . number_format($resolution, 2, '.', '') . '</option>';
+						}
+
+					}
+
+					?>
+                </select>
+
+                <br>
+
+                <label for="filaments">Filament:  </label>
+                <select id="filament" name="filament" onchange="changeColor()"> <!-- id muss selben key wie list oben drüber haben -->
+					<?php
+					if ($filamentColor && $filamentColorCode) {
+						echo '<option value="'.$filamentColorCode.'"selected hidden>'.$filamentColor.'</option>';
+					}
+					foreach ($filaments as $filament)
+					{
+						echo '<option value="'. $filament['rgba'] .'">' . $filament['type'] . ': ' . $filament['color'] . '</option>';
+					}
+					?>
+                </select>
+                <br>
+                <label for="filaments">Menge:  </label>
+                <input type="number"
+                       name="amount"
+                       id="amount"
+                       min="1"
+                       max="1000"
+                       placeholder="1"
+                       required value=<?=$amount?>
+                >
+                <br>
+
+
+                <input type="submit" name="submitCalculation" value="Model berechnen">
+                <input type="submit" name="submitContinue" value="In den Warenkorb">
+                <label class="errorMessage"><?=$error?></label>
+
 				<?php
-//                if ($selectedResolution) {
-//	                echo '<option value="'.$selectedResolution.'" selected hidden>'.number_format($selectedResolution, 2, '.', '').'</option>';
-//                }
-				for ($index = 7; $index >= 1; $index --)
-				{
-					$resolution = ($index * 4) / 100;
 
-					$previousResolution = isset($_POST['resolution']) ? $_POST['resolution'] : 0.28;
-
-					if ($resolution == $previousResolution) {
-						echo '<option selected>' . number_format($resolution, 2, '.', '') . '</option>';
-                    } else {
-						echo '<option>' . number_format($resolution, 2, '.', '') . '</option>';
-                    }
-
-				}
 
 				?>
-            </select>
-
-            <br>
-
-            <label for="filaments">Filament:  </label>
-            <select id="filament" name="filament" onchange="changeColor()"> <!-- id muss selben key wie list oben drüber haben -->
-				<?php
-                if ($filamentColor && $filamentColorCode) {
-	                echo '<option value="'.$filamentColorCode.'"selected hidden>'.$filamentColor.'</option>';
-                }
-				foreach ($filaments as $filament)
-				{
-					echo '<option value="'. $filament['rgba'] .'">' . $filament['type'] . ': ' . $filament['color'] . '</option>';
-				}
-				?>
-            </select>
-            <br>
-            <label for="filaments">Menge:  </label>
-            <input type="number"
-                   name="amount"
-                   id="amount"
-                   min="1"
-                   max="1000"
-                   placeholder="1"
-                   required value=<?=$amount?>
-            >
-            <br>
 
 
-            <input type="submit" name="submitCalculation" value="Model berechnen">
-            <input type="submit" name="submitContinue" value="In den Warenkorb">
-            <label class="errorMessage"><?=$error?></label>
-
-            <?php
-
-
-            ?>
-
-
-        </form>
+            </form>
+        </div>
     </div>
 </div>
+
+

@@ -121,8 +121,8 @@
 
     } else {
 	    $link = '404.html';
-	    header("Location: $link ");
-//        die('404 Controller you call does not exists');
+//	    header("Location: $link ");
+        die('404 Controller you call does not exists');
     }
 
     $error = Array();

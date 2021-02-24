@@ -11,16 +11,7 @@ class Controller
 
 
 	function __construct($controller, $action, $subAction = null) {
-
-
 		unset($_SESSION['error']);
-//		if (!isset($_SESSION['makeOrder']) || empty($_SESSION['makeOrder'])) {
-//			echo 'NO ORDER <br>';
-//
-//		} else {
-//			echo 'ORDER <br>';
-//
-//		}
 
 		$this->subAction = $subAction;
 
@@ -33,7 +24,7 @@ class Controller
 		{
 			if($_SESSION['currentAction'] != $action)
 			{
-				if ($_SESSION['currentAction'] != 'login' && $action != 'register') {
+				if ($_SESSION['currentAction'] != 'login' && $action != 'login' && $_SESSION['currentAction'] != 'register' && $action != 'register') {
 					$_SESSION['previousController'] = $_SESSION['currentController'];
 					$_SESSION['currentController'] = $controller;
 
@@ -107,42 +98,47 @@ class Controller
 	}
 
 	function render() {
+
+//		$this->debug();
+
 		$view = VIEWSPATH . $this->controller . '/' . $this->action . '.php';
 		if (file_exists($view)) {
-			echo '<div class="mainContainer">';
+			echo '<div class="parent">';
 
 			include_once(VIEWSPATH . 'main' . '/' . 'navbard.php');
 
-			echo '<div class="content" >';
+//			echo '<div class="content" >';
 
 			switch ($this->controller) {
 				case 'main':
 
-//					echo "<div class=\"mainGrid-container\">";
+					echo "<div class=\"main-container\">";
 
 
 					break;
 				case 'management':
 
-//					echo "<div class=\"management-container\">";
+					echo "<div class=\"management-container\">";
 					include_once (VIEWSPATH.'management'.'/'.'managementMenuBar.php');
 
 					break;
 				case 'order':
-
-					if ($this->action == 'shoppingCart') {
+					echo "<div class=\"order-container\">";
+//					if ($this->action == 'shoppingCart') {
 //						echo "<div class=\"shoppingCart-container\">";
-					} else if($this->action == 'checkout') {
-//						echo "<div class=\"checkoutGrid-container\">";
-					} else {
-//						echo "<div class=\"orderGrid-container\">";
-					}
+//					} else if($this->action == 'checkout') {
+//						echo "<div class=\"checkout-container\">";
+//					}  else if($this->action == 'configurator') {
+//						echo "<div class=\"configurator-container\">";
+//					} else {
+//						echo "<div class=\"order-container\">";
+//					}
 //						include_once (VIEWSPATH.'order'.'/'.'orderProgressBar.php');
 
 
 					break;
 				case 'user':
-//					echo "<div class=\"userGrid-container\">";
+					echo "<div class=\"user-container\">";
 					include_once (VIEWSPATH.'user'.'/'.'userMenuBar.php');
 
 					break;
@@ -161,7 +157,7 @@ class Controller
 		} else {
 
 			$link = '404.html';
-			header("Location: $link ");
+//			header("Location: $link ");
 
 			die('404 action you call does not exists');
 		}
