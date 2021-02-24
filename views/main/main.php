@@ -5,10 +5,11 @@
 <div class="phpBased">
     <a>To imporve user experience, please enable Java Script</a>
 </div>
-<!--<div id="slider">
-    <img src="<?=IMAGESPATH.'PrintExample1.jpg'?>" width="1200" height="900" class = "slider_img class_PrintExample1">
-    <img src="<?=IMAGESPATH.'PrintExample2.jpg'?>" width="1200" height="900" class = "slider_img class_PrintExample2">
-    <img src="<?=IMAGESPATH.'PrintExample3.jpg'?>" width="1200" height="900" class = "slider_img class_PrintExample3">
-    <img src="<?=IMAGESPATH.'PrintExample4.jpg'?>" width="1200" height="900" class = "slider_img class_PrintExample4">
-    <img src="<?=IMAGESPATH.'PrintExample5.jpg'?>" width="1200" height="900" class = "slider_img class_PrintExample5">
- </div>-->
+<div id="slider">
+    <img src="<?=IMAGESPATH.'Examples/Felge.jpeg'?>" width="1200" height="900" class = "slider_img class_Felge">
+    <img src="<?=IMAGESPATH.'Examples/Figur.jpeg'?>" width="1200" height="900" class = "slider_img class_Figur">
+    <img src="<?=IMAGESPATH.'Examples/Haken.jpeg'?>" width="1200" height="900" class = "slider_img class_Haken">
+    <img src="<?=IMAGESPATH.'Examples/Katze.jpeg'?>" width="1200" height="900" class = "slider_img class_Katze">
+    <img src="<?=IMAGESPATH.'Examples/Klemme.jpeg'?>" width="1200" height="900" class = "slider_img class_Klemme">
+    <img src="<?=IMAGESPATH.'Examples/Würfel.jpeg'?>" width="1200" height="900" class = "slider_img class_Würfel">
+ </div>

@@ -14,24 +14,28 @@
         left: 0;
     }
     
-    .class_PrintExample1 {
-        animation: Animation_PrintExample1 infinite 20000ms;
+    .class_Felge {
+        animation: Animation_Felge infinite 20000ms;
     }
     
-    .class_PrintExample2 {
-        animation: Animation_PrintExample2 infinite 20000ms;
+    .class_Figur {
+        animation: Animation_Figur infinite 20000ms;
     }
     
-    .class_PrintExample3 {
-        animation: Animation_PrintExample3 infinite 20000ms;
+    .class_Haken {
+        animation: Animation_Haken infinite 20000ms;
     }
     
-    .class_PrintExample4 {
-        animation: Animation_PrintExample4 infinite 20000ms;
+    .class_Katze {
+        animation: Animation_Katze infinite 20000ms;
+    }
+
+    .class_Würfel {
+        animation: Animation_Würfel infinite 20000ms;
     }
 
 
-    @keyframes Animation_PrintExample1 {
+    @keyframes Animation_Felge {
         0% {
             opacity: 1;
         }
@@ -46,7 +50,7 @@
         }
     }
 
-    @keyframes Animation_PrintExample2 {
+    @keyframes Animation_Figur {
         0% {
             opacity: 0;
         }
@@ -67,7 +71,7 @@
         }
     }
 
-    @keyframes Animation_PrintExample3 {
+    @keyframes Animation_Haken {
         0% {
             opacity: 0;
         }
@@ -88,7 +92,7 @@
         }
     }
 
-    @keyframes Animation_PrintExample4 {
+    @keyframes Animation_Katze {
         0% {
             opacity: 0;
         }

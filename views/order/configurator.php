@@ -108,6 +108,7 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
                 <label for="filaments">Filament:  </label>
                 <select id="filament" name="filament" onchange="changeColor()"> <!-- id muss selben key wie list oben drüber haben -->
 					<?php
+                    echo json_decode($filamentColor).'<br>'.json_decode($filamentColorCode);
 					if ($filamentColor && $filamentColorCode) {
 						echo '<option value="'.$filamentColorCode.'"selected hidden>'.$filamentColor.'</option>';
 					}
