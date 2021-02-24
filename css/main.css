@@ -1,5 +1,5 @@
 
-.navBar { grid-area: nav; }
+.header { grid-area: header; }
 .content { grid-area: content; }
 .infoBar { grid-area: info; }
 /*.item4 { grid-area: right; }*/
@@ -8,7 +8,7 @@
 .parent-container {
     display: grid;
     grid-template-areas:
-    'nav'
+    'header'
     'content'
     'info';
     grid-gap: 10px;
