@@ -33,41 +33,41 @@
 
 .navBar .item {
     margin: 0 10px;
-    font-weight: 800;
+    font-weight: 80;
 }
 
 
 
-body, html{
-    background: #1c1c22;
-    margin: 0;
-    padding: 0;
-    font-size: 62.5%;
-}
+/*body, html{*/
+/*    background: #1c1c22;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    font-size: 62.5%;*/
+/*}*/
 
-@media screen and (max-width: 600px){
-    body, html{
-        font-size: 48%;
-    }
-}
+/*@media screen and (max-width: 600px){*/
+/*    body, html{*/
+/*        font-size: 48%;*/
+/*    }*/
+/*}*/
 
-@media screen and (min-width: 600px){
-    body, html{
-        font-size: 53%;
-    }
-}
+/*@media screen and (min-width: 600px){*/
+/*    body, html{*/
+/*        font-size: 53%;*/
+/*    }*/
+/*}*/
 
-@media screen and (min-width: 800px){
-    body, html{
-        font-size: 57%;
-    }
-}
+/*@media screen and (min-width: 800px){*/
+/*    body, html{*/
+/*        font-size: 57%;*/
+/*    }*/
+/*}*/
 
-@media screen and (min-width: 1200px){
-    body, html{
-        font-size: 70%;
-    }
-}
+/*@media screen and (min-width: 1200px){*/
+/*    body, html{*/
+/*        font-size: 70%;*/
+/*    }*/
+/*}*/
 
 header{
     width: 100%;
@@ -172,15 +172,15 @@ header nav#mobile ul li a{
     min-width: 12rem;
     width: 90%;
     text-align: center;
-    font-size: 2em;
+    /*font-size: 2em;*/
     color: #fff;
     margin: 0 1px 0 0;
     text-decoration: none;
-    background: #c8354e;
+    background: rgb(189, 101, 1);
 }
 
 header nav#mobile ul li:hover > a{
-    background: #8c1e31;
+    background: rgb(190, 185, 1);
 }
 
 .main-container {
