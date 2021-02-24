@@ -1,11 +1,5 @@
-<?php
-    $contactData = $_SESSION['customerData'];
-    $customerId = $contactData['cid'];
-
-    $preferedPaymentMethode = isset($_SESSION['preferedPaymentMethod']) ? $GLOBALS['preferedPaymentMethod'] : 'Nicht hinterlegt';
-?>
-
 <div class="userMenuBar">
+    <label id="contactDataId" hidden><?=$contactDataId?></label>
     <p class="">Kundennummer: <?=$customerId?></p>
     <p class="">Bevorzugte Zahlungsmethode: <?=$preferedPaymentMethode?></p>
     <br>

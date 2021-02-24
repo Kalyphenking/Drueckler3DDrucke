@@ -9,12 +9,14 @@ $lastName = $customerData['lastName'];
 $emailAddress = $customerData['emailAddress'];
 $phoneNumber = $customerData['phoneNumber'];
 $contactDataId = $customerData['cdid'];
-
+//$addressId = $customerData['aid'];
 $street = $customerData['street'];
 $number = $customerData['number'];
 $postalCode = $customerData['postalCode'];
 $city = $customerData['city'];
 $country = $customerData['country'];
+$customerId = $customerData['cid'];
+$preferedPaymentMethode = isset($_SESSION['preferedPaymentMethod']) ? $GLOBALS['preferedPaymentMethod'] : 'Nicht hinterlegt';
 
 $error = '';
 
@@ -22,29 +24,18 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 	$error = $_SESSION['error'];
 }
 
-//echo "contactData: <br>" .  json_encode($contactData);
+if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+	$label = 'Weiter';
+//        $_SESSION['guest'] = true;
+} else {
+	$label = 'Speichern';
+}
 
 ?>
-<div class="userContent">
-    <label id="contactDataId" hidden><?=$contactDataId?></label>
-
-    <form action="index.php?c=user&a=usermenu" method = 'POST'>
-		Vorname:
-		<input id="firstName" type="text" name="firstName" value=<?=$firstName?> >
-		<br>
-		Nachname:
-		<input id="lastName" type="text" name="lastName" value=<?=$lastName?> >
-		<br>
-		Emailadresse:
-		<input id="emailAddress" type="text" name="emailAddress" value=<?=$emailAddress?> >
-		<br>
-		Telefonnummer:
-		<input id="phoneNumber" type="text" name="phoneNumber" value=<?=$phoneNumber?> >
-		<br>
-		<input id="submitContactData" type="submit" name="submitContactData" value="Speichern">
-	</form>
-
+<div class="usermenu-container">
     <?php
-        include_once VIEWSPATH.'user'.DIRECTORY_SEPARATOR.'addressInput.php'
+        include_once VIEWSPATH.'user/changeUserData.php';
+        include_once VIEWSPATH.'user/addressInput.php';
+        include_once VIEWSPATH.'user/userMenuBar.php';
     ?>
 </div>

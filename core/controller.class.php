@@ -139,7 +139,7 @@ class Controller
 					break;
 				case 'user':
 					echo "<div class=\"user-container\">";
-					include_once (VIEWSPATH.'user'.'/'.'userMenuBar.php');
+
 
 					break;
 			}
