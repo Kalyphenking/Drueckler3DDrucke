@@ -1,4 +1,4 @@
-fileName: uploads/Kalyphenking/glb/HuePlayStand-85.glb
+fileName: uploads/Kalyphenking/glb/HuePlayStand-17.glb
 
 modelName: HuePlayStand
 

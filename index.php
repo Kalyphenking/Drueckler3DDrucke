@@ -122,7 +122,7 @@
         }
 
     } else {
-	    $link = '404.html';
+	    $link = 'html/404.html';
 //	    header("Location: $link ");
         die('404 Controller you call does not exists');
     }

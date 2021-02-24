@@ -156,7 +156,7 @@ class Controller
 
 		} else {
 
-			$link = '404.html';
+			$link = 'html/404.html';
 //			header("Location: $link ");
 
 			die('404 action you call does not exists');
