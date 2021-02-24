@@ -67,7 +67,7 @@
         <div id="menu">Menü</div>
         <ul>
             <li><a  href="index.php" class="item">Home</a></li>
-            <li><a  href="index.php?c=order&a=configurator" class="item">Konfigurator</a>></li>
+            <li><a  href="index.php?c=order&a=configurator" class="item">Konfigurator</a></li>
             <li><a  href="index.php?c=main&a=contact" class="item">Kontakt</a></li>
             <li><a  href="index.php?c=order&a=shoppingCart" class="item">Warenkorb</a></li>
             <li><a  href=<?= $link ?> class="item register"><?= $label ?></a></li>
