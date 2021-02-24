@@ -19,39 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="JavaScript bei ContactData &amp; Address">
-      <change afterPath="$PROJECT_DIR$/html/dokumentation.html" afterDir="false" />
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/functions/changePaymentData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/functions/changePaymentData.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/functions/paymentFunction.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/functions/paymentFunction.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/functions/table.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/functions/table.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/mainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/mainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/managementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/managementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/orderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/orderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/model.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/menuStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menuStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/miscStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/miscStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/slide.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/slide.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/textBoxes.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/textBoxes.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/address.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/address.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/contactData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/contactData.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/creditCard.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/creditCard.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/customer.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/customer.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/dddmodel.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/dddmodel.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/directDebit.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/directDebit.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/employee.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/employee.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/filament.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/filament.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/order.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/order.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/paymentData.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/paymentData.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/paypal.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/paypal.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/pricing.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/pricing.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/printConfig.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/printConfig.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/printSetting.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/printSetting.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/main/navbard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/navbard.php" afterDir="false" />
     </list>
@@ -88,7 +58,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../backuo/ProjektGit" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -125,14 +95,7 @@
       <workItem from="1612197033804" duration="46599000" />
       <workItem from="1612619565367" duration="56810000" />
       <workItem from="1613072254782" duration="128103000" />
-      <workItem from="1614165186259" duration="17242000" />
-    </task>
-    <task id="LOCAL-00006" summary="Database update &amp; login + register">
-      <created>1610920117670</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1610920117670</updated>
+      <workItem from="1614165186259" duration="19400000" />
     </task>
     <task id="LOCAL-00007" summary="Update">
       <created>1610983083211</created>
@@ -470,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613986950017</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="JavaScript bei ContactData &amp; Address">
+      <created>1614193867461</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1614193867462</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

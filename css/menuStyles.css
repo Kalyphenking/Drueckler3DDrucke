@@ -3,7 +3,7 @@
     ackground-color: red;
     height: 80px;
     width: 100%;
-    /*padding: 0 15px;*/
+    padding: 0 15px;
     background-image: url(../ressources/images/Banner.png);
     background-size: cover;
     color: rgb(189, 101, 1);
@@ -81,7 +81,7 @@ header{
 
 header nav#desktop{
     color: #c8354e;
-    display: inline-block;
+    /*display: inline-block;*/
 }
 
 @media screen and (max-width: 800px){
@@ -152,7 +152,32 @@ header nav#mobile ul{
     float: left;
 }
 
+header nav#mobile:hover>ul{
+    max-height: 800px;
+}
 
+header nav#mobile ul li{
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 100%;
+    list-style: none;
+    position: relative;
+}
+
+header nav#mobile ul li a{
+    display: inline-block;
+    padding: 2.17rem 5% 2.17rem 5%;
+    float: left;
+    min-width: 12rem;
+    width: 90%;
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+    margin: 0 1px 0 0;
+    text-decoration: none;
+    background: #c8354e;
+}
 
 header nav#mobile ul li:hover > a{
     background: #8c1e31;

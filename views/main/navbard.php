@@ -1,6 +1,6 @@
-<header class="header" id="desktop">
+<header class="header">
 
-    <nav class="navBar">
+    <nav class="navBar" id="desktop">
         <a href="index.php" id="menu-button">
             <img src="<?=IMAGESPATH.'Logo.png'?>">
         </a>
@@ -63,7 +63,7 @@
 <!--    </ul>-->
 <!--    </nav>-->
 <!---->
-    <nav id="mobile">
+    <nav class="navBar" id="mobile">
         <div id="menu">Menü</div>
         <ul>
             <li><a  href="index.php" class="item">Home</a></li>
