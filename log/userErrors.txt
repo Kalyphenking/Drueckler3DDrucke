@@ -1,4 +1,4 @@
-POST: {"firstName":"Marius","lastName":"Lange","phoneNumber":"01621011009","emailAddress":"mariuslange2000@gmail.com","cdid":"16"}
+POST: {"firstName":"Marius","lastName":"Lange","phoneNumber":"01621011009","emailAddress":"mariuslange2000@gmail.com","cdid":"17"}
 
 SQL: 
 	UPDATE 
@@ -7,7 +7,7 @@ SQL:
 	lastName='Lange',
 	phoneNumber='01621011009',
 	emailAddress='mariuslange2000@gmail.com'
-	WHERE id = '16'
+	WHERE id = '17'
 
 
 Works: 

@@ -174,8 +174,6 @@ class UserController extends Controller
 //C4_F7
 	protected function changeAddressData() {
 
-
-
 		if (isset($_POST['addressId'])) {
 			$contactDataId = $_POST['addressId'];
 		} else {
@@ -218,6 +216,10 @@ class UserController extends Controller
 			foreach ($this->errors as $item) {
 				$_SESSION['error'] .= $item[0];
 				$_SESSION['error'] .= '<br>';
+			}
+			if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
+				$link = 'index.php?c=order&a=checkout';
+				header("Location: $link ");
 			}
 		}
 

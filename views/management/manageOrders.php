@@ -35,29 +35,31 @@ foreach ($orders as $data) {
 
 
 ?>
-<div class="orderBar">
-    <?=$link?>
-    <a href="index.php?c=management&a=manageOrders/ordersInProcess" class="">Bestellungen in Arbeit</a>
-    <a href="index.php?c=management&a=manageOrders/finishedOrders" class=""">Abgeschlossene Bestellungen</a>
-</div>
+<div class="management-content">
+    <div class="orderBar">
+		<?=$link?>
+        <a href="index.php?c=management&a=manageOrders/ordersInProcess" class="">Bestellungen in Arbeit</a>
+        <a href="index.php?c=management&a=manageOrders/finishedOrders" class=""">Abgeschlossene Bestellungen</a>
+    </div>
 
-<div class="managementContent overflow">
-    <table id="ordersTabe">
-	    <?php
-	    //		presentOrders($orders);
+    <div class="manageOrders overflow">
+<!--        <table id="ordersTabe">-->
+			<?php
+			//		presentOrders($orders);
 
-	    if ($ordersExist) {
-		    echo $table;
-	    } else {
-	        if ($selectedOrderList == 'finishedOrders') {
-		        echo '<h3>Noch keine Bestellung abgeschlossen</h3>';
-            } else {
-		        echo '<h3>Ihnen wurden keine Bestellungen zugeteilt</h3>';
-            }
+			if ($ordersExist) {
+				echo $table;
+			} else {
+				if ($selectedOrderList == 'finishedOrders') {
+					echo '<h3>Noch keine Bestellung abgeschlossen</h3>';
+				} else {
+					echo '<h3>Ihnen wurden keine Bestellungen zugeteilt</h3>';
+				}
 
-	    }
+			}
 
-	    ?>
+			?>
 
-    </table>
+<!--        </table>-->
+    </div>
 </div>

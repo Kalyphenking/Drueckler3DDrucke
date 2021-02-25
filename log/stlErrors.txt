@@ -1,12 +1,12 @@
-fileName: uploads/temp/6036d3dc5d165/glb/170-210_PLA_Temp_Tower-97.glb
+fileName: uploads/Kaly/glb/cableChain_40MountSide_v2-55.glb
 
-modelName: 170-210_PLA_Temp_Tower
+modelName: cableChain_40MountSide_v2
 
-glbDirectory: uploads/temp/6036d3dc5d165/glb
+glbDirectory: uploads/Kaly/glb
 
-baseName: corner-piece
+baseName: 
 
-deleteName: corner-piece-48.glb
+deleteName: ..
 
 saved
 

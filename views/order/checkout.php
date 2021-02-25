@@ -21,8 +21,8 @@ $error = '';
 
 if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 	$error = $_SESSION['error'];
-}
 
+}
 ?>
 
 <div class="checkout-container">
@@ -50,18 +50,17 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 
 			    $fullPrice += $itemPrice;
 
-			    echo "Preis: $itemPrice Euro<br>";
+			    echo "Preis: $itemPrice €<br>";
 			    echo "Name: $itemName <br>";
 			    echo "Menge: $itemAmount Stk.<br><br>";
 		    }
-		    echo "Gesamtpreis: $fullPrice <br>";
+		    echo "Gesamtpreis: $fullPrice €<br>";
             echo '<form action="index.php?c=order&a=checkout" method="POST" enctype="multipart/form-data">';
 		    echo '<input type="submit" name="submitOrder" value="Bestellung absenden">';
 		    echo '<input type="submit" name="editShoppingCart" value="Warenkorb bearbeiten">';
 		    echo '</form>';
 	    }
 	    ?>
-        <label class="errorMessage"><?=$error?></label>
 
 
 </div>

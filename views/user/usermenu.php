@@ -16,7 +16,7 @@ $postalCode = $customerData['postalCode'];
 $city = $customerData['city'];
 $country = $customerData['country'];
 $customerId = $customerData['cid'];
-$preferedPaymentMethode = isset($_SESSION['preferedPaymentMethod']) ? $GLOBALS['preferedPaymentMethod'] : 'Nicht hinterlegt';
+//$preferedPaymentMethode = isset($_SESSION['preferedPaymentMethod']) ? $GLOBALS['preferedPaymentMethod'] : 'Nicht hinterlegt';
 
 $error = '';
 
@@ -36,6 +36,5 @@ if (isset($_SESSION['makeOrder']) && !empty($_SESSION['makeOrder'])) {
     <?php
         include_once VIEWSPATH.'user/changeUserData.php';
         include_once VIEWSPATH.'user/addressInput.php';
-        include_once VIEWSPATH.'user/userMenuBar.php';
-    ?>
+//    ?>
 </div>

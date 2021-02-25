@@ -54,7 +54,7 @@ class Table
 	}
 //CF3_F2
 	public function render() {
-		$output = '<table id="ordersTable">';
+		$output = '<table class="ordersTable">';
 
 		$output .= $this->labelRow($this->header);
 

@@ -156,11 +156,11 @@ header nav#mobile ul li:hover > a{
     background-color: bisque;
     grid-area: content;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-template-areas:
-    "user-content";
+    "userMenuBar user-content";
     grid-area: content;
     margin-left: auto;
     margin-right: auto;
@@ -171,11 +171,11 @@ header nav#mobile ul li:hover > a{
     background-color: bisque;
     grid-area: content;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-template-areas:
-    "user-content";
+    "managementMenuBar management-content";
     grid-area: content;
     margin-left: auto;
     margin-right: auto;

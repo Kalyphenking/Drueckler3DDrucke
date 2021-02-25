@@ -18,7 +18,7 @@ $table = $GLOBALS['ordersTable'];
 
 
 <div class="userContent">
-    <table id="ordersTable">
+<!--    <table id="ordersTable">-->
 		<?php
 //		presentOrders($orders);
 
@@ -32,5 +32,5 @@ $table = $GLOBALS['ordersTable'];
 
 		?>
 
-    </table>
+<!--    </table>-->
 </div>

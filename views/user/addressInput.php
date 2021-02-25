@@ -1,7 +1,4 @@
 <div class="userAddress">
-    <label id="addressId" hidden><?=$addressId?></label>
-    <label id="customerId" hidden><?=$customerId?></label>
-
     <form action="index.php?c=user&a=usermenu" method = 'POST'>
         Straße:
         <input id="street" type="text" name="street" value=<?=$street?> >

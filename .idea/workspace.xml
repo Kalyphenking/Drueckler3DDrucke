@@ -19,33 +19,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Rechte vergeben">
-      <change afterPath="$PROJECT_DIR$/ressources/images/main/background-blur.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/images/main/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/images/main/bg-tänenstahl.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6036d3dc5d165/glb/170-210_PLA_Temp_Tower-97.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6036d3dc5d165/glb/cableChain_40MountSide_v2-51.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6036d3dc5d165/glb/corner-piece-48.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6036d3dc5d165/stl/170-210_PLA_Temp_Tower-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6036d3dc5d165/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6036d3dc5d165/stl/corner-piece-00.stl" afterDir="false" />
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Styling">
+      <change afterPath="$PROJECT_DIR$/uploads/Kaly/glb/cableChain_40MountSide_v2-55.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Kaly/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/DDD-70.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Kalyphenking/glb/corner-piece-72.glb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/LogReg.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/LogReg.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/checkout.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/checkout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/functions/table.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/functions/table.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/configurator.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/configurator.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/management.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/management.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/menuStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menuStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/miscStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/miscStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/shoppingCart.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/shoppingCart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/slide.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/slide.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/userMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/userMenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/changeAddress.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/changeAddress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/changeContactData.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/changeContactData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/stlErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/stlErrors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/images/HandyBanner.png" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/images/main/HandyBanner.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/infoBar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/infoBar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/navbard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/navbard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/userErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/userErrors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/management/manageOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/management/manageOrders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/order/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/checkout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/order/shoppingCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/shoppingCart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/addressInput.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/addressInput.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/userMenuBar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/userMenuBar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/usermenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/usermenu.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,13 +117,7 @@
       <workItem from="1613072254782" duration="128103000" />
       <workItem from="1614165186259" duration="23309000" />
       <workItem from="1614200236486" duration="1143000" />
-    </task>
-    <task id="LOCAL-00011" summary="logout hinzugefügt">
-      <created>1611175285828</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1611175285828</updated>
+      <workItem from="1614237981651" duration="1069000" />
     </task>
     <task id="LOCAL-00012" summary="preset und orders abrufbar">
       <created>1611180221364</created>
@@ -465,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614200577879</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Styling">
+      <created>1614235418489</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1614235418489</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +482,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Configurator setup in progress" />
     <MESSAGE value="Jede Menge Stuff" />
     <MESSAGE value="Büsschen css dies das" />
     <MESSAGE value="Controller geändert" />
@@ -510,12 +506,13 @@
     <MESSAGE value="Admin und Employee Implementiert" />
     <MESSAGE value="JavaScript bei ContactData &amp; Address" />
     <MESSAGE value="Rechte vergeben" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rechte vergeben" />
+    <MESSAGE value="Styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Styling" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1614200579554">
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1614235420757">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1614200579554" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1614235420757" />
   </component>
 </project>

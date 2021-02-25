@@ -11,7 +11,10 @@ class Controller
 
 //Co1_F1
 	function __construct($controller, $action, $subAction = null) {
-		unset($_SESSION['error']);
+
+//		if (isset($_SESSION['makeOrder']) && $_SESSION['makeOrder'] == true) {
+			unset($_SESSION['error']);
+//		}
 
 		$this->subAction = $subAction;
 
@@ -138,13 +141,16 @@ class Controller
 
 					break;
 				case 'user':
-					echo "<div class=\"user-container\">";
+					echo '<div class="user-container">';
+
+					include_once VIEWSPATH.'user/userMenuBar.php';
 
 
 					break;
 			}
 
 			include $view;
+
 
 			echo "<script>javaScriptEnabled()</script>";
 

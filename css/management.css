@@ -1,30 +1,23 @@
 
-.managementMenuBar { grid-area: menu; }
-.managementContent { grid-area: main; }
-.orderBar { grid-area: bar; }
+.managementMenuBar { grid-area: managementMenuBar; }
+.orderBar { grid-area: orderBar; }
+.manageOrders {grid-area: manageOrders; }
 
-.management-container {
+managementContent {
+    grid-area: management-content;
     display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
     grid-template-areas:
-    'menu bar bar bar bar bar bar bar bar bar'
-    'menu main main main main main main main main main'
-    'menu main main main main main main main main main';
-    grid-gap: 10px;
-    background-color: #eac424;
-    padding: 10px;
-}
-
-.management-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
-    /*text-align: center;*/
-    /*padding: 20px 0;*/
-    /*font-size: 30px;*/
+    "orderBar"
+    "manageOrders";
 }
 
 .overflow {
     padding: 15px;
-    width: 90%;
-    height: 700px;
+    /*width: 90%;*/
+    /*height: 700px;*/
     overflow: scroll;
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
 }
