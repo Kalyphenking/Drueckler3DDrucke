@@ -4,7 +4,7 @@
     grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-template-areas:
-    "shoppingCart";
+    "userAddress";
     grid-area: content;
 }
-/*.shoppingCart { grid-area: shoppingCart; }*/
+.userAddress { grid-area: userAddress; }

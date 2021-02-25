@@ -1,52 +1,62 @@
-    @charset "utf8";
+    /*@charset "utf8";*/
 
     #slider {
-        width: 1200px;
-        height: 700px;
-        margin: 150px auto auto auto;
-        overflow: hidden;
+        /*width: 1200px;*/
+        /*height: 700px;*/
+        /*margin: 150px auto auto auto;*/
+        /*overflow: hidden;*/
         position: relative;
+        background-color: #c8354e;
+        /*margin: auto;*/
     }
     
     .slider_img {
         position: absolute;
         top: 0;
+        height: 100%;
+        width: auto;
         left: 0;
+        right: 0;
+        margin: auto;
     }
     
     .class_Felge {
-        animation: Animation_Felge infinite 20000ms;
+        animation: Animation_Felge infinite 36000ms;
     }
     
     .class_Figur {
-        animation: Animation_Figur infinite 20000ms;
+        animation: Animation_Figur infinite 36000ms;
     }
     
     .class_Haken {
-        animation: Animation_Haken infinite 20000ms;
+        animation: Animation_Haken infinite 36000ms;
     }
-    
-    .class_Katze {
-        animation: Animation_Katze infinite 20000ms;
+
+    .class_Klemme {
+        animation: Animation_Klemme infinite 36000ms;
     }
 
     .class_Würfel {
-        animation: Animation_Würfel infinite 20000ms;
+        animation: Animation_Würfel infinite 36000ms;
     }
+
 
 
     @keyframes Animation_Felge {
         0% {
             opacity: 1;
         }
-        20% {
+        15% {
             opacity: 1;
         }
-        25% {
+        20% {
+            opacity: 0;
+        }
+        95% {
             opacity: 0;
         }
         100% {
-            opacity: 0;
+            opacity: 1;
         }
     }
 
@@ -54,16 +64,16 @@
         0% {
             opacity: 0;
         }
-        20% {
+        15% {
             opacity: 0;
         }
-        25% {
+        19% {
             opacity: 1;
         }
-        45% {
+        35% {
             opacity: 1;
         }
-        50% {
+        40% {
             opacity: 0;
         }
         100% {
@@ -75,16 +85,16 @@
         0% {
             opacity: 0;
         }
-        45% {
+        35% {
             opacity: 0;
         }
-        50% {
+        39% {
             opacity: 1;
         }
-        70% {
+        55% {
             opacity: 1;
         }
-        75% {
+        60% {
             opacity: 0;
         }
         100% {
@@ -92,14 +102,36 @@
         }
     }
 
-    @keyframes Animation_Katze {
+
+    @keyframes Animation_Klemme {
         0% {
             opacity: 0;
         }
-        70% {
+        55% {
+            opacity: 0;
+        }
+        59% {
+            opacity: 1;
+        }
+        75% {
+            opacity: 1;
+        }
+        80% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes Animation_Würfel {
+        0% {
             opacity: 0;
         }
         75% {
+            opacity: 0;
+        }
+        79% {
             opacity: 1;
         }
         95% {

@@ -25,7 +25,7 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 
 ?>
 
-<div class="orderContent">
+<div class="checkout-container">
 
 	    <?php
 	    if ($view == 'addressData') {

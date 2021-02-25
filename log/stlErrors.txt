@@ -1,12 +1,12 @@
-fileName: uploads/Kalyphenking/glb/HuePlayStand-17.glb
+fileName: uploads/temp/6036d3dc5d165/glb/170-210_PLA_Temp_Tower-97.glb
 
-modelName: HuePlayStand
+modelName: 170-210_PLA_Temp_Tower
 
-glbDirectory: uploads/Kalyphenking/glb
+glbDirectory: uploads/temp/6036d3dc5d165/glb
 
-baseName: 170-210_PLA_Temp_Tower
+baseName: corner-piece
 
-deleteName: 170-210_PLA_Temp_Tower-61.glb
+deleteName: corner-piece-48.glb
 
 saved
 

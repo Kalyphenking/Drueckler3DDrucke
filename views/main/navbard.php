@@ -1,5 +1,5 @@
 <header class="header">
-    <nav class="navBar" id="desktop">
+    <nav class="navBar title-font" id="desktop" >
         <a href="index.php" id="menu-button">
             <img src="<?=IMAGESPATH.'Logo.png'?>">
         </a>
@@ -20,7 +20,6 @@
             $navbarItems = '
                 <a  href="index.php" class="item">Home</a>
                 <a  href="index.php?c=order&a=configurator" class="item">Konfigurator</a>
-                <a  href="index.php?c=main&a=contact" class="item">Kontakt</a>
                 <a  href="index.php?c=order&a=shoppingCart" class="item">Warenkorb</a>
             ';
         } else {
@@ -29,7 +28,6 @@
             $navbarItems = '
                 <a  href="index.php" class="item">Home</a>
                 <a  href="index.php?c=order&a=configurator" class="item">Konfigurator</a>
-                <a  href="index.php?c=main&a=contact" class="item">Kontakt</a>
                 <a  href="index.php?c=order&a=shoppingCart" class="item">Warenkorb</a>
             ';
         }

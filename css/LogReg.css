@@ -16,7 +16,7 @@
     font-size: 20px;
     padding: 10px 40px;
 
-    width: 300px;
+    width: 400px;
     margin: 10% auto;
 
     display: flex;
@@ -44,4 +44,8 @@
     border-color: rgb(230, 153, 11);
     border-block-end-color: rgb(182, 152, 17);
     border-block-start-color: rgb(70, 57, 0);
+}
+
+.login-footer {
+ text-align: center;
 }

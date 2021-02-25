@@ -46,11 +46,11 @@
             </div>
             <br>
             <div class="login-footer">
-                <a href="index.php?c=main&a=register">Konto erstellen</a>
+                <a href="index.php?c=main&a=register" class="link-gap">Konto erstellen</a>
 
 
 			    <?php if($guest) :?>
-                    <a href="index.php?c=main&a=register/guest">Als Gast fortfahren</a>
+                    <a href="index.php?c=main&a=register/guest" class="link-gap">Als Gast fortfahren</a>
 			    <?php endif;?>
             </div>
         </form>

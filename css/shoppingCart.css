@@ -2,3 +2,5 @@
 .shoppingCart-container {
     grid-area: order-content;
 }
+
+/*.shoppingCart-table td { display: block; }*/

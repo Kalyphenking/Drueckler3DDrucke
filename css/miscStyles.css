@@ -1,8 +1,14 @@
 html {
     background-color: black;
     /*color: black;*/
+    font-family: Helvetica, Haettenschweiler, 'Arial Narrow', sans-serif;
+
+}
+
+.title-font {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
 
 a {
     color: rgb(189, 136, 1);
