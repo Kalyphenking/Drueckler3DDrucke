@@ -5,6 +5,8 @@ $customerData = $_SESSION['customerData'];
 $customerId = $customerData['cid'];
 $contactDataId = $customerData['cdid'];
 $preferedPaymentMethode = isset($_SESSION['preferedPaymentMethod']) ? $GLOBALS['preferedPaymentMethod'] : 'Nicht hinterlegt';
+
+//echo json_encode($customerData);
 ?>
 
 

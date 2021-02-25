@@ -1,13 +1,13 @@
-POST: {"firstName":"Marius","lastName":"Lange","phoneNumber":"01621011009","emailAddress":"mariuslange2000@gmail.com","cdid":"17"}
+POST: {"firstName":"M","lastName":"Lange","phoneNumber":"","emailAddress":"bb.m.la@gaef.ce","cdid":"18"}
 
 SQL: 
 	UPDATE 
 	ContactData SET 
-	firstName='Marius',
+	firstName='M',
 	lastName='Lange',
-	phoneNumber='01621011009',
-	emailAddress='mariuslange2000@gmail.com'
-	WHERE id = '17'
+	phoneNumber='',
+	emailAddress='bb.m.la@gaef.ce'
+	WHERE id = '18'
 
 
 Works: 

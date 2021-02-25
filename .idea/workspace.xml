@@ -19,18 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Bissel styling dies das">
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6037d1e12e4b1/glb/Bracket-52.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6037d1e12e4b1/glb/Ender_Z-Axis_Motor_Mount-83.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6037d1e12e4b1/glb/OsterhaseV1.0-19.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6037d1e12e4b1/glb/cableChain_40MountSide_v2-33.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6037d1e12e4b1/stl/Bracket-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6037d1e12e4b1/stl/Ender_Z-Axis_Motor_Mount-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6037d1e12e4b1/stl/OsterhaseV1.0-00.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6037d1e12e4b1/stl/cableChain_40MountSide_v2-00.stl" afterDir="false" />
+    <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/functions/paymentFunction.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/functions/paymentFunction.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/model.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/menuStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menuStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/userErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/userErrors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/userMenuBar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/userMenuBar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,14 +104,7 @@
       <workItem from="1614200236486" duration="1143000" />
       <workItem from="1614237981651" duration="1069000" />
       <workItem from="1614246229902" duration="1774000" />
-      <workItem from="1614271143603" duration="341000" />
-    </task>
-    <task id="LOCAL-00015" summary="Jede Menge Stuff">
-      <created>1611406570994</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1611406570994</updated>
+      <workItem from="1614271143603" duration="3466000" />
     </task>
     <task id="LOCAL-00016" summary="Jede Menge Stuff">
       <created>1611408404873</created>
@@ -453,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614249848684</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary=".">
+      <created>1614272852534</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1614272852535</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +469,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Büsschen css dies das" />
     <MESSAGE value="Controller geändert" />
     <MESSAGE value="Register repariert" />
     <MESSAGE value="Jetzt kann man sich ordentlich registrieren, aber die daten bank müsst ihr neu importieren xD" />
@@ -498,17 +493,18 @@
     <MESSAGE value="Rechte vergeben" />
     <MESSAGE value="Styling" />
     <MESSAGE value="Bissel styling dies das" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bissel styling dies das" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="WindowStateProjectService">
     <state x="405" y="-1084" key="SettingsEditor" timestamp="1614249783994">
       <screen x="-824" y="-1440" width="3440" height="1440" />
     </state>
     <state x="405" y="-1084" key="SettingsEditor/0.0.1680.1050/-824.-1440.3440.1440@-824.-1440.3440.1440" timestamp="1614249783994" />
-    <state x="496" y="-996" key="Vcs.Push.Dialog.v2" timestamp="1614249850188">
-      <screen x="-824" y="-1440" width="3440" height="1440" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2" timestamp="1614272854329">
+      <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="496" y="-996" key="Vcs.Push.Dialog.v2/0.0.1680.1050/-824.-1440.3440.1440@-824.-1440.3440.1440" timestamp="1614249850188" />
-    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1614235420757" />
+    <state x="1320" y="444" key="Vcs.Push.Dialog.v2/0.0.3440.1440@0.0.3440.1440" timestamp="1614272854329" />
   </component>
 </project>

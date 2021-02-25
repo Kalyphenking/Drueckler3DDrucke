@@ -77,7 +77,7 @@ class PaymentFunction
 							//inserts directDebitData in database and updates newest DirectDebit_id into PaymentData
 
 							$directDebitData->insert($this->errors,
-								['UPDATE PaymentData set DirectDebit_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+								['UPDATE PaymentData set DirectDebit_id = LAST_INSERT_ID() where id = ' . $paymentDataId . ' ;']);
 						}
 
 
@@ -112,6 +112,7 @@ class PaymentFunction
 		$creditCardId = $this->customerData['ccid'];
 		$customerId = $this->customerData['cid'];
 		$paymentDataId = $this->customerData['pdid'];
+//		echo '<h3>'.json_encode($this->customerData).'</h3>';
 
 		if (isset($_POST['submit'])) {
 
@@ -145,6 +146,7 @@ class PaymentFunction
 				if (empty($this->errors)) {
 					$loadedData = $creditCardData->find(['id'], [$creditCardId]);
 
+//					echo '<h3>'.json_encode($loadedData).'</h3><br>';
 					if (empty($loadedData)) {
 
 						$db = $GLOBALS['db'];
@@ -162,7 +164,7 @@ class PaymentFunction
 						} else {
 
 							$creditCardData->insert($this->errors,
-								['UPDATE PaymentData set CreditCard_id = LAST_INSERT_ID() where id = ' . $customerId . ' ;']);
+								['UPDATE PaymentData set CreditCard_id = LAST_INSERT_ID() where id = ' . $paymentDataId . ' ;']);
 						}
 					} else {
 						$creditCardData->update($this->errors);
@@ -231,7 +233,7 @@ class PaymentFunction
 
 							$paypalData->insert($this->errors,
 								['UPDATE PaymentData set Paypal_id = LAST_INSERT_ID() where id = '
-									. $customerId .
+									. $paymentDataId .
 									' ;']);
 						}
 					} else {

@@ -132,9 +132,9 @@ header nav#mobile ul li:hover > a{
     grid-template-areas:
     "main-content";
     grid-area: content;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1200px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*width: 1200px;*/
     padding: 10px;
 
 }
@@ -150,9 +150,9 @@ header nav#mobile ul li:hover > a{
     grid-template-areas:
     "order-content";
     grid-area: content;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1200px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*width: 1200px;*/
 }
 
 .user-container {
@@ -166,9 +166,9 @@ header nav#mobile ul li:hover > a{
     grid-template-areas:
     "userMenuBar user-content";
     grid-area: content;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1200px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*width: 1200px;*/
 }
 
 .management-container {
@@ -182,9 +182,9 @@ header nav#mobile ul li:hover > a{
     grid-template-areas:
     "managementMenuBar management-content";
     grid-area: content;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1200px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*width: 1200px;*/
 }
 
 /*.content { grid-area: content; background-color: green;}*/
@@ -195,23 +195,27 @@ header nav#mobile ul li:hover > a{
 
 .rechts {
     grid-area: rechts;
+    /*background-color: blue;*/
+    background-image: url(../ressources/images/main/stahl.jpg);
 }
 
 .links {
     grid-area: links;
+    /*background-color: red;*/
+    background-image: url(../ressources/images/main/stahl.jpg);
 }
 
 .parent {
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1200px 1fr;
     grid-template-rows: 80px 1fr 50px;
     gap: 0px 0px;
     grid-template-areas:
-    "navBar"
-    "content"
-    "footer";
-    background-image: url(../ressources/images/main/stahl.jpg);
+    "links navBar rechts"
+    "links content rechts"
+    "links footer rechts";
+    /*background-image: url(../ressources/images/main/stahl.jpg);*/
 
 }

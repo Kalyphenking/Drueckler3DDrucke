@@ -28,7 +28,7 @@
         <div class="col1 col">
             <iframe
                 class="col-video"
-                src="https://www.youtube.com/embed/GukmNo3Inxo?autoplay=1&mute=1&loop=1&controls=0"
+                src="https://www.youtube.com/embed/GukmNo3Inxo?autoplay=1&loop=1&mute=1&controls=0"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>

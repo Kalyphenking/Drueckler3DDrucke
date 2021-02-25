@@ -92,7 +92,7 @@ class Model
 
 			return true;
 		} catch (\PDOException $e) {
-//			die('Error inserting customer: ' . $e->getMessage());
+			die('Error inserting customer: ' . $e->getMessage());
 			$errors[] = 'Error inserting ' . get_called_class();
 		}
 		return false;
@@ -140,7 +140,7 @@ class Model
 			return true;
 
 		} catch (\PDOException $e) {
-//			die('Error inserting customer: ' . $e->getMessage());
+			die('Error inserting customer: ' . $e->getMessage());
 			$errors[] = 'Error updating ' . get_called_class();
 		}
 		return false;
