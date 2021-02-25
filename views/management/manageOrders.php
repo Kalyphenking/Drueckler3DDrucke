@@ -44,21 +44,23 @@ foreach ($orders as $data) {
 
     <div class="manageOrders overflow">
 <!--        <table id="ordersTabe">-->
-			<?php
-			//		presentOrders($orders);
+			<div class="managing-table" >
+				<?php
+				//		presentOrders($orders);
 
-			if ($ordersExist) {
-				echo $table;
-			} else {
-				if ($selectedOrderList == 'finishedOrders') {
-					echo '<h3>Noch keine Bestellung abgeschlossen</h3>';
+				if ($ordersExist) {
+					echo $table;
 				} else {
-					echo '<h3>Ihnen wurden keine Bestellungen zugeteilt</h3>';
+					if ($selectedOrderList == 'finishedOrders') {
+						echo '<h3>Noch keine Bestellung abgeschlossen</h3>';
+					} else {
+						echo '<h3>Ihnen wurden keine Bestellungen zugeteilt</h3>';
+					}
+
 				}
 
-			}
-
-			?>
+				?>
+            </div>
 
 <!--        </table>-->
     </div>

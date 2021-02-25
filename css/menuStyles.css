@@ -134,7 +134,7 @@ header nav#mobile ul li:hover > a{
     grid-area: content;
     margin-left: auto;
     margin-right: auto;
-    width: 1400px;
+    width: 1200px;
     padding: 10px;
 
 }
@@ -152,7 +152,7 @@ header nav#mobile ul li:hover > a{
     grid-area: content;
     margin-left: auto;
     margin-right: auto;
-    width: 1400px;
+    width: 1200px;
 }
 
 .user-container {
@@ -168,7 +168,7 @@ header nav#mobile ul li:hover > a{
     grid-area: content;
     margin-left: auto;
     margin-right: auto;
-    width: 1400px;
+    width: 1200px;
 }
 
 .management-container {
@@ -184,7 +184,7 @@ header nav#mobile ul li:hover > a{
     grid-area: content;
     margin-left: auto;
     margin-right: auto;
-    width: 1400px;
+    width: 1200px;
 }
 
 /*.content { grid-area: content; background-color: green;}*/
