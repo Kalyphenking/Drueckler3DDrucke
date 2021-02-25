@@ -108,6 +108,10 @@ class Controller
 		if (file_exists($view)) {
 			echo '<div class="parent">';
 
+			echo '<div class="rechts"></div>';
+			echo '<div class="links"></div>';
+
+
 			include_once(VIEWSPATH . 'main' . '/' . 'navbard.php');
 
 //			echo '<div class="content" >';

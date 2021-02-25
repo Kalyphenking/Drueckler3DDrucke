@@ -193,6 +193,14 @@ header nav#mobile ul li:hover > a{
     background-image: url(../ressources/images/main/HandyBanner.png);
 }
 
+.rechts {
+    grid-area: rechts;
+}
+
+.links {
+    grid-area: links;
+}
+
 .parent {
     width: 100vw;
     height: 100vh;

@@ -45,17 +45,17 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
                                 <div>
                                     <label>Modelname: '.$item[0].'</label>
                                     <br>
-                                    <label>Füllung: '.$item[1].'</label>
+                                    <label>Füllung: '.$item[1].'%</label>
                                     <br>
                                     <label>Auflösung: '.$item[2].'</label>
                                     <br>
                                     <label>Filament: '.$item[3].'</label>
                                     <br>
-                                    <label>Druckzeit: '.$item[4].'</label>
+                                    <label>Druckzeit: '.$item[4].' Stunden</label>
                                     <br>
-                                    <label>Preis: '.$item[5][0].'</label>
+                                    <label>Preis: '.$item[5][0].'€</label>
                                     <br>
-                                    <label>Menge: '.$item[6].'</label>
+                                    <label>Menge: '.$item[6].' Stk.</label>
                                 </div>      
                             </td>
                             
