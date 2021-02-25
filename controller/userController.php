@@ -53,11 +53,11 @@ class UserController extends Controller
 
 		$this->loadCustomerData();
 
-		if (isset($_POST['preferedPaymentMethod'])) {
-			$preferedPaymentMthod = $_POST['preferedPaymentMethod'];
-		} else {
-			$preferedPaymentMthod = '';
-		}
+//		if (isset($_POST['preferedPaymentMethod'])) {
+//			$preferedPaymentMthod = $_POST['preferedPaymentMethod'];
+//		} else {
+//			$preferedPaymentMthod = 0;
+//		}
 
 		$paymentData = new ChangePaymentData();
 		$paymentData->changePaymentData($subAction, $preferedPaymentMthod);

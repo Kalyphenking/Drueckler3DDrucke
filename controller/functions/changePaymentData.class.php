@@ -31,6 +31,8 @@ class ChangePaymentData
 		if (method_exists($paymentFunction, $action)) {
 //			if (isset($_POST['submit'])) {
 
+//			echo '<h3>WORKS</h3>';
+
 //				if (isset($_POST['preferedPaymentMethod'])) {
 				if (!empty($preferedPaymentMthod)) {
 					switch ($action) {

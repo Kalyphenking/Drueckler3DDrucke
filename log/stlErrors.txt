@@ -1,12 +1,12 @@
-fileName: uploads/Kaly/glb/cableChain_40MountSide_v2-55.glb
+fileName: uploads/Kaly/glb/cableChain_40MountSide_v2-40.glb
 
 modelName: cableChain_40MountSide_v2
 
 glbDirectory: uploads/Kaly/glb
 
-baseName: 
+baseName: cableChain_40MountSide_v2
 
-deleteName: ..
+deleteName: cableChain_40MountSide_v2-55.glb
 
 saved
 

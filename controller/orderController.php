@@ -436,13 +436,12 @@ class OrderController extends Controller
 
 				$order->sendSql($this->errors, $sql);
 
-//				$statement = $db->prepare($sql);
-//				$statement->execute();
 
 			}
 
 			if (empty($this->errors)) {
 				unset($_SESSION['shoppingCart']);
+				unset($_SESSION['makeOrder']);
 				$link = 'index.php?c=order&a=orderSuccess';
 
 				header("Location: $link ");
