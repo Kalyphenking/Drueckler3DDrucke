@@ -11,7 +11,7 @@
 
 .InputBox {
     color:rgb(255, 233, 35);
-    background-color: rgba(200,200,200, 0.3);
+    /*background-color: rgba(200,200,200, 0.3);*/
 
     font-size: 20px;
     padding: 10px 40px;
@@ -38,7 +38,7 @@
 }
 
 .InputLine Input {
-    background-color: #fff7db;
+    /*background-color: #fff7db;*/
     color:rgb(0,0,0);
 
     border-color: rgb(230, 153, 11);

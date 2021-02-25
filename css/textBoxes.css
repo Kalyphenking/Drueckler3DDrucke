@@ -1,6 +1,6 @@
 .page {
     color: rgb(253, 253, 100);
-    background-color: rgba(27, 27, 27, 0.5);
+   /*/ background-color: rgba(27, 27, 27, 0.5);*/
     width: 600px;
     text-align: center;
     font-family: 'Arial Narrow Bold', sans-serif;
@@ -13,14 +13,14 @@
 }
 
 .page .HeaderBox{
-    background-color: rgba(0,0,0,0);
+    /*background-color: rgba(0,0,0,0);*/
     text-align: center;
 }
 
 .TextBox {
     margin: auto;
     color: #fff7c2;
-    background-color: rgba(53, 38, 0, 0.5);
+    /*background-color: rgba(53, 38, 0, 0.5);*/
 
     text-align: left;
 
@@ -31,7 +31,7 @@
 .inv-TextBox {
     margin: auto;
     color: #fff7c2;
-    background-color: rgba(0,0,0,0);
+    /*background-color: rgba(0,0,0,0);*/
 
     text-align: center;
 
@@ -40,7 +40,7 @@
 }
 
 .page .page {
-    background-color: rgba(0,0,0,0);
+    /*background-color: rgba(0,0,0,0);*/
     flex-direction: row;
     justify-content: space-around;
 }
@@ -51,7 +51,7 @@
 
     .page {
         color: rgb(253, 253, 100);
-        background-color: rgba(27, 27, 27, 0.5);
+        /*background-color: rgba(27, 27, 27, 0.5);*/
         width: 400px;
         text-align: center;
         font-family: 'Arial Narrow Bold', sans-serif;

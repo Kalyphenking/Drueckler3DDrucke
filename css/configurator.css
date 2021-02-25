@@ -11,11 +11,11 @@
 }
 .test { grid-area: test; background-color: greenyellow}
 
-.modelSettings { grid-area: modelSettings; background-color: brown}
+.modelSettings { grid-area: modelSettings; /*background-color: brown*/}
 
 .modelViewer {
     grid-area: modelViewer;
-    background-color: rebeccapurple;
+    /*background-color: rebeccapurple;*/
     align-items: center;
     display: flex;
     /*border: 1px solid;*/
