@@ -15,7 +15,7 @@
         Land:
         <input id="country" type="text" name="country" value=<?=$country?> >
         <br>
-        <input id="submitAddress" type="submit" name="submitAddress" value="<?=$label?>">
+        <input class="btn" id="submitAddress" type="submit" name="submitAddress" value="<?=$label?>">
     </form>
     <label class="errorMessage"><?=$error?></label>
 </div>

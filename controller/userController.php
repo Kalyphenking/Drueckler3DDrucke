@@ -337,7 +337,7 @@ class UserController extends Controller
 		$input = [
 			'action' => 'index.php?c=user&a=cancellOrder',
 			'inputs' => [
-				'<input type="submit" name="submitDelete" value="stornieren">'
+				'<input type="submit" class="btn" name="submitDelete" value="stornieren">'
 			],
 			'inSubHeader' => false
 		];

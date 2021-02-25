@@ -39,6 +39,6 @@
         <br>
         <input type="checkbox" name="preferedPaymentMethod">
         <br>
-            <input type="submit" name="submit" value="<?=$label?>">
+            <input type="submit" class="btn" name="submit" value="<?=$label?>">
     </form>
 </div>

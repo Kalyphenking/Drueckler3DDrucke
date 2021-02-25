@@ -99,12 +99,12 @@ if (isset($_SESSION['guest']) && $_SESSION['guest'] == true) {
             </div>
             <br>
             <input type = "checkbox" required> AGB <br><br>
-            <input id="submitRegister" name="submit" type="submit" value="<?=$label?>">
+            <input id="submitRegister" class="btn" name="submit" type="submit" value="<?=$label?>">
 
 
         </form>
         <form action = 'index.php?c=main&a=register' method = 'POST'>
-            <input id="abort" name="abort" type="submit" value="abbrechen">
+            <input id="abort" class="btn" name="abort" type="submit" value="abbrechen">
         </form>
     </div>
 </div>

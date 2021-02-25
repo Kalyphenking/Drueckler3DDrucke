@@ -174,7 +174,7 @@ class Table
 				$output .= '
 				<td>
 	                <form action="'.$inputs['action'].'" method = "POST">
-	                    <input type="hidden" name="orderId" value='.$data['oid'].'>';
+	                    <input type="hidden"name="orderId" value='.$data['oid'].'>';
 
 				foreach ($inputs['inputs'] as $input) {
 					$output .= $input;

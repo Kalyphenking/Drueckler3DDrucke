@@ -137,9 +137,10 @@ class ManagementController extends Controller
 					                   placeholder="1"
 					                   required>
 				                ',
-											' <input type="submit"
-				                   name="submitEmployee"
-				                   value="in Arbeit geben">
+									' <input type="submit"
+								 	class="btn"		
+				                   	name="submitEmployee"
+				                   	value="in Arbeit geben">
 				                '
 							],
 							'inSubHeader' => true
@@ -162,6 +163,7 @@ class ManagementController extends Controller
 				'inputs' => [
 					' <input type="submit"
 	                   name="finishedOrder"
+	                   class="btn"
 	                   value="Bestellung abschließen">
 	                '
 				],
