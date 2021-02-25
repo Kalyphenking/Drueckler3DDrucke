@@ -61,13 +61,13 @@ function suborderRow($fileName, $price, $processed, $suborderId) {
                 <td>
                     <form action = 'index.php?c=user&a=cancellOrder' method = 'POST'>
                         <input type='hidden' name=\"orderId\" value=$suborderId>
-                        <input type='submit' name=\"submit\" value='stornieren'>
+                        <input  class='btn' type='submit' name=\"submit\" value='stornieren'>
                     </form>
                 </td>
                 <td>
                     <form action = 'index.php?c=user&a=details' method = 'POST'>
                         <input type='hidden' name=\"orderId\" value=$suborderId>
-                        <input type='submit' name=\"submit\" value='Details'>
+                        <input class='btn' type='submit' name=\"submit\" value='Details'>
                     </form>
                 </td>
         </tr>";

@@ -17,7 +17,7 @@
 		Passwort wiederholen:
 		<input type="password" name="newPasswortVerified" required>
         <br>
-		<input type="submit" name="submit" value="Speichern">
+		<input class="btn" type="submit" name="submit" value="Speichern">
 	</form>
     <label class="errorMessage"><?=$error?></label>
 </div>

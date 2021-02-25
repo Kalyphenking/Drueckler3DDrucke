@@ -56,8 +56,8 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 		    }
 		    echo "Gesamtpreis: $fullPrice €<br>";
             echo '<form action="index.php?c=order&a=checkout" method="POST" enctype="multipart/form-data">';
-		    echo '<input type="submit" name="submitOrder" value="Bestellung absenden">';
-		    echo '<input type="submit" name="editShoppingCart" value="Warenkorb bearbeiten">';
+		    echo '<input class="btn" type="submit" name="submitOrder" value="Bestellung absenden">';
+		    echo '<input class="btn" type="submit" name="editShoppingCart" value="Warenkorb bearbeiten">';
 		    echo '</form>';
 	    }
 	    ?>

@@ -12,6 +12,6 @@
 		Telefonnummer:
 		<input id="phoneNumber" type="text" name="phoneNumber" value=<?=$phoneNumber?> >
 		<br>
-		<input id="submitContactData" type="submit" name="submitContactData" value="Speichern">
+		<input id="submitContactData" class="btn" type="submit" name="submitContactData" value="Speichern">
 	</form>
 </div>

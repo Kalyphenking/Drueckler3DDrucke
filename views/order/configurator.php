@@ -145,11 +145,11 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
     </div>
 
     <div class="test">
-        <label><?=$modelName?></label>
+        <label class="default-text"><?=$modelName?></label>
         <br>
-        <label>Druckzeit: <?=$printTime?> Stunden</label>
+        <label class="default-text">Druckzeit: <?=$printTime?> Stunden</label>
         <br>
-        <label>Preis: <?=$printPrices[0]?>€</label>
+        <label class="default-text">Preis: <?=$printPrices[0]?>€</label>
     </div>
 </div>
 

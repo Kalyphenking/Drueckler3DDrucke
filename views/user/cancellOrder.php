@@ -39,8 +39,8 @@ if ($success) {
 	Soll die Bestellung: \"$fileName\" wirklich storniert werden ?
 	<form action = 'index.php?c=user&a=cancellOrder' method = 'POST'>
 		<input type='hidden' name='printConfigId' value=$printConfigId>
-		<input type='submit' name='submit' value='Nein'>
-		<input type='submit' name='submit' value='Ja'>
+		<input class='btn' type='submit' name='submit' value='Nein'>
+		<input class='btn' type='submit' name='submit' value='Ja'>
 	</form>
 ";
 

@@ -94,14 +94,14 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
                     ';
 	    } else {
 		    echo '
-                        <h1>Warenkorb leer</h1>
+                        <h1 class="default-text">Warenkorb leer</h1>
                         ';
 	    }
 	    ?>
             <br>
             <input type="submit" class="btn" name="submitDelete" value="Auswahl löschen">
             <input type="submit" class="btn" name="submit" value="Weiter">
-            <label>Gesamtpreis: <?=$sum?> €</label>
+            <label class="default-text">Gesamtpreis: <?=$sum?> €</label>
             <br>
             <label class="errorMessage"><?=$error?></label>
 

@@ -20,10 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Bissel styling dies das">
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6037796e354a6/glb/Ender_Z-Axis_Motor_Mount-93.glb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/temp/6037796e354a6/stl/Ender_Z-Axis_Motor_Mount-00.stl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/order/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/checkout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/order/configurator.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/configurator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/order/shoppingCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/shoppingCart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/cancellOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/cancellOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/changeUserData.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changeUserData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/changeUserPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/changeUserPassword.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
