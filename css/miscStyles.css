@@ -18,3 +18,9 @@ a {
 a:hover {
     color: rgb(255, 241, 212);
 }
+
+.default-text {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+    color: rgb(189, 101, 1);
+    font-size: 18pt;
+}

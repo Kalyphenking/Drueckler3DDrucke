@@ -16,20 +16,20 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 <!--</div>-->
 <!--<form action="index.php?c=order&a=shoppingCart" method="POST" enctype="multipart/form-data">-->
     <div class="shoppingCart-container">
-            <?php
-                if (!empty($shoppingCart)) {
+	    <?php
+	    if (!empty($shoppingCart)) {
 
-                    echo '
+		    echo '
                         <h1>Warenkorb</h1>
                         <form action="index.php?c=order&a=shoppingCart" method="POST" enctype="multipart/form-data">
                         <table class="shoppingCart-table">
                     ';
 
-                    foreach ($shoppingCart as $key => $item) {
-                        $fileName = $item[6];
+		    foreach ($shoppingCart as $key => $item) {
+			    $fileName = $item[6];
 
-                        echo'<tr>';
-                            echo '<td>
+			    echo'<tr>';
+			    echo '<td>
                                 <model-viewer 
                                 id="modelViewer-'.$key.'" 
                                 loading="lazy" 
@@ -39,7 +39,7 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
                                 </model-viewer>
                             </td>';
 
-                            echo'
+			    echo'
 
                             <td>
                                 <div>
@@ -69,7 +69,7 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 //                            echo '<td>'.$item[5][0].'</td>';
 //                            echo '<td>'.$item[6].'</td>';
 
-                            echo '<td>
+			    echo '<td>
                                 
                                      <input 
                                         type="checkbox" 
@@ -81,23 +81,23 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
                             </td>';
 
 
-                        echo'</tr>';
+			    echo'</tr>';
 
-                        echo '<script>displayModel("'.$fileName.'", "modelViewer-'.$key.'")</script>';
-	                    $sum += $item[5][0];
-                    }
+			    echo '<script>displayModel("'.$fileName.'", "modelViewer-'.$key.'")</script>';
+			    $sum += $item[5][0];
+		    }
 
-	                echo '
+		    echo '
                         </table>
                         
                         
                     ';
-                } else {
-	                echo '
+	    } else {
+		    echo '
                         <h1>Warenkorb leer</h1>
                         ';
-                }
-            ?>
+	    }
+	    ?>
             <br>
             <input type="submit" name="submitDelete" value="Auswahl löschen">
             <input type="submit" name="submit" value="Weiter">
@@ -111,9 +111,7 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 
     </div>
 
-    <div class="shoppingCartFooter">
 
-    </div>
 <!--</form>-->
 
 <?php

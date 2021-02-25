@@ -33,6 +33,7 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>
+            <label class="default-text" >qualitativ</label>
         </div>
 
         <div class="col2 col">
@@ -43,6 +44,7 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
             </iframe>
+            <label class="default-text" >vielfältig</label>
         </div>
 
         <div class="col3 col">
@@ -53,6 +55,7 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>
+            <label class="default-text" >günstig</label>
         </div>
     </div>
 

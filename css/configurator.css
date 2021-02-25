@@ -8,10 +8,17 @@
     grid-template-areas:
     "modelViewer modelSettings"
     "test test";
-}
-.test { grid-area: test; background-color: greenyellow}
 
-.modelSettings { grid-area: modelSettings; /*background-color: brown*/}
+}
+.test {
+    grid-area: test;
+    background-color: #edd7a6;
+}
+
+.modelSettings {
+    grid-area: modelSettings;
+    padding: 20px;
+}
 
 .modelViewer {
     grid-area: modelViewer;
@@ -19,6 +26,10 @@
     align-items: center;
     display: flex;
     /*border: 1px solid;*/
+
+    border: black;
+    border-style: solid;
+    border-width: 0px 5px 5px 0px;
 }
 
 #modelViewer {

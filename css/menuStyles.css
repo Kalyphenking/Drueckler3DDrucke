@@ -122,6 +122,7 @@ header nav#mobile ul li:hover > a{
 
 
 .main-container {
+    background-color: black;
     /*background-color: bisque;*/
     grid-area: content;
     display: grid;
@@ -133,11 +134,13 @@ header nav#mobile ul li:hover > a{
     grid-area: content;
     margin-left: auto;
     margin-right: auto;
-    width: 1200px;
+    width: 1400px;
+    padding: 10px;
 
 }
 
 .order-container {
+    background-color: #edd7a6;
     /*background-color: bisque;*/
     grid-area: content;
     display: grid;
@@ -149,10 +152,11 @@ header nav#mobile ul li:hover > a{
     grid-area: content;
     margin-left: auto;
     margin-right: auto;
-    width: 1200px;
+    width: 1400px;
 }
 
 .user-container {
+    background-color: #edd7a6;
     /*background-color: bisque;*/
     grid-area: content;
     display: grid;
@@ -164,10 +168,11 @@ header nav#mobile ul li:hover > a{
     grid-area: content;
     margin-left: auto;
     margin-right: auto;
-    width: 1200px;
+    width: 1400px;
 }
 
 .management-container {
+    background-color: #edd7a6;
     /*background-color: bisque;*/
     grid-area: content;
     display: grid;
@@ -179,11 +184,14 @@ header nav#mobile ul li:hover > a{
     grid-area: content;
     margin-left: auto;
     margin-right: auto;
-    width: 1200px;
+    width: 1400px;
 }
 
 /*.content { grid-area: content; background-color: green;}*/
-.footer { grid-area: footer; /*background-color: blue;*/}
+.footer {
+    grid-area: footer;
+    background-image: url(../ressources/images/main/HandyBanner.png);
+}
 
 .parent {
     width: 100vw;

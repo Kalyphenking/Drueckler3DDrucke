@@ -1,6 +1,8 @@
 
 .shoppingCart-container {
     grid-area: order-content;
+    padding: 20px;
+
 }
 
-/*.shoppingCart-table td { display: block; }*/
+.shoppingCart-table td { display: block; }

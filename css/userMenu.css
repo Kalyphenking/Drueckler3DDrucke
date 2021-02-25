@@ -1,8 +1,23 @@
 
-.userMenuBar { grid-area: userMenuBar; background-color: red;}
+.userMenuBar {
+    grid-area: userMenuBar;
+    background-color: #edd7a6;
+    padding: 20px;
+    border: black;
+    border-style: solid;
+    border-width: 0px 5px 0px 0px;
+}
 
-.userData { grid-area: userData; background-color: green;}
-.userAddress { grid-area: userAddress; background-color: blue;}
+.userData {
+    grid-area: userData;
+    background-color: #edd7a6;
+    padding: 20px;
+}
+.userAddress {
+    grid-area: userAddress;
+    background-color: #edd7a6;
+    padding: 20px;
+}
 
 .usermenu-container {
     grid-area: user-content;
@@ -13,9 +28,11 @@
     grid-template-areas:
     "userData"
     "userAddress";
+
+
 }
 
-/*.userGrid-container > div {*/
+/*.usermenu-container > div {*/
 /*    background-color: rgba(255, 255, 255, 0.8);*/
 /*    !*text-align: center;*!*/
 /*    !*padding: 20px 0;*!*/

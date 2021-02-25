@@ -10,8 +10,8 @@
 
 
 .InputBox {
-    color:rgb(255, 233, 35);
-    /*background-color: rgba(200,200,200, 0.3);*/
+    /*color:rgb(255, 233, 35);*/
+    background-color: rgba(200,200,200, 0.3);
 
     font-size: 20px;
     padding: 10px 40px;

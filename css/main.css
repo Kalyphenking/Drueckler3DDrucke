@@ -26,7 +26,8 @@
 
 .infoBar {
     height: 50px;
-    background-color: rgb(189, 101, 1);
+    /*background-color: rgb(189, 101, 1);*/
+    background-image: url(../ressources/images/main/HandyBanner.png);
 }
 
 
@@ -43,6 +44,7 @@
 
 #slider {
     grid-area: slider;
+    padding: 10px;
 
     /*display: flex;*/
     /*flex-direction: row;*/
@@ -98,7 +100,7 @@
 .col-video {
     /*height: 200px;*/
     width: 100%;
-    height: 50%;
+    height: 80%;
     left: 0;
     right: 0;
     margin: auto;
@@ -116,6 +118,7 @@
 
 .col {
     padding: 10px;
+    padding-top: 50px;
     padding-bottom: 0;
 }
 .col1 {

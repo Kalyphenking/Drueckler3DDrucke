@@ -21,7 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Styling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/slide.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/slide.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/LogReg.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/LogReg.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/configurator.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/configurator.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/management.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/management.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/menuStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menuStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/miscStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/miscStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/shoppingCart.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/shoppingCart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/userMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/userMenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/order/shoppingCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/shoppingCart.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
