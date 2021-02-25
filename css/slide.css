@@ -9,6 +9,7 @@
         /*background-color: #c8354e;*/
         /*margin: auto;*/
     }
+
     
     .slider_img {
         position: absolute;
@@ -18,6 +19,12 @@
         left: 0;
         right: 0;
         margin: auto;
+    }
+
+    @media screen and (max-width: 800px){
+        .slider_img{
+            display: none;
+        }
     }
     
     .class_Felge {
