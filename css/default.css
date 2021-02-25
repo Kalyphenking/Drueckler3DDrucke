@@ -19,6 +19,19 @@ body {
     border-bottom: 5px solid #ddd;
 }
 
+.btn{
+
+    border-right: 2rem;
+    border: none;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    position:relative;
+    font-size: 0.8rem;
+    color: white;
+    background-color: #121812;
+    z-index: 1;
+    cursor: pointer;
+    text-align: center;
+}
 #ordersTabe tr:nth-child(even){background-color: #f2f2f2;}
 
 #ordersTabe tr:hover {background-color: #ddd;}

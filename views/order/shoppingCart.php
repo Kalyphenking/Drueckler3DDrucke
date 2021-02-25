@@ -99,8 +99,8 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 	    }
 	    ?>
             <br>
-            <input type="submit" name="submitDelete" value="Auswahl löschen">
-            <input type="submit" name="submit" value="Weiter">
+            <input type="submit" class="btn" name="submitDelete" value="Auswahl löschen">
+            <input type="submit" class="btn" name="submit" value="Weiter">
             <label>Gesamtpreis: <?=$sum?> €</label>
             <br>
             <label class="errorMessage"><?=$error?></label>

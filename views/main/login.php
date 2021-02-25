@@ -41,7 +41,7 @@
 
             <div class="input submit">
                 <input name="submit"
-                       type="submit"
+                       type="submit" class="btn"
                        value="Login">
             </div>
             <br>

@@ -21,16 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2e204671-cb35-4201-a8b2-4aec44183ed5" name="Default Changelist" comment="Styling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/LogReg.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/LogReg.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/configurator.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/configurator.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/management.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/management.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/menuStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menuStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/miscStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/miscStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/shoppingCart.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/shoppingCart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/userMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/userMenu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/order/configurator.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/configurator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/order/shoppingCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/order/shoppingCart.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,6 +101,7 @@
       <workItem from="1614165186259" duration="23309000" />
       <workItem from="1614200236486" duration="1143000" />
       <workItem from="1614237981651" duration="1069000" />
+      <workItem from="1614246229902" duration="1774000" />
     </task>
     <task id="LOCAL-00012" summary="preset und orders abrufbar">
       <created>1611180221364</created>

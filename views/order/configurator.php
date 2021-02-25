@@ -49,12 +49,12 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
         <div id="fileUpload">
             <form action="index.php?c=order&a=configurator" method="POST" enctype="multipart/form-data">
 
-                <input type="button" class="javaScriptBased" id="uploadFileButton" value="Model auswählen"></input>
+                <input type="button" class="javaScriptBased btn" id="uploadFileButton" value="Model auswählen"></input>
                 <input class="phpBased" type="file" name="uploadFile" id="uploadFile" onchange="uploadModel()" value="Model auswählen" required>
 
                 <br>
 
-                <input class="phpBased" id="submitUpload" name="submitUpload" type="submit" value="Model hochladen">
+                <input class="phpBased btn" id="submitUpload" name="submitUpload" type="submit" value="Model hochladen">
             </form>
         </div>
 
@@ -131,8 +131,8 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
                 <br>
 
 
-                <input type="submit" name="submitCalculation" value="Model berechnen">
-                <input type="submit" name="submitContinue" value="In den Warenkorb">
+                <input class="btn" type="submit" name="submitCalculation" value="Model berechnen">
+                <input class="btn" type="submit" name="submitContinue" value="In den Warenkorb">
                 <label class="errorMessage"><?=$error?></label>
 
 				<?php
