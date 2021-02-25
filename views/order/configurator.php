@@ -39,10 +39,9 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
         <!--        <model-viewer src="http://localhost/Drueckler3DDrucke/uploads/temp/glb/6021449f3c57b_TopfdeckelTeil.glb" style="height: 500px; width: 50%" alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>-->
         <!---->
         <label id="missingJavaScriptMessage" class="phpBased text-warning">Für Modelvorschau JavaScript aktivieren</label>
-    </div>
-    <div class="test">
 
     </div>
+
 
     <div class="modelSettings">
 
@@ -143,6 +142,14 @@ if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 
             </form>
         </div>
+    </div>
+
+    <div class="test">
+        <label><?=$modelName?></label>
+        <br>
+        <label>Druckzeit: <?=$printTime?> Stunden</label>
+        <br>
+        <label>Preis: <?=$printPrices[0]?>€</label>
     </div>
 </div>
 
